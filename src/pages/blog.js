@@ -11,7 +11,7 @@ export default function Blog() {
       </Head>
       <div style={{ marginBottom: '10rem' }}>
         <div className="container">
-          <Hero title="Coming soon ..." />
+          <Hero title="Coming soon ...." />
         </div>
       </div>
     </>

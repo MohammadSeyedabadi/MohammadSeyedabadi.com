@@ -3,8 +3,10 @@ import config from '@/utils/config'
 import SidebarLayout from '@/components/layout/SidebarLayout'
 import Hero from '@/components/Hero'
 import Posts from '@/components/Posts'
+import { getAllPosts } from '@/utils/posts-util'
 
-export default function Blog() {
+export default function Blog(props) {
+
   return (
     <>
       <Head>
@@ -13,8 +15,18 @@ export default function Blog() {
       </Head>
       <SidebarLayout>
         <Hero title="Writing"/>
-        <Posts />
+        <Posts allPosts={props.allPosts}/>
       </SidebarLayout>
     </>
   )
 }
+
+export function getStaticProps() {
+    const allPosts = getAllPosts();
+  
+    return {
+      props: {
+        allPosts: allPosts,
+      },
+    };
+  }

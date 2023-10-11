@@ -77,6 +77,7 @@
   /* Elements */
   --background-color: #eee;
   --card-background-color: var(--gray-0);
+  --contact-sidebar-card: var(--gray-2);
   --button-background-color: var(--gray-05);
   --marker: var(--indigo);
   --link: var(--indigo);
@@ -1221,6 +1222,71 @@ a.post time {
   max-height: 100px;
   max-width: 100px;
   margin-bottom: 1rem;
+}
+
+form label,
+form input,
+form textarea {
+  display: block;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+form label {
+  color: var(--font-color-base);
+}
+
+form input {
+  font-size: 0.9rem;
+}
+
+textarea {
+  max-width: 250px;
+  min-width: 100%;
+  min-height: 80px;
+  max-height: 150px;
+}
+
+form input {
+  margin-bottom: 0.7rem;
+}
+
+.contact-sidebar-card {
+  /* background-color: var(--card-background-color); */
+  padding-top: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.contact-sidebar-card::before {
+  content: '';
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  background: linear-gradient(#00ccff, #d500f9);
+  animation: rotate 6s linear infinite;
+}
+
+.contact-sidebar-card::after {
+  content: '';
+  position: absolute;
+  background-color: var(--contact-sidebar-card);
+  inset: 5px;
+  border-radius: var(--border-radius);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .list a {

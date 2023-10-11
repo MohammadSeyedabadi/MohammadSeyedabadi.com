@@ -10,12 +10,15 @@ export default function AboutMe() {
     <>
       <Head>
         <title>{`About me | ${config.siteTitle}`}</title>
-        <meta name="description" content={`Read more about ${config.siteTitle}`} />
+        <meta
+          name="description"
+          content={`Read more about ${config.siteTitle}`}
+        />
       </Head>
       <div className="container">
         <div className="grid">
           <div className="article-content">
-            <Hero title='About me' />
+            <Hero title="About me" />
 
             <section className="segment small">
               <div className="post-content">
@@ -23,9 +26,9 @@ export default function AboutMe() {
                   I'm Mohammad! I'm a software developer working in Neyshabur.
                   Welcome to my spot on the web for my projects, tutorials and
                   anything else I want to show the world. Check out the{' '}
-                  <Link href="/projects">projects</Link> page to see all of my
-                  open-source work, and the <Link href="/blog">blog</Link> for
-                  my tutorials and more.
+                  <Link href="/projects">projects</Link> page to see a highlight
+                  of my open-source work, and the <Link href="/blog">blog</Link>{' '}
+                  for my tutorials and more.
                 </p>
                 <h2 id="work-experience" style={{ position: 'relative' }}>
                   <a

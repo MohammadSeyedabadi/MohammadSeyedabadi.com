@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import config from '@/utils/config'
+import SidebarLayout from '@/components/layout/SidebarLayout'
 import Hero from '@/components/Hero'
+import Posts from '@/components/Posts'
 
 export default function Blog() {
   return (
@@ -9,11 +11,10 @@ export default function Blog() {
         <title>{`Writing | ${config.siteTitle}`}</title>
         <meta name="description" content="A list of all my posts" />
       </Head>
-      <div style={{ marginBottom: '10rem' }}>
-        <div className="container">
-          <Hero title="Let's go" />
-        </div>
-      </div>
+      <SidebarLayout>
+        <Hero title="Writing"/>
+        <Posts />
+      </SidebarLayout>
     </>
   )
 }

@@ -1253,7 +1253,6 @@ form input {
 }
 
 .contact-sidebar-card {
-  /* background-color: var(--card-background-color); */
   padding-top: 1rem;
   position: relative;
   display: flex;
@@ -1266,10 +1265,17 @@ form input {
 .contact-sidebar-card::before {
   content: '';
   position: absolute;
-  width: 550px;
-  height: 550px;
+  width: 1600px;
+  height: 1600px;
   background: linear-gradient(#00ccff, #d500f9);
   animation: rotate 6s linear infinite;
+}
+
+@media screen and (min-width: 1060px) {
+  .contact-sidebar-card::before {
+    width: 550px;
+    height: 550px;
+  }
 }
 
 .contact-sidebar-card::after {

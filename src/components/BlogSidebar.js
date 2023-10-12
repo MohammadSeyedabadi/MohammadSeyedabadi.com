@@ -7,7 +7,7 @@ export default function BlogSidebar() {
         <h2>Categories</h2>
         <div className="list">
           <Link href="/" className="category">
-            <div className="name">category.name</div>
+            <div className="name">category name</div>
             <div className="count">1</div>
           </Link>
         </div>
@@ -17,7 +17,7 @@ export default function BlogSidebar() {
         <h2>Tags</h2>
         <div className="tags">
           <Link href="/" className="tag">
-            tag.name
+            tag name
           </Link>
         </div>
       </div>

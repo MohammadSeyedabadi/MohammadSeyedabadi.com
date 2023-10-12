@@ -1,6 +1,6 @@
 ---
 title: 'Using WebSockets in a Redux Application'
-date: '2025-10-16'
+date: '2021-10-16'
 image: redux.png
 excerpt: NextJS is a the React framework for production - it makes building fullstack React apps and sites a breeze and ships with built-in SSR.
 isFeatured: true
@@ -39,5 +39,6 @@ function printBasics() {
 
 printBasics();
 ```
+![Create routes via your file + folder structure](sea.jpg)
 
-Learn more about it [here](https://academind.com).
+Learn more about it [here](https://react.dev/learn/tutorial-tic-tac-toe).

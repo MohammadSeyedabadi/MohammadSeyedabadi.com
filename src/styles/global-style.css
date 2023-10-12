@@ -1425,7 +1425,9 @@ a.category.active .count {
 
 .post-image {
   margin-top: 2rem;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
 }
 
 .mobile-post-image {

@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
 export default function Post({ post }) {
-  const { date, title } = post
+  
+  const { slug, title, date } = post
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
@@ -10,7 +11,7 @@ export default function Post({ post }) {
 
   return (
     <>
-      <Link href="/" className="post">
+      <Link href={`/blog/${slug}`} className="post">
         <h3>{title}</h3>
         <time>{formattedDate}</time>
       </Link>

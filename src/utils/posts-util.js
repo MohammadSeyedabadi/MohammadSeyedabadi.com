@@ -18,12 +18,15 @@ export function getPostData(postIdentifier) {
   const { data, content } = matter(fileContent) // matter is a function that take a string and returns a object with two properties, data ==> is a object with meta data information, the content ==> is a string with content in it, markdown as string to be specific
 
   const postData = {
-    // slug: postSlug,
-    // ...data,
-    // content,
     slug: postSlug,
-    title: data.title,
-    date: data.date,
+    ...data,
+    content,
+    // slug: postSlug,
+    // title: data.title,
+    // date: data.date,
+    // excerpt: data.excerpt,
+    // image:data.image,
+    // content
   }
 
   return postData

@@ -68,9 +68,9 @@ export default function PostTemplate({ post }) {
       return (
         <SyntaxHighlighter
           style={ariaActive ? materialDark : materialLight}
-          language={language}
-          children={children}
-        />
+          language={language}>
+          {children}
+          </SyntaxHighlighter>
       )
     },
   }

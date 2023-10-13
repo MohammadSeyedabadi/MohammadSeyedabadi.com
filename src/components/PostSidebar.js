@@ -26,16 +26,15 @@ export default function PostSidebar({ post }) {
 
       <div className="post-sidebar-card">
         <h2>About me</h2>
-        {ariaActive == true ? (
-          <Image
+        <Image
             src="/images/me2.jpg"
             width={256}
             height={256}
             alt="Mohammad"
             className="sidebar-avatar"
             quality={100}
+            style={ariaActive ? null : {display:"none"}}
           />
-        ) : (
           <Image
             src="/images/me1.jpg"
             width={256}
@@ -43,8 +42,8 @@ export default function PostSidebar({ post }) {
             alt="Mohammad"
             className="sidebar-avatar"
             quality={100}
+            style={ariaActive ? {display:"none"} : null}
           />
-        )}
         <p>
           Hello and thanks for visiting! My name is{' '}
           <Link href="/me">Mohammad seyedabadi</Link>, and this is my website

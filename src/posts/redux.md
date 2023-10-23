@@ -31,7 +31,7 @@ In this article, we'll dive into the core concepts and features NextJS has to of
 ... More content ...
 
 ```js
-const basics = 'Okay, that should not be too difficult actually';
+const basics = 'Okay, that should not be too difficult actually!';
 
 function printBasics() {
   console.log(basics):

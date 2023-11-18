@@ -1,16 +1,18 @@
-import { useContext } from 'react'
-import ThemeContext from '@/store/theme-context'
-import ReactMarkdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import Image from 'next/image'
-import PostSidebar from '@/components/PostSidebar'
-import { materialLight } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import { materialDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import TitleIcon from '@/assets/TitleIcon'
+import { useContext } from "react";
+import ThemeContext from "@/store/theme-context";
+import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import Image from "next/image";
+import PostSidebar from "@/components/PostSidebar";
+import { materialLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import Giscus from "@giscus/react";
+
+import TitleIcon from "@/assets/TitleIcon";
 
 export default function PostTemplate({ post }) {
-  const { ariaActive } = useContext(ThemeContext)
-  const { title, slug, image } = post
+  const { ariaActive } = useContext(ThemeContext);
+  const { title, slug, image } = post;
 
   const customRenderers = {
     // img(image) {       // we dont want to use the default img tag which is provided by markdown, instead we want to use img() {} method, here as a parameter we path the (image) which is a object with the image data react markdown got from the markdown text, and the alt text for example is the text between [], and we use it to use the nextJS Image.
@@ -24,10 +26,10 @@ export default function PostTemplate({ post }) {
     //   );
     // },
     h2(h2) {
-      let title = h2.children.split(' ').join('-')
-      
+      let title = h2.children.split(" ").join("-");
+
       return (
-        <h2 id={title} style={{ position: 'relative' }}>
+        <h2 id={title} style={{ position: "relative" }}>
           <a
             href={`#${title}`}
             aria-label={` ${h2.children} permalink`}
@@ -37,14 +39,14 @@ export default function PostTemplate({ post }) {
           </a>
           {h2.children}
         </h2>
-      )
+      );
     },
 
     p(paragraph) {
-      const { node } = paragraph
+      const { node } = paragraph;
 
-      if (node.children[0].tagName === 'img') {
-        const image = node.children[0]
+      if (node.children[0].tagName === "img") {
+        const image = node.children[0];
 
         return (
           <div>
@@ -55,25 +57,26 @@ export default function PostTemplate({ post }) {
               height={300}
             />
           </div>
-        )
+        );
       }
 
-      return <p>{paragraph.children}</p>
+      return <p>{paragraph.children}</p>;
     },
 
     code(code) {
-      const { className, children } = code
-      const language = className.split('-')[1] // className is something like language-js => We need the "js" part here
+      const { className, children } = code;
+      const language = className.split("-")[1]; // className is something like language-js => We need the "js" part here
 
       return (
         <SyntaxHighlighter
           style={ariaActive ? materialDark : materialLight}
-          language={language}>
+          language={language}
+        >
           {children}
-          </SyntaxHighlighter>
-      )
+        </SyntaxHighlighter>
+      );
     },
-  }
+  };
 
   return (
     <>
@@ -98,10 +101,25 @@ export default function PostTemplate({ post }) {
                 </ReactMarkdown>
               </div>
             </section>
+            <Giscus
+              id="comments"
+              repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
+              repoId="R_kgDOKeamUQ"
+              category="Announcements"
+              categoryId="DIC_kwDOKeamUc4CbDQi"
+              mapping="pathname"
+              term="Welcome to @giscus/react component!"
+              reactionsEnabled="0"
+              emitMetadata="0"
+              inputPosition="top"
+              theme={ariaActive ? "dark" : "light"}
+              lang="en"
+              loading="lazy"
+            />
           </div>
           <PostSidebar post={post} />
         </div>
       </div>
     </>
-  )
+  );
 }

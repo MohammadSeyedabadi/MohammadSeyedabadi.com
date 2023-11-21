@@ -14,8 +14,8 @@ So let's start with our code. If you want to create a multilevel dropdown menu, 
 to use recursive functions. As in [GeeksForGeeks](https://www.geeksforgeeks.org/recursive-functions/) explained:
 
 > A Recursive function can be defined as a routine that calls itself directly or indirectly. In other words, a recursive function is a function that solves a problem by solving smaller instances of the same problem. This technique is commonly used in programming to solve problems that can be broken down into simpler, similar subproblems.
->
-> Basically a Recursive function is a function that calls it self, something like this:
+
+Basically a Recursive function is a function that calls it self, something like this:
 
 ```js
 myRecursiveFunction(){
@@ -277,7 +277,7 @@ button span {
 }
 
 .arrow::after {
-  content: '';
+  content: "";
   display: inline-block;
   margin-left: 0.28em;
   vertical-align: 0.09em;
@@ -290,8 +290,7 @@ button span {
   position: absolute;
   left: 0;
   left: auto;
-  box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08),
-    0 4px 6px -2px rgba(71, 63, 79, 0.16);
+  box-shadow: 0 10px 15px -3px rgba(46, 41, 51, 0.08), 0 4px 6px -2px rgba(71, 63, 79, 0.16);
   font-size: 0.875rem;
   z-index: 9999;
   min-width: 10rem;
@@ -370,7 +369,7 @@ button span {
   }
 
   .menuToggle::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 3px;
@@ -380,7 +379,7 @@ button span {
   }
 
   .menuToggle::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 3px;

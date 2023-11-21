@@ -113,20 +113,28 @@ export default function Header() {
         <Link href="/" className="logo">
           logo
         </Link>
-        <nav>
-          <ul className="menus">
-            {menuItems.map((menu, index) => {
-              const depthLevel = 0;
-              return (
-                <MenuItems items={menu} key={index} depthLevel={depthLevel} />
-              );
-            })}
-          </ul>
-        </nav>
-        <div
-          className="menuToggle"
-          onClick={() => setToggle(toggle === true ? false : true)}
-        ></div>
+        {menuItems.length ? (
+          <>
+            <nav>
+              <ul className="menus">
+                {menuItems.map((menu, index) => {
+                  const depthLevel = 0;
+                  return (
+                    <MenuItems
+                      items={menu}
+                      key={index}
+                      depthLevel={depthLevel}
+                    />
+                  );
+                })}
+              </ul>
+            </nav>
+            <div
+              className="menuToggle"
+              onClick={() => setToggle(toggle === true ? false : true)}
+            ></div>
+          </>
+        ) : null}
       </div>
     </header>
   );

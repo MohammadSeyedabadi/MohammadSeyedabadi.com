@@ -363,6 +363,10 @@ h5 {
   font-family: var(--font-family-heading);
 }
 
+/* pre{
+  max-height: 300px;
+} */
+
 h2.home-heading {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -1430,8 +1434,16 @@ a.category.active .count {
   justify-content: center;
 }
 
+.post-image > img{
+  object-fit: contain;
+}
+
 .mobile-post-image {
   margin-bottom: 1rem;
+}
+
+.mobile-post-image > img{
+  object-fit: contain;
 }
 
 .mobile-post-image .gatsby-image-wrapper {

@@ -7,7 +7,7 @@ excerpt: Multilevel dropdown menus are a staple of web design. With the ability 
 
 This tutorial is a simplified version of [ this tutorial ](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) written by Ibadehin Mojeed.
 
-If you want a complete explanation, you have to read his article. He also have another article where he explans
+If you want a complete explanation, you have to read his article. He also has another article where he explans
 how to make dropdown menus with CSS. You could check that out [here](https://blog.logrocket.com/making-dropdown-menus-css/).
 
 So let's start with our code. If you want to create a multilevel dropdown menu, one good way is
@@ -202,11 +202,7 @@ that **_items.submenu ?_** is its termination condition, if that condition is fa
 Link, but if that is true, then it will create a button( so the user can click or hover to see submenu/s )
 and then it calls itself by Dropdown function to again, create either a Link or a button.
 
-## Conclusion
-
-So that was it for this tutorial. If you still didn't understand what a recursive function does, that's totally fine, because i explained it in short, so go ahead and google it :))
-
-here is the css code to make it feel more like a navigation:
+Here is the css code to make it feel more like a navigation:
 
 ```css
 * {
@@ -411,3 +407,8 @@ button span {
   }
 }
 ```
+
+
+## Conclusion
+
+So that was it for this tutorial. If you still didn't understand what a recursive function does, that's totally fine, because i explained it in short, so go ahead and google it :))

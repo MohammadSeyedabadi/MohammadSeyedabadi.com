@@ -47,14 +47,14 @@ export default function PostTemplate({ post }) {
 
       if (node.children[0].tagName === "img") {
         const image = node.children[0];
-
         return (
           <div>
             <Image
               src={`/images/posts/${slug}/${image.properties.src}`}
-              alt={image.alt}
+              alt={image.properties.alt}
               width={600}
               height={300}
+              style={{marginBottom:"20px"}}
             />
           </div>
         );

@@ -74,7 +74,7 @@ export default function PostSidebar({ post }) {
         <h2>Tags</h2>
         <div className="tags">
           <Link href="/" className="tag">
-            redux
+            ReactJS
           </Link>
         </div>
       </div>

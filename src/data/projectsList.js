@@ -16,10 +16,10 @@ export const projectsList = [
   },
 
   {
-    name: "Auto Trader",
+    name: "flower-shop",
     date: "2023",
-    slug: "AutoTrader",
-    tagline: "An auto show website",
+    slug: "flower-shop",
+    tagline: "An almost complete flower shop website",
     highlight: true,
   },
 ];

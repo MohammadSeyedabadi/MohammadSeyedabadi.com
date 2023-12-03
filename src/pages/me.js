@@ -43,7 +43,7 @@ export default function AboutMe() {
                 <p>
                   I won't bore you too much with my work history, though; that's
                   what my{' '}
-                  <a href="/Resume/Resume.pdf" download>
+                  <a href="/Resume/Mohammad Seyedabadi_Front-End Developer.pdf" download>
                     CV
                   </a>
                   ,{' '}

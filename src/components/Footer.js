@@ -10,11 +10,6 @@ export default function Footer() {
       label: "GitHub",
       icon: "/images/nav-github.png",
     },
-    {
-      url: "https://www.instagram.com/mhmd.sey.7/",
-      label: "Instagram",
-      icon: "/images/nav-instagram.png",
-    },
   ];
 
   return (
@@ -39,4 +34,3 @@ export default function Footer() {
     </footer>
   );
 }
-// https://www.instagram.com/mhmd.sey.7/

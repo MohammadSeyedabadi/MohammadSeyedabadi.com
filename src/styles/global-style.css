@@ -154,7 +154,7 @@ p,
 ul,
 ol,
 ul,
-table,
+/* table, */
 blockquote {
   font-size: 1rem;
   color: var(--font-color-base);
@@ -165,7 +165,7 @@ blockquote {
   ul,
   ol,
   ul,
-  table,
+  /* table, */
   blockquote {
     letter-spacing: -0.01rem;
     font-size: 1.05rem;
@@ -396,7 +396,7 @@ h2.home-heading .title {
 
 /* Table */
 
-table {
+/* table {
   border: 1px solid var(--border-color);
   display: table;
   border-collapse: separate;

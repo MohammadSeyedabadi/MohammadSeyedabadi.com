@@ -16,12 +16,14 @@ export default function TicTacToe() {
       [0, 4, 8],
       [6, 4, 2],
     ];
-
+    const replayBtn = document.querySelector(".Replay")
     const cells = document.querySelectorAll(".cell");
     startGame();
-
+    replayBtn.addEventListener("click", startGame);
     function startGame() {
       document.querySelector(".endgame").style.display = "none";
+      replayBtn.style.display = "none";
+      console.log("endgame")
       origBoard = Array.from(Array(9).keys());
       for (var i = 0; i < cells.length; i++) {
         cells[i].innerText = "";
@@ -73,6 +75,7 @@ export default function TicTacToe() {
 
     function declareWinner(who) {
       document.querySelector(".endgame").style.display = "block";
+      replayBtn.style.display = "block";
       document.querySelector(".endgame .text").innerText = who;
     }
 

@@ -54,7 +54,7 @@ export default function PostTemplate({ post }) {
               alt={image.properties.alt}
               width={600}
               height={300}
-              style={{marginBottom:"20px"}}
+              style={{ marginBottom: "20px", maxWidth: "100%" }}
             />
           </div>
         );

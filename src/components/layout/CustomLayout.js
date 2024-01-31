@@ -3,7 +3,7 @@ import Navigation from './navigation/Navigation'
 import Footer from '../Footer'
 
 
-export default function layout(props) {
+export default function CustomLayout(props) {
   return (
     <>
       <Navigation />

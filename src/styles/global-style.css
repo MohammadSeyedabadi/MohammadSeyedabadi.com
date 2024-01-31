@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
   /* Colors */
@@ -53,12 +53,12 @@
   --indigo-muted: #f1f2fd;
 
   /* Font family */
-  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont,
-    'Helvetica Neue', Arial, sans-serif;
-  --font-family-monospace: Menlo, 'IBM Plex Mono', Menlo, monospace;
-  --font-family-heading: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+  --font-family-base: "Inter", -apple-system, BlinkMacSystemFont,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-family-monospace: Menlo, "IBM Plex Mono", Menlo, monospace;
+  --font-family-heading: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     Arial, sans-serif;
-  --font-family-nav: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial,
+  --font-family-nav: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
     sans-serif;
 
   /* Font color */
@@ -245,7 +245,7 @@ blockquote.quotation {
   border: none;
   border-left: 12px solid var(--border-color);
   border-radius: 0;
-  font-family: 'Georgia';
+  font-family: "Georgia";
   font-style: italic;
   font-size: 1.1rem;
   padding: 0 0 0 1.5rem;
@@ -363,7 +363,7 @@ h5 {
   font-family: var(--font-family-heading);
 }
 
-pre{
+pre {
   max-height: 50vh;
 }
 
@@ -424,11 +424,6 @@ th {
   border-bottom: 2px solid var(--border-color);
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
 mark {
   font-weight: 600;
   background: var(--red-1);
@@ -440,6 +435,11 @@ u {
 }
 
 /* Containers */
+
+img {
+  display: block;
+  max-width: 100%;
+}
 
 .container {
   max-width: var(--content-width);
@@ -1267,7 +1267,7 @@ form input {
 }
 
 .contact-sidebar-card::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 1600px;
   height: 1600px;
@@ -1283,7 +1283,7 @@ form input {
 }
 
 .contact-sidebar-card::after {
-  content: '';
+  content: "";
   position: absolute;
   background-color: var(--contact-sidebar-card);
   inset: 5px;
@@ -1434,7 +1434,7 @@ a.category.active .count {
   justify-content: center;
 }
 
-.post-image > img{
+.post-image > img {
   object-fit: contain;
 }
 
@@ -1442,7 +1442,7 @@ a.category.active .count {
   margin-bottom: 1rem;
 }
 
-.mobile-post-image > img{
+.mobile-post-image > img {
   object-fit: contain;
 }
 

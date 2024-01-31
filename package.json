@@ -12,6 +12,7 @@
     "@giscus/react": "^2.3.0",
     "gray-matter": "^4.0.3",
     "next": "13.5.4",
+    "next-intl": "^3.5.3",
     "react": "^18",
     "react-dom": "^18",
     "react-markdown": "^9.0.0",

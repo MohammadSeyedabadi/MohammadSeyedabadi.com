@@ -570,6 +570,7 @@ a.button:hover {
   height: var(--navigation-height);
   margin-left: 0.7rem;
   margin-right: 0.7rem;
+  padding: 0.8rem;
 }
 
 .nav--menu {
@@ -603,6 +604,16 @@ a.button:hover {
   } */
 }
 
+dialog {
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(10px);
+}
+
+.Preferences--wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .nav--list,
 .nav--link {
   display: flex;
@@ -633,10 +644,10 @@ a.button:hover {
 }
 
 /* nav darkmode togle */
-.nav-tog {
+/* .nav-tog {
   position: relative;
   top: -9px;
-}
+} */
 
 .nav--home {
   display: inline-block;

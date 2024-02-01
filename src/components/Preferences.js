@@ -1,6 +1,6 @@
-
 import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
+import { Link } from "../navigation";
 
 export default function Preferences() {
   useEffect(() => {
@@ -23,17 +23,52 @@ export default function Preferences() {
       <dialog data-modal>
         <div className="Preferences--wrapper">
           <Toggle />
-
-          <button
-            data-close-modal
+          <div
             style={{
-              marginTop: "5rem",
-              alignSelf: "center",
-              textAlign: "start",
+              marginTop: "2rem",
             }}
           >
-            Close
-          </button>
+            <p
+              style={{
+                marginBottom: "0.2rem",
+                fontSize: "2rem",
+                fontWeight: "700",
+              }}
+            >
+              Language:{" "}
+            </p>
+            <Link
+              href="/"
+              className="button"
+              style={{
+                marginRight: "1rem",
+                fontWeight: "700",
+              }}
+              locale="fa"
+            >
+              فا
+            </Link>
+            <Link
+              href="/"
+              className="button"
+              style={{
+                fontWeight: "700",
+              }}
+              locale="en"
+            >
+              ENG
+            </Link>
+          </div>
+          <div style={{ marginTop: "2rem" }}>
+            <button
+              data-close-modal
+              style={{
+                fontWeight: "700",
+              }}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </dialog>
     </>

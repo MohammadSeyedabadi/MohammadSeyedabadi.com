@@ -57,7 +57,7 @@
   
   .container--toggle {
     display: grid;
-    place-items: center;
+    /* place-items: center; */
     min-height: 60px;
     position: relative;
     grid-area: toggle;

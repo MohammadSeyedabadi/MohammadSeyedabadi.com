@@ -1,10 +1,10 @@
 import {useTranslations} from 'next-intl';
 import config from "@/utils/config";
 import Hero from "@/components/Hero";
-import Link from 'next/link';
-import Image from "next/image";
+import { Link } from '@/navigation';
 import { projectsList } from "@/data/projectsList";
 import Heading from "@/components/Heading";
+import DecorationPhoto from '@/components/DecorationPhoto';
 
 export const metadata = {
   title: config.siteTitle,
@@ -28,15 +28,7 @@ export default function Index() {
             </p>
           </Hero>
           <div className="decoration">
-            <Image
-              src="/images/ram.png"
-              alt="RAM Ram"
-              className="image hero-image"
-              title="RAM Ram"
-              width={440}
-              height={350}
-              quality={100}
-            />
+           <DecorationPhoto/>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import Navigation from './navigation/Navigation'
 import Footer from '../Footer'
 

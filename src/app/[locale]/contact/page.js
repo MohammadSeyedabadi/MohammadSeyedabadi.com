@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import config from '@/utils/config'
-import Hero from '@/components/Hero'
+import config from '@/@/utils/config'
+import Hero from '@/@/components/Hero'
 
 export default function Contact() {
   return (

@@ -1,9 +1,11 @@
-import { useContext } from 'react'
-import ThemeContext from '@/store/theme-context'
+"use client";
+
+import { useContext } from "react";
+import ThemeContext from "@/store/theme-context";
 
 function Toggle() {
-  const { active, ariaActive, handleOnClick, handleKeypress } =
-    useContext(ThemeContext)
+  const { ariaActive, active, handleOnClick, handleKeypress } =
+    useContext(ThemeContext);
   return (
     <div className="container--toggle">
       <input
@@ -22,7 +24,7 @@ function Toggle() {
         <p className="offscreen text-center">dark mode toggle</p>
       </label>
     </div>
-  )
+  );
 }
 
-export default Toggle
+export default Toggle;

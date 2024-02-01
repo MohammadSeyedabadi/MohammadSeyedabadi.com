@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import config from '@/utils/config'
-import TitleIcon from '@/assets/TitleIcon'
-import AboutSidebar from '@/components/AboutSidebar'
-import Hero from '@/components/Hero'
+import config from '@/@/utils/config'
+import TitleIcon from '@/@/assets/TitleIcon'
+import AboutSidebar from '@/@/components/AboutSidebar'
+import Hero from '@/@/components/Hero'
 import Link from 'next/link'
 
 export default function AboutMe() {

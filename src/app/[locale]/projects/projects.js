@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Head from 'next/head'
-import config from '@/utils/config'
-import Hero from '@/components/Hero'
-import { projectsList } from '@/data/projectsList'
-import StarIcon from '@/assets/StarIcon'
-import ExternalLinkIcon from '@/assets/ExternalLinkIcon'
+import config from '@/@/utils/config'
+import Hero from '@/@/components/Hero'
+import { projectsList } from '@/@/data/projectsList'
+import StarIcon from '@/@/assets/StarIcon'
+import ExternalLinkIcon from '@/@/assets/ExternalLinkIcon'
 
 export default function Projects() {
   const [repos, setRepos] = useState([])

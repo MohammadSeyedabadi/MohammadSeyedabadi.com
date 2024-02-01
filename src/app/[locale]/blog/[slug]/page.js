@@ -1,16 +1,16 @@
 import Head from "next/head";
-import { getPostData, getPostsFiles } from "@/utils/posts-util";
-import PostTemplate from "@/templates/post";
-import config from "@/utils/config";
+import { getPostData, getPostsFiles } from "@/@/utils/posts-util";
+import PostTemplate from "@/@/templates/post";
+import config from "@/@/utils/config";
 
+export const metadata = {
+  title: `${props.post.title} | ${config.siteTitle}`,
+  description: props.post.excerpt,
+};
 
 export default function PostDetailPage(props) {
   return (
     <>
-      <Head>
-        <title>{`${props.post.title} | ${config.siteTitle}`}</title>
-        <meta name="description" content={props.post.excerpt} />
-      </Head>
       <PostTemplate post={props.post} />
     </>
   );

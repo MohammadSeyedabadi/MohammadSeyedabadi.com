@@ -1,21 +1,18 @@
-import Head from 'next/head'
-import config from '@/utils/config'
-import Hero from '@/components/Hero'
-import Link from 'next/link'
-import Image from 'next/image'
-import { projectsList } from '@/data/projectsList'
-import Heading from '@/components/Heading'
+import config from "@/utils/config";
+import Hero from "@/components/Hero";
+import Link from "next/link";
+import Image from "next/image";
+import { projectsList } from "@/data/projectsList";
+import Heading from "@/components/Heading";
+
+export const metadata = {
+  title: config.siteTitle,
+  description: config.description,
+};
 
 export default function Index() {
   return (
     <>
-      <Head>
-        <title>{config.siteTitle}</title>
-        <meta
-          name="description"
-          content={config.description}
-        />
-      </Head>
       <div className="container">
         <div className="hero-wrapper">
           <Hero title="Hi, I'm Mohammad!" index>
@@ -23,8 +20,8 @@ export default function Index() {
               Welcome to my digital garden.
               <br />
               <br />
-              I'm a software developer in Neyshabur. I make{' '}
-              <Link href="/projects">open-source projects</Link> and{' '}
+              I'm a software developer in Neyshabur. I make{" "}
+              <Link href="/projects">open-source projects</Link> and{" "}
               <Link href="/blog">write</Link> about code.
             </p>
           </Hero>
@@ -88,11 +85,11 @@ export default function Index() {
                       </a>
                     </div>
                   </div>
-                )
+                );
               })}
           </div>
         </section>
       </div>
     </>
-  )
+  );
 }

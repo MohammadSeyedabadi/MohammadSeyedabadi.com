@@ -1,9 +1,9 @@
 import Head from "next/head";
-import config from "@/utils/config";
-import Hero from "@/components/Hero";
-import TitleIcon from "@/assets/TitleIcon";
-import AboutSidebar from "@/components/AboutSidebar";
-import TicTacToe from "@/components/games/Tic Tac Toe/TicTocToe";
+import config from "@/@/utils/config";
+import Hero from "@/@/components/Hero";
+import TitleIcon from "@/@/assets/TitleIcon";
+import AboutSidebar from "@/@/components/AboutSidebar";
+import TicTacToe from "@/@/components/games/Tic Tac Toe/TicTocToe";
 export default function Game() {
   return (
     <>

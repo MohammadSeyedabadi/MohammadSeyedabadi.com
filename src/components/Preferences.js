@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
 
@@ -22,7 +23,7 @@ export default function Preferences() {
       <dialog data-modal>
         <div className="Preferences--wrapper">
           <Toggle />
-          
+
           <button
             data-close-modal
             style={{

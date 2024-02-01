@@ -1,3 +1,4 @@
+import {useTranslations} from 'next-intl';
 import config from "@/utils/config";
 import Hero from "@/components/Hero";
 import Link from "next/link";
@@ -11,18 +12,19 @@ export const metadata = {
 };
 
 export default function Index() {
+  const t = useTranslations('Index');
   return (
     <>
       <div className="container">
         <div className="hero-wrapper">
-          <Hero title="Hi, I'm Mohammad!" index>
+          <Hero title={t('descOne')} index>
             <p className="hero-description small width">
-              Welcome to my digital garden.
+            {t('descTwo')}
               <br />
               <br />
-              I'm a software developer in Neyshabur. I make{" "}
-              <Link href="/projects">open-source projects</Link> and{" "}
-              <Link href="/blog">write</Link> about code.
+              {t('descThree')}{" "}
+              <Link href="/projects">{t('descFour')}</Link> {t('descFive')}{" "}
+              <Link href="/blog">{t('descSix')}</Link> {t('descSeven')}
             </p>
           </Hero>
           <div className="decoration">

@@ -4,12 +4,11 @@ import "@/styles/toggle.css";
 
 import CustomLayout from "@/components/layout/CustomLayout";
 import { ThemeContextProvider } from "@/store/theme-context";
-import Navigation from "@/components/layout/navigation/Navigation";
-import Footer from "@/components/Footer";
+
 
 export default function LocaleLayout({ children, params: { locale } }) {
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
       <body>
         <ThemeContextProvider>
           <CustomLayout>{children}</CustomLayout>

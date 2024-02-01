@@ -1,14 +1,14 @@
-import Head from 'next/head'
-import config from '@/@/utils/config'
-import Hero from '@/@/components/Hero'
+import config from "@/utils/config";
+import Hero from "@/components/Hero";
+
+export const metadata = {
+  title: `Contact Me | ${config.siteTitle}`,
+  description: "Send me your messages!",
+};
 
 export default function Contact() {
   return (
     <>
-      <Head>
-        <title>{`Contact Me | ${config.siteTitle}`}</title>
-        <meta name="description" content="Send me your messages!" />
-      </Head>
       <div className="container">
         <div className="grid">
           <div className="article-content">
@@ -48,12 +48,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <label htmlFor="message">Message:</label>
-                  <textarea
-                    id="message"
-                    required
-                    disabled
-                    value="disabled"
-                  />
+                  <textarea id="message" required disabled value="disabled" />
                 </div>
                 <div>Button</div>
               </form>
@@ -62,5 +57,5 @@ export default function Contact() {
         </div>
       </div>
     </>
-  )
+  );
 }

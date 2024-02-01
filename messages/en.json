@@ -6,6 +6,11 @@
     "descFour": "open-source projects",
     "descFive": "and",
     "descSix": "write",
-    "descSeven": "about code."
+    "descSeven": "about code.",
+    "article":"Article",
+    "demo":"Demo",
+    "source":"Source",
+    "projects":"Projects",
+    "viewAll":"view all"
   }
 }

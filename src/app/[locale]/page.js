@@ -1,7 +1,7 @@
 import {useTranslations} from 'next-intl';
 import config from "@/utils/config";
 import Hero from "@/components/Hero";
-import Link from "next/link";
+import Link from 'next/link';
 import Image from "next/image";
 import { projectsList } from "@/data/projectsList";
 import Heading from "@/components/Heading";
@@ -42,7 +42,7 @@ export default function Index() {
       </div>
       <div className="container">
         <section className="segment large">
-          <Heading title="Projects" slug="/projects" />
+          <Heading title={t('projects')} slug="/projects" />
           <div className="post-preview">
             {projectsList
               .filter((project) => project.highlight)
@@ -64,7 +64,7 @@ export default function Index() {
                     <div className="anchored links">
                       {project.writeup && (
                         <Link className="button" href={project.writeup}>
-                          Article
+                          {t('article')}
                         </Link>
                       )}
                       {project.url && (
@@ -74,7 +74,7 @@ export default function Index() {
                           rel="noreferrer"
                           href={project.url}
                         >
-                          Demo
+                          {t('demo')}
                         </a>
                       )}
                       <a
@@ -83,7 +83,7 @@ export default function Index() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Source
+                        {t('source')}
                       </a>
                     </div>
                   </div>

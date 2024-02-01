@@ -1,6 +1,8 @@
-import Link from "next/link"
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function Heading({ title, description, slug }) {
+  const t = useTranslations("Index");
   return (
     <h2 className="home-heading">
       <div>
@@ -9,9 +11,9 @@ export default function Heading({ title, description, slug }) {
       </div>
       {slug && (
         <Link className="button" href={slug}>
-          View all
+          {t("viewAll")}
         </Link>
       )}
     </h2>
-  )
+  );
 }

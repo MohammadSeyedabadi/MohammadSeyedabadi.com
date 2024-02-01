@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import S from "./tictactoe.module.css";
 
@@ -16,14 +17,14 @@ export default function TicTacToe() {
       [0, 4, 8],
       [6, 4, 2],
     ];
-    const replayBtn = document.querySelector(".Replay")
+    const replayBtn = document.querySelector(".Replay");
     const cells = document.querySelectorAll(".cell");
     startGame();
     replayBtn.addEventListener("click", startGame);
     function startGame() {
       document.querySelector(".endgame").style.display = "none";
       replayBtn.style.display = "none";
-      console.log("endgame")
+      console.log("endgame");
       origBoard = Array.from(Array(9).keys());
       for (var i = 0; i < cells.length; i++) {
         cells[i].innerText = "";

@@ -1,16 +1,15 @@
-import Head from "next/head";
-import config from "@/@/utils/config";
-import Hero from "@/@/components/Hero";
-import TitleIcon from "@/@/assets/TitleIcon";
-import AboutSidebar from "@/@/components/AboutSidebar";
-import TicTacToe from "@/@/components/games/Tic Tac Toe/TicTocToe";
+import config from "@/utils/config";
+import Hero from "@/components/Hero";
+import TicTacToe from "@/components/games/Tic Tac Toe/TicTocToe";
+
+export const metadata = {
+  title: `Let's play some game | ${config.siteTitle}`,
+  description: "Let's play some game",
+};
+
 export default function Game() {
   return (
     <>
-      <Head>
-        <title>{`Let's play some game | ${config.siteTitle}`}</title>
-        <meta name="description" content="Let's play some game" />
-      </Head>
       <div className="container">
         <div className="grid">
           <div className="article-content">
@@ -27,12 +26,11 @@ export default function Game() {
               </div>
             </section>
           </div>
-          <TicTacToe/>
+          <TicTacToe />
           <div className="endgame">
             <div className="text">
-            <button className="Replay">Replay</button>
+              <button className="Replay">Replay</button>
             </div>
-           
           </div>
         </div>
       </div>

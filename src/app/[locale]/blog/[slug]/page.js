@@ -14,8 +14,8 @@ export async function generateStaticParams() {
 // using the `params` returned by `generateStaticParams`
 export default function Page({ params }) {
   // params also contains => locale
-  const { slug } = params;
-  const postData = getPostData(slug);
+  const { slug, locale } = params;
+  const postData = getPostData(slug, locale);
 
   return (
     <>

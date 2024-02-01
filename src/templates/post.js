@@ -1,3 +1,4 @@
+"use client";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 import ReactMarkdown from "react-markdown";

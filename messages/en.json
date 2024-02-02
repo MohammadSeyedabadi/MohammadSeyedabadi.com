@@ -7,10 +7,14 @@
     "descFive": "and",
     "descSix": "write",
     "descSeven": "about code.",
-    "article":"Article",
-    "demo":"Demo",
-    "source":"Source",
-    "projects":"Projects",
-    "viewAll":"view all"
+    "article": "Article",
+    "demo": "Demo",
+    "source": "Source",
+    "projects": "Projects",
+    "viewAll": "view all"
+  },
+  "Footer": {
+    "LinkedIn":"LinkedIn",
+    "GitHub": "GitHub"
   }
 }

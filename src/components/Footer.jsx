@@ -1,13 +1,15 @@
+import {useTranslations} from 'next-intl';
 export default function Footer() {
+  const t = useTranslations('Footer');
   const links = [
     {
       url: "https://www.linkedin.com/in/mohammad-seyedabadi-397a61256/",
-      label: "LinkedIn",
+      label: t('LinkedIn'),
       icon: "/images/nav-linkedin.png",
     },
     {
       url: "https://github.com/MohammadSeyedabadi",
-      label: "GitHub",
+      label: t('GitHub'),
       icon: "/images/nav-github.png",
     },
   ];
@@ -15,7 +17,6 @@ export default function Footer() {
   return (
     <footer className="footer">
       <section>
-        <span>Thanks for reading!</span>
         <nav>
           {links.map((link) => (
             <a

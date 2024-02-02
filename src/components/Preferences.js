@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
-import { Link } from "../navigation";
 import { useParams } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useRouter } from "../navigation";

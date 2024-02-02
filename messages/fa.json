@@ -7,10 +7,14 @@
     "descFive": "و",
     "descSix": "وبلاگی",
     "descSeven": "دارم که توش پر از مطالب خوبه",
-    "article":"مقاله",
-    "demo":"نمونه نمایشی",
-    "source":"کد",
-    "projects":"پروژه ها",
-    "viewAll":"دیدن همه"
+    "article": "مقاله",
+    "demo": "نمونه نمایشی",
+    "source": "کد",
+    "projects": "پروژه ها",
+    "viewAll": "دیدن همه"
+  },
+  "Footer": {
+    "LinkedIn": "لینکدین",
+    "GitHub": "گیتهاب"
   }
 }

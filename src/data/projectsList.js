@@ -1,33 +1,40 @@
 export const projectsList = [
   {
     name: "MohammadSeyedabadi.com",
-    date: "2023",
+    enDate: "2023",
+    faDate: "۲۰۲۳",
     slug: "MohammadSeyedabadi.com",
-    tagline:
-      "Personal website running on NextJS, React, and Node.js.",
+    enDesc: "Personal website running on NextJS and Node.js.",
+    faDesc: "وبسایت شخصی با نکست جی اس و نود جی اس",
     highlight: true,
   },
   {
     name: "Flower-Shop-Template",
-    date: "2023",
+    enDate: "2023",
+    faDate: "۲۰۲۳",
     slug: "Flower-Shop-Template",
-    tagline:
-      "A Flower Shop Template made by using only HTML5, CSS3, Bootstrap and JavaScript.",
+    enDesc:
+      "A Flower Shop Template made by Bootstrap.",
+    faDesc: "قالب سایت فروشگاهی برای فروش گل با بوتسترپ",
     highlight: true,
   },
 
   {
     name: "todo-list",
-    date: "2023",
+    enDate: "2023",
+    faDate: "۲۰۲۳",
     slug: "todo-list",
-    tagline: "Two to do list with JavaScript and ReactJS",
+    enDesc: "Two to do list with JavaScript and ReactJS",
+    faDesc: "",
   },
 
   {
     name: "flower-shop",
-    date: "2023",
+    enDate: "2023",
+    faDate: "۲۰۲۳",
     slug: "flower-shop",
-    tagline: "An almost complete flower shop website.",
+    enDesc: "A Flower Shop Template made by TypeScript.",
+    faDesc: "قالب سایت فروشگاهی برای فروش گل با تایپ اسکریپت",
     highlight: true,
   },
 ];

@@ -2,9 +2,9 @@ import {useTranslations} from 'next-intl';
 import config from "@/utils/config";
 import Hero from "@/components/Hero";
 import { Link } from '@/navigation';
-import { projectsList } from "@/data/projectsList";
 import Heading from "@/components/Heading";
 import DecorationPhoto from '@/components/DecorationPhoto';
+import PostPreview from '@/components/PostPreview';
 
 export const metadata = {
   title: config.siteTitle,
@@ -35,53 +35,7 @@ export default function Index() {
       <div className="container">
         <section className="segment large">
           <Heading title={t('projects')} slug="/projects" />
-          <div className="post-preview">
-            {projectsList
-              .filter((project) => project.highlight)
-              .map((project) => {
-                return (
-                  <div className="anchored card" key={project.slug}>
-                    <div>
-                      <time>{project.date}</time>
-                      <a
-                        className="card-header"
-                        href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {project.name}
-                      </a>
-                      <p>{project.tagline}</p>
-                    </div>
-                    <div className="anchored links">
-                      {project.writeup && (
-                        <Link className="button" href={project.writeup}>
-                          {t('article')}
-                        </Link>
-                      )}
-                      {project.url && (
-                        <a
-                          className="button flex"
-                          target="_blank"
-                          rel="noreferrer"
-                          href={project.url}
-                        >
-                          {t('demo')}
-                        </a>
-                      )}
-                      <a
-                        className="button flex"
-                        href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {t('source')}
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
+         <PostPreview />
         </section>
       </div>
     </>

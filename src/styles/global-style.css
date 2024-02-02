@@ -807,6 +807,7 @@ dialog {
   font-family: var(--font-family-monospace);
   color: var(--card-time-color);
   font-size: 0.9rem;
+  font-weight: 900;
   letter-spacing: -0.01rem;
 }
 

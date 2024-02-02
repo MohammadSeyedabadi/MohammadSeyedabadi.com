@@ -1,8 +1,14 @@
+"use client";
 import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
 import { Link } from "../navigation";
+import { useParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Preferences() {
+  const pathname = usePathname();
+  const lang = useParams().locale;
+
   useEffect(() => {
     const openButton = document.querySelector("[data-open-modal]");
     const closeButton = document.querySelector("[data-close-modal]");
@@ -18,7 +24,7 @@ export default function Preferences() {
   }, []);
   return (
     <>
-      <button data-open-modal>Preferences</button>
+      <button data-open-modal>{lang === "en" ? "Preferences" : "تنظیمات"}</button>
 
       <dialog data-modal>
         <div className="Preferences--wrapper">
@@ -35,7 +41,7 @@ export default function Preferences() {
                 fontWeight: "700",
               }}
             >
-              Language:{" "}
+              {lang === "en" ? "Language :" : "زبان :"}
             </p>
             <Link
               href="/"

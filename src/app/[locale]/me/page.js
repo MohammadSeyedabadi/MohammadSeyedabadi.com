@@ -1,8 +1,9 @@
+import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 import config from "@/utils/config";
 import TitleIcon from "@/assets/TitleIcon";
 import AboutSidebar from "@/components/AboutSidebar";
 import Hero from "@/components/Hero";
-import Link from "next/link";
 
 export const metadata = {
   title: `About me | ${config.siteTitle}`,
@@ -10,22 +11,20 @@ export const metadata = {
 };
 
 export default function AboutMe() {
+  const t = useTranslations("me");
   return (
     <>
       <div className="container">
         <div className="grid">
           <div className="article-content">
-            <Hero title="About me" />
+            <Hero title={t("descOne")} />
 
             <section className="segment small">
               <div className="post-content">
                 <p>
-                  I'm Mohammad! I'm a software developer working in Neyshabur.
-                  Welcome to my spot on the web for my projects, tutorials and
-                  anything else I want to show the world. Check out the{" "}
-                  <Link href="/projects">projects</Link> page to see a highlight
-                  of my open-source work, and the <Link href="/blog">blog</Link>{" "}
-                  for my tutorials and more.
+                  {t("descTwo")} <Link href="/projects">{t("descThree")} </Link>
+                  {t("descFour")}
+                  <Link href="/blog"> {t("descFive")}</Link> {t("descSix")}
                 </p>
                 <h2 id="work-experience" style={{ position: "relative" }}>
                   <a

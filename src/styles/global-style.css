@@ -1070,12 +1070,20 @@ a.anchor svg {
   fill: var(--link);
 }
 
-.anchor.before {
+html[dir="ltr"] .anchor.before {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateX(-100%);
+  transform: translateX(-100%) rotateZ(-30deg);
   padding-right: 4px;
+}
+
+html[dir="rtl"] .anchor.before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(100%) rotateZ(30deg);
+  padding-left: 4px;
 }
 
 .anchor.after {

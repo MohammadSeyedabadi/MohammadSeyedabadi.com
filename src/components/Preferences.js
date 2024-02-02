@@ -1,13 +1,28 @@
 "use client";
+
 import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
 import { Link } from "../navigation";
 import { useParams } from "next/navigation";
 import { usePathname } from "next/navigation";
+import { useRouter } from "../navigation";
 
 export default function Preferences() {
   const pathname = usePathname();
   const lang = useParams().locale;
+  const router = useRouter();
+
+  function changeLang(L) {
+    // L => Language
+    const pathnameSlashSplitArray = pathname.split("/");
+    const pathnameWithOutLocale = pathnameSlashSplitArray
+      .slice(2, pathnameSlashSplitArray.length)
+      .join("/");
+    console.log(pathnameWithOutLocale);
+    router.replace(`/${pathnameWithOutLocale}`, {
+      locale: L,
+    }); //TODO: write regx or logic with shift slice join ...
+  }
 
   useEffect(() => {
     const openButton = document.querySelector("[data-open-modal]");
@@ -24,7 +39,9 @@ export default function Preferences() {
   }, []);
   return (
     <>
-      <button data-open-modal>{lang === "en" ? "Preferences" : "تنظیمات"}</button>
+      <button data-open-modal>
+        {lang === "en" ? "Preferences" : "تنظیمات"}
+      </button>
 
       <dialog data-modal>
         <div className="Preferences--wrapper">
@@ -43,27 +60,23 @@ export default function Preferences() {
             >
               {lang === "en" ? "Language :" : "زبان :"}
             </p>
-            <Link
-              href="/"
-              className="button"
+            <button
               style={{
                 marginRight: "1rem",
                 fontWeight: "700",
               }}
-              locale="fa"
+              onClick={() => changeLang("fa")}
             >
               فا
-            </Link>
-            <Link
-              href="/"
-              className="button"
+            </button>
+            <button
               style={{
                 fontWeight: "700",
               }}
-              locale="en"
+              onClick={() => changeLang("en")}
             >
               ENG
-            </Link>
+            </button>
           </div>
           <div style={{ marginTop: "2rem" }}>
             <button
@@ -72,7 +85,7 @@ export default function Preferences() {
                 fontWeight: "700",
               }}
             >
-              Close
+              {lang === "en" ? "Close" : "بستن"}
             </button>
           </div>
         </div>

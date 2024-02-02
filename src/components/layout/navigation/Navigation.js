@@ -1,11 +1,13 @@
 "use client";
 
-import { Link } from '@/navigation';
-import { usePathname } from 'next/navigation'
+import { Link } from "@/navigation";
+import { usePathname } from "next/navigation";
 import Preferences from "@/components/Preferences";
+import { useParams } from "next/navigation";
 
 export default function Navigation() {
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const lang = useParams().locale;
   return (
     <header className="navigation container" id="navigation" dir="ltr">
       <nav className="nav--container">
@@ -14,31 +16,69 @@ export default function Navigation() {
         </span>
 
         <div className="nav--menu nav--list" id="nav-menu">
-          <span className={(pathname === "/fa" || pathname === "/en") ? "active--link" : ""}>
+          <span
+            className={
+              pathname === "/fa" || pathname === "/en" ? "active--link" : ""
+            }
+          >
             <Link href="/" className="nav--link nav--home ">
-              <span className="nav__name">Home</span>
+              <span className="nav__name">
+                {lang === "en" ? "Home" : "صفحه اصلی"}
+              </span>
             </Link>
           </span>
-          <span className={(pathname === "/fa/me" || pathname === "/en/me" ) ? "active--link" : ""}>
+          <span
+            className={
+              pathname === "/fa/me" || pathname === "/en/me"
+                ? "active--link"
+                : ""
+            }
+          >
             <Link href="/me" className="nav--link nav--about">
-              <span className="nav__name">About</span>
+              <span className="nav__name">
+                {lang === "en" ? "About" : "درباره من"}
+              </span>
             </Link>
           </span>
 
-          <span className={(pathname === "/fa/projects" || pathname === "/en/projects") ? "active--link" : ""}>
+          <span
+            className={
+              pathname === "/fa/projects" || pathname === "/en/projects"
+                ? "active--link"
+                : ""
+            }
+          >
             <Link href="/projects" className="nav--link nav--projects">
-              <span className="nav__name">Projects</span>
+              <span className="nav__name">
+                {lang === "en" ? "Projects" : "پروژه‌ها"}
+              </span>
             </Link>
           </span>
-          <span className={(pathname === "/fa/contact" || pathname === "/en/contact") ? "active--link" : ""}>
+          <span
+            className={
+              pathname === "/fa/contact" || pathname === "/en/contact"
+                ? "active--link"
+                : ""
+            }
+          >
             <Link href="/contact" className="nav--link nav--contact">
-              <span className="nav__name">Contact</span>
+              <span className="nav__name">
+                {lang === "en" ? "Contact" : "تماس"}
+              </span>
             </Link>
           </span>
 
-          <span className={(pathname === "/fa/blog" || pathname === "/en/blog" )? "active--link" : ""}>
+          <span
+            className={
+              pathname === "/fa/blog" || pathname === "/en/blog"
+                ? "active--link"
+                : ""
+            }
+          >
             <Link href="/blog" className="nav--link nav--blog">
-              <span className="nav__name">Blog</span>
+              <span className="nav__name">
+                {lang === "en" ? "Blog" : "بلاگ"}
+              </span>
             </Link>
           </span>
         </div>

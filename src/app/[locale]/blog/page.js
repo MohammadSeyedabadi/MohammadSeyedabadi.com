@@ -1,4 +1,3 @@
-import Head from "next/head";
 import config from "@/utils/config";
 import SidebarLayout from "@/components/layout/SidebarLayout";
 import Hero from "@/components/Hero";

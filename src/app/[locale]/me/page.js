@@ -34,34 +34,33 @@ export default function AboutMe() {
                   >
                     <TitleIcon />
                   </a>
-                  Work experience
+                  {t("descSeven")}
                 </h2>
                 <p>
-                  I won't bore you too much with my work history, though; that's
-                  what my{" "}
+                  {t("descEight")}{" "}
                   <a
                     href="/Resume/Mohammad Seyedabadi_Front-End Developer.pdf"
                     download
                   >
-                    CV
+                    {t("descNine")}
                   </a>
-                  ,{" "}
+                  {t("descTen")}{" "}
                   <a
                     href="https://github.com/MohammadSeyedabadi"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Github
+                    {t("descEleven")}
                   </a>{" "}
-                  and{" "}
+                  {t("descTwelve")}{" "}
                   <a
                     href="https://www.linkedin.com/in/mohammad-seyedabadi-397a61256/"
                     target="_blank"
                     rel="noreferrer"
                   >
-                    LinkedIn
+                    {t("descThirteen")}
                   </a>{" "}
-                  are for.
+                  {t("descFourteen")}
                 </p>
               </div>
             </section>

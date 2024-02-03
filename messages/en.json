@@ -20,8 +20,14 @@
     "descFour": " page to see a highlight of my open-source work, and the ",
     "descFive": "blog",
     "descSix": "for my tutorials and more.",
-    "descSeven": "",
-    "descEight": ""
+    "descSeven": "Work experience",
+    "descEight": "I won't bore you too much with my work history, though; that's what my",
+    "descNine":"CV",
+    "descTen":",",
+    "descEleven":"GitHub",
+    "descTwelve":"and",
+    "descThirteen":"LinkedIn",
+    "descFourteen":"are for"
   },
   "Footer": {
     "LinkedIn":"LinkedIn",

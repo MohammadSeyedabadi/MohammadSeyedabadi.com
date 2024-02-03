@@ -735,13 +735,13 @@ dialog {
   text-decoration-thickness: 2px;
 }
 
-html[dir="ltr"] .stars {
+html[lang="en"] .stars {
   position: absolute;
   top: 1rem;
   right: 1rem;
 }
 
-html[dir="rtl"] .stars {
+html[lang="fa"] .stars {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -869,12 +869,12 @@ html[dir="rtl"] .stars {
     align-items: center;
   }
 
-  html[dir="ltr"] .stars {
+  html[lang="en"] .stars {
     top: 1.5rem;
     right: 1.5rem;
   }
 
-  html[dir="rtl"] .stars {
+  html[lang="fa"] .stars {
     top: 1.5rem;
     left: 1.5rem;
   }
@@ -1081,7 +1081,7 @@ a.anchor svg {
   fill: var(--link);
 }
 
-html[dir="ltr"] .anchor.before {
+html[lang="en"] .anchor.before {
   position: absolute;
   top: 0;
   left: 0;
@@ -1089,7 +1089,7 @@ html[dir="ltr"] .anchor.before {
   padding-right: 4px;
 }
 
-html[dir="rtl"] .anchor.before {
+html[lang="fa"] .anchor.before {
   position: absolute;
   top: 0;
   right: 0;
@@ -1379,14 +1379,14 @@ a.tag.active {
 }
 
 @media screen and (min-width: 700px) {
-  html[dir="ltr"] .categories.anchored,
+  html[lang="en"] .categories.anchored,
   .links.anchored {
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
   }
 
-  html[dir="rtl"] .categories.anchored,
+  html[lang="fa"] .categories.anchored,
   .links.anchored {
     position: absolute;
     bottom: 1.5rem;

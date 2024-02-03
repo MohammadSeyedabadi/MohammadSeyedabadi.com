@@ -32,6 +32,10 @@
   "Projects": {
     "Projects": "Projects"
   },
+  "Contacts":{
+    "Contacts":"Contacts",
+    "desc":"Do you have some big ideas and need help bringing them to fruition for your business? Then please reach out, i would love to hear more about you, your project and how i can help!"
+  },
   "Footer": {
     "LinkedIn": "LinkedIn",
     "GitHub": "GitHub"

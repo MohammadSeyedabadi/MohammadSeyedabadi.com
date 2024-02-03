@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import config from "@/utils/config";
 import Hero from "@/components/Hero";
 
@@ -7,6 +8,7 @@ export const metadata = {
 };
 
 export default function Contact() {
+  const t = useTranslations("Contacts");
   return (
     <>
       <div className="container">
@@ -15,11 +17,7 @@ export default function Contact() {
             <Hero title="Contacts" />
             <section className="segment small">
               <div className="post-content">
-                <p>
-                  Do you have some big ideas and need help bringing them to
-                  fruition for your business? Then please reach out, i would
-                  love to hear more about you, your project and how i can help!
-                </p>
+                <p>{t("desc")}</p>
               </div>
             </section>
           </div>

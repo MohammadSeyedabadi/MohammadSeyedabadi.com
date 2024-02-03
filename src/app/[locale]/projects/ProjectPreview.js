@@ -4,6 +4,8 @@ import Link from "next/link";
 import { projectsList } from "@/data/projectsList";
 import StarIcon from "@/assets/StarIcon";
 import ExternalLinkIcon from "@/assets/ExternalLinkIcon";
+import { useParams } from "next/navigation";
+
 
 export default function ProjectPreview() {
   const [repos, setRepos] = useState([]);
@@ -22,6 +24,9 @@ export default function ProjectPreview() {
       })
       .catch((err) => console.error(err));
   }, []);
+
+  const lang = useParams().locale;
+
   return (
     <div className="project-preview">
       {projectsList.map((project) => {
@@ -43,7 +48,7 @@ export default function ProjectPreview() {
               )}
             </div>
             <div>
-              <time>{project.date}</time>
+              <time dir="ltr">{lang === "en" ? project.enDate : project.faDate}</time>
               <a
                 className="card-header"
                 href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
@@ -52,12 +57,12 @@ export default function ProjectPreview() {
               >
                 {project.name}
               </a>
-              <p>{project.tagline}</p>
+              <p>{lang === "en" ? project.enDesc :  project.faDesc }</p>
             </div>
             <div className="links anchored">
               {project.writeup && (
                 <Link className="button small" href={project.writeup}>
-                  Article
+                  {lang === "en" ? "Article" : "مقاله"}
                 </Link>
               )}
               {project.url && (
@@ -67,7 +72,7 @@ export default function ProjectPreview() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Demo <ExternalLinkIcon />
+                    {lang === "en" ? "Demo" : "نمونه نمایشی"} <ExternalLinkIcon />
                 </a>
               )}
               <a
@@ -76,7 +81,7 @@ export default function ProjectPreview() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Source <ExternalLinkIcon />
+                {lang === "en" ? "Source" : "کد"} <ExternalLinkIcon />
               </a>
             </div>
           </div>

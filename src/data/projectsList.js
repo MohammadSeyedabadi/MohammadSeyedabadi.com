@@ -25,7 +25,7 @@ export const projectsList = [
     faDate: "۲۰۲۳",
     slug: "todo-list",
     enDesc: "Two to do list with JavaScript and ReactJS",
-    faDesc: "",
+    faDesc: "دو تا todo list با جاوا اسکریپت و ریکت",
   },
 
   {

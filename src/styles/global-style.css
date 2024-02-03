@@ -1368,11 +1368,18 @@ a.tag.active {
 }
 
 @media screen and (min-width: 700px) {
-  .categories.anchored,
+  html[dir="ltr"] .categories.anchored,
   .links.anchored {
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
+  }
+
+  html[dir="rtl"] .categories.anchored,
+  .links.anchored {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
   }
 }
 

@@ -13,8 +13,8 @@
     "projects": "Projects",
     "viewAll": "view all"
   },
-  "me":{
-    "descOne":"About me",
+  "me": {
+    "descOne": "About me",
     "descTwo": "I'm Mohammad! I'm a software developer working in Neyshabur. Welcome to my spot on the web for my projects, tutorials and anything else I want to show the world. Check out the",
     "descThree": "projects",
     "descFour": " page to see a highlight of my open-source work, and the ",
@@ -22,15 +22,18 @@
     "descSix": "for my tutorials and more.",
     "descSeven": "Work experience",
     "descEight": "I won't bore you too much with my work history, though; that's what my",
-    "descNine":"CV",
-    "descTen":",",
-    "descEleven":"GitHub",
-    "descTwelve":"and",
-    "descThirteen":"LinkedIn",
-    "descFourteen":"are for."
+    "descNine": "CV",
+    "descTen": ",",
+    "descEleven": "GitHub",
+    "descTwelve": "and",
+    "descThirteen": "LinkedIn",
+    "descFourteen": "are for."
+  },
+  "Projects": {
+    "Projects": "Projects"
   },
   "Footer": {
-    "LinkedIn":"LinkedIn",
+    "LinkedIn": "LinkedIn",
     "GitHub": "GitHub"
   }
 }

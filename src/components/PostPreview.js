@@ -2,6 +2,7 @@
 import { projectsList } from "@/data/projectsList";
 import { useParams } from "next/navigation";
 import { Link } from "@/navigation";
+import ExternalLinkIcon from "@/assets/ExternalLinkIcon";
 
 export default function PostPreview() {
   const lang = useParams().locale;
@@ -37,7 +38,7 @@ export default function PostPreview() {
                     rel="noreferrer"
                     href={project.url}
                   >
-                    {lang === "en" ? "Demo" : "نمونه نمایشی"}
+                    {lang === "en" ? "Demo" : "نمونه نمایشی"} <ExternalLinkIcon />
                   </a>
                 )}
                 <a
@@ -46,7 +47,7 @@ export default function PostPreview() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {lang === "en" ? "Source" : "کد"}
+                  {lang === "en" ? "Source" : "کد"} <ExternalLinkIcon />
                 </a>
               </div>
             </div>

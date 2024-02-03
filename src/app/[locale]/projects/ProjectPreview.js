@@ -48,7 +48,7 @@ export default function ProjectPreview() {
               )}
             </div>
             <div>
-              <time dir="ltr">{lang === "en" ? project.enDate : project.faDate}</time>
+              <time>{lang === "en" ? project.enDate : project.faDate}</time>
               <a
                 className="card-header"
                 href={`https://github.com/MohammadSeyedabadi/${project.slug}`}

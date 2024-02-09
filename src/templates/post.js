@@ -1,4 +1,5 @@
 "use client";
+import { useParams } from "next/navigation";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 import ReactMarkdown from "react-markdown";
@@ -12,6 +13,7 @@ import Giscus from "@giscus/react";
 import TitleIcon from "@/assets/TitleIcon";
 
 export default function PostTemplate({ post }) {
+  const language = useParams().locale;
   const { ariaActive } = useContext(ThemeContext);
   const { title, slug, image } = post;
 
@@ -114,7 +116,7 @@ export default function PostTemplate({ post }) {
               emitMetadata="0"
               inputPosition="top"
               theme={ariaActive ? "dark" : "light"}
-              lang="en"
+              lang = {language}
               loading="lazy"
             />
           </div>

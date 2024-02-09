@@ -44,6 +44,15 @@ export default function Preferences() {
 
       <dialog data-modal>
         <div className="Preferences--wrapper">
+          <p
+            style={{
+              marginBottom: "-1rem",
+              fontSize: "2rem",
+              fontWeight: "700",
+            }}
+          >
+            {lang === "en" ? "Theme :" : "تم :"}
+          </p>
           <Toggle />
           <div
             style={{

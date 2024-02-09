@@ -1,20 +1,20 @@
-import Link from 'next/link'
-
+import { Link } from "@/navigation";
 export default function Post({ post }) {
+  const { slug, title, date } = post;
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  let newSlug = slug.split("-");
+  newSlug.shift();
   
-  const { slug, title, date } = post
-  const formattedDate = new Date(date).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
-
   return (
     <>
-      <Link href={`/blog/${slug}`} className="post">
+      <Link href={`/blog/${newSlug.join("-")}`} className="post">
         <h3>{title}</h3>
         <time>{formattedDate}</time>
       </Link>
     </>
-  )
+  );
 }

@@ -1,6 +1,5 @@
 import config from "@/utils/config";
 import SidebarLayout from "@/components/layout/SidebarLayout";
-import Hero from "@/components/Hero";
 import Posts from "@/components/Posts";
 import { getAllPosts } from "@/utils/posts-util";
 
@@ -14,7 +13,7 @@ export default async function Blog() {
   return (
     <>
       <SidebarLayout>
-        <Hero title="Writing" />
+        {/* <Hero title="Writing" /> */}
         <Posts allPosts={allPosts} />
       </SidebarLayout>
     </>

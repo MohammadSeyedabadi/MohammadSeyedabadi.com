@@ -1,6 +1,11 @@
-import Post from './Post'
+"use client";
+import { useParams } from "next/navigation";
+
+import Post from "./Post";
 
 export default function Posts({ allPosts }) {
+  const urlLang = useParams().locale;
+
   //   const { date } = allPosts[0]
   //   const formattedDate = new Date(date).toLocaleDateString('en-US', {
   //     year: 'numeric',
@@ -13,10 +18,12 @@ export default function Posts({ allPosts }) {
 
         <div className="posts">
           {allPosts.map((post) => {
-            return <Post key={post.title} post={post} />
+            if (urlLang == post.lang) {
+              return <Post key={post.title} post={post} />;
+            }
           })}
         </div>
       </section>
     </>
-  )
+  );
 }

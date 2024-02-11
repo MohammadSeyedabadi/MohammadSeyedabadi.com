@@ -1,6 +1,8 @@
 import PostTemplate from "@/templates/post";
 import { getAllPosts, getPostData } from "@/utils/posts-util";
 
+export const dynamic = "force-dynamic";
+
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
   const posts = getAllPosts();

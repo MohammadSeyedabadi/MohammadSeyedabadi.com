@@ -1,17 +1,18 @@
-import { useContext } from 'react'
-import ThemeContext from '@/store/theme-context'
-import Image from 'next/image'
-import Link from 'next/link'
+"use client";
+import { useContext } from "react";
+import ThemeContext from "@/store/theme-context";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function PostSidebar({ post }) {
-  const { ariaActive } = useContext(ThemeContext)
-  const { title, slug, image, date } = post
+  const { ariaActive } = useContext(ThemeContext);
+  const { title, slug, image, date } = post;
 
-  const formattedDate = new Date(date).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
   return (
     <aside className="post-sidebar">
@@ -27,25 +28,25 @@ export default function PostSidebar({ post }) {
       <div className="post-sidebar-card">
         <h2>About me</h2>
         <Image
-            src="/images/me2.jpg"
-            width={256}
-            height={256}
-            alt="Mohammad"
-            className="sidebar-avatar"
-            quality={100}
-            style={ariaActive ? null : {display:"none"}}
-          />
-          <Image
-            src="/images/me1.jpg"
-            width={256}
-            height={256}
-            alt="Mohammad"
-            className="sidebar-avatar"
-            quality={100}
-            style={ariaActive ? {display:"none"} : null}
-          />
+          src="/images/me2.jpg"
+          width={256}
+          height={256}
+          alt="Mohammad"
+          className="sidebar-avatar"
+          quality={100}
+          style={ariaActive ? null : { display: "none" }}
+        />
+        <Image
+          src="/images/me1.jpg"
+          width={256}
+          height={256}
+          alt="Mohammad"
+          className="sidebar-avatar"
+          quality={100}
+          style={ariaActive ? { display: "none" } : null}
+        />
         <p>
-          Hello and thanks for visiting! My name is{' '}
+          Hello and thanks for visiting! My name is{" "}
           <Link href="/me">Mohammad seyedabadi</Link>, and this is my website
           and digital garden.
         </p>
@@ -96,5 +97,5 @@ export default function PostSidebar({ post }) {
         </p>
       </div>
     </aside>
-  )
+  );
 }

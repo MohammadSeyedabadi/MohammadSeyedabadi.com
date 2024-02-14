@@ -213,11 +213,19 @@ main {
 blockquote {
   margin: 2rem 0;
   border: 1px solid var(--indigo-light);
-  border-left: 6px solid var(--indigo-light);
+  /* border-left: 6px solid var(--indigo-light); */
   margin-left: 0;
   padding: 1.5rem;
   background: var(--blockquote-background);
   border-radius: var(--border-radius);
+}
+
+html[lang="en"] blockquote{
+  border-left: 6px solid var(--indigo-light);
+}
+
+html[lang="fa"] blockquote{
+  border-right: 6px solid var(--indigo-light);
 }
 
 blockquote p {

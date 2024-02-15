@@ -1,11 +1,10 @@
 import "@/styles/global-style.css";
-import "@/styles/theme-light.css"
+import "@/styles/theme-light.css";
 import "@/styles/theme-dark.css";
 import "@/styles/toggle.css";
 
 import CustomLayout from "@/components/layout/CustomLayout";
 import { ThemeContextProvider } from "@/store/theme-context";
-
 
 export default function LocaleLayout({ children, params: { locale } }) {
   return (

@@ -13,7 +13,7 @@
     --gray-dots: #e8e8ea;
     --button-border: #5e4b56;
   }
-  [data-theme='dark'] {
+  [data-theme='theme-dark'] {
     --button-border: #b8dbd9;
   }
   

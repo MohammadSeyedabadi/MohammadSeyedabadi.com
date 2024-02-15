@@ -28,14 +28,14 @@ export function ThemeContextProvider(props) {
     localStorage.setItem("theme", "theme-light");
     setActive(true);
     setAriaActive(false);
-    document.querySelector(":root").setAttribute("data-theme", "light");
+    document.querySelector(":root").setAttribute("data-theme", "theme-light");
   }
 
   function setDarkTheme() {
     localStorage.setItem("theme", "theme-dark");
     setActive(false);
     setAriaActive(true);
-    document.querySelector(":root").setAttribute("data-theme", "dark");
+    document.querySelector(":root").setAttribute("data-theme", "theme-dark");
   }
 
   useEffect(() => {

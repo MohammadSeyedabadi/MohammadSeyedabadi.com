@@ -1,5 +1,5 @@
 import "@/styles/global-style.css";
-import "@/styles/dark-mode.css";
+import "@/styles/theme-dark.css";
 import "@/styles/toggle.css";
 
 import CustomLayout from "@/components/layout/CustomLayout";

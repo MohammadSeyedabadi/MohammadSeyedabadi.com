@@ -1,4 +1,4 @@
-[data-theme='dark'] {
+[data-theme='theme-dark'] {
   --background-color: var(--gray-10);
   --card-background-color: var(--gray-9);
   --contact-sidebar-card:var(--gray-9);

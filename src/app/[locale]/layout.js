@@ -1,4 +1,5 @@
 import "@/styles/global-style.css";
+import "@/styles/theme-light.css"
 import "@/styles/theme-dark.css";
 import "@/styles/toggle.css";
 

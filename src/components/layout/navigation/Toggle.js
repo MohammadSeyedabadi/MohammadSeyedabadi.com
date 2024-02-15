@@ -4,7 +4,7 @@ import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 
 function Toggle() {
-  const { ariaActive, active, handleOnClick, handleKeypress } =
+  const { ariaActive, active, changeTheme, handleKeypress } =
     useContext(ThemeContext);
   return (
     <div className="container--toggle">
@@ -15,7 +15,7 @@ function Toggle() {
         type="checkbox"
         id="toggle"
         className="toggle--checkbox"
-        onClick={handleOnClick}
+        onClick={changeTheme}
         checked={active}
         readOnly
       />

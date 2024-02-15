@@ -10,58 +10,48 @@ export function ThemeContextProvider(props) {
   // the opposite, for screenreaders
   const [ariaActive, setAriaActive] = useState(true);
 
-  
-
-  function changeThemeAndToggle() {
-    if (localStorage.getItem("theme") === "theme-dark") {
-      localStorage.setItem("theme", "theme-light");
-      setActive(true);
-      setAriaActive(false);
-      document.querySelector(":root").setAttribute("data-theme", "light");
-    } else {
-      localStorage.setItem("theme", "theme-dark");
-      setActive(false);
-      setAriaActive(true);
-      document.querySelector(":root").setAttribute("data-theme", "dark");
-    }
-  }
-
-  function handleOnClick() {
-    changeThemeAndToggle();
-  }
-
   function handleKeypress(e) {
     if (e.code === "Enter") {
-      changeThemeAndToggle();
+      changeTheme();
     }
+  }
+
+  function changeTheme() {
+    if (localStorage.getItem("theme") === "theme-dark") {
+      setLightTheme();
+    } else {
+      setDarkTheme();
+    }
+  }
+
+  function setLightTheme() {
+    localStorage.setItem("theme", "theme-light");
+    setActive(true);
+    setAriaActive(false);
+    document.querySelector(":root").setAttribute("data-theme", "light");
+  }
+
+  function setDarkTheme() {
+    localStorage.setItem("theme", "theme-dark");
+    setActive(false);
+    setAriaActive(true);
+    document.querySelector(":root").setAttribute("data-theme", "dark");
   }
 
   useEffect(() => {
     let theme = localStorage.getItem("theme");
     if (theme === "theme-dark") {
-      localStorage.setItem("theme", "theme-dark");
-      setActive(false);
-      setAriaActive(true);
-      document.querySelector(":root").setAttribute("data-theme", "dark");
+      setDarkTheme();
     } else if (theme === "theme-light") {
-      localStorage.setItem("theme", "theme-light");
-      setActive(true);
-      setAriaActive(false);
-      document.querySelector(":root").setAttribute("data-theme", "light");
+      setLightTheme();
     } else {
       let prefersLightTheme = window.matchMedia(
         "(prefers-color-scheme: light)"
       );
       if (prefersLightTheme.matches) {
-        localStorage.setItem("theme", "theme-light");
-        setActive(true);
-        setAriaActive(false);
-        document.querySelector(":root").setAttribute("data-theme", "light");
+        setLightTheme();
       } else {
-        localStorage.setItem("theme", "theme-dark");
-        setActive(false);
-        setAriaActive(true);
-        document.querySelector(":root").setAttribute("data-theme", "dark");
+        setDarkTheme();
       }
     }
   }, []);
@@ -69,7 +59,7 @@ export function ThemeContextProvider(props) {
   const context = {
     active,
     ariaActive,
-    handleOnClick,
+    changeTheme,
     handleKeypress,
   };
 

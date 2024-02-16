@@ -44,16 +44,51 @@ export default function Preferences() {
 
       <dialog data-modal>
         <div className="Preferences--wrapper">
-          <p
+          <div style={{ display: "flex", alignItems: "end" }}>
+            <div
+              className="text-white"
+              style={{
+                margin: "0px 21px 0px 0px",
+                fontSize: "2rem",
+                fontWeight: "700",
+              }}
+            >
+              {lang === "en" ? "Theme :" : "تم :"}
+            </div>
+            <div>
+              <Toggle />
+            </div>
+          </div>
+          <div
             style={{
-              marginBottom: "-1rem",
-              fontSize: "2rem",
-              fontWeight: "700",
+              marginTop: "2rem",
             }}
           >
-            {lang === "en" ? "Theme :" : "تم :"}
-          </p>
-          <Toggle />
+            <button
+              style={{
+                marginRight: "0.5rem",
+                fontWeight: "700",
+              }}
+            >
+              dark
+            </button>
+            <button
+              style={{
+                marginRight: "0.5rem",
+                fontWeight: "700",
+              }}
+            >
+              light
+            </button>
+            <button
+              style={{
+                fontWeight: "700",
+              }}
+            >
+              system
+            </button>
+          </div>
+
           <div
             style={{
               marginTop: "2rem",
@@ -70,7 +105,7 @@ export default function Preferences() {
             </p>
             <button
               style={{
-                marginRight: "1rem",
+                marginRight: "0.5rem",
                 fontWeight: "700",
               }}
               onClick={() => changeLang("fa")}

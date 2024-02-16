@@ -1572,6 +1572,10 @@ a.category.active .count {
   }
 }
 
+.text-white{
+  color: var(--font-color-heading);
+}
+
 .red-1 {
   background: var(--red-1);
 }

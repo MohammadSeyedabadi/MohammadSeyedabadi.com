@@ -17,46 +17,45 @@ export function ThemeContextProvider(props) {
   }
 
   function changeTheme() {
-    if (localStorage.getItem("theme") === "theme-dark") {
-      setLightTheme();
-    } else {
-      setDarkTheme();
+    let theme = localStorage.getItem("theme");
+    if (theme === "theme-dark") {
+      setTheme("theme-light");
+    } else if (theme === "theme-light") {
+      setTheme("theme-dark");
     }
   }
 
-  function setLightTheme() {
-    localStorage.setItem("theme", "theme-light");
-    setActive(true);
-    setAriaActive(false);
-    document.querySelector(":root").setAttribute("data-theme", "theme-light");
-  }
-
-  function setDarkTheme() {
-    localStorage.setItem("theme", "theme-dark");
-    setActive(false);
-    setAriaActive(true);
-    document.querySelector(":root").setAttribute("data-theme", "theme-dark");
-  }
-
-  useEffect(() => {
-    let theme = localStorage.getItem("theme");
-    if (theme === "theme-dark") {
-      setDarkTheme();
-    } else if (theme === "theme-light") {
-      setLightTheme();
+  function setTheme(theme) {
+    if (theme !== "theme-system") {
+      localStorage.setItem("theme", theme);
+      theme === "theme-dark" ? setActive(false) : setActive(true);
+      theme === "theme-dark" ? setAriaActive(true) : setAriaActive(false);
+      document.querySelector(":root").setAttribute("data-theme", theme);
     } else {
       let prefersLightTheme = window.matchMedia(
         "(prefers-color-scheme: light)"
       );
       if (prefersLightTheme.matches) {
-        setLightTheme();
+        setTheme("theme-light");
       } else {
-        setDarkTheme();
+        setTheme("theme-dark");
       }
+    }
+  }
+
+  useEffect(() => {
+    let theme = localStorage.getItem("theme");
+    if (theme === "theme-dark") {
+      setTheme("theme-dark");
+    } else if (theme === "theme-light") {
+      setTheme("theme-light");
+    } else {
+      setTheme("theme-system");
     }
   }, []);
 
   const context = {
+    setTheme,
     active,
     ariaActive,
     changeTheme,

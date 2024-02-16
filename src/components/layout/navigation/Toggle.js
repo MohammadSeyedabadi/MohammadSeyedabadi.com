@@ -14,7 +14,7 @@ function Toggle() {
         onKeyDown={handleKeypress}
         type="checkbox"
         id="toggle"
-        className="toggle--checkbox"
+        className="toggle--checkbox offscreen"
         onClick={changeTheme}
         checked={active}
         readOnly

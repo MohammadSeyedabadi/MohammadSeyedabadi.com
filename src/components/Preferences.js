@@ -5,6 +5,8 @@ import Toggle from "./layout/navigation/Toggle";
 import { useParams } from "next/navigation";
 import { usePathname } from "next/navigation";
 import { useRouter } from "../navigation";
+import { useContext } from "react";
+import ThemeContext from "@/store/theme-context";
 
 export default function Preferences() {
   const pathname = usePathname();
@@ -22,6 +24,8 @@ export default function Preferences() {
       locale: L,
     }); //TODO: write regx or logic with shift slice join ...
   }
+
+  const { setTheme, active } = useContext(ThemeContext);
 
   useEffect(() => {
     const openButton = document.querySelector("[data-open-modal]");
@@ -69,23 +73,26 @@ export default function Preferences() {
                 marginRight: "0.5rem",
                 fontWeight: "700",
               }}
+              onClick={active ? () => setTheme("theme-dark") : null}
             >
-              dark
+              Dark
             </button>
             <button
               style={{
                 marginRight: "0.5rem",
                 fontWeight: "700",
               }}
+              onClick={active ? null : () => setTheme("theme-light")}
             >
-              light
+              Light
             </button>
             <button
               style={{
                 fontWeight: "700",
               }}
+              onClick={() => setTheme("theme-system")}
             >
-              system
+              System
             </button>
           </div>
 

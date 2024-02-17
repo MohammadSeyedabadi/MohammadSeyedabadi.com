@@ -1,5 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap"); */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../../public/fonts/fonts/webfonts/Vazirmatn[wght].woff2")
+      format("woff2 supports variations"),
+    url("../../public/fonts/fonts/webfonts/Vazirmatn[wght].woff2")
+      format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   /* Colors */
   --gray-0: #f9f9f9;
@@ -53,13 +62,13 @@
   --indigo-muted: #f1f2fd;
 
   /* Font family */
-  --font-family-base: "Inter", -apple-system, BlinkMacSystemFont,
+  /* --font-family-base: "Inter", -apple-system, BlinkMacSystemFont,
     "Helvetica Neue", Arial, sans-serif;
   --font-family-monospace: Menlo, "IBM Plex Mono", Menlo, monospace;
   --font-family-heading: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     Arial, sans-serif;
   --font-family-nav: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
-    sans-serif;
+    sans-serif; */
 
   /* Font color */
 
@@ -97,7 +106,8 @@
 } */
 
 html {
-  font-family: var(--font-family-base);
+  /* font-family: var(--font-family-base); */
+  font-family: Vazirmatn;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -172,6 +182,13 @@ li::marker {
   color: var(--marker);
 }
 
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
 main {
   margin-top: var(--navbar-height-large);
 }
@@ -221,7 +238,7 @@ blockquote.quotation {
   border: none;
   border-left: 12px solid var(--border-color);
   border-radius: 0;
-  font-family: "Georgia";
+  /* font-family: "Georgia"; */
   font-style: italic;
   font-size: 1.1rem;
   padding: 0 0 0 1.5rem;
@@ -268,7 +285,7 @@ h2 {
   font-weight: 700;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--border-color);
-  font-family: var(--font-family-nav);
+  /* font-family: var(--font-family-nav); */
   color: var(--font-color-heading);
   letter-spacing: -0.05rem;
 }
@@ -287,7 +304,7 @@ h3 {
   font-weight: 500;
   margin-bottom: 1.25rem;
   color: var(--font-color-heading3);
-  font-family: var(--font-family-heading);
+  /* font-family: var(--font-family-heading); */
 }
 
 h3 code {
@@ -336,7 +353,7 @@ h5 {
   margin-bottom: 1rem;
   font-size: 1.1rem;
   font-weight: 700;
-  font-family: var(--font-family-heading);
+  /* font-family: var(--font-family-heading); */
 }
 
 pre {
@@ -356,7 +373,7 @@ h2.home-heading {
 h2.home-heading .title {
   font-size: 1.7rem;
   margin-bottom: 0;
-  font-family: var(--font-family-base);
+  /* font-family: var(--font-family-base); */
   font-weight: 700;
 }
 
@@ -481,7 +498,7 @@ a.button {
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 1.2rem;
-  font-family: var(--font-family-nav);
+  /* font-family: var(--font-family-nav); */
   line-height: 1;
   border-radius: var(--border-radius);
   font-size: 1rem;
@@ -556,7 +573,7 @@ button:active{
 }
 
 .nav--menu {
-  font-family: cursive;
+  /* font-family: cursive; */
   font-weight: 500;
 }
 
@@ -566,7 +583,9 @@ button:active{
     bottom: 0;
     left: 0;
     z-index: 99;
-    background-color: var(--navbar);
+    /* background-color: var(--navbar); */
+    background-color: rgba(255, 255, 255, 0.29);
+    backdrop-filter: blur(10px);
     box-shadow: 0 -1px 12px hsla(var(174), var(63%), 15%, 0.15);
     width: 100%;
     height: 4rem;
@@ -704,7 +723,7 @@ dialog {
   gap: 0.5rem;
   font-size: 0.9rem;
   color: var(--star);
-  font-family: var(--font-family-monospace);
+  /* font-family: var(--font-family-monospace); */
 }
 
 .star a {
@@ -752,7 +771,7 @@ html[lang="fa"] .stars {
   display: block;
   font-size: 1rem;
   line-height: 1.3;
-  font-family: var(--font-family-base);
+  /* font-family: var(--font-family-base); */
   font-weight: 500;
   color: var(--font-color-heading);
   margin: 0.1rem 0 0.5rem;
@@ -773,7 +792,7 @@ html[lang="fa"] .stars {
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--font-color-muted);
-  font-family: var(--font-family-base);
+  /* font-family: var(--font-family-base); */
 }
 
 .card.single {
@@ -792,7 +811,7 @@ html[lang="fa"] .stars {
 
 .card time {
   display: block;
-  font-family: var(--font-family-monospace);
+  /* font-family: var(--font-family-monospace); */
   color: var(--card-time-color);
   font-size: 0.9rem;
   font-weight: 900;
@@ -1137,13 +1156,13 @@ a.post h3 {
   font-size: 1rem;
   color: var(--font-color-heading);
   font-weight: 500;
-  font-family: var(--font-family-base);
+  /* font-family: var(--font-family-base); */
   line-height: 1.3;
 }
 
 a.post time {
   display: none;
-  font-family: var(--font-family-monospace);
+  /* font-family: var(--font-family-monospace); */
   color: var(--post-time-color);
   font-size: 0.9rem;
   font-weight: 500;
@@ -1400,7 +1419,7 @@ a.category.active .count {
   font-weight: 400;
   font-size: 0.9rem;
   color: var(--font-color-muted);
-  font-family: var(--font-family-monospace);
+  /* font-family: var(--font-family-monospace); */
 }
 
 /* Helpers */
@@ -1502,7 +1521,7 @@ a.category.active .count {
 
 .post-header time {
   display: block;
-  font-family: var(--font-family-monospace);
+  /* font-family: var(--font-family-monospace); */
   color: var(--font-color-muted);
   font-size: 0.9rem;
   font-weight: 400;
@@ -1518,7 +1537,7 @@ a.category.active .count {
 
 .footer {
   padding: 3rem 0;
-  font-family: var(--post-font-family);
+  /* font-family: var(--post-font-family); */
 }
 
 .footer section {

@@ -9,7 +9,9 @@ export function ThemeContextProvider(props) {
   const [active, setActive] = useState(false);
   // the opposite, for screenreaders
   const [ariaActive, setAriaActive] = useState(true);
+  const [systemState, setsystemState] = useState(true);
 
+  
   function handleKeypress(e) {
     if (e.code === "Enter") {
       changeTheme();
@@ -37,29 +39,52 @@ export function ThemeContextProvider(props) {
 
   function setSystemTheme() {
     let prefersLightTheme = window.matchMedia("(prefers-color-scheme: light)");
+    localStorage.setItem("theme", "system-theme");
     if (prefersLightTheme.matches) {
-      localStorage.setItem("theme", "system-theme");
-      setThemeDatails("light-theme");
+      setThemeDatails("light-theme", true);
     } else {
-      localStorage.setItem("theme", "system-theme");
-      setThemeDatails("dark-theme");
+      setThemeDatails("dark-theme", true);
     }
   }
 
-  function setThemeDatails(theme) {
-    if (theme === "dark-theme") {
-      setActive(false);
-      setAriaActive(true);
-      document.querySelector(":root").setAttribute("data-theme", "dark-theme");
-    } else if (theme === "light-theme") {
-      setActive(true);
-      setAriaActive(false);
-      document.querySelector(":root").setAttribute("data-theme", "light-theme");
+  function setThemeDatails(theme, SystemTheme) {
+    if (SystemTheme === undefined) {
+      if (theme === "dark-theme") {
+        setActive(false);
+        setAriaActive(true);
+        setsystemState(false);
+        document
+          .querySelector(":root")
+          .setAttribute("data-theme", "dark-theme");
+      } else if (theme === "light-theme") {
+        setActive(true);
+        setAriaActive(false);
+        setsystemState(false);
+        document
+          .querySelector(":root")
+          .setAttribute("data-theme", "light-theme");
+      }
+    } else if(SystemTheme === true) {
+      if (theme === "dark-theme") {
+        setActive(false);
+        setAriaActive(true);
+        setsystemState(true);
+        document
+          .querySelector(":root")
+          .setAttribute("data-theme", "dark-theme");
+      } else if (theme === "light-theme") {
+        setActive(true);
+        setAriaActive(false);
+        setsystemState(true);
+        document
+          .querySelector(":root")
+          .setAttribute("data-theme", "light-theme");
+      }
     }
   }
 
   useEffect(() => {
-   let theme = localStorage.getItem("theme")
+    let theme = localStorage.getItem("theme");
     if (theme === "dark-theme") {
       setDarkTheme();
     } else if (theme === "light-theme") {
@@ -70,6 +95,7 @@ export function ThemeContextProvider(props) {
   }, []);
 
   const context = {
+    systemState,
     setDarkTheme,
     setLightTheme,
     setSystemTheme,

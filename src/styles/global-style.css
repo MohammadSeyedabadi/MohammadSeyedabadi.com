@@ -488,7 +488,7 @@ a.button {
   cursor: pointer;
   font-weight: 500;
   color: var(--font-color-base);
-  border: 1px solid var(--border-color);
+  border: 3px solid var(--border-color);
   gap: 0.25rem;
   letter-spacing: 0;
   white-space: nowrap;
@@ -526,6 +526,7 @@ a.button img {
   margin-right: 0.25rem;
 }
 
+
 button.active,
 button:hover,
 a.button:hover {
@@ -533,6 +534,10 @@ a.button:hover {
   border-color: var(--border-color-hover);
 }
 
+a:active,
+button:active{
+  transform: scale(0.97);
+}
 /* Navigation */
 .navigation {
   background-color: var(--navbar);

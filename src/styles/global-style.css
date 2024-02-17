@@ -526,6 +526,7 @@ a.button img {
   margin-right: 0.25rem;
 }
 
+button.active,
 button:hover,
 a.button:hover {
   color: var(--font-color-bright);

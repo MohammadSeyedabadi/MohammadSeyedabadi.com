@@ -27,6 +27,7 @@
   --inline-code-background-color: rgba(0, 0, 0, 0.2);
   --highlight-color: var(--rainbow-4);
   --navbar: var(--gray-9);
+  --navbar-02:rgba(0, 0, 0, 0.708);
   --navbar-border: var(--gray-7);
   --navbar-color: var(--gray-4);
   --navbar-color-hover: white;

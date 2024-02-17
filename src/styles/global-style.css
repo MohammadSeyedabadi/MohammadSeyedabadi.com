@@ -584,7 +584,7 @@ button:active{
     left: 0;
     z-index: 99;
     /* background-color: var(--navbar); */
-    background-color: rgba(255, 255, 255, 0.29);
+    background-color: var(--navbar-02);
     backdrop-filter: blur(10px);
     box-shadow: 0 -1px 12px hsla(var(174), var(63%), 15%, 0.15);
     width: 100%;

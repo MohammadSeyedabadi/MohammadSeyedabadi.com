@@ -25,9 +25,9 @@ export default function Preferences() {
     }); //TODO: write regx or logic with shift slice join ...
   }
 
-  const { localStorageTheme, setDarkTheme, setLightTheme, setSystemTheme, active } =
+  const { setDarkTheme, setLightTheme, setSystemTheme, active } =
     useContext(ThemeContext);
-// console.log(localStorageTheme)
+// console.log(theme, "here it is")
   useEffect(() => {
     const openButton = document.querySelector("[data-open-modal]");
     const closeButton = document.querySelector("[data-close-modal]");
@@ -70,7 +70,7 @@ export default function Preferences() {
             }}
           >
             <button
-            className={`${localStorageTheme === "dark-theme" ? "active" : null}`}
+            // className={`${theme === "dark-theme" ? "active" : null}`}
               style={{
                 marginRight: "0.5rem",
                 fontWeight: "700",
@@ -80,7 +80,7 @@ export default function Preferences() {
               Dark
             </button>
             <button
-            className={`${localStorageTheme === "light-theme" ? "active" : null}`}
+            // className={`${theme === "light-theme" ? "active" : null}`}
               style={{
                 marginRight: "0.5rem",
                 fontWeight: "700",
@@ -90,7 +90,7 @@ export default function Preferences() {
               Light
             </button>
             <button
-            className={`${localStorageTheme === "system-theme" ? "active" : null}`}
+            // className={`${theme === "system-theme" ? "active" : null}`}
               style={{
                 fontWeight: "700",
               }}

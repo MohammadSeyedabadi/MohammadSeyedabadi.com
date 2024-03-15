@@ -71,12 +71,14 @@ export default function PostTemplate({ post }) {
       const language = className.split("-")[1]; // className is something like language-js => We need the "js" part here
 
       return (
-        <SyntaxHighlighter
-          style={ariaActive ? materialDark : materialLight}
-          language={language}
-        >
-          {children}
-        </SyntaxHighlighter>
+        <div lang="en" dir="ltr">
+          <SyntaxHighlighter
+            style={ariaActive ? materialDark : materialLight}
+            language={language}
+          >
+            {children}
+          </SyntaxHighlighter>
+        </div>
       );
     },
   };
@@ -116,7 +118,7 @@ export default function PostTemplate({ post }) {
               emitMetadata="0"
               inputPosition="top"
               theme={ariaActive ? "dark" : "light"}
-              lang = {language}
+              lang={language}
               loading="lazy"
             />
           </div>

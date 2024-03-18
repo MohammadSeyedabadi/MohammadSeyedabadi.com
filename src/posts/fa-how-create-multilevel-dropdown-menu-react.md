@@ -4,6 +4,8 @@ title: "نحوه ایجاد یک منوی چند سطحی در ریکت"
 date: "2023-11-19"
 image: how-create-multilevel-dropdown-menu-react.png
 excerpt: Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.
+category: فرانت اند
+tags: ["فرانت اند", "الگوریتم", "ریکت جی اس"]
 ---
 
 این آموزش یک نسخه ی ساده شده از [ آموزشی ](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) هست که Ibadehin Mojeed نوشته.

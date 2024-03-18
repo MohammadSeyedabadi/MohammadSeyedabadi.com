@@ -37,7 +37,20 @@
     "desc": "Do you have some big ideas and need help bringing them to fruition for your business? Then please reach out, i would love to hear more about you, your project and how i can help!"
   },
   "blog": {
-    "Writing": "Writing"
+    "Writing": "Writing",
+    "Categories":"Categories",
+    
+    "AboutMe":"About me",
+    "PostSideBarDescOne": "Hello and thanks for visiting! My name is",
+    "PostSideBarDescTwo": "Mohammad Seyedabadi.",
+    "PostSideBarDescThree": "I'm a software developer who creates open-source projects and writes about code.",
+    "PostDetails":"Post Details",
+    "Published":"Published",
+    "Category":"Category",
+    "Tags":"Tags",
+    "Newsletter":"Newsletter",
+    "PostSideBarDescFour":"Get updates when I write something new! No spam, I respect your inbox.",
+    "SubscribeToTheNewsletter":"Subscribe to the Newsletter"
   },
   "Footer": {
     "LinkedIn": "LinkedIn",

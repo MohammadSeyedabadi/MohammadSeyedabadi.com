@@ -1,20 +1,22 @@
-import Link from 'next/link'
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 export default function BlogSidebar() {
+  const t = useTranslations("blog");
   return (
     <aside className="post-sidebar">
       <div className="post-sidebar-card">
-        <h2>Categories</h2>
+        <h2>{t("Categories")}</h2>
         <div className="list">
           <Link href="/" className="category">
-            <div className="name">category name</div>
+            <div className="name">نام دسته بندی</div>
             <div className="count">1</div>
           </Link>
         </div>
       </div>
 
       <div className="post-sidebar-card">
-        <h2>Tags</h2>
+        <h2>{t("Tags")}</h2>
         <div className="tags">
           <Link href="/" className="tag">
             tag name
@@ -22,5 +24,5 @@ export default function BlogSidebar() {
         </div>
       </div>
     </aside>
-  )
+  );
 }

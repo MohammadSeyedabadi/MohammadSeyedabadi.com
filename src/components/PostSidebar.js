@@ -2,17 +2,33 @@
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
-export default function PostSidebar({ post }) {
+export default function PostSidebar({ post, translation }) {
   const { ariaActive } = useContext(ThemeContext);
-  const { title, slug, image, date } = post;
+  const { lang, title, slug, image, date, category, tags } = post;
+  const formattedDate = new Date(date).toLocaleDateString(
+    lang === "fa" ? "fa-IR" : "en-US",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }
+  );
 
-  const formattedDate = new Date(date).toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  const {
+    AboutMe,
+    PostSideBarDescOne,
+    PostSideBarDescTwo,
+    PostSideBarDescThree,
+    PostDetails,
+    Published,
+    Category,
+    Tags,
+    Newsletter,
+    PostSideBarDescFour,
+    SubscribeToTheNewsletter,
+  } = translation;
 
   return (
     <aside className="post-sidebar">
@@ -26,7 +42,7 @@ export default function PostSidebar({ post }) {
       </div>
 
       <div className="post-sidebar-card">
-        <h2>About me</h2>
+        <h2>{AboutMe}</h2>
         <Image
           src="/images/me2.jpg"
           width={256}
@@ -46,53 +62,51 @@ export default function PostSidebar({ post }) {
           style={ariaActive ? { display: "none" } : null}
         />
         <p>
-          Hello and thanks for visiting! My name is{" "}
-          <Link href="/me">Mohammad seyedabadi</Link>, and this is my website
-          and digital garden.
+          {PostSideBarDescOne} <Link href="/me">{PostSideBarDescTwo}</Link>
         </p>
-        <p>
-          I'm a software developer who creates open-source projects and writes
-          about code. This site is and has always been free of ads, trackers,
-          social media, affiliates, and sponsored posts.
-        </p>
+        <p>{PostSideBarDescThree}</p>
       </div>
 
       <div className="post-sidebar-card">
-        <h2>Post Details</h2>
+        <h2>{PostDetails}</h2>
         <ul>
-          <li>Published {formattedDate}</li>
+          <li>
+            <strong>{Published}</strong>: {formattedDate}
+          </li>
         </ul>
 
         <div>
-          <h2>Category</h2>
+          <h2>{Category}</h2>
           <ul>
             <li>
-              <Link href="/">Front end</Link>
+              <Link href="/">{category}</Link>
             </li>
           </ul>
         </div>
 
-        <h2>Tags</h2>
+        <h2>{Tags}</h2>
         <div className="tags">
-          <Link href="/" className="tag">
-            ReactJS
-          </Link>
+          {tags.map((tag) => {
+            return (
+              <Link href="/" className="tag">
+                {tag}
+              </Link>
+            );
+          })}
         </div>
       </div>
 
-      <div className="post-sidebar-card">
-        <h2>Newsletter</h2>
-        <p>
-          Get updates when I write something new! No spam, I respect your inbox.
-        </p>
-        <p>
+      <div className="post-sidebar-card" style={{ opacity: "0.5" }}>
+        <h2>{Newsletter}</h2>
+        <p>{PostSideBarDescFour}</p>
+        <p style={{ pointerEvents: "none", cursor: "default" }}>
           <a
             href="/"
             target="_blank"
             rel="noopener noreferrer"
             className="button highlighted"
           >
-            Subscribe to the Newsletter
+            {SubscribeToTheNewsletter}
           </a>
         </p>
       </div>

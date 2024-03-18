@@ -12,7 +12,7 @@ import Giscus from "@giscus/react";
 
 import TitleIcon from "@/assets/TitleIcon";
 
-export default function PostTemplate({ post }) {
+export default function PostTemplate({ post, translation }) {
   const language = useParams().locale;
   const { ariaActive } = useContext(ThemeContext);
   const { title, slug, image } = post;
@@ -131,7 +131,7 @@ export default function PostTemplate({ post }) {
               loading="lazy"
             />
           </div>
-          <PostSidebar post={post} />
+          <PostSidebar post={post} translation={translation} />
         </div>
       </div>
     </>

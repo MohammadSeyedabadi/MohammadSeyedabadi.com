@@ -81,6 +81,15 @@ export default function PostTemplate({ post }) {
         </div>
       );
     },
+
+    a(anchor) {
+      const { node } = anchor;
+      return (
+        <a href={node.properties.href} target="_blank" rel="noreferrer">
+          {node.children[0].value}
+        </a>
+      );
+    },
   };
 
   return (

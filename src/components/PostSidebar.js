@@ -71,24 +71,19 @@ export default function PostSidebar({ post, translation }) {
         <h2>{PostDetails}</h2>
         <ul>
           <li>
-            <strong>{Published}</strong>: {formattedDate}
+            <strong>{Published}:</strong> {formattedDate}
+          </li>
+          <li>
+            <strong>{Category}:</strong>{" "}
+            <Link href={`/categories/${category[1]}`}>{category[0]}</Link>
           </li>
         </ul>
 
-        <div>
-          <h2>{Category}</h2>
-          <ul>
-            <li>
-              <Link href="/">{category}</Link>
-            </li>
-          </ul>
-        </div>
-
-        <h2>{Tags}</h2>
+        <h2>{Tags}:</h2>
         <div className="tags">
           {tags.map((tag) => {
             return (
-              <Link href="/" className="tag">
+              <Link key={tag} href="/" className="tag">
                 {tag}
               </Link>
             );

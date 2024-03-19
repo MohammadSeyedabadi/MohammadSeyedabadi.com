@@ -2,10 +2,26 @@ import config from "@/utils/config";
 import Hero from "@/components/Hero";
 import TicTacToe from "@/components/games/Tic Tac Toe/TicTocToe";
 
-export const metadata = {
-  title: `Let's play some game | ${config.siteTitle}`,
-  description: "Let's play some game",
-};
+// export const metadata = {
+//   title: `Let's play some game | ${config.siteTitle}`,
+//   description: "Let's play some game",
+// };
+
+export async function generateMetadata({ params }) {
+  const { locale, slug } = params;
+
+  return {
+    title: `${
+      locale == "en"
+        ? `Let's play some game | ${config.enSiteTitle}`
+        : `بیایید کمی بازی کنیم | ${config.faSiteTitle}`
+    }`,
+    description:
+      locale == "en"
+        ? "Let's play some game."
+        : "بیایید کمی بازی کنیم.",
+  };
+}
 
 export default function Game() {
   return (

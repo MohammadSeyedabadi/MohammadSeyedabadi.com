@@ -38,19 +38,19 @@
   },
   "blog": {
     "Writing": "Writing",
-    "Categories":"Categories",
-    
-    "AboutMe":"About me",
+    "Categories": "Categories",
+
+    "AboutMe": "About me",
     "PostSideBarDescOne": "Hello and thanks for visiting! My name is",
     "PostSideBarDescTwo": "Mohammad Seyedabadi.",
     "PostSideBarDescThree": "I'm a software developer who creates open-source projects and writes about code.",
-    "PostDetails":"Post Details",
-    "Published":"Published",
-    "Category":"Category",
-    "Tags":"Tags",
-    "Newsletter":"Newsletter",
-    "PostSideBarDescFour":"Get updates when I write something new! No spam, I respect your inbox.",
-    "SubscribeToTheNewsletter":"Subscribe to the Newsletter"
+    "PostDetails": "Post Details",
+    "Published": "Published",
+    "Category": "Category",
+    "Tags": "Tags",
+    "Newsletter": "Newsletter",
+    "PostSideBarDescFour": "Get updates when I write something new! No spam, I respect your inbox.",
+    "SubscribeToTheNewsletter": "Subscribe to the Newsletter"
   },
   "Footer": {
     "LinkedIn": "LinkedIn",
@@ -58,5 +58,13 @@
   },
   "category": {
     "categoryOne": "front-end"
+  },
+  "game": {
+    "game": "Game",
+    "descOne": "Here is the game that i was recently work on. the name of the game is tic tac toe. Right now it is impossible to win and the best result that you would get is a Tie! but i will definitely make it more fun with some more features :))",
+    "youWin": "You win!",
+    "youLose": "You lose.",
+    "tieGame": "Tie Game!",
+    "replay": "Replay"
   }
 }

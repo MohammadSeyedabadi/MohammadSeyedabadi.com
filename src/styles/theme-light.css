@@ -27,7 +27,7 @@
   --inline-code-background-color: var(--gray-0);
   --highlight-color: var(--green);
   --navbar: var(--gray-2);
-  --navabar-02:rgba(255, 255, 255, 0.708);
+  --navabar-02: rgba(255, 255, 255, 0.708);
   --navbar-border: var(--blue-1);
   --navbar-color: var(--gray-8);
   --navbar-color-hover: var(--gray-9);
@@ -41,4 +41,6 @@
 
   --scrollbar-color: var(--gray-3);
   --scrollbar-track: var(--gray-4);
+
+  --endgame-text: black;
 }

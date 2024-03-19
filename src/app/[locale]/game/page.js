@@ -1,6 +1,7 @@
 import config from "@/utils/config";
 import Hero from "@/components/Hero";
 import TicTacToe from "@/components/games/Tic Tac Toe/TicTocToe";
+import { useTranslations } from "next-intl";
 
 // export const metadata = {
 //   title: `Let's play some game | ${config.siteTitle}`,
@@ -14,40 +15,40 @@ export async function generateMetadata({ params }) {
     title: `${
       locale == "en"
         ? `Let's play some game | ${config.enSiteTitle}`
-        : `بیایید کمی بازی کنیم | ${config.faSiteTitle}`
+        : `بیایید یکم بازی کنیم | ${config.faSiteTitle}`
     }`,
     description:
-      locale == "en"
-        ? "Let's play some game."
-        : "بیایید کمی بازی کنیم.",
+      locale == "en" ? "Let's play some game." : "بیایید کمی بازی کنیم.",
   };
 }
 
 export default function Game() {
+  const t = useTranslations("game");
+  const translation = {
+    youWin: t("youWin"),
+    youLose: t("youLose"),
+    tieGame: t("tieGame"),
+    replay: t("replay"),
+  };
   return (
     <>
       <div className="container">
         <div className="grid">
           <div className="article-content">
-            <Hero title="Game" />
+            <Hero title={t("game")} />
 
             <section className="segment small">
               <div className="post-content">
-                <p>
-                  Here is the game that i was recently work on. the name of the
-                  game is tic tac toe. Right now it is impossible to win and the
-                  best result that you would get is a Tie! but i will definitely
-                  make it more fun with some more features :))
-                </p>
+                <p>{t("descOne")}</p>
               </div>
             </section>
           </div>
-          <TicTacToe />
-          <div className="endgame">
+          <TicTacToe translation={translation} />
+          {/* <div className="endgame">
             <div className="text">
               <button className="Replay">Replay</button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

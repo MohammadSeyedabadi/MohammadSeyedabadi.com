@@ -2,7 +2,8 @@
 import { useEffect } from "react";
 import S from "./tictactoe.module.css";
 
-export default function TicTacToe() {
+export default function TicTacToe({ translation }) {
+  const { youWin, youLose, tieGame, replay } = translation;
   useEffect(() => {
     var origBoard;
     const huPlayer = "O";
@@ -20,7 +21,10 @@ export default function TicTacToe() {
     const replayBtn = document.querySelector(".Replay");
     const cells = document.querySelectorAll(".cell");
     startGame();
-    replayBtn.addEventListener("click", startGame);
+    replayBtn.addEventListener("click", () => {
+      startGame();
+      console.log("here");
+    });
     function startGame() {
       document.querySelector(".endgame").style.display = "none";
       replayBtn.style.display = "none";
@@ -71,7 +75,7 @@ export default function TicTacToe() {
       for (var i = 0; i < cells.length; i++) {
         cells[i].removeEventListener("click", turnClick, false);
       }
-      declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
+      declareWinner(gameWon.player == huPlayer ? youWin : youLose);
     }
 
     function declareWinner(who) {
@@ -94,7 +98,7 @@ export default function TicTacToe() {
           cells[i].style.backgroundColor = "green";
           cells[i].removeEventListener("click", turnClick, false);
         }
-        declareWinner("Tie Game!");
+        declareWinner(tieGame);
         return true;
       }
       return false;
@@ -155,7 +159,7 @@ export default function TicTacToe() {
     <aside className="post-sidebar">
       <div className="post-sidebar-card">
         <h2></h2>
-        <table className={S.tabel}>
+        <table className={S.table}>
           <tbody>
             <tr className={S.tr}>
               <td className={`cell ${S.td}`} id="0"></td>
@@ -178,10 +182,10 @@ export default function TicTacToe() {
             </tr>
           </tbody>
         </table>
-        <div className="endgame">
-          <div className="text"></div>
+        <div className={`endgame ${S.endgame}`}>
+          <div className={`text ${S.text}`}></div>
+          <button className="Replay">{replay}</button>
         </div>
-        {/* <button onClick="startGame()">Replay</button> */}
       </div>
     </aside>
   );

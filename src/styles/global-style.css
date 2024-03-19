@@ -543,7 +543,6 @@ a.button img {
   margin-right: 0.25rem;
 }
 
-
 button.active,
 button:hover,
 a.button:hover {
@@ -552,7 +551,7 @@ a.button:hover {
 }
 
 a:active,
-button:active{
+button:active {
   transform: scale(0.97);
 }
 /* Navigation */
@@ -711,6 +710,18 @@ dialog {
   color: var(--navbar-color-hover);
   padding-bottom: 1px;
   border-bottom: 2px solid var(--rainbow-4);
+}
+
+.nav--game:hover {
+  color: var(--navbar-color-hover);
+  padding-bottom: 1px;
+  border-bottom: 2px solid var(--orange);
+}
+
+.active--link .nav--game {
+  color: var(--navbar-color-hover);
+  padding-bottom: 1px;
+  border-bottom: 2px solid var(--orange);
 }
 
 /* Navigation */
@@ -1597,7 +1608,7 @@ a.category.active .count {
   }
 }
 
-.text-white{
+.text-white {
   color: var(--font-color-heading);
 }
 

@@ -5,10 +5,24 @@ import TitleIcon from "@/assets/TitleIcon";
 import AboutSidebar from "@/components/AboutSidebar";
 import Hero from "@/components/Hero";
 
-export const metadata = {
-  title: `About me | ${config.siteTitle}`,
-  description: `Read more about ${config.siteTitle}`,
-};
+// export const metadata = {
+//   title: `About me | ${config.siteTitle}`,
+//   description: `Read more about ${config.siteTitle}`,
+// };
+
+export async function generateMetadata({ params }) {
+  const { locale, slug } = params;
+
+  return {
+    title: `${locale == "en" ? "About me" : "درباره من"} | ${
+      locale == "en" ? config.enSiteTitle : config.faSiteTitle
+    }`,
+    description:
+      locale == "en"
+        ? `Read more about ${config.enSiteTitle}`
+        : `درباره‌ی ${config.enSiteTitle} بیشتر بخوانید`,
+  };
+}
 
 export default function AboutMe() {
   const t = useTranslations("me");

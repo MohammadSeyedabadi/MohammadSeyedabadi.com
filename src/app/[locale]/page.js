@@ -6,10 +6,19 @@ import Heading from "@/components/Heading";
 import DecorationPhoto from "@/components/DecorationPhoto";
 import PostPreview from "@/components/PostPreview";
 
-export const metadata = {
-  title: config.siteTitle,
-  description: config.description,
-};
+// export const metadata = {
+//   title: config.enSiteTitle,
+//   description: config.description,
+// };
+
+export async function generateMetadata({ params }) {
+  const { locale, slug } = params;
+
+  return {
+    title: locale == "en" ? config.enSiteTitle : config.faSiteTitle,
+    description: locale == "en" ? config.enDescription : config.faDescription,
+  };
+}
 
 export default function Index() {
   const t = useTranslations("Index");

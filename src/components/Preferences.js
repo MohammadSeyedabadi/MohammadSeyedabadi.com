@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
 import { useParams } from "next/navigation";
-import { usePathname } from "next/navigation";
+import { usePathname } from "../navigation";
 import { useRouter } from "../navigation";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
@@ -14,15 +14,7 @@ export default function Preferences() {
   const router = useRouter();
 
   function changeLang(L) {
-    // L => Language
-    const pathnameSlashSplitArray = pathname.split("/");
-    const pathnameWithOutLocale = pathnameSlashSplitArray
-      .slice(2, pathnameSlashSplitArray.length)
-      .join("/");
-    console.log(pathnameWithOutLocale);
-    router.replace(`/${pathnameWithOutLocale}`, {
-      locale: L,
-    }); //TODO: write regx or logic with shift slice join ...
+    router.replace(pathname, { locale: L });
   }
 
   const { systemState, setDarkTheme, setLightTheme, setSystemTheme, active } =

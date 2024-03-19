@@ -55,5 +55,8 @@
   "Footer": {
     "LinkedIn": "لینکدین",
     "GitHub": "گیتهاب"
+  },
+  "category": {
+    "categoryOne": "فرانت-اند"
   }
 }

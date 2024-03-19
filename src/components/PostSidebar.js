@@ -75,7 +75,9 @@ export default function PostSidebar({ post, translation }) {
           </li>
           <li>
             <strong>{Category}:</strong>{" "}
-            <Link href={`/categories/${category[1]}`}>{category[0]}</Link>
+            <Link href={`/categories/${category.replace(/ /g, "-")}`}>
+              {category}
+            </Link>
           </li>
         </ul>
 

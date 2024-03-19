@@ -55,5 +55,8 @@
   "Footer": {
     "LinkedIn": "LinkedIn",
     "GitHub": "GitHub"
+  },
+  "category": {
+    "categoryOne": "front-end"
   }
 }

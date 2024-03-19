@@ -1,6 +1,19 @@
 import PostTemplate from "@/templates/post";
 import { getAllPosts, getPostData } from "@/utils/posts-util";
 import { useTranslations } from "next-intl";
+import config from "@/utils/config";
+
+export async function generateMetadata({ params }) {
+  const { locale, slug } = params;
+  const postData = getPostData(slug, locale);
+
+  return {
+    title: `${postData.title} | ${
+      locale == "en" ? config.siteTitle : config.faSiteTitle
+    }`,
+    description: postData.excerpt,
+  };
+}
 
 export const dynamic = "force-dynamic";
 

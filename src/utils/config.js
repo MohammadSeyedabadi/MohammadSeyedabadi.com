@@ -1,4 +1,5 @@
 const config = {
+  faSiteTitle: "محمد سیدآبادی",
   siteTitle: 'Mohammad Seyedabadi',
   siteUrl: 'https://www.mohammadseyedabadi.com',
   // siteLogo: '/logo.png',

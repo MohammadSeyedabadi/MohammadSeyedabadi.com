@@ -1190,7 +1190,14 @@ a.post span {
   font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
+}
+
+html[lang="en"] a.post span {
   margin-left: auto;
+}
+
+html[lang="fa"] a.post span {
+  margin-right: auto;
 }
 
 @media screen and (min-width: 700px) {
@@ -1207,7 +1214,6 @@ a.post span {
   /* a.post span {
     display: block;
   } */
-
 
   a.post h3 {
     font-size: 1.1rem;
@@ -1745,14 +1751,13 @@ p.text-medium {
 
 .huPlayer {
   background-color: var(--huPlayer-bg-color);
- 
 }
 
 .aiPlayer {
   background-color: var(--aiPlayer-bg-color);
 }
 
-.tieGame{
+.tieGame {
   background-color: var(--tieGame-bg-color);
 }
 

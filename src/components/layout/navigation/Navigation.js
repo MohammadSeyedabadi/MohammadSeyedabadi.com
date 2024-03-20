@@ -54,7 +54,7 @@ export default function Navigation() {
               </span>
             </Link>
           </span>
-          <span
+          {/* <span
             className={
               pathname === "/fa/contact" || pathname === "/en/contact"
                 ? "active--link"
@@ -66,7 +66,7 @@ export default function Navigation() {
                 {lang === "en" ? "Contact" : "تماس"}
               </span>
             </Link>
-          </span>
+          </span> */}
 
           <span
             className={

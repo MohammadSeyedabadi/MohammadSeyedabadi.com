@@ -21,18 +21,16 @@ export default function TicTacToe({ translation }) {
     const replayBtn = document.querySelector(".Replay");
     const cells = document.querySelectorAll(".cell");
     startGame();
-    replayBtn.addEventListener("click", () => {
-      startGame();
-      console.log("here");
-    });
+    replayBtn.addEventListener("click", startGame);
     function startGame() {
       document.querySelector(".endgame").style.display = "none";
       replayBtn.style.display = "none";
-      console.log("endgame");
+
       origBoard = Array.from(Array(9).keys());
       for (var i = 0; i < cells.length; i++) {
         cells[i].innerText = "";
-        cells[i].style.removeProperty("background-color");
+        // cells[i].style.removeProperty("background-color");
+        cells[i].classList.remove("huPlayer", "aiPlayer", "tieGame");
         cells[i].addEventListener("click", turnClick, false);
       }
     }
@@ -69,8 +67,13 @@ export default function TicTacToe({ translation }) {
 
     function gameOver(gameWon) {
       for (let index of winCombos[gameWon.index]) {
-        document.getElementById(index).style.backgroundColor =
-          gameWon.player == huPlayer ? "blue" : "red";
+        // document.getElementById(index).style.backgroundColor =
+        //   gameWon.player == huPlayer ? "blue" : "red";
+        document
+          .getElementById(index)
+          .classList.add(
+            `${gameWon.player == huPlayer ? "huPlayer" : "aiPlayer"}`
+          );
       }
       for (var i = 0; i < cells.length; i++) {
         cells[i].removeEventListener("click", turnClick, false);
@@ -95,7 +98,7 @@ export default function TicTacToe({ translation }) {
     function checkTie() {
       if (emptySquares().length == 0) {
         for (var i = 0; i < cells.length; i++) {
-          cells[i].style.backgroundColor = "green";
+          cells[i].classList.add("tieGame");
           cells[i].removeEventListener("click", turnClick, false);
         }
         declareWinner(tieGame);

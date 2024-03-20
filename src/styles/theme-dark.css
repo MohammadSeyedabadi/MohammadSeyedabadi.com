@@ -42,5 +42,9 @@
   --scrollbar-color: var(--gray-65);
   --scrollbar-track: var(--gray-7);
 
+  --td-bg-color:var(--gray-2);
   --endgame-text: var(--gray-2);
+  --huPlayer-bg-color: var(--background-color);
+  --aiPlayer-bg-color: var(--red-5);
+  --tieGame-bg-color: var(--green-3);
 }

@@ -7,6 +7,7 @@
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-size: 2rem;
   cursor: pointer;
+  color: var(--td-bg-color);
 }
 
 /* .table {
@@ -47,4 +48,8 @@
   /* border-radius: 5px; */
   color: var(--endgame-text);
   font-size: 1.3em;
+}
+
+.cell{
+  color: red;
 }

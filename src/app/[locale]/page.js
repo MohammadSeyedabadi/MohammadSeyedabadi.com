@@ -21,19 +21,22 @@ export async function generateMetadata({ params }) {
 }
 
 export default function Index() {
-  const t = useTranslations("Index");
+  const indexPage = useTranslations("Index");
+  const gamePage = useTranslations("game");
   return (
     <>
       <div className="container">
         <div className="hero-wrapper">
-          <Hero title={t("descOne")} index>
+          <Hero title={indexPage("descOne")} index>
             <p className="hero-description small width">
-              {t("descTwo")}
+              {indexPage("descTwo")}
               <br />
               <br />
-              {t("descThree")} <Link href="/projects">{t("descFour")}</Link>{" "}
-              {t("descFive")} <Link href="/blog">{t("descSix")}</Link>{" "}
-              {t("descSeven")}
+              {indexPage("descThree")}{" "}
+              <Link href="/projects">{indexPage("descFour")}</Link>{" "}
+              {indexPage("descFive")}{" "}
+              <Link href="/blog">{indexPage("descSix")}</Link>{" "}
+              {indexPage("descSeven")}
             </p>
           </Hero>
           <div className="decoration">
@@ -42,9 +45,18 @@ export default function Index() {
         </div>
       </div>
       <div className="container">
-        <section className="segment large">
-          <Heading title={t("projects")} slug="/projects" />
+        <section className="segment first">
+          <Heading title={indexPage("projects")} slug="/projects" />
           <PostPreview />
+        </section>
+        <section className="segment large">
+          <Heading title={gamePage("games")} slug="/game" />
+          <div className="posts newspaper">
+            <Link className="post" href="/game">
+              <h3>Tic Tac Toe</h3>
+              <span>single-player</span>
+            </Link>
+          </div>
         </section>
       </div>
     </>

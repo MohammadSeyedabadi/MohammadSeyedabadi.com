@@ -81,20 +81,6 @@ export default function Navigation() {
               </span>
             </Link>
           </span>
-
-          <span
-            className={
-              pathname === "/fa/game" || pathname === "/en/game"
-                ? "active--link"
-                : ""
-            }
-          >
-            <Link href="/game" className="nav--link nav--game">
-              <span className="nav__name">
-                {lang === "en" ? "Game" : "بازی"}
-              </span>
-            </Link>
-          </span>
         </div>
       </nav>
     </header>

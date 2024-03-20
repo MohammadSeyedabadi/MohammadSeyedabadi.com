@@ -44,11 +44,6 @@ export default function Game() {
             </section>
           </div>
           <TicTacToe translation={translation} />
-          {/* <div className="endgame">
-            <div className="text">
-              <button className="Replay">Replay</button>
-            </div>
-          </div> */}
         </div>
       </div>
     </>

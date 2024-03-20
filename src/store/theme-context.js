@@ -11,7 +11,6 @@ export function ThemeContextProvider(props) {
   const [ariaActive, setAriaActive] = useState(true);
   const [systemState, setsystemState] = useState(true);
 
-  
   function handleKeypress(e) {
     if (e.code === "Enter") {
       changeTheme();
@@ -45,6 +44,14 @@ export function ThemeContextProvider(props) {
     } else {
       setThemeDatails("dark-theme", true);
     }
+
+    prefersLightTheme.addEventListener("change", ({ matches }) => {
+      if (matches) {
+        setLightTheme();
+      } else {
+        setDarkTheme();
+      }
+    });
   }
 
   function setThemeDatails(theme, SystemTheme) {
@@ -64,7 +71,7 @@ export function ThemeContextProvider(props) {
           .querySelector(":root")
           .setAttribute("data-theme", "light-theme");
       }
-    } else if(SystemTheme === true) {
+    } else if (SystemTheme === true) {
       if (theme === "dark-theme") {
         setActive(false);
         setAriaActive(true);

@@ -161,7 +161,7 @@ export default function TicTacToe({ translation }) {
   return (
     <aside className="post-sidebar">
       <div className="post-sidebar-card">
-        <h2></h2>
+        <h2>Tic Tac Toe</h2>
         <table className={S.table}>
           <tbody>
             <tr className={S.tr}>

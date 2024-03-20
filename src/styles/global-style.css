@@ -458,6 +458,10 @@ img {
   margin-bottom: 2rem;
 }
 
+.segment.short{
+  max-width: 780px;
+}
+
 .segment.small {
   margin-top: 1rem;
   margin-bottom: 1rem;

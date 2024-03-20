@@ -12,7 +12,7 @@ export default function DecorationPhoto() {
           alt="RAM Ram"
           className="image hero-image"
           title="RAM Ram"
-          width={440}
+          width={350}
           height={350}
           quality={100}
           style={{ transform: "scaleX(-1)" }}
@@ -23,7 +23,7 @@ export default function DecorationPhoto() {
           alt="RAM Ram"
           className="image hero-image"
           title="RAM Ram"
-          width={440}
+          width={350}
           height={350}
           quality={100}
         />

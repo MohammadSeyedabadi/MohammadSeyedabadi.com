@@ -4,7 +4,10 @@ title: "نحوه ایجاد یک منوی چند سطحی در ریکت"
 date: "2023-11-19"
 image: how-create-multilevel-dropdown-menu-react.png
 excerpt: منوهای کشویی چند سطحی جزء اصلی طراحی وب هستند. آنها با توانایی ارائه چندین گزینه برای انتخاب، نوارهای ناوبری را پویا و سازماندهی می کنند.
-category: "فرانت اند"
+# category: ["فرانت اند", "front-end"]
+category:
+  name: Front End
+  slug: front-end
 tags: ["فرانت اند", "الگوریتم", "ریکت جی اس"]
 ---
 

@@ -458,7 +458,7 @@ img {
   margin-bottom: 2rem;
 }
 
-.segment.short{
+.segment.short {
   max-width: 780px;
 }
 
@@ -1184,7 +1184,15 @@ a.post time {
   font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
+  /* margin-left: auto; */
+}
+
+html[lang="en"] a.post time {
   margin-left: auto;
+}
+
+html[lang="fa"] a.post time {
+  margin-right: auto;
 }
 
 a.post span {

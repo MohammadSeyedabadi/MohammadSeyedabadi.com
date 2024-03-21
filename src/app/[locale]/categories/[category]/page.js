@@ -27,6 +27,7 @@ export default async function category({ params }) {
       return <Post key={post.title} post={post} />;
     }
   });
+  console.log(CategoryPosts.length);
 
   return (
     <>

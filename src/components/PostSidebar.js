@@ -75,9 +75,7 @@ export default function PostSidebar({ post, translation }) {
           </li>
           <li>
             <strong>{Category}:</strong>{" "}
-            <Link href={`/categories/${category.slug}`}>
-              {category.name}
-            </Link>
+            <Link href={`/categories/${category.slug}`}>{category.name}</Link>
           </li>
         </ul>
 
@@ -85,8 +83,8 @@ export default function PostSidebar({ post, translation }) {
         <div className="tags">
           {tags.map((tag) => {
             return (
-              <Link key={tag} href="/" className="tag">
-                {tag}
+              <Link key={tag.name} href={`/tags/${tag.slug}`} className="tag">
+                {tag.name}
               </Link>
             );
           })}

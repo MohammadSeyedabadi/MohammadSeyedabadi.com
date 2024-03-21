@@ -24,11 +24,11 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function Blog() {
+export default async function Blog({params}) {
   const allPosts = await getData();
   return (
     <>
-      <SidebarLayout>
+      <SidebarLayout params={params}>
         {/* <Hero title="Writing" /> */}
         <Posts allPosts={allPosts} />
       </SidebarLayout>

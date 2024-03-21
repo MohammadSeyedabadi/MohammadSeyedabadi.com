@@ -6,7 +6,7 @@ image: how-create-multilevel-dropdown-menu-react.png
 excerpt: منوهای کشویی چند سطحی جزء اصلی طراحی وب هستند. آنها با توانایی ارائه چندین گزینه برای انتخاب، نوارهای ناوبری را پویا و سازماندهی می کنند.
 
 category:
-  name: Front End
+  name: فرانت اند
   slug: front-end
 tags:
   - name: فرانت اند

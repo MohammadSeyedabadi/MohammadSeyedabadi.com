@@ -21,36 +21,41 @@ export async function generateMetadata({ params }) {
 export default async function category({ params }) {
   const allPosts = await getData();
   const { locale, category } = params;
+  let categoryName;
 
-  const CategoryPosts = allPosts.map((post) => {
-    if (locale == post.lang && category == post.category.slug) {
+  const categoryPosts = allPosts
+    .filter((post) => {
+      if (locale == post.lang && category == post.category.slug) {
+        if (!categoryName) {
+          categoryName = post.category.name;
+        }
+        return true;
+      }
+    })
+    .map((post) => {
       return <Post key={post.title} post={post} />;
-    }
-  });
-  console.log(CategoryPosts.length);
+    });
 
   return (
-    <>
-      <section className="container markdown-content">
-        <div className="grid">
-          <div className="article-content">
-            <Hero
-              subTitle={
-                locale == "en"
-                  ? " posts categorized as:"
-                  : " پست دسته بندی شده به عنوان:"
-              }
-              highlight={CategoryPosts.length / 2}
-              title={category}
-            />
-            <div className="segment">
-              <div className="posts">{CategoryPosts}</div>
-            </div>
+    <section className="container markdown-content">
+      <div className="grid">
+        <div className="article-content">
+          <Hero
+            subTitle={
+              locale == "en"
+                ? " posts categorized as:"
+                : " پست دسته بندی شده با:"
+            }
+            highlight={categoryPosts.length}
+            title={categoryName}
+          />
+          <div className="segment">
+            <div className="posts">{categoryPosts}</div>
           </div>
-          <div className="sidebar-content">{/* <BlogSidebar /> */}</div>
         </div>
-      </section>
-    </>
+        <div className="sidebar-content">{/* <BlogSidebar /> */}</div>
+      </div>
+    </section>
   );
 }
 

@@ -52,11 +52,9 @@ export default function PostTemplate({ post, translation }) {
         const image = node.children[0];
         return (
           <div>
-            <Image
+            <img
               src={`/images/posts/${slug}/${image.properties.src}`}
               alt={image.properties.alt}
-              width={600}
-              height={300}
               style={{ marginBottom: "20px", maxWidth: "100%" }}
             />
           </div>

@@ -1520,6 +1520,7 @@ a.category.active .count {
 }
 
 .post-image > img {
+  width: 150px;
   object-fit: contain;
 }
 

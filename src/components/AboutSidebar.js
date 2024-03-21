@@ -1,7 +1,6 @@
 "use client";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
-import Image from "next/image";
 import { useParams } from "next/navigation";
 
 export default function AboutSidebar() {
@@ -11,20 +10,14 @@ export default function AboutSidebar() {
     <aside className="post-sidebar">
       <div className="post-sidebar-card" style={{ width: "fit-content" }}>
         <h2>{lang === "en" ? "Me" : "من"}</h2>
-        <Image
+        <img
           src="/images/me2.jpg"
-          width={256}
-          height={256}
           alt="Mohammad"
-          quality={100}
           style={ariaActive ? null : { display: "none" }}
         />
-        <Image
+        <img
           src="/images/me1.jpg"
-          width={256}
-          height={256}
           alt="Mohammad"
-          quality={100}
           style={ariaActive ? { display: "none" } : null}
         />
       </div>

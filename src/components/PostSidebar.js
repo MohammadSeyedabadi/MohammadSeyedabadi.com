@@ -1,7 +1,6 @@
 "use client";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
-import Image from "next/image";
 import { Link } from "@/navigation";
 
 export default function PostSidebar({ post, translation }) {
@@ -33,32 +32,21 @@ export default function PostSidebar({ post, translation }) {
   return (
     <aside className="post-sidebar">
       <div className="post-image">
-        <Image
-          src={`/images/posts/${slug}/${image}`}
-          width={150}
-          height={150}
-          alt={title}
-        />
+        <img src={`/images/posts/${slug}/${image}`} alt={title} />
       </div>
 
       <div className="post-sidebar-card">
         <h2>{AboutMe}</h2>
-        <Image
+        <img
           src="/images/me2.jpg"
-          width={256}
-          height={256}
           alt="Mohammad"
           className="sidebar-avatar"
-          quality={100}
           style={ariaActive ? null : { display: "none" }}
         />
-        <Image
+        <img
           src="/images/me1.jpg"
-          width={256}
-          height={256}
           alt="Mohammad"
           className="sidebar-avatar"
-          quality={100}
           style={ariaActive ? { display: "none" } : null}
         />
         <p>

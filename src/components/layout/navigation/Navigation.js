@@ -23,7 +23,7 @@ export default function Navigation() {
           >
             <Link href="/" className="nav--link nav--home ">
               <span className="nav__name">
-                {lang === "en" ? "Home" : "صفحه اصلی"}
+                {lang === "en" ? "Home" : "صفحه‌ی اصلی"}
               </span>
             </Link>
           </span>
@@ -36,7 +36,7 @@ export default function Navigation() {
           >
             <Link href="/me" className="nav--link nav--about">
               <span className="nav__name">
-                {lang === "en" ? "About" : "درباره من"}
+                {lang === "en" ? "About" : "درباره‌ی من"}
               </span>
             </Link>
           </span>

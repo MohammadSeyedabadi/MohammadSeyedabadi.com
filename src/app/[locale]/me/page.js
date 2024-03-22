@@ -53,13 +53,6 @@ export default function AboutMe() {
                 <p>
                   {t("descEight")}{" "}
                   <a
-                    href="/Resume/Mohammad Seyedabadi_Front-End Developer.pdf"
-                    download
-                  >
-                    {t("descNine")}
-                  </a>
-                  {t("descTen")}{" "}
-                  <a
                     href="https://github.com/MohammadSeyedabadi"
                     target="_blank"
                     rel="noreferrer"

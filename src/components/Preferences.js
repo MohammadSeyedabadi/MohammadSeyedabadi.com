@@ -35,7 +35,7 @@ export default function Preferences() {
   }, []);
   return (
     <>
-      <button data-open-modal>
+      <button data-open-modal className="small">
         {lang === "en" ? "Preferences" : "تنظیمات"}
       </button>
 
@@ -47,7 +47,7 @@ export default function Preferences() {
               style={{
                 margin: "0px 21px 0px 0px",
                 fontSize: "2rem",
-                fontWeight: "700",
+                fontWeight: "500",
               }}
             >
               {lang === "en" ? "Theme :" : "تم :"}
@@ -65,30 +65,30 @@ export default function Preferences() {
               className={`${active || systemState ? null : "active"}`}
               style={{
                 marginRight: "0.5rem",
-                fontWeight: "700",
+                fontWeight: "500",
               }}
               onClick={setDarkTheme}
             >
-              Dark
+              {lang === "en" ? "Dark" : "تاریک"}
             </button>
             <button
               className={`${active && !systemState ? "active" : null}`}
               style={{
                 marginRight: "0.5rem",
-                fontWeight: "700",
+                fontWeight: "500",
               }}
               onClick={setLightTheme}
             >
-              Light
+              {lang === "en" ? "Light" : "روشن"}
             </button>
             <button
               className={`${systemState ? "active" : null}`}
               style={{
-                fontWeight: "700",
+                fontWeight: "500",
               }}
               onClick={setSystemTheme}
             >
-              System
+              {lang === "en" ? "System" : "سیستم"}
             </button>
           </div>
 
@@ -101,7 +101,7 @@ export default function Preferences() {
               style={{
                 marginBottom: "0.2rem",
                 fontSize: "2rem",
-                fontWeight: "700",
+                fontWeight: "500",
               }}
             >
               {lang === "en" ? "Language :" : "زبان :"}
@@ -109,7 +109,7 @@ export default function Preferences() {
             <button
               style={{
                 marginRight: "0.5rem",
-                fontWeight: "700",
+                fontWeight: "500",
               }}
               onClick={() => changeLang("fa")}
             >
@@ -117,7 +117,7 @@ export default function Preferences() {
             </button>
             <button
               style={{
-                fontWeight: "700",
+                fontWeight: "500",
               }}
               onClick={() => changeLang("en")}
             >
@@ -128,7 +128,7 @@ export default function Preferences() {
             <button
               data-close-modal
               style={{
-                fontWeight: "700",
+                fontWeight: "500",
               }}
             >
               {lang === "en" ? "Close" : "بستن"}

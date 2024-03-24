@@ -12,7 +12,7 @@ export default function Post({ post }) {
 
   return (
     <>
-      <Link href={`blog/${slug}`} className="post">
+      <Link href={`/blog/${slug}`} className="post">
         <h3>{title}</h3>
         <time>{formattedDate}</time>
       </Link>

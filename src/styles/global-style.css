@@ -1526,15 +1526,12 @@ a.category.active .count {
 
 .mobile-post-image {
   margin-bottom: 1rem;
+  max-height: 50px;
+  max-width: 50px;
 }
 
 .mobile-post-image > img {
   object-fit: contain;
-}
-
-.mobile-post-image .gatsby-image-wrapper {
-  max-height: 50px;
-  max-width: 50px;
 }
 
 @media screen and (min-width: 1060px) {

@@ -1,6 +1,6 @@
 ---
 lang: "fa"
-slug: "/blog/how-create-multilevel-dropdown-menu-react"
+slug: "how-create-multilevel-dropdown-menu-react"
 title: "نحوه ایجاد یک منوی چند سطحی در ریکت"
 date: "2023-11-19"
 image: how-create-multilevel-dropdown-menu-react.png

@@ -16,7 +16,7 @@ export default function PostTemplate({ post, translation }) {
   const language = useParams().locale;
   const { ariaActive } = useContext(ThemeContext);
   const { title, slug, image } = post;
-
+  
   const customRenderers = {
     // img(image) {       // we dont want to use the default img tag which is provided by markdown, instead we want to use img() {} method, here as a parameter we path the (image) which is a object with the image data react markdown got from the markdown text, and the alt text for example is the text between [], and we use it to use the nextJS Image.
     //   return (         // here with the img() {} method everything working well but we get an error because markdown by default put images and ... inside a p tag, we can get rid of the error with the code below, in there we check if the direct child of the p tag is an image so replace it with what we want, otherwise do nothing and return the p tag with text inside it as normal.
@@ -97,10 +97,8 @@ export default function PostTemplate({ post, translation }) {
           <div className="article-content">
             <div className="post-header medium width">
               <div className="mobile-post-image">
-                <Image
+                <img
                   src={`/images/posts/${slug}/${image}`}
-                  width={75}
-                  height={75}
                   alt={title}
                 />
               </div>

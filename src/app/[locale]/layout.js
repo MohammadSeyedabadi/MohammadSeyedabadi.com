@@ -13,6 +13,7 @@ export default function LocaleLayout({ children, params: { locale } }) {
         <ThemeContextProvider>
           <CustomLayout>{children}</CustomLayout>
         </ThemeContextProvider>
+        <meta name="google-site-verification" content="QWnCAn_UxxXr7sdXLaRyjd9E1eG9lWQAnlDQ31nP0rs" />
       </body>
     </html>
   );

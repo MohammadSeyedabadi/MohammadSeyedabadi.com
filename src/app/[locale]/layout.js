@@ -6,6 +6,10 @@ import "@/styles/toggle.css";
 import CustomLayout from "@/components/layout/CustomLayout";
 import { ThemeContextProvider } from "@/store/theme-context";
 
+export const metadata = {
+  metadataBase: new URL('https://mohammadseyedabadi.com'),
+};
+
 export default function LocaleLayout({ children, params: { locale } }) {
   return (
     <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>

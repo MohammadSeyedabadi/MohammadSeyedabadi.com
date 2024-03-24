@@ -21,19 +21,23 @@ export default async function Image({ params }) {
   return new ImageResponse(
     (
       // ImageResponse JSX element
-      <div
-        style={{
-          fontSize: 128,
-          background: "white",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {params.slug}
-      </div>
+      // <div
+      //   style={{
+      //     fontSize: 128,
+      //     background: "white",
+      //     width: "100%",
+      //     height: "100%",
+      //     display: "flex",
+      //     alignItems: "center",
+      //     justifyContent: "center",
+      //   }}
+      // >
+      //   {params.slug}
+      // </div>
+      <img
+        src="/images/posts/how-create-multilevel-dropdown-menu-react/how-create-multilevel-dropdown-menu-react.png"
+        alt="web development"
+      />
     ),
     // ImageResponse options
     {

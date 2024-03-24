@@ -24,8 +24,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function Blog({params}) {
+export default async function Blog({ params }) {
   const allPosts = await getData();
+  
   return (
     <>
       <SidebarLayout params={params}>

@@ -12,33 +12,29 @@ export const size = {
 export const contentType = "image/png";
 
 // Image generation
-export default async function Image({ params }) {
-  // console.log(params,"here")
+export default async function Image() {
   // Font
-  const interSemiBold = fetch(
+  const Vazirmatn = fetch(
     new URL("/public/fonts/fonts/ttf/Vazirmatn-Black.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     (
-      // ImageResponse JSX element
-      // <div
-      //   style={{
-      //     fontSize: 128,
-      //     background: "white",
-      //     width: "100%",
-      //     height: "100%",
-      //     display: "flex",
-      //     alignItems: "center",
-      //     justifyContent: "center",
-      //   }}
-      // >
-      //   {params.slug}
-      // </div>
-      <img
-        src="/images/posts/how-create-multilevel-dropdown-menu-react/how-create-multilevel-dropdown-menu-react.png"
-        alt="web development"
-      />
+      //ImageResponse JSX element
+      <div
+        style={{
+          fontSize: 64,
+          background: "#618be1",
+          color: "white",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        Mohammad Seyedabadi
+      </div>
     ),
     // ImageResponse options
     {
@@ -48,7 +44,7 @@ export default async function Image({ params }) {
       fonts: [
         {
           name: "Vazirmatn",
-          data: await interSemiBold,
+          data: await Vazirmatn,
           style: "normal",
           weight: 400,
         },

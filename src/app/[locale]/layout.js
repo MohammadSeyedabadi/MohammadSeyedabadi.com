@@ -21,12 +21,12 @@ export const metadata = {
   },
 
   robots: {
-    index: true,
+    index: false,
     follow: true,
     nocache: true,
     googleBot: {
       index: true,
-      follow: true,
+      follow: false,
       noimageindex: true,
       "max-video-preview": -1,
       "max-image-preview": "large",

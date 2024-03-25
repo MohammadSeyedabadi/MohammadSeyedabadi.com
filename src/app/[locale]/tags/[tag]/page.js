@@ -10,6 +10,17 @@ export async function generateMetadata({ params }) {
     title: `${tag} | ${
       locale == "en" ? config.enSiteTitle : config.faSiteTitle
     }`,
+    description:
+      locale == "en"
+        ? `A list of posts tagged: ${tag}`
+        : `یک لیست از پست ها شامل تگ: ${tag}`,
+    alternates: {
+      canonical: `/tags/${tag}`,
+      languages: {
+        "en-US": `/en/tags/${tag}`,
+        "fa-IR": `/fa/tags/${tag}`,
+      },
+    },
   };
 }
 

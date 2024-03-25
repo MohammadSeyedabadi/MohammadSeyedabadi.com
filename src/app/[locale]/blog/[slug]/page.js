@@ -12,6 +12,13 @@ export async function generateMetadata({ params }) {
       locale == "en" ? config.enSiteTitleiteTitle : config.faSiteTitle
     }`,
     description: postData.excerpt,
+    alternates: {
+      canonical: `/blog/${slug}`,
+      languages: {
+        "en-US": `/en/blog/${slug}`,
+        "fa-IR": `/fa/blog/${slug}`,
+      },
+    },
   };
 }
 

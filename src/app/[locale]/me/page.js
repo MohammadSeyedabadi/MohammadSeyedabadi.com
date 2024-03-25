@@ -21,6 +21,13 @@ export async function generateMetadata({ params }) {
       locale == "en"
         ? `Read more about ${config.enSiteTitle}`
         : `درباره‌ی ${config.enSiteTitle} بیشتر بخوانید`,
+    alternates: {
+      canonical: "/me",
+      languages: {
+        "en-US": "/en/me",
+        "fa-IR": "/fa/me",
+      },
+    },
   };
 }
 

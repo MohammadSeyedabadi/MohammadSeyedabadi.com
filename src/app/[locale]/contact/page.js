@@ -21,6 +21,13 @@ export async function generateMetadata({ params }) {
       locale == "en"
         ? "Send me your messages!"
         : "پیام خود را برای من ارسال کنید!",
+    alternates: {
+      canonical: "/contact",
+      languages: {
+        "en-US": "/en/contact",
+        "fa-IR": "/fa/contact",
+      },
+    },
   };
 }
 

@@ -7,7 +7,24 @@ import CustomLayout from "@/components/layout/CustomLayout";
 import { ThemeContextProvider } from "@/store/theme-context";
 
 export const metadata = {
-  metadataBase: new URL('https://mohammadseyedabadi.com'),
+  metadataBase: new URL("https://www.mohammadseyedabadi.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en",
+      "fa-IR": "/fa",
+    },
+  },
+
+  openGraph: {
+    images: [
+      {
+        url: "https://www.mohammadseyedabadi.com/opengraph-image.jpg",
+        width: 800,
+        height: 600,
+      },
+    ],
+  },
 };
 
 export default function LocaleLayout({ children, params: { locale } }) {
@@ -17,7 +34,10 @@ export default function LocaleLayout({ children, params: { locale } }) {
         <ThemeContextProvider>
           <CustomLayout>{children}</CustomLayout>
         </ThemeContextProvider>
-        <meta name="google-site-verification" content="QWnCAn_UxxXr7sdXLaRyjd9E1eG9lWQAnlDQ31nP0rs" />
+        <meta
+          name="google-site-verification"
+          content="QWnCAn_UxxXr7sdXLaRyjd9E1eG9lWQAnlDQ31nP0rs"
+        />
       </body>
     </html>
   );

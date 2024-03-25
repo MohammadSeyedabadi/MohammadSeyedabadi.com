@@ -21,12 +21,19 @@ export async function generateMetadata({ params }) {
       locale == "en"
         ? "A list of all my posts."
         : "یک لیست از همه‌ی پست‌های من.",
+    alternates: {
+      canonical: "/blog",
+      languages: {
+        "en-US": "/en/blog",
+        "fa-IR": "/fa/blog",
+      },
+    },
   };
 }
 
 export default async function Blog({ params }) {
   const allPosts = await getData();
-  
+
   return (
     <>
       <SidebarLayout params={params}>

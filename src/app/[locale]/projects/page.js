@@ -21,6 +21,13 @@ export async function generateMetadata({ params }) {
       locale == "en"
         ? "A highlight of my open-source work"
         : "یک هایلایت از پروژه‌های اپن سورس من",
+    alternates: {
+      canonical: "/projects",
+      languages: {
+        "en-US": "/en/projects",
+        "fa-IR": "/fa/projects",
+      },
+    },
   };
 }
 

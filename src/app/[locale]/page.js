@@ -39,9 +39,7 @@ export default function Index() {
               {indexPage("descSeven")}
             </p>
           </Hero>
-          <div className="decoration">
-            {/* <DecorationPhoto /> */}
-          </div>
+          <div className="decoration">{/* <DecorationPhoto /> */}</div>
         </div>
       </div>
       <div className="container">

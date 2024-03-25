@@ -15,6 +15,17 @@ export async function generateMetadata({ params }) {
     title: `${locale == "en" ? category : decodeURI(category)} | ${
       locale == "en" ? config.enSiteTitle : config.faSiteTitle
     }`,
+    description:
+      locale == "en"
+        ? `A list of posts categorized as: ${category}`
+        : `پست های دسته بندی شده با: ${category}`,
+    alternates: {
+      canonical: `/categories/${category}`,
+      languages: {
+        "en-US": `/en/categories/${category}`,
+        "fa-IR": `/fa/categories/${category}`,
+      },
+    },
   };
 }
 

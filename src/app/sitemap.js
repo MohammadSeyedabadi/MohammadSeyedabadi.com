@@ -1,8 +1,7 @@
 import { getAllPosts } from "@/utils/posts-util";
-import { config } from "@/middleware";
 
 export default async function sitemap() {
-  const baseUrl = config.siteUrl;
+  const baseUrl = "https://www.mohammadseyedabadi.com";
 
   const allPosts = getAllPosts();
 

@@ -15,8 +15,15 @@ export const metadata = {
       "fa-IR": "/fa",
     },
   },
+
   openGraph: {
-    images: "/opengraph-image.jpg",
+    images: [
+      {
+        url: "https://www.mohammadseyedabadi.com/opengraph-image.jpg",
+        width: 800,
+        height: 600,
+      },
+    ],
   },
 };
 

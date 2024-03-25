@@ -36,7 +36,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: '#4509cf',
+  themeColor: '#07a7e6',
 }
 
 export default function LocaleLayout({ children, params: { locale } }) {

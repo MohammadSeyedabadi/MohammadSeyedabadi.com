@@ -19,6 +19,7 @@ export async function generateMetadata({ params }) {
       locale == "en"
         ? `A list of posts categorized as: ${category}`
         : `پست های دسته بندی شده با: ${category}`,
+    category: category,
     alternates: {
       canonical: `/categories/${category}`,
       languages: {

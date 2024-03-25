@@ -12,6 +12,7 @@ export async function generateMetadata({ params }) {
       locale == "en" ? config.enSiteTitleiteTitle : config.faSiteTitle
     }`,
     description: postData.excerpt,
+    category: postData.category.name,
     alternates: {
       canonical: `/blog/${slug}`,
       languages: {

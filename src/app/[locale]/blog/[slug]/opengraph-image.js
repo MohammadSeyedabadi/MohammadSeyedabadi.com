@@ -13,6 +13,7 @@ export const contentType = "image/png";
 
 // Image generation
 export default async function Image({ params }) {
+  // console.log(params,"here")
   // Font
   const interSemiBold = fetch(
     new URL("/public/fonts/fonts/ttf/Vazirmatn-Black.ttf", import.meta.url)

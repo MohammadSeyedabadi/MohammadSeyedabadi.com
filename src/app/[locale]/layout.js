@@ -17,15 +17,27 @@ export const metadata = {
   },
 
   openGraph: {
-    images: [
-      {
-        url: "https://www.mohammadseyedabadi.com/opengraph-image.jpg",
-        width: 800,
-        height: 600,
-      },
-    ],
+    images: "/opengraph-image.jpg",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
+
+export const viewport = {
+  themeColor: '#5a43f1',
+}
 
 export default function LocaleLayout({ children, params: { locale } }) {
   return (

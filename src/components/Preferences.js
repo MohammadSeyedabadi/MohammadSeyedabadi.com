@@ -107,6 +107,7 @@ export default function Preferences() {
               {lang === "en" ? "Language :" : "زبان :"}
             </p>
             <button
+              className={lang == "en" ? "" : "active"}
               style={{
                 marginRight: "0.5rem",
                 fontWeight: "500",
@@ -116,6 +117,7 @@ export default function Preferences() {
               فا
             </button>
             <button
+              className={lang == "en" ? "active" : ""}
               style={{
                 fontWeight: "500",
               }}

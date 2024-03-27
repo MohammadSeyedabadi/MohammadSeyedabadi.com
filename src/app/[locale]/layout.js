@@ -7,7 +7,7 @@ import CustomLayout from "@/components/layout/CustomLayout";
 import { ThemeContextProvider } from "@/store/theme-context";
 
 export const metadata = {
-  metadataBase: new URL("https://www.mohammadseyedabadi.com"),
+  metadataBase: new URL("https://mohammadseyedabadi.com"),
   alternates: {
     canonical: "/",
     languages: {

@@ -1,7 +1,7 @@
 const config = {
   faSiteTitle: "محمد سیدآبادی",
   enSiteTitle: "Mohammad Seyedabadi",
-  siteUrl: "https://mohammadseyedabadi.com",
+  siteUrl: "mohammadseyedabadi.com",
   // siteLogo: '/logo.png',
   enDescription:
     "Software engineer and open source creator. This is my digital garden.",

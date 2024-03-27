@@ -32,15 +32,23 @@ export default async function sitemap() {
   }
 
   return [
+    // {
+    //   url: baseUrl,
+    //   lastModified: new Date(),
+    //   alternates: {
+    //     languages: {
+    //       en: `${baseUrl}/en`,
+    //       fa: `${baseUrl}/fa`,
+    //     },
+    //   },
+    // },
     {
-      url: baseUrl,
+      url: `${baseUrl}/en`,
       lastModified: new Date(),
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en`,
-          fa: `${baseUrl}/fa`,
-        },
-      },
+    },
+    {
+      url: `${baseUrl}/fa`,
+      lastModified: new Date(),
     },
     {
       url: `${baseUrl}/fa/me`,

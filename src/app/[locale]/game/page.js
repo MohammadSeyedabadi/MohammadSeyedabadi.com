@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
     description:
       locale == "en" ? "Let's play some game." : "بیایید کمی بازی کنیم.",
     alternates: {
-      canonical: "/game",
+      canonical: "/en/game",
       languages: {
         "en-US": "/en/game",
         "fa-IR": "/fa/game",

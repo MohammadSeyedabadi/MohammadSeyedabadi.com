@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
         ? `A list of posts tagged: ${tag}`
         : `یک لیست از پست ها شامل تگ: ${tag}`,
     alternates: {
-      canonical: `/tags/${tag}`,
+      canonical: `/en/tags/${tag}`,
       languages: {
         "en-US": `/en/tags/${tag}`,
         "fa-IR": `/fa/tags/${tag}`,

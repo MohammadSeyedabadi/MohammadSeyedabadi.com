@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
         ? "A list of all my posts."
         : "یک لیست از همه‌ی پست‌های من.",
     alternates: {
-      canonical: "/blog",
+      canonical: "/en/blog",
       languages: {
         "en-US": "/en/blog",
         "fa-IR": "/fa/blog",

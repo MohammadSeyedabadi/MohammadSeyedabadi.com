@@ -9,7 +9,7 @@ import { ThemeContextProvider } from "@/store/theme-context";
 export const metadata = {
   metadataBase: new URL("https://mohammadseyedabadi.com"),
   alternates: {
-    canonical: "/",
+    canonical: "/en",
     languages: {
       "en-US": "/en",
       "fa-IR": "/fa",

@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${postData.title} | ${
-      locale == "en" ? config.enSiteTitleiteTitle : config.faSiteTitle
+      locale == "en" ? config.enSiteTitle : config.faSiteTitle
     }`,
     description: postData.excerpt,
     category: postData.category.name,

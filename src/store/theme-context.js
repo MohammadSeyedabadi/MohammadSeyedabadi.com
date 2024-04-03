@@ -29,11 +29,13 @@ export function ThemeContextProvider(props) {
   function setDarkTheme() {
     localStorage.setItem("theme", "dark-theme");
     setThemeDatails("dark-theme");
+    setsystemState(false);
   }
 
   function setLightTheme() {
     localStorage.setItem("theme", "light-theme");
     setThemeDatails("light-theme");
+    setsystemState(false);
   }
 
   function setSystemTheme() {
@@ -44,14 +46,7 @@ export function ThemeContextProvider(props) {
     } else {
       setThemeDatails("dark-theme", true);
     }
-
-    prefersLightTheme.addEventListener("change", ({ matches }) => {
-      if (matches) {
-        setLightTheme();
-      } else {
-        setDarkTheme();
-      }
-    });
+    setsystemState(true);
   }
 
   function setThemeDatails(theme, SystemTheme) {
@@ -59,14 +54,13 @@ export function ThemeContextProvider(props) {
       if (theme === "dark-theme") {
         setActive(false);
         setAriaActive(true);
-        setsystemState(false);
+
         document
           .querySelector(":root")
           .setAttribute("data-theme", "dark-theme");
       } else if (theme === "light-theme") {
         setActive(true);
         setAriaActive(false);
-        setsystemState(false);
         document
           .querySelector(":root")
           .setAttribute("data-theme", "light-theme");
@@ -75,14 +69,12 @@ export function ThemeContextProvider(props) {
       if (theme === "dark-theme") {
         setActive(false);
         setAriaActive(true);
-        setsystemState(true);
         document
           .querySelector(":root")
           .setAttribute("data-theme", "dark-theme");
       } else if (theme === "light-theme") {
         setActive(true);
         setAriaActive(false);
-        setsystemState(true);
         document
           .querySelector(":root")
           .setAttribute("data-theme", "light-theme");
@@ -91,14 +83,29 @@ export function ThemeContextProvider(props) {
   }
 
   useEffect(() => {
-    let theme = localStorage.getItem("theme");
-    if (theme === "dark-theme") {
+    if (localStorage.getItem("theme") === "dark-theme") {
       setDarkTheme();
-    } else if (theme === "light-theme") {
+    } else if (localStorage.getItem("theme") === "light-theme") {
       setLightTheme();
     } else {
       setSystemTheme();
     }
+
+    window
+      .matchMedia("(prefers-color-scheme: light)")
+      .addEventListener("change", () => {
+        setSystemTheme();
+      });
+
+    window.addEventListener("storage", (event) => {
+      if (event.storageArea.theme === "dark-theme") {
+        setDarkTheme();
+      } else if (event.storageArea.theme === "light-theme") {
+        setLightTheme();
+      } else {
+        setSystemTheme();
+      }
+    });
   }, []);
 
   const context = {

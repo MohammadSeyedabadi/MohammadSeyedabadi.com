@@ -1,13 +1,28 @@
-import Navigation from './navigation/Navigation'
-import Footer from '../Footer'
-
+import { useTranslations } from "next-intl";
+import Navigation from "./navigation/Navigation";
+import Footer from "../Footer";
 
 export default function CustomLayout(props) {
+  const t = useTranslations("navigation");
+  const translation = {
+    Home: t("Home"),
+    About: t("About"),
+    Projects: t("Projects"),
+    Contact: t("Contact"),
+    Blog: t("Blog"),
+    PreferencesT: t("PreferencesT"),
+    Theme: t("Theme"),
+    Dark: t("Dark"),
+    Light: t("Light"),
+    System: t("System"),
+    Language:t("Language"),
+    Close: t("Close"),
+  };
   return (
     <>
-      <Navigation />
+      <Navigation translation={translation} />
       <main>{props.children}</main>
-      <Footer/>
+      <Footer />
     </>
-  )
+  );
 }

@@ -1,15 +1,9 @@
-import {useTranslations} from 'next-intl';
+import { useTranslations } from "next-intl";
 export default function Footer() {
-  const t = useTranslations('Footer');
+  const t = useTranslations("Footer");
   const links = [
     {
-      url: "https://www.linkedin.com/in/mohammad-seyedabadi-397a61256/",
-      label: t('LinkedIn'),
-      icon: "/images/nav-linkedin.png",
-    },
-    {
       url: "https://github.com/MohammadSeyedabadi",
-      label: t('GitHub'),
       icon: "/images/nav-github.png",
     },
   ];
@@ -18,18 +12,26 @@ export default function Footer() {
     <footer className="footer">
       <section>
         <nav>
-          {links.map((link) => (
-            <a
-              href={link.url}
-              title={link.label}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={link.url}
-            >
-              <span>{link.label}</span>
-              <img src={link.icon} alt={link.label} />
-            </a>
-          ))}
+          <a
+            href="https://www.linkedin.com/in/mohammad-seyedabadi-397a61256/"
+            title={t("LinkedIn")}
+            target="_blank"
+            rel="noopener noreferrer"
+            key="https://www.linkedin.com/in/mohammad-seyedabadi-397a61256/"
+          >
+            <span>{t("LinkedIn")}</span>
+            <img src="/images/nav-linkedin.png" alt={t("LinkedIn")} />
+          </a>
+          <a
+            href="https://github.com/MohammadSeyedabadi"
+            title={t("GitHub")}
+            target="_blank"
+            rel="noopener noreferrer"
+            key="https://github.com/MohammadSeyedabadi"
+          >
+            <span>{t("GitHub")}</span>
+            <img src="/images/nav-github.png" alt={t("GitHub")} />
+          </a>
         </nav>
       </section>
     </footer>

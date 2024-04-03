@@ -8,7 +8,10 @@ import { useRouter } from "../navigation";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 
-export default function Preferences() {
+export default function Preferences({ prefencesTranslations }) {
+  const { PreferencesT, Theme, Dark, Light, System, Language, Close } =
+    prefencesTranslations;
+
   const pathname = usePathname();
   const lang = useParams().locale;
   const router = useRouter();
@@ -36,7 +39,7 @@ export default function Preferences() {
   return (
     <>
       <button data-open-modal className="small">
-        {lang === "en" ? "Preferences" : "تنظیمات"}
+        {PreferencesT}
       </button>
 
       <dialog data-modal>
@@ -50,7 +53,7 @@ export default function Preferences() {
                 fontWeight: "500",
               }}
             >
-              {lang === "en" ? "Theme :" : "تم :"}
+              {Theme}:
             </div>
             <div>
               <Toggle />
@@ -69,7 +72,7 @@ export default function Preferences() {
               }}
               onClick={setDarkTheme}
             >
-              {lang === "en" ? "Dark" : "تاریک"}
+              {Dark}
             </button>
             <button
               className={`${active && !systemState ? "active" : null}`}
@@ -79,7 +82,7 @@ export default function Preferences() {
               }}
               onClick={setLightTheme}
             >
-              {lang === "en" ? "Light" : "روشن"}
+              {Light}
             </button>
             <button
               className={`${systemState ? "active" : null}`}
@@ -88,7 +91,7 @@ export default function Preferences() {
               }}
               onClick={setSystemTheme}
             >
-              {lang === "en" ? "System" : "سیستم"}
+              {System}
             </button>
           </div>
 
@@ -104,7 +107,7 @@ export default function Preferences() {
                 fontWeight: "500",
               }}
             >
-              {lang === "en" ? "Language :" : "زبان :"}
+              {Language}:
             </p>
             <button
               className={lang == "en" ? "" : "active"}
@@ -133,7 +136,7 @@ export default function Preferences() {
                 fontWeight: "500",
               }}
             >
-              {lang === "en" ? "Close" : "بستن"}
+              {Close}
             </button>
           </div>
         </div>

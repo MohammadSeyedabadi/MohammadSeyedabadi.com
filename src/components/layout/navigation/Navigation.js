@@ -3,16 +3,39 @@
 import { Link } from "@/navigation";
 import { usePathname } from "next/navigation";
 import Preferences from "@/components/Preferences";
-import { useParams } from "next/navigation";
 
-export default function Navigation() {
+export default function Navigation({ translation }) {
+  const {
+    Home,
+    About,
+    Projects,
+    Contact,
+    Blog,
+    PreferencesT,
+    Theme,
+    Dark,
+    Light,
+    System,
+    Language,
+    Close
+  } = translation;
   const pathname = usePathname();
-  const lang = useParams().locale;
+
+  const prefencesTranslations = {
+    PreferencesT,
+    Theme,
+    Dark,
+    Light,
+    System,
+    Language,
+    Close
+  };
+
   return (
     <header className="navigation container" id="navigation" dir="ltr">
       <nav className="nav--container">
         <span className="nav-tog">
-          <Preferences />
+          <Preferences prefencesTranslations={prefencesTranslations} />
         </span>
 
         <div className="nav--menu nav--list" id="nav-menu">
@@ -22,9 +45,7 @@ export default function Navigation() {
             }
           >
             <Link href="/" className="nav--link nav--home ">
-              <span className="nav__name">
-                {lang === "en" ? "Home" : "صفحه‌ی اصلی"}
-              </span>
+              <span className="nav__name">{Home}</span>
             </Link>
           </span>
           <span
@@ -35,9 +56,7 @@ export default function Navigation() {
             }
           >
             <Link href="/me" className="nav--link nav--about">
-              <span className="nav__name">
-                {lang === "en" ? "About" : "درباره‌ی من"}
-              </span>
+              <span className="nav__name">{About}</span>
             </Link>
           </span>
 
@@ -49,9 +68,7 @@ export default function Navigation() {
             }
           >
             <Link href="/projects" className="nav--link nav--projects">
-              <span className="nav__name">
-                {lang === "en" ? "Projects" : "پروژه‌ها"}
-              </span>
+              <span className="nav__name">{Projects}</span>
             </Link>
           </span>
           {/* <span
@@ -63,7 +80,7 @@ export default function Navigation() {
           >
             <Link href="/contact" className="nav--link nav--contact">
               <span className="nav__name">
-                {lang === "en" ? "Contact" : "تماس"}
+              {Contact}
               </span>
             </Link>
           </span> */}
@@ -76,9 +93,7 @@ export default function Navigation() {
             }
           >
             <Link href="/blog" className="nav--link nav--blog">
-              <span className="nav__name">
-                {lang === "en" ? "Blog" : "بلاگ"}
-              </span>
+              <span className="nav__name">{Blog}</span>
             </Link>
           </span>
         </div>

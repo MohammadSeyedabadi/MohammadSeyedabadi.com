@@ -1,4 +1,18 @@
 {
+  "navigation": {
+    "Home": "Home",
+    "About": "About",
+    "Projects": "Projects",
+    "Contact": "Contact",
+    "Blog": "Blog",
+    "PreferencesT": "Preferences",
+    "Theme": "Theme",
+    "Dark": "Dark",
+    "Light": "Light",
+    "System": "System",
+    "Language": "Language",
+    "Close": "Close"
+  },
   "Index": {
     "descOne": "Hi, I'm Mohammad!",
     "descTwo": "Welcome to my digital garden.",
@@ -61,7 +75,7 @@
   },
   "game": {
     "game": "Game",
-    "games":"Games",
+    "games": "Games",
     "descOne": "The name of the game is tic tac toe. The way i programmed it, it is impossible to win and the best result that you would get is a Tie!",
     "youWin": "You win!",
     "youLose": "You lose.",

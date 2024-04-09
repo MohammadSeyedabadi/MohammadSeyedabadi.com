@@ -12,7 +12,7 @@ export default async function sitemap() {
     if (eachPost.lang == URLLang) {
       postsUrl.push({
         url: `${baseUrl}/${eachPost.lang}/blog/${eachPost.slug}`,
-        lastModified: eachPost.lastModified,
+        lastModified: new Date(),
       });
     }
   }
@@ -22,7 +22,7 @@ export default async function sitemap() {
     if (eachPost.lang == URLLang) {
       categories.push({
         url: `${baseUrl}/${eachPost.lang}/categories/${eachPost.category.slug}`,
-        lastModified: eachPost.lastModified,
+        lastModified: new Date(),
       });
     }
   }
@@ -33,7 +33,7 @@ export default async function sitemap() {
       for (let eachTag of eachPost.tags) {
         tags.push({
           url: `${baseUrl}/${eachPost.lang}/tags/${eachTag.slug}`,
-          lastModified: eachPost.lastModified,
+          lastModified: new Date(),
         });
       }
     }

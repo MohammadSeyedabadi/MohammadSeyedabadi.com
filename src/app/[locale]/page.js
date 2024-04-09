@@ -6,7 +6,7 @@ import Heading from "@/components/Heading";
 // import DecorationPhoto from "@/components/DecorationPhoto";
 import PostPreview from "@/components/PostPreview";
 
-// export const metadata = {
+//export const metadata = {
 //   title: config.enSiteTitle,
 //   description: config.description,
 // };

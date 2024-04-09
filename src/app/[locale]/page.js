@@ -52,7 +52,7 @@ export default function Index() {
           <div className="posts newspaper">
             <Link className="post" href="/game">
               <h3>Tic Tac Toe</h3>
-              <span>single-player</span>
+              <span>single - player</span>
             </Link>
           </div>
         </section>

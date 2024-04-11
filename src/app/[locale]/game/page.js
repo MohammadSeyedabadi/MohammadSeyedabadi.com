@@ -22,8 +22,8 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: "/en/game",
       languages: {
-        "en-US": "/en/game",
-        "fa-IR": "/fa/game",
+        "en": "/en/game",
+        "fa": "/fa/game",
       },
     },
   };

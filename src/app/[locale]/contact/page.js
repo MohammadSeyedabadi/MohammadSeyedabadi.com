@@ -24,8 +24,8 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: "/en/contact",
       languages: {
-        "en-US": "/en/contact",
-        "fa-IR": "/fa/contact",
+        "en": "/en/contact",
+        "fa": "/fa/contact",
       },
     },
   };

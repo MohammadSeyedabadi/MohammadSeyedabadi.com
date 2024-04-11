@@ -23,8 +23,8 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: `/en/categories/${category}`,
       languages: {
-        "en-US": `/en/categories/${category}`,
-        "fa-IR": `/fa/categories/${category}`,
+        "en": `/en/categories/${category}`,
+        "fa": `/fa/categories/${category}`,
       },
     },
   };

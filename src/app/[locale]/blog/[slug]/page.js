@@ -16,8 +16,8 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: `/en/blog/${slug}`,
       languages: {
-        "en-US": `/en/blog/${slug}`,
-        "fa-IR": `/fa/blog/${slug}`,
+        "en": `/en/blog/${slug}`,
+        "fa": `/fa/blog/${slug}`,
       },
     },
   };

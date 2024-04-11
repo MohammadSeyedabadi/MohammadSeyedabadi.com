@@ -15,6 +15,12 @@ export default async function sitemap({ id }) {
       postsUrl.push({
         url: `${baseUrl}/${eachPost.lang}/blog/${eachPost.slug}`,
         lastModified: new Date(),
+        alternates: {
+          languages: {
+            en: `${baseUrl}/en/blog/${eachPost.slug}`,
+            fa: `${baseUrl}/fa/blog/${eachPost.slug}`,
+          },
+        },
       });
     }
   }
@@ -25,6 +31,12 @@ export default async function sitemap({ id }) {
       categories.push({
         url: `${baseUrl}/${eachPost.lang}/categories/${eachPost.category.slug}`,
         lastModified: new Date(),
+        alternates: {
+          languages: {
+            en: `${baseUrl}/en/categories/${eachPost.category.slug}`,
+            fa: `${baseUrl}/fa/categories/${eachPost.category.slug}`,
+          },
+        },
       });
     }
   }
@@ -36,6 +48,12 @@ export default async function sitemap({ id }) {
         tags.push({
           url: `${baseUrl}/${eachPost.lang}/tags/${eachTag.slug}`,
           lastModified: new Date(),
+          alternates: {
+            languages: {
+              en: `${baseUrl}/en/tags/${eachTag.slug}`,
+              fa: `${baseUrl}/fa/tags/${eachTag.slug}`,
+            },
+          },
         });
       }
     }
@@ -55,31 +73,67 @@ export default async function sitemap({ id }) {
     {
       url: `${baseUrl}/${id}`,
       lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en`,
+          fa: `${baseUrl}/fa`,
+        },
+      },
     },
 
     {
       url: `${baseUrl}/${id}/me`,
       lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/me`,
+          fa: `${baseUrl}/fa/me`,
+        },
+      },
     },
 
     {
       url: `${baseUrl}/${id}/projects`,
       lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/projects`,
+          fa: `${baseUrl}/fa/projects`,
+        },
+      },
     },
 
     {
       url: `${baseUrl}/${id}/blog`,
       lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/blog`,
+          fa: `${baseUrl}/fa/blog`,
+        },
+      },
     },
 
     {
       url: `${baseUrl}/${id}/contact`,
       lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/contact`,
+          fa: `${baseUrl}/fa/contact`,
+        },
+      },
     },
 
     {
       url: `${baseUrl}/${id}/game`,
       lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/game`,
+          fa: `${baseUrl}/fa/game`,
+        },
+      },
     },
 
     ...postsUrl,

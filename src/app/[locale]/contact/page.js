@@ -22,10 +22,9 @@ export async function generateMetadata({ params }) {
         ? "Send me your messages!"
         : "پیام خود را برای من ارسال کنید!",
     alternates: {
-      canonical: "/en/contact",
       languages: {
-        "en": "/en/contact",
-        "fa": "/fa/contact",
+        en: "/en/contact",
+        fa: "/fa/contact",
       },
     },
   };

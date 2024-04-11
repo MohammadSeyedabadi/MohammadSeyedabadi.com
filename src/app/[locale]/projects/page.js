@@ -22,10 +22,9 @@ export async function generateMetadata({ params }) {
         ? "A highlight of my open-source work"
         : "یک هایلایت از پروژه‌های اپن سورس من",
     alternates: {
-      canonical: "/en/projects",
       languages: {
-        "en": "/en/projects",
-        "fa": "/fa/projects",
+        en: "/en/projects",
+        fa: "/fa/projects",
       },
     },
   };

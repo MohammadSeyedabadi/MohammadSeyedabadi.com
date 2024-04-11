@@ -22,10 +22,9 @@ export async function generateMetadata({ params }) {
         ? `Read more about ${config.enSiteTitle}`
         : `درباره‌ی ${config.enSiteTitle} بیشتر بخوانید`,
     alternates: {
-      canonical: "/en/me",
       languages: {
-        "en": "/en/me",
-        "fa": "/fa/me",
+        en: "/en/me",
+        fa: "/fa/me",
       },
     },
   };

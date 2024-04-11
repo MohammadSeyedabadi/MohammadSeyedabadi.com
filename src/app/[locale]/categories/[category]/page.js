@@ -21,10 +21,9 @@ export async function generateMetadata({ params }) {
         : `پست های دسته بندی شده با: ${category}`,
     category: category,
     alternates: {
-      canonical: `/en/categories/${category}`,
       languages: {
-        "en": `/en/categories/${category}`,
-        "fa": `/fa/categories/${category}`,
+        en: `/en/categories/${category}`,
+        fa: `/fa/categories/${category}`,
       },
     },
   };

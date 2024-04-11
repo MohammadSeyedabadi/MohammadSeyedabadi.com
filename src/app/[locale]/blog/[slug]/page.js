@@ -14,10 +14,9 @@ export async function generateMetadata({ params }) {
     description: postData.excerpt,
     category: postData.category.name,
     alternates: {
-      canonical: `/en/blog/${slug}`,
       languages: {
-        "en": `/en/blog/${slug}`,
-        "fa": `/fa/blog/${slug}`,
+        en: `/en/blog/${slug}`,
+        fa: `/fa/blog/${slug}`,
       },
     },
   };

@@ -1,12 +1,7 @@
 import config from "@/utils/config";
 import SidebarLayout from "@/components/layout/SidebarLayout";
 import Posts from "@/components/Posts";
-import { getAllPosts } from "@/utils/posts-util";
-
-// export const metadata = {
-//   title: `Writing | ${config.siteTitle}`,
-//   description: "A list of all my posts",
-// };
+import { getAllPostsMetaData } from "@/utils/posts-util";
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
@@ -31,21 +26,12 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Blog({ params }) {
-  const allPosts = await getData();
-
+  const allPostsMetaData = await getAllPostsMetaData();
   return (
     <>
       <SidebarLayout params={params}>
-        {/* <Hero title="Writing" /> */}
-        <Posts allPosts={allPosts} />
+        <Posts allPostsMetaData={allPostsMetaData} />
       </SidebarLayout>
     </>
   );
-}
-
-export async function getData() {
-  const allPosts = getAllPosts();
-
-  
-  return allPosts;
 }

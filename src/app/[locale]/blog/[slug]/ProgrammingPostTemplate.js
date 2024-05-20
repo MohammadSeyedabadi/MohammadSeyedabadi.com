@@ -12,10 +12,10 @@ import Giscus from "@giscus/react";
 
 import TitleIcon from "@/assets/TitleIcon";
 
-export default function PostTemplate({ post, translation }) {
+export default function ProgrammingPostTemplate({ metaData, content, translation }) {
   const language = useParams().locale;
   const { ariaActive } = useContext(ThemeContext);
-  const { title, slug, image } = post;
+  const { title, slug, image } = metaData;
 
   const customRenderers = {
     // img(image) {       // we dont want to use the default img tag which is provided by markdown, instead we want to use img() {} method, here as a parameter we path the (image) which is a object with the image data react markdown got from the markdown text, and the alt text for example is the text between [], and we use it to use the nextJS Image.
@@ -104,7 +104,7 @@ export default function PostTemplate({ post, translation }) {
             <section className="segment small">
               <div className="post-content">
                 <ReactMarkdown components={customRenderers}>
-                  {post.content}
+                  {content}
                 </ReactMarkdown>
               </div>
             </section>
@@ -124,7 +124,7 @@ export default function PostTemplate({ post, translation }) {
               loading="lazy"
             />
           </div>
-          <PostSidebar post={post} translation={translation} />
+          <PostSidebar metaData={metaData} translation={translation} />
         </div>
       </div>
     </>

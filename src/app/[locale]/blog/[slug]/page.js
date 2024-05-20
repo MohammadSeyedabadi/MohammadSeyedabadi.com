@@ -1,18 +1,18 @@
-import PostTemplate from "@/templates/post";
-import { getAllPosts, getPostData } from "@/utils/posts-util";
+import ProgrammingPostTemplate from "./ProgrammingPostTemplate";
+import { getSinglePostFileData } from "@/utils/posts-util";
 import { useTranslations } from "next-intl";
 import config from "@/utils/config";
+import GetData from "./GetData";
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
-  const postData = getPostData(slug, locale);
-
+  const {metaData} = await getSinglePostFileData(locale, slug);
   return {
-    title: `${postData.title} | ${
+    title: `${metaData.title} | ${
       locale == "en" ? config.enSiteTitle : config.faSiteTitle
     }`,
-    description: postData.excerpt,
-    category: postData.category.name,
+    description: metaData.excerpt,
+    category: metaData.category.name,
     alternates: {
       languages: {
         en: `/en/blog/${slug}`,
@@ -22,19 +22,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export const dynamic = "force-dynamic";
-
-// Return a list of `params` to populate the [slug] dynamic segment
-export async function generateStaticParams() {
-  const posts = getAllPosts();
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
-// Multiple versions of this page will be statically generated
-// using the `params` returned by `generateStaticParams`
 export default function Page({ params }) {
   const t = useTranslations("blog");
   const translation = {
@@ -51,13 +38,11 @@ export default function Page({ params }) {
     SubscribeToTheNewsletter: t("SubscribeToTheNewsletter"),
   };
 
-  // params also contains => locale
-  const { slug, locale } = params;
-  const postData = getPostData(slug, locale);
+  const { locale, slug } = params;
 
   return (
     <>
-      <PostTemplate post={postData} translation={translation} />
+      <GetData locale={locale} slug={slug} translation={translation}/>
     </>
   );
 }

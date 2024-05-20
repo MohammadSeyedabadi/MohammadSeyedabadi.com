@@ -4,24 +4,16 @@ import { useParams } from "next/navigation";
 import Post from "./Post";
 import Hero from "./Hero";
 
-export default function Posts({ allPosts }) {
+export default function Posts({ allPostsMetaData }) {
   const urlLang = useParams().locale;
-
-  //   const { date } = allPosts[0]
-  //   const formattedDate = new Date(date).toLocaleDateString('en-US', {
-  //     year: 'numeric',
-  //   })
-
   return (
     <>
-    <Hero title={urlLang === "fa" ? "نوشته ها" : "Writing"} />
+      <Hero title={urlLang === "fa" ? "نوشته ها" : "Writing"} />
       <section className="segment">
-        {/* <h2 className="year">{formattedDate}</h2> */}
-        
         <div className="posts">
-          {allPosts.map((post) => {
-            if (urlLang == post.lang) {
-              return <Post key={post.title} post={post} />;
+          {allPostsMetaData.map((eachPostMetaData) => {
+            if (urlLang == eachPostMetaData.lang) {
+              return <Post key={eachPostMetaData.title} eachPostMetaData={eachPostMetaData} />;
             }
           })}
         </div>

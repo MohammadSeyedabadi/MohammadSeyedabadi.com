@@ -3,9 +3,9 @@ import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 import { Link } from "@/navigation";
 
-export default function PostSidebar({ post, translation }) {
+export default function PostSidebar({ metaData, translation }) {
   const { ariaActive } = useContext(ThemeContext);
-  const { lang, title, slug, image, date, category, tags } = post;
+  const { lang, title, slug, image, date, category, tags } = metaData;
   const formattedDate = new Date(date).toLocaleDateString(
     lang === "fa" ? "fa-IR" : "en-US",
     {

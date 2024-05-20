@@ -1,6 +1,6 @@
 import { Link } from "@/navigation";
-export default function Post({ post }) {
-  const { lang, slug, title, date } = post;
+export default function Post({ eachPostMetaData }) {
+  const { lang, slug, title, date } = eachPostMetaData;
   const formattedDate = new Date(date).toLocaleDateString(
     lang === "fa" ? "fa-IR" : "en-US",
     {

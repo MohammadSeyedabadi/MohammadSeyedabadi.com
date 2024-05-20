@@ -46,5 +46,6 @@ export default async function Blog({ params }) {
 export async function getData() {
   const allPosts = getAllPosts();
 
+  
   return allPosts;
 }

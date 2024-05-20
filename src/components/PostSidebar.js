@@ -1,10 +1,10 @@
 "use client";
-import { useContext } from "react";
-import ThemeContext from "@/store/theme-context";
+// import { useContext } from "react";
+// import ThemeContext from "@/store/theme-context";
 import { Link } from "@/navigation";
 
 export default function PostSidebar({ metaData, translation }) {
-  const { ariaActive } = useContext(ThemeContext);
+  // const { ariaActive } = useContext(ThemeContext);
   const { lang, title, slug, image, date, category, tags } = metaData;
   const formattedDate = new Date(date).toLocaleDateString(
     lang === "fa" ? "fa-IR" : "en-US",
@@ -37,7 +37,7 @@ export default function PostSidebar({ metaData, translation }) {
 
       <div className="post-sidebar-card">
         <h2>{AboutMe}</h2>
-        <img
+        {/* <img
           src="/images/me2.jpg"
           alt="Mohammad"
           className="sidebar-avatar"
@@ -48,7 +48,7 @@ export default function PostSidebar({ metaData, translation }) {
           alt="Mohammad"
           className="sidebar-avatar"
           style={ariaActive ? { display: "none" } : null}
-        />
+        /> */}
         <p>
           {PostSideBarDescOne} <Link href="/me">{PostSideBarDescTwo}</Link>
         </p>

@@ -1,7 +1,7 @@
 import config from "@/utils/config";
-import { getAllPosts } from "@/utils/posts-util";
 import Post from "@/components/Post";
 import Hero from "@/components/Hero";
+import { getAllPostsMetaData } from "@/utils/posts-util";
 
 // export const metadata = {
 //   title: ` | ${config.siteTitle}`,
@@ -30,21 +30,21 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function category({ params }) {
-  const allPosts = await getData();
+  const allPostMetaData = await getAllPostsMetaData();
   const { locale, category } = params;
   let categoryName;
 
-  const categoryPosts = allPosts
-    .filter((post) => {
-      if (locale == post.lang && category == post.category.slug) {
+  const categoryPosts = allPostMetaData
+    .filter((postMetaData) => {
+      if (locale == postMetaData.lang && category == postMetaData.category.slug) {
         if (!categoryName) {
-          categoryName = post.category.name;
+          categoryName = postMetaData.category.name;
         }
         return true;
       }
     })
-    .map((post) => {
-      return <Post key={post.title} post={post} />;
+    .map((postMetaData) => {
+      return <Post key={postMetaData.title} postMetaData={postMetaData} />;
     });
 
   return (
@@ -64,14 +64,7 @@ export default async function category({ params }) {
             <div className="posts">{categoryPosts}</div>
           </div>
         </div>
-        <div className="sidebar-content">{/* <BlogSidebar /> */}</div>
       </div>
     </section>
   );
-}
-
-export async function getData() {
-  const allPosts = getAllPosts();
-
-  return allPosts;
 }

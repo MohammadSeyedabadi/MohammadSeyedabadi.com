@@ -1,5 +1,5 @@
 import config from "@/utils/config";
-import { getAllPosts } from "@/utils/posts-util";
+import { getAllPostsMetaData } from "@/utils/posts-util";
 import Post from "@/components/Post";
 import Hero from "@/components/Hero";
 
@@ -24,13 +24,13 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function tag({ params }) {
-  const allPosts = await getData();
+  const allPostsMetaData = await getAllPostsMetaData();
   const { locale, tag } = params;
   let tagName;
-  const tagPosts = allPosts
-    .filter((post) => {
-      if (locale == post.lang) {
-        for (let postTagInfo of post.tags) {
+  const tagPosts = allPostsMetaData
+    .filter((postMetaData) => {
+      if (locale == postMetaData.lang) {
+        for (let postTagInfo of postMetaData.tags) {
           if (postTagInfo.slug == tag) {
             if (!tagName) {
               tagName = postTagInfo.name;
@@ -57,14 +57,7 @@ export default async function tag({ params }) {
             <div className="posts">{tagPosts}</div>
           </div>
         </div>
-        <div className="sidebar-content">{/* <BlogSidebar /> */}</div>
       </div>
     </section>
   );
-}
-
-export async function getData() {
-  const allPosts = getAllPosts();
-
-  return allPosts;
 }

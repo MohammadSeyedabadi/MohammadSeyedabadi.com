@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/utils/posts-util";
+import { getAllPostsMetaData } from "@/utils/posts-util";
 
 export async function generateSitemaps() {
   return [{ id: "en" }, { id: "fa" }];
@@ -7,18 +7,18 @@ export async function generateSitemaps() {
 export default async function sitemap({ id }) {
   const baseUrl = "https://mohammadseyedabadi.com";
 
-  const allPosts = getAllPosts();
+  const allPostsMetaData = await getAllPostsMetaData();
 
   let postsUrl = [];
-  for (let eachPost of allPosts) {
-    if (id == eachPost.lang) {
+  for (let eachPostMetaData of allPostsMetaData) {
+    if (id == eachPostMetaData.lang) {
       postsUrl.push({
-        url: `${baseUrl}/${eachPost.lang}/blog/${eachPost.slug}`,
+        url: `${baseUrl}/${eachPostMetaData.lang}/blog/${eachPostMetaData.slug}`,
         lastModified: new Date(),
         alternates: {
           languages: {
-            en: `${baseUrl}/en/blog/${eachPost.slug}`,
-            fa: `${baseUrl}/fa/blog/${eachPost.slug}`,
+            en: `${baseUrl}/en/blog/${eachPostMetaData.slug}`,
+            fa: `${baseUrl}/fa/blog/${eachPostMetaData.slug}`,
           },
         },
       });
@@ -26,15 +26,15 @@ export default async function sitemap({ id }) {
   }
 
   let categories = [];
-  for (let eachPost of allPosts) {
-    if (id == eachPost.lang) {
+  for (let eachPostMetaData of allPostsMetaData) {
+    if (id == eachPostMetaData.lang) {
       categories.push({
-        url: `${baseUrl}/${eachPost.lang}/categories/${eachPost.category.slug}`,
+        url: `${baseUrl}/${eachPostMetaData.lang}/categories/${eachPostMetaData.category.slug}`,
         lastModified: new Date(),
         alternates: {
           languages: {
-            en: `${baseUrl}/en/categories/${eachPost.category.slug}`,
-            fa: `${baseUrl}/fa/categories/${eachPost.category.slug}`,
+            en: `${baseUrl}/en/categories/${eachPostMetaData.category.slug}`,
+            fa: `${baseUrl}/fa/categories/${eachPostMetaData.category.slug}`,
           },
         },
       });
@@ -42,11 +42,11 @@ export default async function sitemap({ id }) {
   }
 
   let tags = [];
-  for (let eachPost of allPosts) {
-    if (id == eachPost.lang) {
-      for (let eachTag of eachPost.tags) {
+  for (let eachPostMetaData of allPostsMetaData) {
+    if (id == eachPostMetaData.lang) {
+      for (let eachTag of eachPostMetaData.tags) {
         tags.push({
-          url: `${baseUrl}/${eachPost.lang}/tags/${eachTag.slug}`,
+          url: `${baseUrl}/${eachPostMetaData.lang}/tags/${eachTag.slug}`,
           lastModified: new Date(),
           alternates: {
             languages: {
@@ -58,7 +58,7 @@ export default async function sitemap({ id }) {
       }
     }
   }
-
+console.log(tags,categories, postsUrl)
   return [
     // {
     //   url: baseUrl,

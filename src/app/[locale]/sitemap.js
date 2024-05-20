@@ -58,7 +58,7 @@ export default async function sitemap({ id }) {
       }
     }
   }
-console.log(tags,categories, postsUrl)
+
   return [
     // {
     //   url: baseUrl,

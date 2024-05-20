@@ -10,6 +10,7 @@ export function getPostsFiles() {
   return fs.readdirSync(postsDirectory);
 }
 
+
 export function getPostData(postIdentifier, locale) {
   // console.log(locale);
   // this function is flexible and wheather the postIdentifier have the .md extention or not, it would work. so it work in both scenorios which we need.

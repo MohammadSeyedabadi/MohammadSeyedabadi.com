@@ -36,26 +36,6 @@ export default function PostSidebar({ metaData, translation }) {
       </div>
 
       <div className="post-sidebar-card">
-        <h2>{AboutMe}</h2>
-        {/* <img
-          src="/images/me2.jpg"
-          alt="Mohammad"
-          className="sidebar-avatar"
-          style={ariaActive ? null : { display: "none" }}
-        />
-        <img
-          src="/images/me1.jpg"
-          alt="Mohammad"
-          className="sidebar-avatar"
-          style={ariaActive ? { display: "none" } : null}
-        /> */}
-        <p>
-          {PostSideBarDescOne} <Link href="/me">{PostSideBarDescTwo}</Link>
-        </p>
-        <p>{PostSideBarDescThree}</p>
-      </div>
-
-      <div className="post-sidebar-card">
         <h2>{PostDetails}</h2>
         <ul>
           <li>
@@ -77,6 +57,26 @@ export default function PostSidebar({ metaData, translation }) {
             );
           })}
         </div>
+      </div>
+
+      <div className="post-sidebar-card">
+        <h2>{AboutMe}</h2>
+        {/* <img
+          src="/images/me2.jpg"
+          alt="Mohammad"
+          className="sidebar-avatar"
+          style={ariaActive ? null : { display: "none" }}
+        />
+        <img
+          src="/images/me1.jpg"
+          alt="Mohammad"
+          className="sidebar-avatar"
+          style={ariaActive ? { display: "none" } : null}
+        /> */}
+        <p>
+          {PostSideBarDescOne} <Link href="/me">{PostSideBarDescTwo}</Link>
+        </p>
+        <p>{PostSideBarDescThree}</p>
       </div>
 
       <div className="post-sidebar-card" style={{ opacity: "0.5" }}>

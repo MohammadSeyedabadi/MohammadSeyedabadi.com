@@ -33,8 +33,6 @@ export default function Page({ params }) {
     Published: t("Published"),
     Category: t("Category"),
     Tags: t("Tags"),
-    Newsletter: t("Newsletter"),
-    PostSideBarDescFour: t("PostSideBarDescFour"),
     SubscribeToTheNewsletter: t("SubscribeToTheNewsletter"),
   };
 

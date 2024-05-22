@@ -28,9 +28,9 @@ export default async function tag({ params }) {
   const { locale, tag } = params;
   let tagName;
   const tagPosts = allPostsMetaData
-    .filter((postMetaData) => {
-      if (locale == postMetaData.lang) {
-        for (let postTagInfo of postMetaData.tags) {
+    .filter((eachPostMetaData) => {
+      if (locale == eachPostMetaData.lang) {
+        for (let postTagInfo of eachPostMetaData.tags) {
           if (postTagInfo.slug == tag) {
             if (!tagName) {
               tagName = postTagInfo.name;
@@ -40,8 +40,8 @@ export default async function tag({ params }) {
         }
       }
     })
-    .map((post) => {
-      return <Post key={post.title} post={post} />;
+    .map((eachPostMetaData) => {
+      return <Post key={eachPostMetaData.title} eachPostMetaData={eachPostMetaData} />;
     });
 
   return (

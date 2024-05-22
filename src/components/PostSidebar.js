@@ -21,8 +21,6 @@ export default function PostSidebar({ metaData, translation }) {
     Published,
     Category,
     Tags,
-    Newsletter,
-    PostSideBarDescFour,
     SubscribeToTheNewsletter,
   } = translation;
 
@@ -54,20 +52,8 @@ export default function PostSidebar({ metaData, translation }) {
             );
           })}
         </div>
-      </div>
 
-      <div className="post-sidebar-card">
-        <h2>{AboutMe}</h2>
-        <p>
-          {PostSideBarDescOne} <Link href="/me">{PostSideBarDescTwo}</Link>
-        </p>
-        <p>{PostSideBarDescThree}</p>
-      </div>
-
-      <div className="post-sidebar-card">
-        <h2>{Newsletter}</h2>
-        <p>{PostSideBarDescFour}</p>
-        <p>
+        <p style={{ marginTop: "2rem" }}>
           <a
             href="https://mohammadseyedabadi.substack.com/"
             target="_blank"
@@ -76,6 +62,14 @@ export default function PostSidebar({ metaData, translation }) {
             {SubscribeToTheNewsletter}
           </a>
         </p>
+      </div>
+
+      <div className="post-sidebar-card">
+        <h2>{AboutMe}</h2>
+        <p>
+          {PostSideBarDescOne} <Link href="/me">{PostSideBarDescTwo}</Link>
+        </p>
+        <p>{PostSideBarDescThree}</p>
       </div>
     </aside>
   );

@@ -17,7 +17,7 @@ export default function Navigation({ translation }) {
     Light,
     System,
     Language,
-    Close
+    Close,
   } = translation;
   const pathname = usePathname();
 
@@ -28,75 +28,63 @@ export default function Navigation({ translation }) {
     Light,
     System,
     Language,
-    Close
+    Close,
   };
 
   return (
-    <header className="navigation container" id="navigation" dir="ltr">
-      <nav className="nav--container">
-        <span className="nav-tog">
-          <Preferences prefencesTranslations={prefencesTranslations} />
-        </span>
+    <header className="container" dir="ltr">
+      <nav>
+        <ul className="nav--list" id="nav-menu">
+          <li className="nav-tog">
+            <Preferences prefencesTranslations={prefencesTranslations} />
+          </li>
 
-        <div className="nav--menu nav--list" id="nav-menu">
-          <span
+          <li
             className={
               pathname === "/fa" || pathname === "/en" ? "active--link" : ""
             }
           >
-            <Link href="/" className="nav--link nav--home ">
-              <span className="nav__name">{Home}</span>
+            <Link href="/" className="nav--link nav--link-home ">
+              {Home}
             </Link>
-          </span>
-          <span
+          </li>
+
+          <li
             className={
               pathname === "/fa/me" || pathname === "/en/me"
                 ? "active--link"
                 : ""
             }
           >
-            <Link href="/me" className="nav--link nav--about">
-              <span className="nav__name">{About}</span>
+            <Link href="/me" className="nav--link nav--link-about">
+             {About}
             </Link>
-          </span>
+          </li>
 
-          <span
+          <li
             className={
               pathname === "/fa/projects" || pathname === "/en/projects"
                 ? "active--link"
                 : ""
             }
           >
-            <Link href="/projects" className="nav--link nav--projects">
-              <span className="nav__name">{Projects}</span>
+            <Link href="/projects" className="nav--link nav--link-projects">
+             {Projects}
             </Link>
-          </span>
-          {/* <span
-            className={
-              pathname === "/fa/contact" || pathname === "/en/contact"
-                ? "active--link"
-                : ""
-            }
-          >
-            <Link href="/contact" className="nav--link nav--contact">
-              <span className="nav__name">
-              {Contact}
-              </span>
-            </Link>
-          </span> */}
+          </li>
 
-          <span
+          <li
             className={
               pathname === "/fa/blog" || pathname === "/en/blog"
                 ? "active--link"
                 : ""
             }
           >
-            <Link href="/blog" className="nav--link nav--blog">
-              <span className="nav__name">{Blog}</span>
+            <Link href="/blog" className="nav--link nav--link-blog">
+             {Blog}
             </Link>
-          </span>
-        </div>
+          </li>
+        </ul>
       </nav>
     </header>
   );

@@ -35,16 +35,20 @@ export default async function category({ params }) {
   let categoryName;
 
   const categoryPosts = allPostMetaData
-    .filter((postMetaData) => {
-      if (locale == postMetaData.lang && category == postMetaData.category.slug) {
+    .filter((eachPostMetaData) => {
+      if (
+        locale == eachPostMetaData.lang &&
+        category == eachPostMetaData.category.slug
+      ) {
         if (!categoryName) {
-          categoryName = postMetaData.category.name;
+          categoryName = eachPostMetaData.category.name;
         }
         return true;
       }
     })
-    .map((postMetaData) => {
-      return <Post key={postMetaData.title} postMetaData={postMetaData} />;
+    .map((eachPostMetaData) => {
+      console.log(eachPostMetaData.lang, "//////////");
+      return <Post key={eachPostMetaData.title} eachPostMetaData={eachPostMetaData} />;
     });
 
   return (

@@ -116,6 +116,7 @@ export default function Preferences({ prefencesTranslations }) {
                 fontWeight: "500",
               }}
               onClick={() => changeLang("fa")}
+              lang="fa"
             >
               فا
             </button>

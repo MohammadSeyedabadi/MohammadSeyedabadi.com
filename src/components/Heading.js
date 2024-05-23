@@ -10,7 +10,7 @@ export default function Heading({ title, description, slug }) {
         {description && <div className="description">{description}</div>}
       </div>
       {slug && (
-        <Link className="nav--link-home" href={slug}>
+        <Link className="button" href={slug}>
           {t("viewAll")}
         </Link>
       )}

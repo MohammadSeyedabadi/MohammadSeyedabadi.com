@@ -536,10 +536,10 @@ a.button:hover {
   border-color: var(--border-color-hover);
 }
 
-/* a:active,
+.button:active,
 button:active {
   transform: scale(0.95);
-} */
+}
 
 /* Navigation */
 
@@ -549,7 +549,9 @@ button:active {
   font-weight: 500;
   display: flex;
   align-items: center;
-  column-gap: 2rem;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 1.7rem;
   margin-top: 2.5rem;
 }
 

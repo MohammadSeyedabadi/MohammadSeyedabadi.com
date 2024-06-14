@@ -3,13 +3,7 @@ import { Link } from "@/navigation";
 import config from "@/utils/config";
 import Hero from "@/components/Hero";
 import Heading from "@/components/Heading";
-// import DecorationPhoto from "@/components/DecorationPhoto";
 import PostPreview from "@/components/PostPreview";
-
-//export const metadata = {
-//   title: config.enSiteTitle,
-//   description: config.description,
-// };
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
@@ -35,8 +29,7 @@ export default function Index() {
               {indexPage("descThree")}{" "}
               <Link href="/projects">{indexPage("descFour")}</Link>{" "}
               {indexPage("descFive")}{" "}
-              <Link href="/blog">{indexPage("descSix")}</Link>{" "}
-              {indexPage("descSeven")}
+              <Link href="/blog">{indexPage("descSix")}</Link>
             </p>
           </Hero>
           <div className="decoration">{/* <DecorationPhoto /> */}</div>

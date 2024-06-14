@@ -5,11 +5,6 @@ import TitleIcon from "@/assets/TitleIcon";
 import AboutSidebar from "@/components/AboutSidebar";
 import Hero from "@/components/Hero";
 
-// export const metadata = {
-//   title: `About me | ${config.siteTitle}`,
-//   description: `Read more about ${config.siteTitle}`,
-// };
-
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
 
@@ -73,7 +68,14 @@ export default function AboutMe() {
                   >
                     {t("descThirteen")}
                   </a>{" "}
-                  {t("descFourteen")}
+                  {t("descFourteen")} {t("descFifteen")}{" "}
+                  <strong>
+                    <u>mohammadseyedabadi.com</u>
+                  </strong>{" "}
+                  at{" "}
+                  <strong>
+                    <u>gmail.com</u>
+                  </strong>
                 </p>
               </div>
             </section>

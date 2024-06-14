@@ -16,11 +16,11 @@
   "Index": {
     "descOne": "Hi, I'm Mohammad!",
     "descTwo": "Welcome to my digital garden.",
-    "descThree": "I'm a software developer in Neyshabur. I make",
-    "descFour": "open-source projects",
-    "descFive": "and",
-    "descSix": "write",
-    "descSeven": "about code.",
+    "descThree": "I'm a software developer in Neyshabur. I love to",
+    "descFour": " build",
+    "descFive": "and repair. I sometimes also",
+    "descSix": "blog.",
+   
     "article": "Article",
     "demo": "Demo",
     "source": "Source",
@@ -41,7 +41,8 @@
     "descEleven": "GitHub",
     "descTwelve": "and",
     "descThirteen": "LinkedIn",
-    "descFourteen": "are for."
+    "descFourteen": "are for.",
+    "descFifteen":"This is my email in case you wanted to contact me: "
   },
   "Projects": {
     "Projects": "Projects"

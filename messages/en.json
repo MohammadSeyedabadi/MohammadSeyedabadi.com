@@ -11,6 +11,7 @@
     "Light": "Light",
     "System": "System",
     "Language": "Language",
+    "LanguageStatus": "ENG",
     "Close": "Close"
   },
   "Index": {
@@ -20,7 +21,7 @@
     "descFour": " build",
     "descFive": "and repair. I sometimes also",
     "descSix": "blog.",
-   
+
     "article": "Article",
     "demo": "Demo",
     "source": "Source",
@@ -42,7 +43,7 @@
     "descTwelve": "and",
     "descThirteen": "LinkedIn",
     "descFourteen": "are for.",
-    "descFifteen":"This is my email in case you wanted to contact me: "
+    "descFifteen": "This is my email in case you wanted to contact me: "
   },
   "Projects": {
     "Projects": "Projects"

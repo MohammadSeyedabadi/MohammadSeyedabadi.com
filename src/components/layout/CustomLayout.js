@@ -15,7 +15,8 @@ export default function CustomLayout(props) {
     Dark: t("Dark"),
     Light: t("Light"),
     System: t("System"),
-    Language:t("Language"),
+    Language: t("Language"),
+    LanguageStatus: t("LanguageStatus"),
     Close: t("Close"),
   };
   return (

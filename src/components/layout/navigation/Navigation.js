@@ -17,6 +17,7 @@ export default function Navigation({ translation }) {
     Light,
     System,
     Language,
+    LanguageStatus,
     Close,
   } = translation;
   const pathname = usePathname();
@@ -28,6 +29,7 @@ export default function Navigation({ translation }) {
     Light,
     System,
     Language,
+    LanguageStatus,
     Close,
   };
 

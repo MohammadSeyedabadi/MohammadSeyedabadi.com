@@ -94,7 +94,9 @@ export function ThemeContextProvider(props) {
     window
       .matchMedia("(prefers-color-scheme: light)")
       .addEventListener("change", () => {
-        setSystemTheme();
+        if (localStorage.getItem("theme") === "system-theme") {
+          setSystemTheme();
+        }
       });
 
     window.addEventListener("storage", (event) => {

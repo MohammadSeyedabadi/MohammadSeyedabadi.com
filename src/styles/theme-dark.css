@@ -2,6 +2,8 @@
   --background-color: var(--gray-10);
   --card-background-color: var(--gray-9);
   --contact-sidebar-card: var(--gray-9);
+  --code-background-color: #131313;
+  --code-border-color: var(--gray-65);
   --star: var(--rainbow-5);
   --year: var(--rainbow-4);
 

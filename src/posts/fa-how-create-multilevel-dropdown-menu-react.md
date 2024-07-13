@@ -34,7 +34,7 @@ tags:
 
 اساسا تابع بازگشتی، تابعی هست که خودش رو فراخوانی میکنه، یک چیزی مثل این:
 
-```js
+```js {"TITLE": "Header.jsx","HIGHLIGHT":[3],"ADDED":[1,2],"REMOVED":[4]}
 myRecursiveFunction(){
    // some code
    myRecursiveFunction()

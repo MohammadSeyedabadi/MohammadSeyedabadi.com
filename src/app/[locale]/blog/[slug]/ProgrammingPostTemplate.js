@@ -4,7 +4,6 @@ import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import Image from "next/image";
 import PostSidebar from "@/components/PostSidebar";
 import { materialLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -12,7 +11,11 @@ import Giscus from "@giscus/react";
 
 import TitleIcon from "@/assets/TitleIcon";
 
-export default function ProgrammingPostTemplate({ metaData, content, translation }) {
+export default function ProgrammingPostTemplate({
+  metaData,
+  content,
+  translation,
+}) {
   const language = useParams().locale;
   const { ariaActive } = useContext(ThemeContext);
   const { title, slug, image } = metaData;
@@ -67,12 +70,33 @@ export default function ProgrammingPostTemplate({ metaData, content, translation
     code(code) {
       const { className, children } = code;
       const language = className.split("-")[1]; // className is something like language-js => We need the "js" part here
-
+      let metaObj = {};
+      if (code.node.data) {
+        metaObj = JSON.parse(code.node.data.meta);
+      }
       return (
         <div lang="en" dir="ltr">
+          {metaObj.TITLE && <div className="code--block-header">{metaObj.TITLE}</div>}
           <SyntaxHighlighter
             style={ariaActive ? materialDark : materialLight}
             language={language}
+            showLineNumbers={true}
+            wrapLines={true}
+            lineProps={(lineNumber) => {
+              let style = { display: "block" };
+              if (metaObj.ADDED?.includes(lineNumber)) {
+                style.backgroundColor = "rgb(153 246 150 / 20%)";
+                style.borderLeft = "5px solid rgb(153 246 150 / 50%)";
+              } else if (metaObj.REMOVED?.includes(lineNumber)) {
+                style.backgroundColor = "rgb(246 150 150 / 20%)";
+                style.borderLeft = "5px solid rgb(246 150 150 / 50%)";
+              } else if (metaObj.HIGHLIGHT?.includes(lineNumber)) {
+                style.backgroundColor = "rgb(150 155 246 / 20%)";
+                style.borderLeft = "5px solid rgb(150 155 246 / 50%)";
+              }
+
+              return { style };
+            }}
           >
             {children}
           </SyntaxHighlighter>

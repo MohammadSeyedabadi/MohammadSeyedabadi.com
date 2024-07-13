@@ -1,6 +1,8 @@
 [data-theme="light-theme"] {
   --background-color: #eee;
   --card-background-color: var(--gray-0);
+  --code-background-color: var(--gray-0);
+  --code-border-color: var(--gray-3);
   --contact-sidebar-card: var(--gray-2);
   --star: var(--yellow);
   --year: var(--green);
@@ -42,7 +44,7 @@
   --scrollbar-color: var(--gray-3);
   --scrollbar-track: var(--gray-4);
 
-  --td-bg-color:var(--gray-7);
+  --td-bg-color: var(--gray-7);
   --endgame-text: var(--gray-7);
   --huPlayer-bg-color: var(--background-color);
   --aiPlayer-bg-color: var(--red);

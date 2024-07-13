@@ -34,11 +34,11 @@ to use recursive functions. As in [GeeksForGeeks](https://www.geeksforgeeks.org/
 
 Basically a Recursive function is a function that calls it self, something like this:
 
-```js
-myRecursiveFunction(){
-   // some code
-   myRecursiveFunction()
-   // some code
+```js {"TITLE": "Header.jsx","HIGHLIGHT":[3],"ADDED":[1,2],"REMOVED":[4]}
++ myRecursiveFunction(){
++    // some code
+    myRecursiveFunction()
+-   // some code
 }
 ```
 

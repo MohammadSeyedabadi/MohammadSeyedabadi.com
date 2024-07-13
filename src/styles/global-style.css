@@ -339,8 +339,30 @@ h5 {
   font-family: var(--font-family-heading);
 }
 
+.code--block-header {
+  color: var(--font-color-muted);
+  padding: 0.25rem 1rem;
+  border: 1.5px solid var(--code-border-color);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  background-color: var(--border-color);
+}
+
 pre {
   max-height: 50vh;
+  border-radius: var(--border-radius);
+}
+.code--block-header + pre {
+  border-top-left-radius: initial;
+  border-top-right-radius: initial;
+}
+pre > div[lang="en"] > pre  {
+  margin-top: 0 !important;
+  padding: 1.25rem 0 !important;
+  border: 1.5px solid var(--code-border-color) !important;
+  border-bottom-left-radius: var(--border-radius) !important;
+  border-bottom-right-radius: var(--border-radius) !important;
+  background-color: var(--code-background-color) !important;
 }
 
 h2.home-heading {
@@ -541,7 +563,7 @@ button:active {
   transform: scale(0.95);
 }
 
-.modal--btn-wrapper{
+.modal--btn-wrapper {
   display: flex;
   gap: 0.2rem;
   margin-bottom: 0.8rem;
@@ -553,7 +575,7 @@ button:active {
   border-radius: 50%;
   padding: 0.7rem;
   opacity: 0.3;
-  cursor:initial;
+  cursor: initial;
 }
 
 .modal--btn-close {
@@ -562,7 +584,7 @@ button:active {
   border-radius: 50%;
   padding: 0.7rem;
 }
-.modal--btn:active{
+.modal--btn:active {
   transform: scale(1);
 }
 
@@ -1676,4 +1698,8 @@ p.text-medium {
 ::-webkit-scrollbar-thumb {
   background: var(--scrollbar-color);
   border-radius: 2px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--code-background-color);
 }

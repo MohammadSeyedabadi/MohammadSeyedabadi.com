@@ -119,7 +119,7 @@ myRecursiveFunction(){
 
 ما میتونیم یک تابع بنویسیم که وظیفه‌اش نمایش همه‌ی نوبار ( navbar ) باشه، من اسمش رو گذاشتم Header همونطور که Ibadehin Mojeed هم همین کارو کرده، دلیل‌اش هم اینه که تگ هدر‌ مون که داخل این تابع هست دور همه چیز پیچیده، اما شما اسمشو هرچی بخوایید میتونید بزارید. درضمن توی این تابع برای صفحه نمایش های کوچیک از usestate استفاده کردم.
 
-```js
+```jsx
 export default function Header() {
   const [toggle, setToggle] = useState(false);
   return (

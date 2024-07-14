@@ -348,17 +348,30 @@ h5 {
   background-color: var(--border-color);
 }
 
+.code--block-inline-code {
+  color: var(--font-color-muted);
+  background-color: var(--code-background-color);
+  padding: 0.1rem 0.4rem;
+  margin: 0 0.1rem;
+  border: 1px solid var(--code-border-color);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family-monospace);
+  font-size: 0.87rem;
+}
+
 pre {
   max-height: 50vh;
   border-radius: var(--border-radius);
 }
+
 .code--block-header + pre {
   border-top-left-radius: initial;
   border-top-right-radius: initial;
-}
-pre > div[lang="en"] > pre  {
-  margin-top: 0 !important;
   padding: 1.25rem 0 !important;
+}
+
+pre > div[lang="en"] > pre {
+  margin-top: 0 !important;
   border: 1.5px solid var(--code-border-color) !important;
   border-bottom-left-radius: var(--border-radius) !important;
   border-bottom-right-radius: var(--border-radius) !important;

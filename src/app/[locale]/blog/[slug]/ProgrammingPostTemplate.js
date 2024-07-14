@@ -5,8 +5,7 @@ import ThemeContext from "@/store/theme-context";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import PostSidebar from "@/components/PostSidebar";
-import { materialLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialLight, materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import Giscus from "@giscus/react";
 
 import TitleIcon from "@/assets/TitleIcon";
@@ -21,16 +20,6 @@ export default function ProgrammingPostTemplate({
   const { title, slug, image } = metaData;
 
   const customRenderers = {
-    // img(image) {       // we dont want to use the default img tag which is provided by markdown, instead we want to use img() {} method, here as a parameter we path the (image) which is a object with the image data react markdown got from the markdown text, and the alt text for example is the text between [], and we use it to use the nextJS Image.
-    //   return (         // here with the img() {} method everything working well but we get an error because markdown by default put images and ... inside a p tag, we can get rid of the error with the code below, in there we check if the direct child of the p tag is an image so replace it with what we want, otherwise do nothing and return the p tag with text inside it as normal.
-    //     <Image
-    //       src={`/images/posts/${post.slug}/${image.src}`}
-    //       alt={image.alt}
-    //       width={600}
-    //       height={300}
-    //     />
-    //   );
-    // },
     h2(h2) {
       let title = h2.children.split(" ").join("-");
 
@@ -69,39 +58,48 @@ export default function ProgrammingPostTemplate({
 
     code(code) {
       const { className, children } = code;
-      const language = className.split("-")[1]; // className is something like language-js => We need the "js" part here
-      let metaObj = {};
-      if (code.node.data) {
-        metaObj = JSON.parse(code.node.data.meta);
-      }
-      return (
-        <div lang="en" dir="ltr">
-          {metaObj.TITLE && <div className="code--block-header">{metaObj.TITLE}</div>}
-          <SyntaxHighlighter
-            style={ariaActive ? materialDark : materialLight}
-            language={language}
-            showLineNumbers={true}
-            wrapLines={true}
-            lineProps={(lineNumber) => {
-              let style = { display: "block" };
-              if (metaObj.ADDED?.includes(lineNumber)) {
-                style.backgroundColor = "rgb(153 246 150 / 20%)";
-                style.borderLeft = "5px solid rgb(153 246 150 / 50%)";
-              } else if (metaObj.REMOVED?.includes(lineNumber)) {
-                style.backgroundColor = "rgb(246 150 150 / 20%)";
-                style.borderLeft = "5px solid rgb(246 150 150 / 50%)";
-              } else if (metaObj.HIGHLIGHT?.includes(lineNumber)) {
-                style.backgroundColor = "rgb(150 155 246 / 20%)";
-                style.borderLeft = "5px solid rgb(150 155 246 / 50%)";
-              }
+      if (className) {
+        const language = className.split("-")[1]; // className is something like language-js => We need the "js" part here
+        let metaObj = {};
+        if (code.node.data) {
+          metaObj = JSON.parse(code.node.data.meta);
+        }
+        return (
+          <div lang="en" dir="ltr">
+            {metaObj.TITLE && (
+              <div className="code--block-header">{metaObj.TITLE}</div>
+            )}
+            <SyntaxHighlighter
+              style={ariaActive ? materialDark : materialLight}
+              language={language}
+              showLineNumbers={metaObj.SHOWLINENUMBER}
+              wrapLines={true}
+              lineProps={(lineNumber) => {
+                let style = { display: "block" };
+                if (metaObj.ADDED?.includes(lineNumber)) {
+                  style.backgroundColor = "rgb(20 174 115 / 20%)";
+                  style.borderLeft = "2.5px solid rgb(20 174 115)";
+                } else if (metaObj.REMOVED?.includes(lineNumber)) {
+                  style.backgroundColor = "rgb(243 70 70 / 20%)";
+                  style.borderLeft = "2.5px solid rgb(243 70 70)";
+                } else if (metaObj.HIGHLIGHT?.includes(lineNumber)) {
+                  style.backgroundColor = "rgb(91 94 213 / 20%)";
+                  style.borderLeft = "2.5px solid rgb(91 94 213)";
+                } else {
+                  // so all numbers are vertically aligned
+                  style.marginLeft = "1.5px"
+                }
 
-              return { style };
-            }}
-          >
-            {children}
-          </SyntaxHighlighter>
-        </div>
-      );
+                return { style };
+              }}
+            >
+              {children}
+            </SyntaxHighlighter>
+          </div>
+        );
+      } else {
+        return <span className="code--block-inline-code">{children}</span>;
+      }
     },
 
     a(anchor) {

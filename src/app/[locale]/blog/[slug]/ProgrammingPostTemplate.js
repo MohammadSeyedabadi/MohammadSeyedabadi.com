@@ -76,7 +76,9 @@ export default function ProgrammingPostTemplate({
             <SyntaxHighlighter
               style={ariaActive ? materialDark : materialLight}
               language={language}
-              showLineNumbers={metaObj.SHOWLINENUMBER}
+              showLineNumbers={
+                metaObj.ADDED || metaObj.REMOVED || metaObj.HIGHLIGHT
+              }
               wrapLines={true}
               lineProps={(lineNumber) => {
                 let style = { display: "block" };

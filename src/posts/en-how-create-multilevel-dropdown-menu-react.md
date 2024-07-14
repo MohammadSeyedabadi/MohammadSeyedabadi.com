@@ -121,7 +121,7 @@ So in our case, imagine that we have an array of menus and submenus like this:
 We can write a function which is responsible for rendering our whole navigation, i called it Header just as Ibadehin Mojeed did,
 because our header tag which is inside of this function, wraps everything, but you could call it whatever you want. I also wrote a usestate for small screens.
 
-```js
+```jsx
 export default function Header() {
   const [toggle, setToggle] = useState(false);
   return (

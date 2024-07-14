@@ -5,7 +5,11 @@ import ThemeContext from "@/store/theme-context";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import PostSidebar from "@/components/PostSidebar";
-import { materialLight, materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {
+  materialLight,
+  materialDark,
+} from "react-syntax-highlighter/dist/cjs/styles/prism";
+import remarkGfm from "remark-gfm";
 import Giscus from "@giscus/react";
 
 import TitleIcon from "@/assets/TitleIcon";
@@ -78,18 +82,17 @@ export default function ProgrammingPostTemplate({
                 let style = { display: "block" };
                 if (metaObj.ADDED?.includes(lineNumber)) {
                   style.backgroundColor = "rgb(20 174 115 / 20%)";
-                  style.borderLeft = "2.5px solid rgb(20 174 115)";
+                  style.borderLeft = "2.5px solid rgb(20, 174, 115)";
                 } else if (metaObj.REMOVED?.includes(lineNumber)) {
                   style.backgroundColor = "rgb(243 70 70 / 20%)";
-                  style.borderLeft = "2.5px solid rgb(243 70 70)";
+                  style.borderLeft = "2.5px solid rgb(243, 70, 70)";
                 } else if (metaObj.HIGHLIGHT?.includes(lineNumber)) {
                   style.backgroundColor = "rgb(91 94 213 / 20%)";
-                  style.borderLeft = "2.5px solid rgb(91 94 213)";
+                  style.borderLeft = "2.5px solid rgb(91, 94, 213)";
                 } else {
                   // so all numbers are vertically aligned
-                  style.marginLeft = "1.5px"
+                  style.marginLeft = "1.5px";
                 }
-
                 return { style };
               }}
             >
@@ -125,7 +128,10 @@ export default function ProgrammingPostTemplate({
             </div>
             <section className="segment small">
               <div className="post-content">
-                <ReactMarkdown components={customRenderers}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  components={customRenderers}
+                >
                   {content}
                 </ReactMarkdown>
               </div>

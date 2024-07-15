@@ -1,4 +1,3 @@
-import ProgrammingPostTemplate from "./ProgrammingPostTemplate";
 import { getSinglePostFileData } from "@/utils/posts-util";
 import { useTranslations } from "next-intl";
 import config from "@/utils/config";

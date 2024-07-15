@@ -181,7 +181,6 @@ main {
 blockquote {
   margin: 2rem 0;
   border: 1px solid var(--indigo-light);
-  /* border-left: 6px solid var(--indigo-light); */
   margin-left: 0;
   padding: 1.5rem;
   background: var(--blockquote-background);
@@ -221,7 +220,7 @@ blockquote.quotation {
   border: none;
   border-left: 12px solid var(--border-color);
   border-radius: 0;
-  /* font-family: "Georgia"; */
+  font-family: "Georgia";
   font-style: italic;
   font-size: 1.1rem;
   padding: 0 0 0 1.5rem;
@@ -268,7 +267,7 @@ h2 {
   font-weight: 700;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--border-color);
-  /* font-family: var(--font-family-nav); */
+  font-family: var(--font-family-nav);
   color: var(--font-color-heading);
   letter-spacing: -0.05rem;
 }
@@ -287,7 +286,7 @@ h3 {
   font-weight: 500;
   margin-bottom: 1.25rem;
   color: var(--font-color-heading3);
-  /* font-family: var(--font-family-heading); */
+  font-family: var(--font-family-heading);
 }
 
 h3 code {
@@ -381,6 +380,10 @@ pre > div[lang="en"] > pre {
   padding: 1.25rem 0 !important;
 }
 
+span.linenumber {
+  display: none !important;
+}
+
 h2.home-heading {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -394,7 +397,7 @@ h2.home-heading {
 h2.home-heading .title {
   font-size: 1.7rem;
   margin-bottom: 0;
-  /* font-family: var(--font-family-base); */
+  font-family: var(--font-family-base);
   font-weight: 700;
 }
 
@@ -523,7 +526,7 @@ a.button {
   display: inline-flex;
   align-items: center;
   padding: 0.7rem 1rem;
-  /* font-family: var(--font-family-nav); */
+  font-family: var(--font-family-nav);
   line-height: 1;
   border-radius: var(--border-radius);
   font-size: 1rem;
@@ -727,7 +730,7 @@ html[lang="fa"] .stars {
   display: block;
   font-size: 1rem;
   line-height: 1.3;
-  /* font-family: var(--font-family-base); */
+  font-family: var(--font-family-base);
   font-weight: 500;
   color: var(--font-color-heading);
   margin: 0.1rem 0 0.5rem;
@@ -748,7 +751,7 @@ html[lang="fa"] .stars {
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--font-color-muted);
-  /* font-family: var(--font-family-base); */
+  font-family: var(--font-family-base);
 }
 
 .card.single {
@@ -1099,7 +1102,7 @@ a.post h3 {
   /* color: var(--font-color-heading); */
   color: var(--font-color-muted);
   font-weight: 500;
-  /* font-family: var(--font-family-base); */
+  font-family: var(--font-family-base);
   line-height: 1.3;
 }
 
@@ -1230,77 +1233,6 @@ html[lang="fa"] a.post span {
   max-height: 100px;
   max-width: 100px;
   margin-bottom: 1rem;
-}
-
-form label,
-form input,
-form textarea {
-  display: block;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
-
-form label {
-  color: var(--font-color-base);
-}
-
-form input {
-  font-size: 0.9rem;
-}
-
-textarea {
-  max-width: 250px;
-  min-width: 100%;
-  min-height: 80px;
-  max-height: 150px;
-}
-
-form input {
-  margin-bottom: 0.7rem;
-}
-
-.contact-sidebar-card {
-  padding-top: 1rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-}
-
-.contact-sidebar-card::before {
-  content: "";
-  position: absolute;
-  width: 1600px;
-  height: 1600px;
-  background: linear-gradient(#00ccff, #d500f9);
-  animation: rotate 6s linear infinite;
-}
-
-@media screen and (min-width: 1060px) {
-  .contact-sidebar-card::before {
-    width: 550px;
-    height: 550px;
-  }
-}
-
-.contact-sidebar-card::after {
-  content: "";
-  position: absolute;
-  background-color: var(--contact-sidebar-card);
-  inset: 5px;
-  border-radius: var(--border-radius);
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .list a {
@@ -1515,7 +1447,6 @@ a.category.active .count {
 
 .footer {
   padding: 3rem 0;
-  /* font-family: var(--post-font-family); */
 }
 
 .footer section {

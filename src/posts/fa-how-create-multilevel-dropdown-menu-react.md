@@ -20,10 +20,8 @@ tags:
 
 ---
 
-این آموزش یک نسخه ی ساده شده از [ آموزشی ](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) هست که Ibadehin Mojeed نوشته.
-
-اگر توضیحات کامل میخوایید، باید [ این مقاله ](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) رو بخونید. ایشون همچنین یک مقاله ی دیگه هم برای درست کردن منو با CSS داره. برای خوندنش [ اینجا کلیک کنید ](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/).
-
+این آموزش یک نسخه ی ساده شده از [آموزشی](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) هست که Ibadehin Mojeed نوشته.
+اگر توضیحات کامل میخوایید، باید [این مقاله](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) رو بخونید. ایشون همچنین یک مقاله ی دیگه هم برای درست کردن منو با CSS داره. برای خوندنش [اینجا کلیک کنید.](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/)
 در آخر این آموزش یک منو مثل این داریم:
 
 ![Final-outcome-react-multilevel-dropdown-menu-project](img1-Final-outcome-react-multilevel-dropdown-menu-project.gif)

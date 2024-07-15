@@ -526,7 +526,7 @@ a.button {
   display: inline-flex;
   align-items: center;
   padding: 0.7rem 1rem;
-  font-family: var(--font-family-nav);
+  /* font-family: var(--font-family-nav); */
   line-height: 1;
   border-radius: var(--border-radius);
   font-size: 1rem;

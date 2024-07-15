@@ -68,17 +68,21 @@ export default function ProgrammingPostTemplate({
         if (code.node.data) {
           metaObj = JSON.parse(code.node.data.meta);
         }
+        const SHOWLINENUMBERS =
+          metaObj.ADDED || metaObj.REMOVED || metaObj.HIGHLIGHT;
         return (
-          <div lang="en" dir="ltr">
+          <div
+            lang="en"
+            dir="ltr"
+            className={`${SHOWLINENUMBERS ? "SHOWLINENUMBERS" : null}`}
+          >
             {metaObj.TITLE && (
               <div className="code--block-header">{metaObj.TITLE}</div>
             )}
             <SyntaxHighlighter
               style={ariaActive ? materialDark : materialLight}
               language={language}
-              showLineNumbers={
-                metaObj.ADDED || metaObj.REMOVED || metaObj.HIGHLIGHT
-              }
+              showLineNumbers={SHOWLINENUMBERS}
               wrapLines={true}
               lineProps={(lineNumber) => {
                 let style = { display: "block" };

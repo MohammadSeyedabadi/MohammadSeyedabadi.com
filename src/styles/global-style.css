@@ -115,7 +115,7 @@ p,
 ul,
 ol,
 ul,
-/* table, */
+table,
 blockquote {
   font-size: 1rem;
   color: var(--font-color-base);
@@ -126,7 +126,7 @@ blockquote {
   ul,
   ol,
   ul,
-  /* table, */
+  table,
   blockquote {
     letter-spacing: -0.01rem;
     font-size: 1.1rem;
@@ -345,7 +345,7 @@ h5 {
   border: 1.5px solid var(--code-border-color);
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-  background-color: var(--border-color);
+  background-color: var(--card-background-color);
 }
 
 .code--block-inline-code {
@@ -361,21 +361,24 @@ h5 {
 
 pre {
   max-height: 50vh;
-  border-radius: var(--border-radius);
-}
-
-.code--block-header + pre {
-  border-top-left-radius: initial;
-  border-top-right-radius: initial;
-  padding: 1.25rem 0 !important;
 }
 
 pre > div[lang="en"] > pre {
+  border-radius: var(--border-radius);
   margin-top: 0 !important;
   border: 1.5px solid var(--code-border-color) !important;
   border-bottom-left-radius: var(--border-radius) !important;
   border-bottom-right-radius: var(--border-radius) !important;
-  background-color: var(--code-background-color) !important;
+}
+
+.code--block-header + pre {
+  border-top-left-radius: initial !important;
+  border-top-right-radius: initial !important;
+  padding: 1.25rem 0 !important;
+}
+
+.SHOWLINENUMBERS > pre {
+  padding: 1.25rem 0 !important;
 }
 
 h2.home-heading {
@@ -1714,5 +1717,5 @@ p.text-medium {
 }
 
 ::-webkit-scrollbar-corner {
-  background: var(--code-background-color);
+  background: var(--scrollbar-color);
 }

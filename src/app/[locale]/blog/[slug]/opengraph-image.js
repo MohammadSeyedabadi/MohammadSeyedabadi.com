@@ -14,9 +14,9 @@ export const contentType = "image/png";
 // Image generation
 export default async function Image() {
   // Font
-  const Vazirmatn = fetch(
-    new URL("/public/fonts/fonts/ttf/Vazirmatn-Black.ttf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  // const Vazirmatn = fetch(
+  //   new URL("/public/fonts/fonts/ttf/Vazirmatn-Black.ttf", import.meta.url)
+  // ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     (
@@ -41,14 +41,14 @@ export default async function Image() {
       // For convenience, we can re-use the exported opengraph-image
       // size config to also set the ImageResponse's width and height.
       ...size,
-      fonts: [
-        {
-          name: "Vazirmatn",
-          data: await Vazirmatn,
-          style: "normal",
-          weight: 400,
-        },
-      ],
+      // fonts: [
+      //   {
+      //     name: "Vazirmatn",
+      //     data: await Vazirmatn,
+      //     style: "normal",
+      //     weight: 400,
+      //   },
+      // ],
     }
   );
 }

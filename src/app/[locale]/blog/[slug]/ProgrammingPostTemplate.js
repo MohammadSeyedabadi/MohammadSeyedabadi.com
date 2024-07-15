@@ -48,11 +48,16 @@ export default function ProgrammingPostTemplate({
         const image = node.children[0];
         return (
           <div>
-            <img
-              src={`/images/posts/${slug}/${image.properties.src}`}
-              alt={image.properties.alt}
-              style={{ marginBottom: "20px", maxWidth: "100%" }}
-            />
+            <a
+              href={`/images/posts/${slug}/${image.properties.src}`}
+              target="_blank"
+            >
+              <img
+                src={`/images/posts/${slug}/${image.properties.src}`}
+                alt={image.properties.alt}
+                style={{ marginBottom: "20px", maxWidth: "100%" }}
+              />
+            </a>
           </div>
         );
       }

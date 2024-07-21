@@ -3,11 +3,6 @@ import config from "@/utils/config";
 import Hero from "@/components/Hero";
 import ProjectPreview from "./ProjectPreview";
 
-// export const metadata = {
-//   title: `Projects | ${config.siteTitle}`,
-//   description: "A highlight of my open-source work",
-// };
-
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
 

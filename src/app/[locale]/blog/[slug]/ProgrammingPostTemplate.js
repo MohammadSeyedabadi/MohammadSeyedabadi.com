@@ -127,45 +127,43 @@ export default function ProgrammingPostTemplate({
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="grid">
-          <div className="article-content">
-            <div className="post-header medium width">
-              <div className="mobile-post-image">
-                <img src={`/images/posts/${slug}/${image}`} alt={title} />
-              </div>
-              <h1>{title}</h1>
+    <div className="container">
+      <div className="grid">
+        <div className="article-content">
+          <div className="post-header medium width">
+            <div className="mobile-post-image">
+              <img src={`/images/posts/${slug}/${image}`} alt={title} />
             </div>
-            <section className="segment small">
-              <div className="post-content">
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  components={customRenderers}
-                >
-                  {content}
-                </ReactMarkdown>
-              </div>
-            </section>
-            <Giscus
-              id="comments"
-              repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
-              repoId="R_kgDOKeamUQ"
-              category="Announcements"
-              categoryId="DIC_kwDOKeamUc4CbDQi"
-              mapping="pathname"
-              term="Welcome to @giscus/react component!"
-              reactionsEnabled="0"
-              emitMetadata="0"
-              inputPosition="top"
-              theme={ariaActive ? "dark" : "light"}
-              lang={language}
-              loading="lazy"
-            />
+            <h1>{title}</h1>
           </div>
-          <PostSidebar metaData={metaData} translation={translation} />
+          <section className="segment small">
+            <div className="post-content">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={customRenderers}
+              >
+                {content}
+              </ReactMarkdown>
+            </div>
+          </section>
+          <Giscus
+            id="comments"
+            repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
+            repoId="R_kgDOKeamUQ"
+            category="Announcements"
+            categoryId="DIC_kwDOKeamUc4CbDQi"
+            mapping="pathname"
+            term="Welcome to @giscus/react component!"
+            reactionsEnabled="0"
+            emitMetadata="0"
+            inputPosition="top"
+            theme={ariaActive ? "dark" : "light"}
+            lang={language}
+            loading="lazy"
+          />
         </div>
+        <PostSidebar metaData={metaData} translation={translation} />
       </div>
-    </>
+    </div>
   );
 }

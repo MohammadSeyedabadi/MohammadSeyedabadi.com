@@ -1,30 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { projectsList } from "@/data/projectsList";
 import StarIcon from "@/assets/StarIcon";
 import ExternalLinkIcon from "@/assets/ExternalLinkIcon";
 import { useParams } from "next/navigation";
-
+import { Suspense } from "react";
+import Stars from "./Stars";
+import { SkeletonTagsAndCategories } from "@/components/skeletons";
 
 export default function ProjectPreview() {
-  const [repos, setRepos] = useState([]);
-  useEffect(() => {
-    async function getStars() {
-      const repos = await fetch(
-        "https://api.github.com/users/MohammadSeyedabadi/repos?per_page=100"
-      );
-
-      return repos.json();
-    }
-
-    getStars()
-      .then((data) => {
-        setRepos(data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
   const lang = useParams().locale;
 
   return (
@@ -33,19 +17,12 @@ export default function ProjectPreview() {
         return (
           <div className="card anchored large" key={project.slug}>
             <div className="stars">
-              {repos.find((repo) => repo.name === project.slug) && (
-                <div className="star">
-                  <a
-                    href={`https://github.com/MohammadSeyedabadi/${project.slug}/stargazers`}
-                  >
-                    {Number(
-                      repos.find((repo) => repo.name === project.slug)
-                        .stargazers_count
-                    ).toLocaleString()}
-                  </a>
-                  <StarIcon />
-                </div>
-              )}
+              <div key={project.slug} className="star">
+                <Suspense fallback={<>Loading ...</>}>
+                  <Stars projectsList={projectsList} />
+                </Suspense>
+                <StarIcon />
+              </div>
             </div>
             <div>
               <time>{lang === "en" ? project.enDate : project.faDate}</time>
@@ -57,7 +34,7 @@ export default function ProjectPreview() {
               >
                 {project.name}
               </a>
-              <p>{lang === "en" ? project.enDesc :  project.faDesc }</p>
+              <p>{lang === "en" ? project.enDesc : project.faDesc}</p>
             </div>
             <div className="links anchored">
               {project.writeup && (
@@ -72,7 +49,7 @@ export default function ProjectPreview() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                    {lang === "en" ? "Demo" : "نمونه نمایشی"} <ExternalLinkIcon />
+                  {lang === "en" ? "Demo" : "نمونه نمایشی"} <ExternalLinkIcon />
                 </a>
               )}
               <a

@@ -1,15 +1,11 @@
-"use client";
 import Link from "next/link";
 import { projectsList } from "@/data/projectsList";
 import StarIcon from "@/assets/StarIcon";
 import ExternalLinkIcon from "@/assets/ExternalLinkIcon";
-import { useParams } from "next/navigation";
 import { Suspense } from "react";
 import Stars from "./Stars";
-import { SkeletonTagsAndCategories } from "@/components/skeletons";
 
-export default function ProjectPreview() {
-  const lang = useParams().locale;
+export default function ProjectPreview({ params }) {
 
   return (
     <div className="project-preview">
@@ -19,13 +15,15 @@ export default function ProjectPreview() {
             <div className="stars">
               <div key={project.slug} className="star">
                 <Suspense fallback={<>Loading ...</>}>
-                  <Stars projectsList={projectsList} />
+                  <Stars projectsList={projectsList} locale={params.locale} />
                 </Suspense>
                 <StarIcon />
               </div>
             </div>
             <div>
-              <time>{lang === "en" ? project.enDate : project.faDate}</time>
+              <time>
+                {params.locale === "en" ? project.enDate : project.faDate}
+              </time>
               <a
                 className="card-header"
                 href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
@@ -34,12 +32,12 @@ export default function ProjectPreview() {
               >
                 {project.name}
               </a>
-              <p>{lang === "en" ? project.enDesc : project.faDesc}</p>
+              <p>{params.locale === "en" ? project.enDesc : project.faDesc}</p>
             </div>
             <div className="links anchored">
               {project.writeup && (
                 <Link className="button small" href={project.writeup}>
-                  {lang === "en" ? "Article" : "مقاله"}
+                  {params.locale === "en" ? "Article" : "مقاله"}
                 </Link>
               )}
               {project.url && (
@@ -49,7 +47,8 @@ export default function ProjectPreview() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  {lang === "en" ? "Demo" : "نمونه نمایشی"} <ExternalLinkIcon />
+                  {params.locale === "en" ? "Demo" : "نمونه نمایشی"}{" "}
+                  <ExternalLinkIcon />
                 </a>
               )}
               <a
@@ -58,7 +57,7 @@ export default function ProjectPreview() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {lang === "en" ? "Source" : "کد"} <ExternalLinkIcon />
+                {params.locale === "en" ? "Source" : "کد"} <ExternalLinkIcon />
               </a>
             </div>
           </div>

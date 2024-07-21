@@ -1,25 +1,5 @@
-"use client";
-import { useState, useEffect } from "react";
-
-export default function Stars({ projectsList }) {
-  const [repos, setRepos] = useState([]);
-  useEffect(() => {
-    async function getStars() {
-
-      const repos = await fetch(
-        "https://api.github.com/users/MohammadSeyedabadi/repos?per_page=100"
-      );
-      return repos.json();
-    }
-
-    getStars()
-      .then((data) => {
-        
-        setRepos(data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-
+export default async function Stars({ projectsList, locale }) {
+  const repos = await getRepos();
   return (
     <>
       {projectsList.map((project) => {
@@ -32,11 +12,18 @@ export default function Stars({ projectsList }) {
               {Number(
                 repos.find((repo) => repo.name === project.slug)
                   .stargazers_count
-              ).toLocaleString()}
+              ).toLocaleString(locale === "en" ? "es-US" : "fa-IR")}
             </a>
           )
         );
       })}
     </>
   );
+}
+
+export async function getRepos() {
+  const repos = await fetch(
+    "https://api.github.com/users/MohammadSeyedabadi/repos?per_page=100"
+  );
+  return repos.json();
 }

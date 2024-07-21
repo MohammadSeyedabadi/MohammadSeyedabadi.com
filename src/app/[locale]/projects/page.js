@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function Projects() {
+export default function Projects({ params }) {
   const t = useTranslations("Projects");
   return (
     <>
@@ -35,7 +35,7 @@ export default function Projects() {
 
       <section className="segment">
         <div className="container">
-          <ProjectPreview />
+          <ProjectPreview params={params} />
         </div>
       </section>
     </>

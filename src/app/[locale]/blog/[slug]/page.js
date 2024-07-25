@@ -5,20 +5,26 @@ import GetData from "./GetData";
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
-  const {metaData} = await getSinglePostFileData(locale, slug);
-  return {
-    title: `${metaData.title} | ${
-      locale == "en" ? config.enSiteTitle : config.faSiteTitle
-    }`,
-    description: metaData.excerpt,
-    category: metaData.category.name,
-    alternates: {
-      languages: {
-        en: `/en/blog/${slug}`,
-        fa: `/fa/blog/${slug}`,
+  try {
+    const { metaData } = await getSinglePostFileData(locale, slug);
+    return {
+      title: `${metaData.title} | ${
+        locale == "en" ? config.enSiteTitle : config.faSiteTitle
+      }`,
+      description: metaData.excerpt,
+      category: metaData.category.name,
+      alternates: {
+        languages: {
+          en: `/en/blog/${slug}`,
+          fa: `/fa/blog/${slug}`,
+        },
       },
-    },
-  };
+    };
+  } catch (error) {
+    console.error(
+      `Faild To Fetch Meta Data in blog/[slug]/page.js. Error Message : ${error}`
+    );
+  }
 }
 
 export default function Page({ params }) {
@@ -39,7 +45,7 @@ export default function Page({ params }) {
 
   return (
     <>
-      <GetData locale={locale} slug={slug} translation={translation}/>
+      <GetData locale={locale} slug={slug} translation={translation} />
     </>
   );
 }

@@ -4,8 +4,7 @@ import { getAllPostsMetaData } from "@/utils/posts-util";
 import BlogSidebar from "@/components/BlogSidebar";
 
 export async function generateMetadata({ params }) {
-  const { locale, slug } = params;
-
+  const { locale } = params;
   return {
     title: `${
       locale == "en"
@@ -26,7 +25,14 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Blog({ params }) {
-  const allPostsMetaData = await getAllPostsMetaData();
+  let allPostsMetaData;
+  try {
+    allPostsMetaData = await getAllPostsMetaData();
+  } catch (error) {
+    console.error(
+      `Failed To Fetch All Posts Meta Data In /blog/page.js. Error Message : ${error}`
+    );
+  }
   return (
     <section className="container markdown-content">
       <div className="grid">

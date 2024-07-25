@@ -22,8 +22,14 @@ export default async function Stars({ projectsList, locale }) {
 }
 
 export async function getRepos() {
-  const repos = await fetch(
-    "https://api.github.com/users/MohammadSeyedabadi/repos?per_page=100"
-  );
-  return repos.json();
+  try {
+    const repos = await fetch(
+      "https://api.github.com/users/MohammadSeyedabadi/repos?per_page=100"
+    );
+    return repos.json();
+  } catch (error) {
+    console.error(
+      `Failed To Fetch Repos In /projects/stars.js. Error Message : ${error}`
+    );
+  }
 }

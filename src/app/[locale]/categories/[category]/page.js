@@ -3,11 +3,6 @@ import Post from "@/components/Post";
 import Hero from "@/components/Hero";
 import { getAllPostsMetaData } from "@/utils/posts-util";
 
-// export const metadata = {
-//   title: ` | ${config.siteTitle}`,
-//   description: "A list of all my posts",
-// };
-
 export async function generateMetadata({ params }) {
   const { locale, category } = params;
 
@@ -30,7 +25,14 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function category({ params }) {
-  const allPostMetaData = await getAllPostsMetaData();
+  let allPostMetaData;
+  try {
+    allPostMetaData = await getAllPostsMetaData();
+  } catch (error) {
+    console.error(
+      `Failed To Fetch All Posts Meta Data In /categories/[category]/page.js. Error Message : ${error}`
+    );
+  }
   const { locale, category } = params;
   let categoryName;
 
@@ -47,8 +49,12 @@ export default async function category({ params }) {
       }
     })
     .map((eachPostMetaData) => {
-      console.log(eachPostMetaData.lang, "//////////");
-      return <Post key={eachPostMetaData.title} eachPostMetaData={eachPostMetaData} />;
+      return (
+        <Post
+          key={eachPostMetaData.title}
+          eachPostMetaData={eachPostMetaData}
+        />
+      );
     });
 
   return (

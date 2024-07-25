@@ -24,7 +24,14 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function tag({ params }) {
-  const allPostsMetaData = await getAllPostsMetaData();
+  let allPostsMetaData;
+  try {
+    allPostsMetaData = await getAllPostsMetaData();
+  } catch (error) {
+    console.error(
+      `Failed To Fetch All Posts Meta Data In /tags/[tag]/page.js. Error Message : ${error}`
+    );
+  }
   const { locale, tag } = params;
   let tagName;
   const tagPosts = allPostsMetaData
@@ -41,7 +48,12 @@ export default async function tag({ params }) {
       }
     })
     .map((eachPostMetaData) => {
-      return <Post key={eachPostMetaData.title} eachPostMetaData={eachPostMetaData} />;
+      return (
+        <Post
+          key={eachPostMetaData.title}
+          eachPostMetaData={eachPostMetaData}
+        />
+      );
     });
 
   return (

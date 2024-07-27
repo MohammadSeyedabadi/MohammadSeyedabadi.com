@@ -11,7 +11,7 @@
     "Light": "روشن",
     "System": "سیستم",
     "Language": "زبان",
-    "LanguageStatus":"فا",
+    "LanguageStatus": "فا",
     "Close": "بستن"
   },
   "Index": {
@@ -42,7 +42,7 @@
     "descTwelve": "و",
     "descThirteen": "لینکدین",
     "descFourteen": "برای همین کار هستند.",
-    "descFifteen":"اگر میخواهید با من تماس بگیرید، از این ایمیل استفاده کنید: "
+    "descFifteen": "اگر میخواهید با من تماس بگیرید، از این ایمیل استفاده کنید: "
   },
   "Projects": {
     "Projects": "پروژه ها"
@@ -80,5 +80,12 @@
     "youLose": "باختی.",
     "tieGame": "مساوی!",
     "replay": "تکرار"
+  },
+  "NotFoundPage": {
+    "error": "ارور ۴۰۴",
+    "postErrorExplanation": "پست موردنظر پیدا نشد.",
+    "restErrorExplanation": "صفحه‌ی مورد نظر پیدا نشد.",
+    "goBack": "برگشت",
+    "goBackToMainPage":"بازگشت به صفحه‌ی اصلی"
   }
 }

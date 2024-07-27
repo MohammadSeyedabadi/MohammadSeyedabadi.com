@@ -81,5 +81,12 @@
     "youLose": "You lose.",
     "tieGame": "Tie Game!",
     "replay": "Replay"
+  },
+  "NotFoundPage": {
+    "error": "404 Not Found",
+    "postErrorExplanation": "Could not find the requested blog post.",
+    "restErrorExplanation": "Could not find the requested page.",
+    "goBack": "Go Back",
+    "goBackToMainPage": "Go back to main page (Home)."
   }
 }

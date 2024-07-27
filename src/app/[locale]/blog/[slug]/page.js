@@ -2,11 +2,13 @@ import { getSinglePostFileData } from "@/utils/posts-util";
 import { useTranslations } from "next-intl";
 import config from "@/utils/config";
 import GetData from "./GetData";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
   try {
     const { metaData } = await getSinglePostFileData(locale, slug);
+    
     return {
       title: `${metaData.title} | ${
         locale == "en" ? config.enSiteTitle : config.faSiteTitle
@@ -24,6 +26,7 @@ export async function generateMetadata({ params }) {
     console.error(
       `Faild To Fetch Meta Data in blog/[slug]/page.js. Error Message : ${error}`
     );
+    notFound();
   }
 }
 

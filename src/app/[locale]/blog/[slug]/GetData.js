@@ -1,5 +1,6 @@
 import { getSinglePostFileData } from "@/utils/posts-util";
 import ProgrammingPostTemplate from "./ProgrammingPostTemplate";
+
 export default async function GetData({ locale, slug, translation }) {
   let post = {};
   // throw new Error("Failed To Fetch Single Post File Data.")

@@ -157,7 +157,7 @@ export default function TicTacToe({ translation }) {
 
       return moves[bestMove];
     }
-  }, []);
+  });
   return (
     <aside className="post-sidebar">
       <div className="post-sidebar-card">

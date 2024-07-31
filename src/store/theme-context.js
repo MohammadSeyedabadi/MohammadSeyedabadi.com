@@ -108,7 +108,7 @@ export function ThemeContextProvider(props) {
         setSystemTheme();
       }
     });
-  }, []);
+  });
 
   const context = {
     systemState,

@@ -6,7 +6,11 @@ export default async function page() {
   return (
     <div>
       <div>my notes</div>
-      <div></div>
+      <div>ID : {allNotesTitle.allNotesTitle[0]._id}</div>
+      <div>CREATED AT : {allNotesTitle.allNotesTitle[0].createdAt}</div>
+      <div>SLUG : {allNotesTitle.allNotesTitle[0].slug}</div>
+      <div>TITLE : {allNotesTitle.allNotesTitle[0].title}</div>
+      <div>DESC : {allNotesTitle.allNotesTitle[0].desc}</div>
     </div>
   );
 }
@@ -17,9 +21,8 @@ export async function getData() {
     const db = client.db("something");
     const allNotesTitle = await db
       .collection("Post")
-      .find({})
-      .sort({ metacritic: -1 })
-      .limit(1000)
+      .find()
+      .project({ title: 1, slug: 1, _id: 0 })
       .toArray();
 
     return {

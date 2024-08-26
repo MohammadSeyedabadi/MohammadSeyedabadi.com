@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import PostSidebar from "@/components/PostSidebar";
 import {
@@ -138,12 +138,12 @@ export default function ProgrammingPostTemplate({
           </div>
           <section className="segment small">
             <div className="post-content">
-              <ReactMarkdown
+              <Markdown
                 remarkPlugins={[remarkGfm]}
                 components={customRenderers}
               >
                 {content}
-              </ReactMarkdown>
+              </Markdown>
             </div>
           </section>
           <Giscus

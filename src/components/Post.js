@@ -1,5 +1,5 @@
 import { Link } from "@/navigation";
-export default function Post({ eachPostPreviewData }) {
+export default function Post({ eachPostPreviewData, page }) {
   const { lang, slug, title, createdAt } = eachPostPreviewData;
   const formattedDate = new Date(createdAt).toLocaleDateString(
     lang === "fa" ? "fa-IR" : "en-US",
@@ -11,7 +11,7 @@ export default function Post({ eachPostPreviewData }) {
   );
   return (
     <>
-      <Link href={`/blog/${slug}`} className="post">
+      <Link href={`/${page}/${slug}`} className="post">
         <h3>{title}</h3>
         <time>{formattedDate}</time>
       </Link>

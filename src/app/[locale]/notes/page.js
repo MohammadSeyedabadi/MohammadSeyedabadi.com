@@ -1,22 +1,34 @@
+import Posts from "@/components/Posts";
 import clientPromise from "../../../utils/mongodb";
+import Hero from "@/components/Hero";
 
-export default async function page() {
-  const allNotesTitle = await getData();
-
-  return <div className="container"></div>;
+export default async function page( { params : locale }) {
+  const allPostsPreviewData = await getData();
+  return (
+    <section className="container markdown-content">
+      <div className="grid">
+        <div className="article-content">
+          <Hero title={locale === "fa" ? "نوشته ها" : "Notes"} />
+          <Posts allPostsPreviewData={allPostsPreviewData} />
+        </div>
+        <div className="sidebar-content">
+          {/* <BlogSidebar params={params} /> */}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export async function getData() {
   try {
     const client = await clientPromise;
     const db = client.db("something");
-    const allNotesTitle = await db
+    const allPostsPreviewData = await db
       .collection("Post")
-      .find()
-      .project({ title: 1, slug: 1, _id: 0 })
+      .find({}, { projection: { _id: 0, content: 0, image: 0 } })
       .toArray();
 
-    return allNotesTitle;
+    return allPostsPreviewData;
     // return {
     //   props: { allNotesTitle: JSON.parse(JSON.stringify(allNotesTitle)) },
     // };

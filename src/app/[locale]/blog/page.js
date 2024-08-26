@@ -2,6 +2,7 @@ import config from "@/utils/config";
 import Posts from "@/components/Posts";
 import { getAllPostsMetaData } from "@/utils/posts-util";
 import BlogSidebar from "@/components/BlogSidebar";
+import Hero from "@/components/Hero";
 
 export async function generateMetadata({ params }) {
   const { locale } = params;
@@ -37,7 +38,8 @@ export default async function Blog({ params }) {
     <section className="container markdown-content">
       <div className="grid">
         <div className="article-content">
-          <Posts allPostsMetaData={allPostsMetaData} />
+          <Hero title={params.locale === "fa" ? "نوشته ها" : "Writing"} />
+          <Posts allPostsPreviewData={allPostsMetaData} />
         </div>
         <div className="sidebar-content">
           <BlogSidebar params={params} />

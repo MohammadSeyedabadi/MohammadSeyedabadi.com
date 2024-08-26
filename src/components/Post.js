@@ -1,7 +1,7 @@
 import { Link } from "@/navigation";
-export default function Post({ eachPostMetaData }) {
-  const { lang, slug, title, date } = eachPostMetaData;
-  const formattedDate = new Date(date).toLocaleDateString(
+export default function Post({ eachPostPreviewData }) {
+  const { lang, slug, title, createdAt } = eachPostPreviewData;
+  const formattedDate = new Date(createdAt).toLocaleDateString(
     lang === "fa" ? "fa-IR" : "en-US",
     {
       day: "numeric",
@@ -9,7 +9,6 @@ export default function Post({ eachPostMetaData }) {
       year: "numeric",
     }
   );
-
   return (
     <>
       <Link href={`/blog/${slug}`} className="post">

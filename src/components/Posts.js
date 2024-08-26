@@ -1,23 +1,23 @@
 "use client";
 import { useParams } from "next/navigation";
-
 import Post from "./Post";
-import Hero from "./Hero";
 
-export default function Posts({ allPostsMetaData }) {
-  const urlLang = useParams().locale;
+export default function Posts({ allPostsPreviewData }) {
+  const { locale } = useParams();
   return (
-    <>
-      <Hero title={urlLang === "fa" ? "نوشته ها" : "Writing"} />
       <section className="segment">
         <div className="posts">
-          {allPostsMetaData.map((eachPostMetaData) => {
-            if (urlLang == eachPostMetaData.lang) {
-              return <Post key={eachPostMetaData.title} eachPostMetaData={eachPostMetaData} />;
+          {allPostsPreviewData.map((eachPostPreviewData) => {
+            if (locale == eachPostPreviewData.lang) {
+              return (
+                <Post
+                  key={eachPostPreviewData.title}
+                  eachPostPreviewData={eachPostPreviewData}
+                />
+              );
             }
           })}
         </div>
       </section>
-    </>
   );
 }

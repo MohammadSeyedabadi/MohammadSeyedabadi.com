@@ -8,7 +8,7 @@ export default function CustomLayout(props) {
     Home: t("Home"),
     About: t("About"),
     Projects: t("Projects"),
-    Contact: t("Contact"),
+  
     Blog: t("Blog"),
     PreferencesT: t("PreferencesT"),
     Theme: t("Theme"),

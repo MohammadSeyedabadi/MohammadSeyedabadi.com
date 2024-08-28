@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
     alternates: {
       languages: {
         en: `/en/tags/${tag}`,
-        fa: `/fa/tags/${tag}`,
+        fa: `/fa/تگ-ها/${tag}`,
       },
     },
   };
@@ -51,7 +51,7 @@ export default async function tag({ params }) {
       return (
         <Post
           key={eachPostMetaData.title}
-          eachPostMetaData={eachPostMetaData}
+          eachPostPreviewData={eachPostMetaData}
         />
       );
     });

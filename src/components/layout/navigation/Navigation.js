@@ -9,7 +9,6 @@ export default function Navigation({ translation }) {
     Home,
     About,
     Projects,
-    Contact,
     Blog,
     PreferencesT,
     Theme,
@@ -20,7 +19,12 @@ export default function Navigation({ translation }) {
     LanguageStatus,
     Close,
   } = translation;
-  const pathname = usePathname();
+
+  let pathname = usePathname();
+  const pathnameArray = pathname.split("/");
+  if (pathname != "/fa" && pathnameArray.length == 3) {
+    pathname = `/fa/${decodeURI(pathnameArray.pop())}`;
+  }
 
   const prefencesTranslations = {
     PreferencesT,
@@ -53,37 +57,37 @@ export default function Navigation({ translation }) {
 
           <li
             className={
-              pathname === "/fa/me" || pathname === "/en/me"
+              pathname === "/fa/درباره-من" || pathname === "/en/me"
                 ? "active--link"
                 : ""
             }
           >
             <Link href="/me" className="nav--link nav--link-about">
-             {About}
+              {About}
             </Link>
           </li>
 
           <li
             className={
-              pathname === "/fa/projects" || pathname === "/en/projects"
+              pathname === "/fa/پروژه-ها" || pathname === "/en/projects"
                 ? "active--link"
                 : ""
             }
           >
             <Link href="/projects" className="nav--link nav--link-projects">
-             {Projects}
+              {Projects}
             </Link>
           </li>
 
           <li
             className={
-              pathname === "/fa/blog" || pathname === "/en/blog"
+              pathname === "/fa/بلاگ" || pathname === "/en/blog"
                 ? "active--link"
                 : ""
             }
           >
             <Link href="/blog" className="nav--link nav--link-blog">
-             {Blog}
+              {Blog}
             </Link>
           </li>
         </ul>

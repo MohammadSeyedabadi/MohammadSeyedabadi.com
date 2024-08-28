@@ -15,7 +15,7 @@
     "gray-matter": "^4.0.3",
     "mongodb": "^6.8.0",
     "next": "^14.1.4",
-    "next-intl": "^3.5.3",
+    "next-intl": "^3.17.6",
     "prisma": "^5.18.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -52,7 +52,8 @@ export default async function category({ params }) {
       return (
         <Post
           key={eachPostMetaData.title}
-          eachPostMetaData={eachPostMetaData}
+          page="categories"
+          eachPostPreviewData={eachPostMetaData}
         />
       );
     });

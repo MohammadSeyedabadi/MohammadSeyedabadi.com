@@ -7,8 +7,11 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
   try {
-    const { metaData } = await getSinglePostFileData(locale, decodeURI(slug));
-    
+    const { metaData } = await getSinglePostFileData(
+      locale,
+      locale == "fa" ? decodeURI(slug) : slug
+    );
+
     return {
       title: `${metaData.title} | ${
         locale == "en" ? config.enSiteTitle : config.faSiteTitle
@@ -48,7 +51,11 @@ export default function Page({ params }) {
 
   return (
     <>
-      <GetData locale={locale} slug={decodeURI(slug)} translation={translation} />
+      <GetData
+        locale={locale}
+        slug={locale == "fa" ? decodeURI(slug) : slug}
+        translation={translation}
+      />
     </>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/navigation";
-import { usePathname } from "next/navigation";
+import { usePathname,useParams } from "next/navigation";
 import Preferences from "@/components/Preferences";
 
 export default function Navigation({ translation }) {
@@ -20,9 +20,10 @@ export default function Navigation({ translation }) {
     Close,
   } = translation;
 
+  const params = useParams()
   let pathname = usePathname();
   const pathnameArray = pathname.split("/");
-  if (pathname != "/fa" && pathnameArray.length == 3) {
+  if (params.locale == "fa" && pathnameArray.length == 3) {
     pathname = `/fa/${decodeURI(pathnameArray.pop())}`;
   }
 

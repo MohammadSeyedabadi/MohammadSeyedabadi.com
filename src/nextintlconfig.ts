@@ -39,15 +39,15 @@ export const pathnames = {
     fa: "/بلاگ/[slug]",
   },
 
-//   "/tags/[tag]": {
-//     en: "/tags/[tag]",
-//     fa: "/تگ-ها/[tag]",
-//   },
+  "/tags/[tag]": {
+    en: "/tags/[tag]",
+    fa: "/تگ-ها/[tag]",
+  },
 
-//   "/categories/[category]": {
-//     en: "/categories/[category]",
-//     fa: "/دسته-بندی-ها/[category]",
-//   },
+  "/categories/[category]": {
+    en: "/categories/[category]",
+    fa: "/دسته-بندی-ها/[category]",
+  },
 
   //   // Dynamic params are supported via square brackets
   //   '/news/[articleSlug]-[articleId]': {

@@ -3,8 +3,7 @@
 import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
 import { useParams } from "next/navigation";
-import { usePathname } from "../navigation";
-import { useRouter } from "../navigation";
+import { useRouter, usePathname } from "../navigation";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 
@@ -19,12 +18,14 @@ export default function Preferences({ prefencesTranslations }) {
     LanguageStatus,
     Close,
   } = prefencesTranslations;
+
+  const params = useParams();
+  const lang = params.locale;
   const pathname = usePathname();
-  const lang = useParams().locale;
   const router = useRouter();
 
   function changeLang(L) {
-    router.replace(pathname, { locale: L });
+    router.replace({ pathname, params }, { locale: L });
   }
 
   const { systemState, setDarkTheme, setLightTheme, setSystemTheme, active } =

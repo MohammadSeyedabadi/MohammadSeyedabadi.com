@@ -12,7 +12,7 @@ export default function Post({ eachPostPreviewData, page }) {
   );
   return (
     <>
-      <Link href={`/${page}/${slug}`} className="post">
+      <Link href={`/${page}/${title.split(" ").join("-")}`} className="post">
         <h3>{title}</h3>
         <time>{formattedDate}</time>
       </Link>

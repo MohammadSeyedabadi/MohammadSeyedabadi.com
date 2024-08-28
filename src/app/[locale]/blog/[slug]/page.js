@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
   try {
-    const { metaData } = await getSinglePostFileData(locale, slug);
+    const { metaData } = await getSinglePostFileData(locale, decodeURI(slug));
     
     return {
       title: `${metaData.title} | ${
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
       alternates: {
         languages: {
           en: `/en/blog/${slug}`,
-          fa: `/fa/blog/${slug}`,
+          fa: `/fa/بلاگ/${slug}`,
         },
       },
     };
@@ -48,7 +48,7 @@ export default function Page({ params }) {
 
   return (
     <>
-      <GetData locale={locale} slug={slug} translation={translation} />
+      <GetData locale={locale} slug={decodeURI(slug)} translation={translation} />
     </>
   );
 }

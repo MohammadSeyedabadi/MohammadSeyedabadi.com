@@ -19,16 +19,16 @@ export async function generateMetadata({ params }) {
     alternates: {
       languages: {
         en: "/en/blog",
-        fa: "/fa/blog",
+        fa: "/fa/بلاگ",
       },
     },
   };
 }
 
 export default async function Blog({ params }) {
-  let allPostsMetaData;
+  let allPostsPreviewData;
   try {
-    allPostsMetaData = await getAllPostsMetaData();
+    allPostsPreviewData = await getAllPostsMetaData();
   } catch (error) {
     console.error(
       `Failed To Fetch All Posts Meta Data In /blog/page.js. Error Message : ${error}`
@@ -39,7 +39,7 @@ export default async function Blog({ params }) {
       <div className="grid">
         <div className="article-content">
           <Hero title={params.locale === "fa" ? "نوشته ها" : "Writing"} />
-          <Posts allPostsPreviewData={allPostsMetaData} />
+          <Posts allPostsPreviewData={allPostsPreviewData} />
         </div>
         <div className="sidebar-content">
           <BlogSidebar params={params} />

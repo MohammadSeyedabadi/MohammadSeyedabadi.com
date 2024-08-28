@@ -2,8 +2,8 @@
 import { Link } from "@/navigation";
 
 export default function PostSidebar({ metaData, translation }) {
-  const { lang, title, slug, image, date, category, tags } = metaData;
-  const formattedDate = new Date(date).toLocaleDateString(
+  const { lang, title, slug, image, createdAt, category, tags } = metaData;
+  const formattedDate = new Date(createdAt).toLocaleDateString(
     lang === "fa" ? "fa-IR" : "en-US",
     {
       day: "numeric",

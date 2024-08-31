@@ -1,5 +1,5 @@
 import config from "@/utils/config";
-import { getAllPostsMetaData } from "@/utils/posts-util";
+import { getAllPostsMetaData, getAllTags } from "@/utils/posts-util";
 import BlogSidebar from "@/components/BlogSidebar";
 import Hero from "@/components/Hero";
 import Post from "@/components/Post";
@@ -26,14 +26,14 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Blog({ params }) {
-  let allPostsPreviewData;
+  let allPostsPreviewData, allTags;
   try {
+    allTags = await getAllTags(params.locale);
     allPostsPreviewData = await getAllPostsMetaData(params.locale);
   } catch (error) {
-    console.error(
-      `Failed To Fetch All Posts Meta Data In /blog/page.js. Error Message : ${error}`
-    );
+    console.error(`Error Occurred In /blog/page.js. Error Message : ${error}`);
   }
+
   return (
     <section className="container markdown-content">
       <div className="grid">
@@ -54,7 +54,7 @@ export default async function Blog({ params }) {
           </section>
         </div>
         <div className="sidebar-content">
-          {/* <BlogSidebar params={params} /> */}
+          <BlogSidebar allTags={allTags} />
         </div>
       </div>
     </section>

@@ -7,14 +7,10 @@ lastModified: "2023-11-19"
 image: how-create-multilevel-dropdown-menu-react.png
 excerpt: Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.
 category: Technical
-# array of objects
 tags:
-  - name: front end
-    slug: front-end
-  - name: algorithm
-    slug: algorithm
-  - name: ReactJS
-    slug: reactjs
+  - front-end
+  - algorithm
+  - reactJS
 ---
 
 This tutorial is a simplified version of [this tutorial](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) written by Ibadehin Mojeed.

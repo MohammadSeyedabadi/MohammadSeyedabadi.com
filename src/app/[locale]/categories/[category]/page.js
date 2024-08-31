@@ -31,7 +31,8 @@ export default async function category({ params }) {
 
   try {
     all_posts_preview_data = await get_all_posts_by_category_preview_data(
-      locale
+      locale,
+      category
     );
   } catch (error) {
     console.error(

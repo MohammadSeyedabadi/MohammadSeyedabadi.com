@@ -24,6 +24,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function tag({ params }) {
+  console.log(params)
   let allPostsMetaData;
   try {
     allPostsMetaData = await getAllPostsMetaData(params.locale);

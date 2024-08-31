@@ -1,46 +1,44 @@
 ---
-lang: "fa"
+lang: "en"
 slug: "how-create-multilevel-dropdown-menu-react"
-title: "نحوه ایجاد یک منوی چند سطحی در ریکت"
+title: "How to create a multilevel dropdown menu in React"
 createdAt: "2023-11-19"
 lastModified: "2023-11-19"
 image: how-create-multilevel-dropdown-menu-react.png
-excerpt: منوهای کشویی چند سطحی جزء اصلی طراحی وب هستند. آنها با توانایی ارائه چندین گزینه برای انتخاب، نوارهای ناوبری را پویا و سازماندهی می کنند.
-
-category:
-  name: فرانت اند
-  slug: front-end
+excerpt: Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.
+category: Technical
+# array of objects
 tags:
-  - name: فرانت اند
+  - name: front end
     slug: front-end
-  - name: الگوریتم
+  - name: algorithm
     slug: algorithm
-  - name: ریکت جی اس
+  - name: ReactJS
     slug: reactjs
-
 ---
 
-این آموزش یک نسخه ی ساده شده از [آموزشی](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) هست که Ibadehin Mojeed نوشته.
-اگر توضیحات کامل میخوایید، باید [این مقاله](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) رو بخونید. ایشون همچنین یک مقاله ی دیگه هم برای درست کردن منو با CSS داره. برای خوندنش [اینجا کلیک کنید.](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/)
-در آخر این آموزش یک منو مثل این داریم:
+This tutorial is a simplified version of [this tutorial](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) written by Ibadehin Mojeed.
+If you want a complete explanation, you have to read his article. He also has another article where he explans
+how to make dropdown menus with CSS. You could check that out [here.](https://blog.logrocket.com/making-dropdown-menus-css/) At the end we will have something like this:
 
 ![Final-outcome-react-multilevel-dropdown-menu-project](img1-Final-outcome-react-multilevel-dropdown-menu-project.gif)
 
-یک راه خوب برای اینکه یک منوی چند سطحی داشته باشیم اینه که از تابع بازگشتی استفاده کنیم. همون طور که توی GeeksForGeeks توضیح داده شده:
+So let's start with our code. If you want to create a multilevel dropdown menu, one good way is
+to use recursive functions. As in [GeeksForGeeks](https://www.geeksforgeeks.org/recursive-functions/) explained:
 
-> تابع بازگشتی را می توان به عنوان روتینی تعریف کرد که به طور مستقیم یا غیرمستقیم خود را فراخوانی می کند. به عبارت دیگر، یک تابع بازگشتی تابعی است که یک مسئله را با حل نمونه های کوچکتر از همان مسئله حل می کند. این تکنیک معمولاً در برنامه نویسی برای حل مسائلی استفاده می شود که می توانند به مسائل فرعی ساده تر و مشابه تقسیم شوند.
+> A Recursive function can be defined as a routine that calls itself directly or indirectly. In other words, a recursive function is a function that solves a problem by solving smaller instances of the same problem. This technique is commonly used in programming to solve problems that can be broken down into simpler, similar subproblems.
 
-اساسا تابع بازگشتی، تابعی هست که خودش رو فراخوانی میکنه، یک چیزی مثل این:
+Basically a Recursive function is a function that calls it self, something like this:
 
 ```js
-myRecursiveFunction(){
-   // some code
-   myRecursiveFunction()
+ myRecursiveFunction(){
+    // some code
+    myRecursiveFunction()
    // some code
 }
 ```
 
-خب شاید بگید که اینجوری یک حلقه‌ی بینهایت درست میشه، این حرف درسته اما نه اگر یک شرط بنویسیم که فراخوانی تابع رو در زمان خاصی متوقف کنه. یک چیزی مثل این:
+Well you may say that _**it causes an infinite loop.**_ That's right but not if we have a condition that stops the function call in a certain state, something like:
 
 ```js
 myRecursiveFunction(){
@@ -53,7 +51,8 @@ myRecursiveFunction(){
 }
 ```
 
-همچنین خوبه بدونید که هر مسئله‌ای که با تابع بازگشتی حل بشه، همیشه میتونه با حلقه‌های for هم حل بشه، اما در اکثر موارد، تابع بازگشتی کارمون رو خیلی راحت تر میکنه. خب در شرایط ما، فرض کنید یک آرایه از منو‌ها و زیر منوها داریم. به این شکل:
+It is also good to know that any problems that you can solve using a recursive function, will always have an alternative looping solution, but most of the time a recursive function makes our life easier.
+So in our case, imagine that we have an array of menus and submenus like this:
 
 ```js
 [
@@ -115,7 +114,8 @@ myRecursiveFunction(){
 ];
 ```
 
-ما میتونیم یک تابع بنویسیم که وظیفه‌اش نمایش همه‌ی نوبار ( navbar ) باشه، من اسمش رو گذاشتم Header همونطور که Ibadehin Mojeed هم همین کارو کرده، دلیل‌اش هم اینه که تگ هدر‌ مون که داخل این تابع هست دور همه چیز پیچیده، اما شما اسمشو هرچی بخوایید میتونید بزارید. درضمن توی این تابع برای صفحه نمایش های کوچیک از usestate استفاده کردم.
+We can write a function which is responsible for rendering our whole navigation, i called it Header just as Ibadehin Mojeed did,
+because our header tag which is inside of this function, wraps everything, but you could call it whatever you want. I also wrote a usestate for small screens.
 
 ```jsx
 export default function Header() {
@@ -208,9 +208,14 @@ function Dropdown({ depthLevel, submenus, dropdown }) {
 }
 ```
 
-همونطور که میبینید یک تابع MenuItems داخل تابع Header هست، که وظیفه‌اش ساختن زیر منو ( ها ) داخل منو ( ها ) هست. تابع MenuItems همون تابع بازگشتی ما هست. این تابع خودش رو به صورت غیر مستقیم و توسط تابع Dropdown فراخوانی میکنه و ? items.submenu همون شرط مبنا هست، اگر حاصل‌اش غلط باشه، اون وقت یک لینک درست میکنه، اما اگر حاصل‌اش درست باشه یک button درست میکنه ( که کاربر میتونه روش کلیک یا هاور کنه تا زیر منو ( ها ) رو ببینه ) و بعد دوباره خودش رو توسط تابع Dropdown فراخوانی میکنه تا دوباره یک Link درست کنه یا یک button.
+As you see, there is a MenuItems function inside of Header function, which is responsible for
+creating submenus ( lis ) inside of our menus ( uls ), or maybe just single submenus ( lis ).
+Our MenuItems function is our recursive function, it calls itself indirectly by Dropdown function and
+that **_items.submenu ?_** is its termination condition, if that condition is false, then it just simply creates a
+Link, but if that is true, then it will create a button( so the user can click or hover to see submenu/s )
+and then it calls itself by Dropdown function to again, create either a Link or a button.
 
-این هم کد CSS تا کد مون بیشتر حس یک نویگیشن ( Navigation ) بده:
+Here is the css code to make it feel more like a navigation:
 
 ```css
 * {
@@ -416,6 +421,6 @@ button span {
 }
 ```
 
-## در نهایت
+## Conclusion
 
-امیدوارم مفید بوده باشه، اگر شما همچنان متوجه نشدید که یک تابع بازگشتی چیکار میکنه، کاملا طبیعی هست، چون من به صورت مختصر توضیح‌اش دادم، پس خوبه که برید و سرچ کنید.
+So that was it for this tutorial. If you still didn't understand what a recursive function does, that's totally fine, because i explained it in short, so go ahead and google it :))

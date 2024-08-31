@@ -1,7 +1,7 @@
 import config from "@/utils/config";
 import Post from "@/components/Post";
 import Hero from "@/components/Hero";
-import { getAllPostsMetaData } from "@/utils/posts-util";
+import { get_all_posts_by_category_preview_data } from "@/utils/posts-util";
 
 export async function generateMetadata({ params }) {
   const { locale, category } = params;
@@ -25,38 +25,19 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function category({ params }) {
-  let allPostMetaData;
+  let all_posts_preview_data;
+  let { locale, category } = params;
+  locale == "fa" && (category = decodeURI(category).replace("-", " "));
+
   try {
-    allPostMetaData = await getAllPostsMetaData();
+    all_posts_preview_data = await get_all_posts_by_category_preview_data(
+      locale
+    );
   } catch (error) {
     console.error(
       `Failed To Fetch All Posts Meta Data In /categories/[category]/page.js. Error Message : ${error}`
     );
   }
-  const { locale, category } = params;
-  let categoryName;
-
-  const categoryPosts = allPostMetaData
-    .filter((eachPostMetaData) => {
-      if (
-        locale == eachPostMetaData.lang &&
-        category == eachPostMetaData.category.slug
-      ) {
-        if (!categoryName) {
-          categoryName = eachPostMetaData.category.name;
-        }
-        return true;
-      }
-    })
-    .map((eachPostMetaData) => {
-      return (
-        <Post
-          key={eachPostMetaData.title}
-          page="categories"
-          eachPostPreviewData={eachPostMetaData}
-        />
-      );
-    });
 
   return (
     <section className="container markdown-content">
@@ -68,11 +49,21 @@ export default async function category({ params }) {
                 ? " posts categorized as:"
                 : " پست دسته بندی شده با:"
             }
-            highlight={categoryPosts.length}
-            title={categoryName}
+            highlight={all_posts_preview_data.length}
+            title={category}
           />
           <div className="segment">
-            <div className="posts">{categoryPosts}</div>
+            <div className="posts">
+              {all_posts_preview_data.map((eachPostPreviewData) => {
+                return (
+                  <Post
+                    key={eachPostPreviewData.title}
+                    eachPostPreviewData={eachPostPreviewData}
+                    page="blog"
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

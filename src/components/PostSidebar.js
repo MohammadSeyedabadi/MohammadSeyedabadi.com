@@ -38,7 +38,7 @@ export default function PostSidebar({ metaData, translation }) {
           </li>
           <li>
             <strong>{Category}:</strong>{" "}
-            <Link href={`/categories/${category.slug}`}>{category.name}</Link>
+            <Link href={`/categories/${category.replace(" ","-").toLowerCase()}`}>{category}</Link>
           </li>
         </ul>
 

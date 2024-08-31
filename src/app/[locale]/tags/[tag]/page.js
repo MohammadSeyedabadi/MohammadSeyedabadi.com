@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
 export default async function tag({ params }) {
   let allPostsMetaData;
   try {
-    allPostsMetaData = await getAllPostsMetaData();
+    allPostsMetaData = await getAllPostsMetaData(params.locale);
   } catch (error) {
     console.error(
       `Failed To Fetch All Posts Meta Data In /tags/[tag]/page.js. Error Message : ${error}`

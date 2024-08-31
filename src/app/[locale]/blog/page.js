@@ -1,8 +1,8 @@
 import config from "@/utils/config";
-import Posts from "@/components/Posts";
 import { getAllPostsMetaData } from "@/utils/posts-util";
 import BlogSidebar from "@/components/BlogSidebar";
 import Hero from "@/components/Hero";
+import Post from "@/components/Post";
 
 export async function generateMetadata({ params }) {
   const { locale } = params;
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
 export default async function Blog({ params }) {
   let allPostsPreviewData;
   try {
-    allPostsPreviewData = await getAllPostsMetaData();
+    allPostsPreviewData = await getAllPostsMetaData(params.locale);
   } catch (error) {
     console.error(
       `Failed To Fetch All Posts Meta Data In /blog/page.js. Error Message : ${error}`
@@ -39,10 +39,22 @@ export default async function Blog({ params }) {
       <div className="grid">
         <div className="article-content">
           <Hero title={params.locale === "fa" ? "نوشته ها" : "Writing"} />
-          <Posts allPostsPreviewData={allPostsPreviewData} />
+          <section className="segment">
+            <div className="posts">
+              {allPostsPreviewData.map((eachPostPreviewData) => {
+                return (
+                  <Post
+                    key={eachPostPreviewData.title}
+                    eachPostPreviewData={eachPostPreviewData}
+                    page="blog"
+                  />
+                );
+              })}
+            </div>
+          </section>
         </div>
         <div className="sidebar-content">
-          <BlogSidebar params={params} />
+          {/* <BlogSidebar params={params} /> */}
         </div>
       </div>
     </section>

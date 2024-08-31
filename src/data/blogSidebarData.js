@@ -1,8 +1,8 @@
 export const blogSidebarData = {
-  categories: [
-    { enName: "Front End", faName: "فرانت اند", enSlug: "front-end" },
-  ],
-
+  categories: {
+    en: ["Front End"],
+    fa: ["فرانت اند"],
+  },
   tags: [
     {
       enName: "front end",

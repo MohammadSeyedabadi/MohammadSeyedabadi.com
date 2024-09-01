@@ -26,6 +26,7 @@ export async function generateMetadata({ params }) {
 
 export default async function category({ params }) {
   let { locale, category } = params;
+  console.log(category)
   locale == "fa" && (category = decodeURI(category));
   let all_posts_preview_data;
 
@@ -34,6 +35,7 @@ export default async function category({ params }) {
       locale,
       category
     );
+    console.log(all_posts_preview_data)
   } catch (error) {
     console.error(
       `Failed To Fetch All Posts Meta Data In /categories/[category]/page.js. Error Message : ${error}`

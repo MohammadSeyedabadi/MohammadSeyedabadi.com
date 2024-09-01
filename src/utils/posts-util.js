@@ -43,6 +43,7 @@ export async function get_all_posts_by_category_preview_data(
     file_path = path.join(files_Path, file);
     fileContent = fs.readFileSync(file_path, "utf-8");
     parsedFileContent = matter(fileContent);
+    console.log(parsedFileContent.data.category)
     if (categorySlug == parsedFileContent.data.category) {
       const { lang, title, createdAt, category } = parsedFileContent.data;
       metaData = {

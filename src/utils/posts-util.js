@@ -57,6 +57,30 @@ export async function get_all_posts_by_category_preview_data(
   return all_posts_preview_metaData;
 }
 
+export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
+  const files_Path = path.join(postsDirectory, locale);
+  const files = fs.readdirSync(files_Path);
+  let file_path, fileContent, metaData, parsedFileContent;
+  let all_posts_preview_metaData = [];
+  for(let file of files){
+    file_path = path.join(files_Path, file);
+    fileContent = fs.readFileSync(file_path, "utf-8");
+    parsedFileContent = matter(fileContent);
+    
+    if(parsedFileContent.data.tags.includes(tagSlug)){
+      const { lang, title, createdAt, category } = parsedFileContent.data;
+      metaData = {
+        lang,
+        title,
+        createdAt,
+        category,
+      };
+      all_posts_preview_metaData.push(metaData);
+    }
+  }
+  return all_posts_preview_metaData
+}
+
 export async function getAllTags(locale) {
   const files_Path = path.join(postsDirectory, locale);
   const files = fs.readdirSync(files_Path);

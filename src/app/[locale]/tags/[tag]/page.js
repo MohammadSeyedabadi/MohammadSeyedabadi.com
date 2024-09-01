@@ -1,5 +1,8 @@
 import config from "@/utils/config";
-import { getAllPostsMetaData } from "@/utils/posts-util";
+import {
+  get_all_posts_by_tag_preview_data,
+  getAllTags,
+} from "@/utils/posts-util";
 import Post from "@/components/Post";
 import Hero from "@/components/Hero";
 
@@ -7,7 +10,7 @@ export async function generateMetadata({ params }) {
   const { locale, tag } = params;
 
   return {
-    title: `${tag} | ${
+    title: `${locale == "en" ? tag : decodeURI(tag)} | ${
       locale == "en" ? config.enSiteTitle : config.faSiteTitle
     }`,
     description:
@@ -24,38 +27,17 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function tag({ params }) {
-  console.log(params)
-  let allPostsMetaData;
+  let { locale, tag } = params;
+  locale == "fa" && (tag = decodeURI(tag));
+  let allTags;
+
   try {
-    allPostsMetaData = await getAllPostsMetaData(params.locale);
+    allTags = await get_all_posts_by_tag_preview_data(locale, tag);
   } catch (error) {
     console.error(
       `Failed To Fetch All Posts Meta Data In /tags/[tag]/page.js. Error Message : ${error}`
     );
   }
-  const { locale, tag } = params;
-  let tagName;
-  const tagPosts = allPostsMetaData
-    .filter((eachPostMetaData) => {
-      if (locale == eachPostMetaData.lang) {
-        for (let postTagInfo of eachPostMetaData.tags) {
-          if (postTagInfo.slug == tag) {
-            if (!tagName) {
-              tagName = postTagInfo.name;
-            }
-            return true;
-          }
-        }
-      }
-    })
-    .map((eachPostMetaData) => {
-      return (
-        <Post
-          key={eachPostMetaData.title}
-          eachPostPreviewData={eachPostMetaData}
-        />
-      );
-    });
 
   return (
     <section className="container markdown-content">
@@ -63,11 +45,21 @@ export default async function tag({ params }) {
         <div className="article-content">
           <Hero
             subTitle={locale == "en" ? " posts tagged:" : " پست شامل تگ:"}
-            highlight={tagPosts.length}
-            title={tagName}
+            highlight={allTags.length}
+            title={tag}
           />
           <div className="segment">
-            <div className="posts">{tagPosts}</div>
+            <div className="posts">
+              {allTags.map((eachPostPreviewData) => {
+                return (
+                  <Post
+                    key={eachPostPreviewData.title}
+                    eachPostPreviewData={eachPostPreviewData}
+                    page="blog"
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

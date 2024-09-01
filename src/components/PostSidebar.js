@@ -38,7 +38,7 @@ export default function PostSidebar({ metaData, translation }) {
           </li>
           <li>
             <strong>{Category}:</strong>{" "}
-            <Link href={`/categories/${category.replace(" ","-").toLowerCase()}`}>{category}</Link>
+            <Link href={`/categories/${category.toLowerCase()}`}>{category}</Link>
           </li>
         </ul>
 
@@ -46,8 +46,8 @@ export default function PostSidebar({ metaData, translation }) {
         <div className="tags">
           {tags.map((tag) => {
             return (
-              <Link key={tag.name} href={`/tags/${tag.slug}`} className="tag">
-                {tag.name}
+              <Link key={tag} href={`/tags/${tag}`} className="tag">
+                {tag}
               </Link>
             );
           })}
@@ -64,13 +64,13 @@ export default function PostSidebar({ metaData, translation }) {
         </p>
       </div>
 
-      <div className="post-sidebar-card">
+      {/* <div className="post-sidebar-card">
         <h2>{AboutMe}</h2>
         <p>
           {PostSideBarDescOne} <Link href="/me">{PostSideBarDescTwo}</Link>
         </p>
         <p>{PostSideBarDescThree}</p>
-      </div>
+      </div> */}
     </aside>
   );
 }

@@ -25,9 +25,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function category({ params }) {
-  let all_posts_preview_data;
   let { locale, category } = params;
-  locale == "fa" && (category = decodeURI(category).replace("-", " "));
+  locale == "fa" && (category = decodeURI(category));
+  let all_posts_preview_data;
 
   try {
     all_posts_preview_data = await get_all_posts_by_category_preview_data(

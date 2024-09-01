@@ -2,7 +2,6 @@ import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
 
 export default function BlogSidebar({allTags}) {
-  console.log(allTags)
   const t = useTranslations("blog");
   return (
     <aside className="post-sidebar">

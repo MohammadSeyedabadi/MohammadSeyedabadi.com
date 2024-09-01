@@ -10,7 +10,7 @@ category: Technical
 tags:
   - front-end
   - algorithm
-  - reactJS
+  - reactjs
 ---
 
 This tutorial is a simplified version of [this tutorial](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) written by Ibadehin Mojeed.

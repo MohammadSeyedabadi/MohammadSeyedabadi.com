@@ -25,7 +25,7 @@ export default function ProgrammingPostTemplate({
 
   const customRenderers = {
     h2(h2) {
-      let title = h2.children.split(" ").join("-");
+      let title = h2.children.replace(" ", "-");
 
       return (
         <h2 id={title} style={{ position: "relative" }}>

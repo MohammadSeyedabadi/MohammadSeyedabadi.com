@@ -1,7 +1,11 @@
 import config from "@/utils/config";
 import Post from "@/components/Post";
 import Hero from "@/components/Hero";
-import { get_all_posts_by_category_preview_data } from "@/utils/posts-util";
+import {
+  get_all_posts_by_category_preview_data,
+  getOtherPageSlug,
+} from "@/utils/posts-util";
+import SetLang from "@/components/SetLang";
 
 export async function generateMetadata({ params }) {
   const { locale, category } = params;
@@ -26,16 +30,18 @@ export async function generateMetadata({ params }) {
 
 export default async function category({ params }) {
   let { locale, category } = params;
-  
   locale == "fa" && (category = decodeURI(category));
-  let all_posts_preview_data;
+  let all_posts_preview_data, otherPageSlug;
 
   try {
     all_posts_preview_data = await get_all_posts_by_category_preview_data(
       locale,
       category
     );
-    
+    otherPageSlug = await getOtherPageSlug(
+      locale,
+      all_posts_preview_data[0].id
+    );
   } catch (error) {
     console.error(
       `Failed To Fetch All Posts Meta Data In /categories/[category]/page.js. Error Message : ${error}`
@@ -44,6 +50,7 @@ export default async function category({ params }) {
 
   return (
     <section className="container markdown-content">
+      <SetLang otherPageSlug={otherPageSlug} />
       <div className="grid">
         <div className="article-content">
           <Hero

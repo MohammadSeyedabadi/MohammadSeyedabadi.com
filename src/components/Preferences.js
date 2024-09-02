@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
 import { useParams } from "next/navigation";
-import { useRouter, usePathname } from "../navigation";
 import { useContext } from "react";
 import ThemeContext from "@/store/theme-context";
 
@@ -21,15 +20,14 @@ export default function Preferences({ prefencesTranslations }) {
 
   const params = useParams();
   const lang = params.locale;
-  const pathname = usePathname();
-  const router = useRouter();
-
-  function changeLang(L) {
-    router.replace({ pathname, params }, { locale: L });
-  }
-
-  const { systemState, setDarkTheme, setLightTheme, setSystemTheme, active } =
-    useContext(ThemeContext);
+  const {
+    systemState,
+    setDarkTheme,
+    setLightTheme,
+    setSystemTheme,
+    active,
+    changeLang,
+  } = useContext(ThemeContext);
 
   useEffect(() => {
     const openButton = document.querySelector("[data-open-modal]");
@@ -155,7 +153,7 @@ export default function Preferences({ prefencesTranslations }) {
                   marginRight: "0.5rem",
                   fontWeight: "500",
                 }}
-                onClick={() => changeLang("fa")}
+                onClick={() => changeLang("fa", params)}
                 lang="fa"
               >
                 فا
@@ -165,7 +163,7 @@ export default function Preferences({ prefencesTranslations }) {
                 style={{
                   fontWeight: "500",
                 }}
-                onClick={() => changeLang("en")}
+                onClick={() => changeLang("en", params)}
               >
                 ENG
               </button>

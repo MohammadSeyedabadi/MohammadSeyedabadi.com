@@ -4,7 +4,7 @@ import "@/styles/theme-dark.css";
 import "@/styles/toggle.css";
 
 import CustomLayout from "@/components/layout/CustomLayout";
-import { ThemeContextProvider } from "@/store/theme-context";
+import { PreferencesContextProvider } from "@/store/theme-context";
 
 export const metadata = {
   metadataBase: new URL("https://mohammadseyedabadi.com"),
@@ -42,9 +42,9 @@ export default function LocaleLayout({ children, params: { locale } }) {
   return (
     <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
       <body>
-        <ThemeContextProvider>
+        <PreferencesContextProvider>
           <CustomLayout>{children}</CustomLayout>
-        </ThemeContextProvider>
+        </PreferencesContextProvider>
         <meta
           name="google-site-verification"
           content="QWnCAn_UxxXr7sdXLaRyjd9E1eG9lWQAnlDQ31nP0rs"

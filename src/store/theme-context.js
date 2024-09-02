@@ -1,15 +1,19 @@
 "use client";
 
 import { createContext, useState, useEffect } from "react";
+import { useRouter, usePathname } from "../navigation";
 
-const ThemeContext = createContext();
+const PreferencesContext = createContext();
 
-export function ThemeContextProvider(props) {
+export function PreferencesContextProvider(props) {
   // false = dark mode because of the way I wrote the CSS
   const [active, setActive] = useState(false);
   // the opposite, for screenreaders
   const [ariaActive, setAriaActive] = useState(true);
   const [systemState, setsystemState] = useState(true);
+  const pathname = usePathname();
+  const router = useRouter();
+  const [otherPageSlug, setOtherPageSlug] = useState("");
 
   function handleKeypress(e) {
     if (e.code === "Enter") {
@@ -110,6 +114,15 @@ export function ThemeContextProvider(props) {
     });
   });
 
+  function changeLang(L, params) {
+    otherPageSlug
+      ? router.replace(
+          { pathname, params: { category: otherPageSlug } },
+          { locale: L }
+        )
+      : router.replace({ pathname, params }, { locale: L });
+  }
+
   const context = {
     systemState,
     setDarkTheme,
@@ -119,13 +132,15 @@ export function ThemeContextProvider(props) {
     ariaActive,
     changeTheme,
     handleKeypress,
+    setOtherPageSlug,
+    changeLang,
   };
 
   return (
-    <ThemeContext.Provider value={context}>
+    <PreferencesContext.Provider value={context}>
       {props.children}
-    </ThemeContext.Provider>
+    </PreferencesContext.Provider>
   );
 }
 
-export default ThemeContext;
+export default PreferencesContext;

@@ -1,4 +1,4 @@
-import Posts from "@/components/Posts";
+// import Posts from "@/components/Posts";
 import clientPromise from "../../../utils/mongodb";
 import Hero from "@/components/Hero";
 
@@ -9,7 +9,7 @@ export default async function page( { params : locale }) {
       <div className="grid">
         <div className="article-content">
           <Hero title={locale === "fa" ? "نوشته ها" : "Notes"} />
-          <Posts allPostsPreviewData={allPostsPreviewData} />
+          {/* <Posts allPostsPreviewData={allPostsPreviewData} /> */}
         </div>
         <div className="sidebar-content">
           {/* <BlogSidebar params={params} /> */}

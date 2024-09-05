@@ -117,7 +117,12 @@ export function PreferencesContextProvider(props) {
   function changeLang(L, params) {
     otherPageSlug
       ? router.replace(
-          { pathname, params: { category: otherPageSlug } },
+          {
+            pathname,
+            params: params.tag
+              ? { tag: otherPageSlug }
+              : { category: otherPageSlug },
+          },
           { locale: L }
         )
       : router.replace({ pathname, params }, { locale: L });

@@ -69,8 +69,9 @@ export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
     parsedFileContent = matter(fileContent);
 
     if (parsedFileContent.data.tags.includes(tagSlug)) {
-      const { lang, title, createdAt, category } = parsedFileContent.data;
+      const { id, lang, title, createdAt, category } = parsedFileContent.data;
       metaData = {
+        id,
         lang,
         title,
         createdAt,
@@ -79,7 +80,8 @@ export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
       all_posts_preview_metaData.push(metaData);
     }
   }
-  return all_posts_preview_metaData;
+  const indexOfSlug = parsedFileContent.data.tags.indexOf(tagSlug);
+  return { all_posts_preview_metaData, indexOfSlug };
 }
 
 export async function getAllTags(locale) {
@@ -101,7 +103,7 @@ export async function getAllTags(locale) {
   return allTags;
 }
 
-export async function getOtherPageSlug(locale, id) {
+export async function getOtherPageSlug(locale, id, parameter) {
   const other_lang_files_Path = path.join(
     postsDirectory,
     locale == "fa" ? "en" : "fa"
@@ -112,8 +114,10 @@ export async function getOtherPageSlug(locale, id) {
     file_path = path.join(other_lang_files_Path, file);
     fileContent = fs.readFileSync(file_path, "utf-8");
     metaData = matter(fileContent).data;
-    if (metaData.id == id) {
+    if (metaData.id == id && parameter == "category") {
       return metaData.category;
+    } else if (metaData.id == id && typeof parameter === "number") {
+      return metaData.tags[parameter];
     }
   }
 }

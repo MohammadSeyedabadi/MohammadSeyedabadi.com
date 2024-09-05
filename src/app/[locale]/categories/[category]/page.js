@@ -40,7 +40,8 @@ export default async function category({ params }) {
     );
     otherPageSlug = await getOtherPageSlug(
       locale,
-      all_posts_preview_data[0].id
+      all_posts_preview_data[0].id,
+      "category"
     );
   } catch (error) {
     console.error(

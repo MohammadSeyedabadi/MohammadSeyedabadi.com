@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     alternates: {
       languages: {
         en: "/en/projects",
-        fa: "/fa/projects",
+        fa: "/fa/پروژه-ها",
       },
     },
   };

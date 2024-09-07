@@ -15,14 +15,14 @@ export async function generateMetadata({ params }) {
     title: `${
       locale == "en"
         ? `Let's play some game | ${config.enSiteTitle}`
-        : `بیایید یکم بازی کنیم | ${config.faSiteTitle}`
+        : `بازی | ${config.faSiteTitle}`
     }`,
     description:
       locale == "en" ? "Let's play some game." : "بیایید کمی بازی کنیم.",
     alternates: {
       languages: {
         en: "/en/game",
-        fa: "/fa/game",
+        fa: "/fa/بازی",
       },
     },
   };

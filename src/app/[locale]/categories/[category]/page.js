@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
     alternates: {
       languages: {
         en: `/en/categories/${category}`,
-        fa: `/fa/categories/${category}`,
+        fa: `/fa/دسته-بندی-ها/${category}`,
       },
     },
   };

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     alternates: {
       languages: {
         en: "/en/me",
-        fa: "/fa/me",
+        fa: "/fa/درباره-من",
       },
     },
   };

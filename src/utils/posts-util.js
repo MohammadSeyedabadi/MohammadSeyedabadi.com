@@ -38,9 +38,11 @@ export async function get_all_posts_by_category_preview_data(
     fileContent = fs.readFileSync(file_path, "utf-8");
     parsedFileContent = matter(fileContent);
     if (categorySlug == parsedFileContent.data.category) {
-      const { id, lang, title, createdAt, category } = parsedFileContent.data;
+      const { id, lang, slug, title, createdAt, category } =
+        parsedFileContent.data;
       metaData = {
         lang,
+        slug,
         title,
         createdAt,
         category,
@@ -63,10 +65,12 @@ export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
     parsedFileContent = matter(fileContent);
 
     if (parsedFileContent.data.tags.includes(tagSlug)) {
-      const { id, lang, title, createdAt, category } = parsedFileContent.data;
+      const { id, lang, slug, title, createdAt, category } =
+        parsedFileContent.data;
       metaData = {
         id,
         lang,
+        slug,
         title,
         createdAt,
         category,
@@ -115,9 +119,7 @@ export async function getOtherPageSlug(locale, id, parameter) {
       // for tags page
       return metaData.tags[parameter];
     } else {
-      return locale == "en"
-        ? metaData.title.toLowerCase().replace(" ", "-")
-        : metaData.title.replace(" ", "-");
+      return locale == "en" ? metaData.slug : metaData.slug;
     }
   }
 }

@@ -27,7 +27,10 @@ export default function PostSidebar({ metaData, translation }) {
   return (
     <aside className="post-sidebar">
       <div className="post-image">
-        <img src={`/images/posts/${slug}/${image}`} alt={title} />
+        <img
+          src={`/images/posts/${image.split(".")[0]}/${image}`}
+          alt={title}
+        />
       </div>
 
       <div className="post-sidebar-card">
@@ -38,7 +41,9 @@ export default function PostSidebar({ metaData, translation }) {
           </li>
           <li>
             <strong>{Category}:</strong>{" "}
-            <Link href={`/categories/${category.toLowerCase()}`}>{category}</Link>
+            <Link href={`/categories/${category.toLowerCase()}`}>
+              {category}
+            </Link>
           </li>
         </ul>
 

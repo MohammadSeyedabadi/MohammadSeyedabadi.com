@@ -21,7 +21,7 @@ export default function ProgrammingPostTemplate({
 }) {
   const language = useParams().locale;
   const { ariaActive } = useContext(ThemeContext);
-  const { title, slug, image } = metaData;
+  const { title, image: postImage } = metaData;
 
   const customRenderers = {
     h2(h2) {
@@ -49,11 +49,11 @@ export default function ProgrammingPostTemplate({
         return (
           <div>
             <a
-              href={`/images/posts/${slug}/${image.properties.src}`}
+              href={`/images/posts/${postImage.split(".")[0]}/${image.properties.src}`}
               target="_blank"
             >
               <img
-                src={`/images/posts/${slug}/${image.properties.src}`}
+                src={`/images/posts/${postImage.split(".")[0]}/${image.properties.src}`}
                 alt={image.properties.alt}
                 style={{ marginBottom: "20px", maxWidth: "100%" }}
               />
@@ -132,7 +132,10 @@ export default function ProgrammingPostTemplate({
         <div className="article-content">
           <div className="post-header medium width">
             <div className="mobile-post-image">
-              <img src={`/images/posts/${slug}/${image}`} alt={title} />
+              <img
+                src={`/images/posts/${postImage.split(".")[0]}/${postImage}`}
+                alt={title}
+              />
             </div>
             <h1>{title}</h1>
           </div>

@@ -7,14 +7,8 @@ const postsDirectory = path.join(process.cwd(), "src/posts");
 export async function getSinglePostFileData(postLocale, postSlug) {
   const filePath = path.join(postsDirectory, postLocale, `${postSlug}.md`);
   const fileContent = fs.readFileSync(filePath, "utf-8");
-
   const { data: metaData, content } = matter(fileContent);
-  const singPostFileData = {
-    metaData,
-    content,
-  };
-
-  return singPostFileData;
+  return { metaData, content };
 }
 
 export async function getAllPostsMetaData(locale) {
@@ -115,9 +109,15 @@ export async function getOtherPageSlug(locale, id, parameter) {
     fileContent = fs.readFileSync(file_path, "utf-8");
     metaData = matter(fileContent).data;
     if (metaData.id == id && parameter == "category") {
+      // for categories page
       return metaData.category;
     } else if (metaData.id == id && typeof parameter === "number") {
+      // for tags page
       return metaData.tags[parameter];
+    } else {
+      return locale == "en"
+        ? metaData.title.toLowerCase().replace(" ", "-")
+        : metaData.title.replace(" ", "-");
     }
   }
 }

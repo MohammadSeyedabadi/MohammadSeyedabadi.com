@@ -42,7 +42,7 @@ export default function Navigation({ translation }) {
     <header className="container" dir="ltr">
       <nav>
         <ul className="nav--list" id="nav-menu">
-          <li className="nav-tog">
+          <li>
             <Preferences prefencesTranslations={prefencesTranslations} />
           </li>
 

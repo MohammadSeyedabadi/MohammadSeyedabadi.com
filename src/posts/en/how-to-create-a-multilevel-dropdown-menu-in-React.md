@@ -5,7 +5,7 @@ slug: "how-to-create-a-multilevel-dropdown-menu-in-react"
 title: "How to create a multilevel dropdown menu in React"
 createdAt: "2023-11-19"
 lastModified: "2023-11-19"
-image: how-to-create-a-multilevel-dropdown-menu-in-react.png
+image: https://raw.githubusercontent.com/MohammadSeyedabadi/MohammadSeyedabadi.com/master/public/images/posts/how-create-multilevel-dropdown-menu-react/how-create-multilevel-dropdown-menu-react.png
 excerpt: Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.
 category: technical
 tags:
@@ -18,7 +18,7 @@ This tutorial is a simplified version of [this tutorial](https://blog.logrocket.
 If you want a complete explanation, you have to read his article. He also has another article where he explans
 how to make dropdown menus with CSS. You could check that out [here.](https://blog.logrocket.com/making-dropdown-menus-css/) At the end we will have something like this:
 
-![Final-outcome-react-multilevel-dropdown-menu-project](img1-Final-outcome-react-multilevel-dropdown-menu-project.gif)
+![Final-outcome-react-multilevel-dropdown-menu-project](https://raw.githubusercontent.com/MohammadSeyedabadi/MohammadSeyedabadi.com/master/public/images/posts/how-create-multilevel-dropdown-menu-react/img1-Final-outcome-react-multilevel-dropdown-menu-project.gif)
 
 So let's start with our code. If you want to create a multilevel dropdown menu, one good way is
 to use recursive functions. As in [GeeksForGeeks](https://www.geeksforgeeks.org/recursive-functions/) explained:

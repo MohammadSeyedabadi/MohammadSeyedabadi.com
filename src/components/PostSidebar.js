@@ -28,7 +28,7 @@ export default function PostSidebar({ metaData, translation }) {
     <aside className="post-sidebar">
       <div className="post-image">
         <img
-          src={`/images/posts/${image.split(".")[0]}/${image}`}
+          src={image}
           alt={title}
         />
       </div>

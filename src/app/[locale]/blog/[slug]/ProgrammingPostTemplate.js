@@ -11,7 +11,6 @@ import {
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import remarkGfm from "remark-gfm";
 import Giscus from "@giscus/react";
-
 import TitleIcon from "@/assets/TitleIcon";
 
 export default function ProgrammingPostTemplate({
@@ -25,7 +24,7 @@ export default function ProgrammingPostTemplate({
 
   const customRenderers = {
     h2(h2) {
-      let title = h2.children.replace(" ", "-");
+      let title = h2.children.replace(/\s+/g, "-");
 
       return (
         <h2 id={title} style={{ position: "relative" }}>
@@ -48,12 +47,9 @@ export default function ProgrammingPostTemplate({
         const image = node.children[0];
         return (
           <div>
-            <a
-              href={`/images/posts/${postImage.split(".")[0]}/${image.properties.src}`}
-              target="_blank"
-            >
+            <a href={image.properties.src} target="_blank">
               <img
-                src={`/images/posts/${postImage.split(".")[0]}/${image.properties.src}`}
+                src={image.properties.src}
                 alt={image.properties.alt}
                 style={{ marginBottom: "20px", maxWidth: "100%" }}
               />
@@ -132,10 +128,7 @@ export default function ProgrammingPostTemplate({
         <div className="article-content">
           <div className="post-header medium width">
             <div className="mobile-post-image">
-              <img
-                src={`/images/posts/${postImage.split(".")[0]}/${postImage}`}
-                alt={title}
-              />
+              <img src={postImage} alt={title} />
             </div>
             <h1>{title}</h1>
           </div>

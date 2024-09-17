@@ -59,6 +59,14 @@
     "SubscribeToTheNewsletter": "عضویت در خبرنامه"
   },
 
+  "notes":{
+    "NoteDetails": "جزئیات یادداشت",
+    "Published": "انتشار در",
+    "LastEdited":"آخرین ویرایش در",
+    "Tags": "تگ ها",
+    "SubscribeToTheNewsletter": "عضویت در خبرنامه"
+  },
+
   "Footer": {
     "LinkedIn": "لینکدین",
     "GitHub": "گیتهاب"

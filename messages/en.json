@@ -52,11 +52,20 @@
 
   "blog": {
     "Writing": "Writing",
-    "PostDetails": "Post Details",
+    "PostDetails": "Post details",
     "Published": "Published",
     "Category": "Category",
     "Tags": "Tags",
     "SubscribeToTheNewsletter": "Subscribe to the Newsletter"
+  },
+
+  "notes":{
+    "NoteDetails": "Note details",
+    "Published": "Published",
+    "LastEdited":"Last edited",
+    "Category": "Category",
+    "Tags": "Tags",
+    "SubscribeToTheNewsletter": "Subscribe to the newsletter"
   },
 
   "Footer": {

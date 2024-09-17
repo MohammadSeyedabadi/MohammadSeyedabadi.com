@@ -3,15 +3,24 @@ import clientpromise from "@/utils/mongodb";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import TitleIcon from "@/assets/TitleIcon";
-import PostSidebar from "@/components/PostSidebar";
 import SetLang from "@/components/SetLang";
+import { getTranslations } from "next-intl/server";
 
 export default async function page({ params }) {
   const { locale, slug } = params;
-  // const {note, otherLangNoteSlug} = await getNote(locale, slug);
-  const { note, otherLangNoteSlug } = await getNote(locale, slug);
+  const note = await getNote(locale, slug);
+  const t = await getTranslations("notes");
 
-  const { title, image, tags, content } = note;
+  const {
+    title,
+    otherPageSlug,
+    createdAt,
+    lastModified,
+    image,
+    tags,
+    content,
+  } = note;
+
   const customRenderers = {
     h2(h2) {
       let title = h2.children.replace(/\s+/g, "-");
@@ -63,51 +72,15 @@ export default async function page({ params }) {
 
   return (
     <div className="container">
-      <SetLang otherPageSlug={otherLangNoteSlug.slug} />
+      <SetLang otherPageSlug={otherPageSlug} />
       <div className="grid">
         <div className="article-content">
           <div className="post-header medium width">
             <div className="mobile-post-image">
-              <img src={postImage} alt={title} />
+              <img src={image} alt={title} />
             </div>
-            <img
-              src={image}
-              alt={title}
-              style={{ width: "80px", marginBottom: "1rem" }}
-            />
+
             <h1>{title}</h1>
-            <div className="post-sidebar" style={{ width: "fit-content" }}>
-              <div className="post-sidebar-card">
-                <h2>Note Details</h2>
-                <ul>
-                  <li>
-                    <strong>Published:</strong> formattedDate
-                  </li>
-                  <li>
-                    <strong>Last edited:</strong> formattedDate
-                  </li>
-                </ul>
-                <h2>Tags:</h2>
-                <div className="tags">
-                  {tags.map((tag) => {
-                    return (
-                      <Link key={tag} href={`/tags/${tag}`} className="tag">
-                        {tag}
-                      </Link>
-                    );
-                  })}
-                </div>
-                <p style={{ marginTop: "2rem" }}>
-                  <a
-                    href="https://mohammadseyedabadi.substack.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Subscribe To The Newsletter
-                  </a>
-                </p>
-              </div>
-            </div>
           </div>
           <section className="segment small">
             <div className="post-content">
@@ -120,7 +93,41 @@ export default async function page({ params }) {
             </div>
           </section>
         </div>
-        {/* <PostSidebar metaData={metaData} translation={translation} /> */}
+        <div className="post-sidebar">
+          <div className="post-image">
+            <img src={image} alt={title} />
+          </div>
+          <div className="post-sidebar-card">
+            <h2>{t("NoteDetails")}</h2>
+            <ul>
+              <li>
+                <strong>{t("Published")}:</strong> {createdAt}
+              </li>
+              <li>
+                <strong>{t("LastEdited")}:</strong> {lastModified}
+              </li>
+            </ul>
+            <h2>{t("Tags")}:</h2>
+            <div className="tags">
+              {tags.map((tag) => {
+                return (
+                  <Link key={tag} href={`/tags/${tag}`} className="tag">
+                    {tag}
+                  </Link>
+                );
+              })}
+            </div>
+            <p style={{ marginTop: "2rem" }}>
+              <a
+                href="https://mohammadseyedabadi.substack.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("SubscribeToTheNewsletter")}
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -131,7 +138,7 @@ export async function getNote(locale, slug) {
   try {
     const client = await clientpromise;
     const db = client.db("notes");
-    const note = await db.collection(locale).findOne(
+    let note = await db.collection(locale).findOne(
       { slug: slug },
       {
         projection: {
@@ -141,11 +148,23 @@ export async function getNote(locale, slug) {
         },
       }
     );
-    const otherLangNoteSlug = await db
-      .collection(locale == "en" ? "fa" : "en")
-      .findOne({ noteId: note.noteId }, { projection: { _id: 0, slug: 1 } });
 
-    return { note, otherLangNoteSlug };
+    function getFormatedDate(date) {
+      const formattedDate = new Date(date).toLocaleDateString(
+        locale === "fa" ? "fa-IR" : "en-US",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }
+      );
+      return formattedDate;
+    }
+
+    note.createdAt = getFormatedDate(note.createdAt);
+    note.lastModified = getFormatedDate(note.lastModified);
+
+    return note;
     // return {
     //   props: { allNotesTitle: JSON.parse(JSON.stringify(allNotesTitle)) },
     // };

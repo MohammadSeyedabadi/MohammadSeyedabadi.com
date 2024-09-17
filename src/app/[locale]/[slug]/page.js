@@ -5,7 +5,8 @@ import TitleIcon from "@/assets/TitleIcon";
 
 export default async function page({ params }) {
   const { locale, slug } = params;
-  const data = await getAllNotesPreviewData(locale);
+  const note = await getNote(locale, slug);
+  const { title,image, content } = note;
   const customRenderers = {
     h2(h2) {
       let title = h2.children.replace(/\s+/g, "-");
@@ -61,7 +62,7 @@ export default async function page({ params }) {
         <div className="article-content">
           <div className="post-header medium width">
             <div className="mobile-post-image">
-              <img src={``} alt={title} />
+              <img src={image} alt={title} />
             </div>
             <h1>{title}</h1>
           </div>
@@ -82,3 +83,29 @@ export default async function page({ params }) {
   );
 }
 
+export async function getNote(locale, slug) {
+  try {
+    const client = await clientpromise;
+    const db = client.db("notes");
+    const note = await db.collection(locale).findOne(
+      { slug: slug },
+      {
+        projection: {
+          _id: 0, // may remove for error
+          slug: 0,
+          lang: 0,
+        },
+      }
+    );
+
+    return note;
+    // return {
+    //   props: { allNotesTitle: JSON.parse(JSON.stringify(allNotesTitle)) },
+    // };
+  } catch (e) {
+    console.error(e);
+    // return {
+    //   props: { allNotesTitle: [] },
+    // };
+  }
+}

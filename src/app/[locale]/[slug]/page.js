@@ -9,8 +9,8 @@ import SetLang from "@/components/SetLang";
 export default async function page({ params }) {
   const { locale, slug } = params;
   // const {note, otherLangNoteSlug} = await getNote(locale, slug);
-  const {note, otherLangNoteSlug} = await getNote(locale, slug);
- 
+  const { note, otherLangNoteSlug } = await getNote(locale, slug);
+
   const { title, image, tags, content } = note;
   const customRenderers = {
     h2(h2) {
@@ -67,6 +67,9 @@ export default async function page({ params }) {
       <div className="grid">
         <div className="article-content">
           <div className="post-header medium width">
+            <div className="mobile-post-image">
+              <img src={postImage} alt={title} />
+            </div>
             <img
               src={image}
               alt={title}

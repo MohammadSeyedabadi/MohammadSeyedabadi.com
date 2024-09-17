@@ -45,31 +45,25 @@
     "descFourteen": "are for.",
     "descFifteen": "This is my email in case you wanted to contact me: "
   },
+
   "Projects": {
     "Projects": "Projects"
   },
 
   "blog": {
     "Writing": "Writing",
-    "Categories": "Categories",
-
-    "AboutMe": "About me",
-    "PostSideBarDescOne": "Hello and thanks for visiting! My name is",
-    "PostSideBarDescTwo": "Mohammad Seyedabadi.",
-    "PostSideBarDescThree": "I'm a software developer who creates open-source projects and writes about code.",
     "PostDetails": "Post Details",
     "Published": "Published",
     "Category": "Category",
     "Tags": "Tags",
     "SubscribeToTheNewsletter": "Subscribe to the Newsletter"
   },
+
   "Footer": {
     "LinkedIn": "LinkedIn",
     "GitHub": "GitHub"
   },
-  "category": {
-    "categoryOne": "front-end"
-  },
+
   "game": {
     "game": "Game",
     "games": "Games",
@@ -79,6 +73,7 @@
     "tieGame": "Tie Game!",
     "replay": "Replay"
   },
+
   "NotFoundPage": {
     "error": "404 Not Found",
     "postErrorExplanation": "Could not find the requested blog post.",

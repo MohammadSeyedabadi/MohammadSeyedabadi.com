@@ -14,6 +14,7 @@
     "LanguageStatus": "فا",
     "Close": "بستن"
   },
+
   "Index": {
     "descOne": "سلام من محمد هستم",
     "descTwo": "خوش آمدید",
@@ -27,6 +28,7 @@
     "projects": "پروژه ها",
     "viewAll": "دیدن همه"
   },
+
   "me": {
     "descOne": "درباره‌ی من",
     "descTwo": "من محمد هستم، یک توسعه دهنده نرم افزار که توی نیشابور کار میکنم. به وبسایت من که جایی برای پروژه‌ها، آموزش ها و هر چیز دیگه ای که دوست دارم به دنیا نشون بدم، خوش آمدی. صفحه ی",
@@ -44,31 +46,24 @@
     "descFourteen": "برای همین کار هستند.",
     "descFifteen": "اگر میخواهید با من تماس بگیرید، از این ایمیل استفاده کنید: "
   },
+
   "Projects": {
     "Projects": "پروژه ها"
   },
- 
+
   "blog": {
     "Writing": "نوشته ها",
-    "Categories": "دسته‌بندی ها",
-
-    "AboutMe": "درباره‌ی من",
-    "PostSideBarDescOne": "با سلام و تشکر از بازدید شما! اسم من",
-    "PostSideBarDescTwo": "محمد سیدآبادی هست.",
-    "PostSideBarDescThree": "من یک توسعه دهنده نرم افزار هستم که پروژه های اپن سورس درست می کنم و در مورد کد می نویسم.",
     "PostDetails": "جزئیات پست",
     "Published": "انتشار در",
-    "Category": "دسته بندی",
     "Tags": "تگ ها",
     "SubscribeToTheNewsletter": "عضویت در خبرنامه"
   },
+
   "Footer": {
     "LinkedIn": "لینکدین",
     "GitHub": "گیتهاب"
   },
-  "category": {
-    "categoryOne": "فرانت-اند"
-  },
+
   "game": {
     "game": "بازی",
     "games": "بازی ها",
@@ -83,6 +78,6 @@
     "postErrorExplanation": "پست موردنظر پیدا نشد.",
     "restErrorExplanation": "صفحه‌ی مورد نظر پیدا نشد.",
     "goBack": "برگشت",
-    "goBackToMainPage":"بازگشت به صفحه‌ی اصلی"
+    "goBackToMainPage": "بازگشت به صفحه‌ی اصلی"
   }
 }

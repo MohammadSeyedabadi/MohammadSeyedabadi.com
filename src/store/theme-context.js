@@ -115,17 +115,6 @@ export function PreferencesContextProvider(props) {
   });
 
   function changeLang(L, params) {
-    // otherPageSlug
-    //   ? router.replace(
-    //       {
-    //         pathname,
-    //         params: params.tag
-    //           ? { tag: otherPageSlug }
-    //           : { category: otherPageSlug },
-    //       },
-    //       { locale: L }
-    //     )
-    //   : router.replace({ pathname, params }, { locale: L });
     if (otherPageSlug) {
       if (params.tag) {
         router.replace(

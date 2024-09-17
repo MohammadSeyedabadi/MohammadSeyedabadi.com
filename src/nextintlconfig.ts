@@ -9,7 +9,12 @@ export const localePrefix = "always" satisfies LocalePrefix; // default
 export const pathnames = {
   // If all locales use the same pathname, a single
   // external path can be used for all locales
-  "/": "/",
+  "/[slug]": "/[slug]",
+  
+  "/notes": {
+    en: "/notes",
+    fa: "/یادداشت-ها",
+  },
 
   // If locales use different paths, you can
   // specify each external path per locale

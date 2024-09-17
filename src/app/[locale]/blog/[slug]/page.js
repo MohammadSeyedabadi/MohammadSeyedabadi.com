@@ -17,7 +17,6 @@ export async function generateMetadata({ params }) {
         locale == "en" ? config.enSiteTitle : config.faSiteTitle
       }`,
       description: metaData.excerpt,
-      category: metaData.category.name,
       alternates: {
         languages: {
           en: `/en/blog/${slug}`,
@@ -36,13 +35,11 @@ export async function generateMetadata({ params }) {
 export default function Page({ params }) {
   const t = useTranslations("blog");
   const translation = {
-    AboutMe: t("AboutMe"),
     PostSideBarDescOne: t("PostSideBarDescOne"),
     PostSideBarDescTwo: t("PostSideBarDescTwo"),
     PostSideBarDescThree: t("PostSideBarDescThree"),
     PostDetails: t("PostDetails"),
     Published: t("Published"),
-    Category: t("Category"),
     Tags: t("Tags"),
     SubscribeToTheNewsletter: t("SubscribeToTheNewsletter"),
   };
@@ -50,12 +47,10 @@ export default function Page({ params }) {
   const { locale, slug } = params;
 
   return (
-    <>
-      <GetData
-        locale={locale}
-        slug={locale == "fa" ? decodeURI(slug) : slug}
-        translation={translation}
-      />
-    </>
+    <GetData
+      locale={locale}
+      slug={locale == "fa" ? decodeURI(slug) : slug}
+      translation={translation}
+    />
   );
 }

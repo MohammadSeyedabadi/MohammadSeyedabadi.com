@@ -1,8 +1,7 @@
-"use client";
 import { Link } from "@/navigation";
 
 export default function PostSidebar({ metaData, translation }) {
-  const { lang, title, slug, image, createdAt, category, tags } = metaData;
+  const { lang, title, image, createdAt, tags } = metaData;
   const formattedDate = new Date(createdAt).toLocaleDateString(
     lang === "fa" ? "fa-IR" : "en-US",
     {
@@ -13,13 +12,8 @@ export default function PostSidebar({ metaData, translation }) {
   );
 
   const {
-    AboutMe,
-    PostSideBarDescOne,
-    PostSideBarDescTwo,
-    PostSideBarDescThree,
     PostDetails,
     Published,
-    Category,
     Tags,
     SubscribeToTheNewsletter,
   } = translation;
@@ -27,10 +21,7 @@ export default function PostSidebar({ metaData, translation }) {
   return (
     <aside className="post-sidebar">
       <div className="post-image">
-        <img
-          src={image}
-          alt={title}
-        />
+        <img src={image} alt={title} />
       </div>
 
       <div className="post-sidebar-card">
@@ -38,12 +29,6 @@ export default function PostSidebar({ metaData, translation }) {
         <ul>
           <li>
             <strong>{Published}:</strong> {formattedDate}
-          </li>
-          <li>
-            <strong>{Category}:</strong>{" "}
-            <Link href={`/categories/${category.toLowerCase()}`}>
-              {category}
-            </Link>
           </li>
         </ul>
 

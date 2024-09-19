@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/navigation";
-import { usePathname,useParams } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import Preferences from "@/components/Preferences";
 
 export default function Navigation({ translation }) {
@@ -20,12 +20,13 @@ export default function Navigation({ translation }) {
     Close,
   } = translation;
 
-  const params = useParams()
+  const params = useParams();
   let pathname = usePathname();
-  const pathnameArray = pathname.split("/");
-  if (params.locale == "fa" && pathnameArray.length == 3) {
-    pathname = `/fa/${decodeURI(pathnameArray.pop())}`;
-  }
+  params.locale == "fa" && (pathname = decodeURI(pathname));
+  // const pathnameArray = pathname.split("/");
+  // if (params.locale == "fa" && pathnameArray.length == 3) {
+  //   pathname = `/fa/${decodeURI(pathnameArray.pop())}`;
+  // }
 
   const prefencesTranslations = {
     PreferencesT,
@@ -38,6 +39,16 @@ export default function Navigation({ translation }) {
     Close,
   };
 
+  let isBlog = false;
+  if (
+    pathname == "/en/blog/pc" ||
+    pathname == "/en/blog/notes" ||
+    pathname == "/fa/بلاگ/یادداشت-ها" ||
+    pathname == "/fa/بلاگ/pc"
+  ) {
+    isBlog = true;
+  }
+
   return (
     <header className="container" dir="ltr">
       <nav>
@@ -46,11 +57,7 @@ export default function Navigation({ translation }) {
             <Preferences prefencesTranslations={prefencesTranslations} />
           </li>
 
-          <li
-            className={
-              pathname === "/fa" || pathname === "/en" ? "active--link" : ""
-            }
-          >
+          <li className={pathname === "/" ? "active--link" : ""}>
             <Link href="/" className="nav--link nav--link-home ">
               {Home}
             </Link>
@@ -80,14 +87,8 @@ export default function Navigation({ translation }) {
             </Link>
           </li>
 
-          <li
-            className={
-              pathname === "/fa/بلاگ" || pathname === "/en/blog"
-                ? "active--link"
-                : ""
-            }
-          >
-            <Link href="/blog" className="nav--link nav--link-blog">
+          <li className={isBlog ? "active--link" : ""}>
+            <Link href="/blog/notes" className="nav--link nav--link-blog">
               {Blog}
             </Link>
           </li>

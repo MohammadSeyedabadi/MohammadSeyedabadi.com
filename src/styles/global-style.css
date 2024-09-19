@@ -900,6 +900,28 @@ p.hero-description a:hover {
   }
 }
 
+.hero div {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.hero div a {
+  color: var(--font-color-muted);
+}
+
+.active {
+  color: var(--font-color-bright) !important;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+.hero div a:hover {
+  color: var(--font-color-bright);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
 .highlight {
   color: var(--highlight-color);
 }
@@ -1322,10 +1344,6 @@ a.category.active .count {
 }
 
 /* Helpers */
-
-.active {
-  border: 1px solid var(--border-color-hover);
-}
 
 .cursor--style {
   cursor: pointer;

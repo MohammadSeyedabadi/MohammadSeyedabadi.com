@@ -10,11 +10,6 @@ export const pathnames = {
   // If all locales use the same pathname, a single
   // external path can be used for all locales
   "/[slug]": "/[slug]",
-  
-  "/notes": {
-    en: "/notes",
-    fa: "/یادداشت-ها",
-  },
 
   // If locales use different paths, you can
   // specify each external path per locale
@@ -39,9 +34,19 @@ export const pathnames = {
     fa: "/بلاگ",
   },
 
-  "/blog/[slug]": {
-    en: "/blog/[slug]",
-    fa: "/بلاگ/[slug]",
+  "/blog/pc": {
+    en: "/blog/pc",
+    fa: "/بلاگ/pc",
+  },
+
+  "/blog/pc/[slug]": {
+    en: "/blog/pc/[slug]",
+    fa: "/بلاگ/pc/[slug]",
+  },
+
+  "/blog/notes": {
+    en: "/blog/notes",
+    fa: "/بلاگ/یادداشت-ها",
   },
 
   "/tags/[tag]": {

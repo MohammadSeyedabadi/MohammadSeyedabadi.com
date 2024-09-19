@@ -41,10 +41,10 @@ export default function Navigation({ translation }) {
 
   let isBlog = false;
   if (
-    pathname == "/en/blog/pc" ||
+    pathname == "/en/blog/code" ||
     pathname == "/en/blog/notes" ||
     pathname == "/fa/بلاگ/یادداشت-ها" ||
-    pathname == "/fa/بلاگ/pc"
+    pathname == "/fa/بلاگ/کد"
   ) {
     isBlog = true;
   }

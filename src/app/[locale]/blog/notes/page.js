@@ -2,17 +2,26 @@ import Hero from "@/components/Hero";
 import Post from "@/components/Post";
 import clientPromise from "@/utils/mongodb";
 import Writings from "../Writings";
+import { getTranslations } from "next-intl/server";
 
 export default async function page({ params }) {
   const { locale } = params;
   const allPostsPreviewData = await getAllNotesPreviewData(locale);
+  const t = await getTranslations("blog");
+
+  const translation = {
+    Notes: t("Notes"),
+    NotesDesc: t("NotesDesc"),
+    CodeDesc: t("CodeDesc"),
+    Code: t("Code"),
+  };
 
   return (
     <section className="container markdown-content">
       <div className="grid">
         <div className="article-content">
-          <Hero title="Writings">
-            <Writings />
+          <Hero title={t("Writings")}>
+            <Writings translation={translation} />
           </Hero>
           <section className="segment">
             <div className="posts">

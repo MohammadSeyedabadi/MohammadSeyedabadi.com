@@ -52,17 +52,21 @@
   },
 
   "blog": {
-    "Writing": "نوشته ها",
+    "Writings": "نوشته ها",
+    "Notes": "یادداشت ها",
+    "Code": "کد",
+    "NotesDesc": "همه یادداشت ها به جز یادداشت های مربوط به code",
+    "CodeDesc": "همه یادداشت های مربوط به PC",
     "PostDetails": "جزئیات پست",
     "Published": "انتشار در",
     "Tags": "تگ ها",
     "SubscribeToTheNewsletter": "عضویت در خبرنامه"
   },
 
-  "notes":{
+  "notes": {
     "NoteDetails": "جزئیات یادداشت",
     "Published": "انتشار در",
-    "LastEdited":"آخرین ویرایش در",
+    "LastEdited": "آخرین ویرایش در",
     "Tags": "تگ ها",
     "SubscribeToTheNewsletter": "عضویت در خبرنامه"
   },

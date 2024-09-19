@@ -34,14 +34,14 @@ export const pathnames = {
     fa: "/بلاگ",
   },
 
-  "/blog/pc": {
-    en: "/blog/pc",
-    fa: "/بلاگ/pc",
+  "/blog/code": {
+    en: "/blog/code",
+    fa: "/بلاگ/کد",
   },
 
-  "/blog/pc/[slug]": {
-    en: "/blog/pc/[slug]",
-    fa: "/بلاگ/pc/[slug]",
+  "/blog/code/[slug]": {
+    en: "/blog/code/[slug]",
+    fa: "/بلاگ/کد/[slug]",
   },
 
   "/blog/notes": {

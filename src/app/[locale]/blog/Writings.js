@@ -1,23 +1,32 @@
 "use client";
-import { Link } from "@/navigation";
-import { usePathname } from "@/navigation";
+import { Link, usePathname } from "@/navigation";
+import { useParams } from "next/navigation";
 
-export default function Writings() {
-  const pathName = usePathname();
+export default function Writings({ translation }) {
+  let pathName = usePathname();
+  const { locale } = useParams();
+  pathName = locale == "fa" && decodeURI(pathName);
   return (
-    <div>
-      <Link
-        href="/blog/notes"
-        className={`${pathName == "/blog/notes" ? "active" : ""}`}
-      >
-        Notes
-      </Link>
-      <Link
-        href="/blog/pc"
-        className={`${pathName == "/blog/pc" ? "active" : ""}`}
-      >
-        PC
-      </Link>
-    </div>
+    <>
+      <div>
+        <Link
+          href="/blog/notes"
+          className={`${pathName == "/blog/notes" ? "active" : ""}`}
+        >
+          {translation.Notes}
+        </Link>
+        <Link
+          href="/blog/code"
+          className={`${pathName == "/blog/code" ? "active" : ""}`}
+        >
+          {translation.Code}
+        </Link>
+      </div>
+      <p className="hero-description small width">
+        {pathName == "/blog/notes"
+          ? translation.NotesDesc
+          : translation.CodeDesc}
+      </p>
+    </>
   );
 }

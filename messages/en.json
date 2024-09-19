@@ -51,7 +51,11 @@
   },
 
   "blog": {
-    "Writing": "Writing",
+    "Writings": "Writings",
+    "Notes": "Notes",
+    "Code":"Code",
+    "NotesDesc": "All notes except those relating to PC",
+    "CodeDesc": "All notes relating to code",
     "PostDetails": "Post details",
     "Published": "Published",
     "Category": "Category",
@@ -59,10 +63,10 @@
     "SubscribeToTheNewsletter": "Subscribe to the Newsletter"
   },
 
-  "notes":{
+  "notes": {
     "NoteDetails": "Note details",
     "Published": "Published",
-    "LastEdited":"Last edited",
+    "LastEdited": "Last edited",
     "Category": "Category",
     "Tags": "Tags",
     "SubscribeToTheNewsletter": "Subscribe to the newsletter"

@@ -5,7 +5,8 @@ import { useParams } from "next/navigation";
 export default function Writings({ translation }) {
   let pathName = usePathname();
   const { locale } = useParams();
-  pathName = locale == "fa" && decodeURI(pathName);
+  pathName = locale == "fa" ? decodeURI(pathName) : pathName;
+  
   return (
     <>
       <div>

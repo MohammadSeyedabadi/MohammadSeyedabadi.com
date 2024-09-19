@@ -1,6 +1,8 @@
 import config from "@/utils/config";
 import { getAllPostsMetaData, getAllTags } from "@/utils/posts-util";
 import Post from "@/components/Post";
+import Hero from "@/components/Hero";
+import Writings from "../Writings";
 
 export async function generateMetadata({ params }) {
   const { locale } = params;
@@ -33,16 +35,28 @@ export default async function Blog({ params }) {
   }
 
   return (
-    <>
-      {allPostsPreviewData.map((eachPostPreviewData) => {
-        return (
-          <Post
-            key={eachPostPreviewData.title}
-            eachPostPreviewData={eachPostPreviewData}
-            page="blog/pc"
-          />
-        );
-      })}
-    </>
+    <section className="container markdown-content">
+      <div className="grid">
+        <div className="article-content">
+          <Hero title="Writings">
+            <Writings />
+          </Hero>
+          <section className="segment">
+            <div className="posts">
+              {allPostsPreviewData.map((eachPostPreviewData) => {
+                return (
+                  <Post
+                    key={eachPostPreviewData.title}
+                    eachPostPreviewData={eachPostPreviewData}
+                    page="blog/pc"
+                  />
+                );
+              })}
+            </div>
+          </section>
+        </div>
+        {/* <div className="sidebar-content"></div> */}
+      </div>
+    </section>
   );
 }

@@ -57,7 +57,7 @@ export default async function Blog({ params }) {
                   <Post
                     key={eachPostPreviewData.title}
                     eachPostPreviewData={eachPostPreviewData}
-                    page="blog/pc"
+                    page="blog/code"
                   />
                 );
               })}

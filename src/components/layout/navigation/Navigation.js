@@ -57,7 +57,7 @@ export default function Navigation({ translation }) {
             <Preferences prefencesTranslations={prefencesTranslations} />
           </li>
 
-          <li className={pathname === "/" ? "active--link" : ""}>
+          <li className={ pathname === "/fa" || pathname === "/en" ? "active--link" : ""}>
             <Link href="/" className="nav--link nav--link-home ">
               {Home}
             </Link>

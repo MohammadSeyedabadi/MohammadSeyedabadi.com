@@ -1,4 +1,8 @@
 {
+  "Config": {
+    "SiteTitle": "Mohammad Seyedabadi",
+    "Description": "Software engineer and open source creator. This is my digital garden."
+  },
   "navigation": {
     "Home": "Home",
     "About": "About",
@@ -53,7 +57,7 @@
   "blog": {
     "Writings": "Writings",
     "Notes": "Notes",
-    "Code":"Code",
+    "Code": "Code",
     "NotesDesc": "All notes except those relating to code",
     "CodeDesc": "All notes relating to code",
     "PostDetails": "Post details",

@@ -4,6 +4,21 @@ import clientPromise from "@/utils/mongodb";
 import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
 
+export async function generateMetadata() {
+  const blogT = await getTranslations("blog");
+  const ConfigT = await getTranslations("Config");
+  return {
+    title: `${blogT("Writings")} | ${ConfigT("SiteTitle")}`,
+    description: blogT("NotesDesc"),
+    alternates: {
+      languages: {
+        en: "/en/blog/notes",
+        fa: `/بلاگ/یادداشت-ها`,
+      },
+    },
+  };
+}
+
 export default async function page({ params }) {
   const { locale } = params;
   const allPostsPreviewData = await getAllNotesPreviewData(locale);

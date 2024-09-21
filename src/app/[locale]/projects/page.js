@@ -1,21 +1,14 @@
 import { useTranslations } from "next-intl";
-import config from "@/utils/config";
+import { getTranslations } from "next-intl/server";
 import Hero from "@/components/Hero";
 import ProjectPreview from "./ProjectPreview";
 
-export async function generateMetadata({ params }) {
-  const { locale, slug } = params;
+export async function generateMetadata() {
+  const t = await getTranslations("Config");
 
   return {
-    title: `${
-      locale == "en"
-        ? `Projects | ${config.enSiteTitle}`
-        : `پروژه‌ها | ${config.faSiteTitle}`
-    }`,
-    description:
-      locale == "en"
-        ? "A highlight of my open-source work"
-        : "یک هایلایت از پروژه‌های اپن سورس من",
+    title: `${t("Projects")} | ${t("SiteTitle")}`,
+    description: t("HighLight"),
     alternates: {
       languages: {
         en: "/en/projects",

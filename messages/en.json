@@ -2,8 +2,10 @@
   "Config": {
     "SiteTitle": "Mohammad Seyedabadi",
     "Description": "Software engineer and open source creator. This is my digital garden.",
-    "AboutMe":"About me",
-    "Read":"Read more about"
+    "AboutMe": "About me",
+    "Read": "Read more about",
+    "Projects": "Projects",
+    "HighLight": "A highlight of my open-source work"
   },
   "navigation": {
     "Home": "Home",
@@ -35,7 +37,7 @@
     "viewAll": "view all"
   },
   "me": {
-    "me":"me",
+    "me": "me",
     "descOne": "About me",
     "descTwo": "I'm Mohammad! I'm a software developer working in Neyshabur. Welcome to my spot on the web for my projects, tutorials and anything else I want to show the world. Check out the",
     "descThree": "projects",

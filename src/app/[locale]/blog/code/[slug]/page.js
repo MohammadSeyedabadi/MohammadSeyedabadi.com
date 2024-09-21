@@ -1,10 +1,11 @@
-import { getSinglePostFileData } from "@/utils/posts-util";
-import { useTranslations } from "next-intl";
-import config from "@/utils/config";
-import GetData from "./GetData";
+import { getOtherPageSlug, getSinglePostFileData } from "@/utils/posts-util";
+import { getTranslations } from "next-intl/server";
+import SetLang from "@/components/SetLang";
 import { notFound } from "next/navigation";
+import Post from "./Post";
 
 export async function generateMetadata({ params }) {
+  const t = await getTranslations("Config");
   const { locale, slug } = params;
   try {
     const { metaData } = await getSinglePostFileData(
@@ -13,9 +14,7 @@ export async function generateMetadata({ params }) {
     );
 
     return {
-      title: `${metaData.title} | ${
-        locale == "en" ? config.enSiteTitle : config.faSiteTitle
-      }`,
+      title: `${metaData.title} | ${t("SiteTitle")}`,
       description: metaData.excerpt,
       alternates: {
         languages: {
@@ -28,29 +27,42 @@ export async function generateMetadata({ params }) {
     console.error(
       `Faild To Fetch Meta Data in blog/[slug]/page.js. Error Message : ${error}`
     );
-    notFound();
   }
 }
 
-export default function Page({ params }) {
-  const t = useTranslations("blog");
+export default async function Page({ params }) {
+  const { locale, slug } = params;
+  let post = {};
+
+  try {
+    const { metaData, content } = await getSinglePostFileData(locale, slug);
+    const otherPageSlug = await getOtherPageSlug(locale, metaData.id);
+    post.metaData = metaData;
+    post.content = content;
+    post.otherPageSlug = otherPageSlug;
+  } catch (e) {
+    console.error(
+      `Failed To Fetch Single Post File Data In blog/[slug]/GetData.js. Error Message : ${e}`
+    );
+    notFound();
+  }
+
+  const t = await getTranslations("blog");
   const translation = {
-    PostSideBarDescOne: t("PostSideBarDescOne"),
-    PostSideBarDescTwo: t("PostSideBarDescTwo"),
-    PostSideBarDescThree: t("PostSideBarDescThree"),
     PostDetails: t("PostDetails"),
     Published: t("Published"),
     Tags: t("Tags"),
     SubscribeToTheNewsletter: t("SubscribeToTheNewsletter"),
   };
 
-  const { locale, slug } = params;
-
   return (
-    <GetData
-      locale={locale}
-      slug={locale == "fa" ? decodeURI(slug) : slug}
+    <>
+    <Post
+      metaData={post.metaData}
+      content={post.content}
       translation={translation}
     />
+    <SetLang otherPageSlug={post.otherPageSlug} />
+  </>
   );
 }

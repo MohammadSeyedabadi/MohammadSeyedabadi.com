@@ -13,7 +13,7 @@ import remarkGfm from "remark-gfm";
 import Giscus from "@giscus/react";
 import TitleIcon from "@/assets/TitleIcon";
 
-export default function ProgrammingPostTemplate({
+export default function Post({
   metaData,
   content,
   translation,

@@ -1,16 +1,15 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
-import config from "@/utils/config";
 import Hero from "@/components/Hero";
 import Heading from "@/components/Heading";
 import PostPreview from "@/components/PostPreview";
+import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({ params }) {
-  const { locale, slug } = params;
-
+export async function generateMetadata() {
+  const t = await getTranslations("Config");
   return {
-    title: locale == "en" ? config.enSiteTitle : config.faSiteTitle,
-    description: locale == "en" ? config.enDescription : config.faDescription,
+    title: t("SiteTitle"),
+    description: t("Description"),
   };
 }
 

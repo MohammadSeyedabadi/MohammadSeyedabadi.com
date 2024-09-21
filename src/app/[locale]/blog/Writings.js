@@ -27,10 +27,8 @@ export default function Writings({ translation }) {
         {pathName == "/blog/notes"
           ? translation.NotesDesc
           : translation.CodeDesc}
+        <Link href="/blog/code/tags">{translation.ViewAllTags}</Link>
       </p>
-      <Link href="/blog/code/tags" className="button small">
-        View all tags
-      </Link>
     </>
   );
 }

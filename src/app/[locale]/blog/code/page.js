@@ -33,6 +33,7 @@ export default async function Blog({ params }) {
     NotesDesc: t("NotesDesc"),
     CodeDesc: t("CodeDesc"),
     Code: t("Code"),
+    ViewAllTags:t("ViewAllTags")
   };
 
   return (

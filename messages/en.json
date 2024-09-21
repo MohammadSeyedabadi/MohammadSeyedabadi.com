@@ -64,10 +64,11 @@
 
   "blog": {
     "Writings": "Writings",
+    "ViewAllTags": "view all tags.",
     "Notes": "Notes",
     "Code": "Code",
     "NotesDesc": "All notes except those relating to code",
-    "CodeDesc": "All notes relating to code",
+    "CodeDesc": "Browse all notes relating to code or ",
     "PostDetails": "Post details",
     "Published": "Published",
     "Category": "Category",

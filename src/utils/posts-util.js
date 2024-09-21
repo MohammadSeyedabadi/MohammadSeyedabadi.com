@@ -82,25 +82,6 @@ export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
   return { all_posts_preview_metaData, indexOfSlug };
 }
 
-export async function getAllTags(locale) {
-  const files_Path = path.join(postsDirectory, locale);
-  const files = fs.readdirSync(files_Path);
-  let file_path, fileContent, parsedFileContent;
-  let allTags = [];
-  for (let file of files) {
-    file_path = path.join(files_Path, file);
-    fileContent = fs.readFileSync(file_path, "utf-8");
-    parsedFileContent = matter(fileContent);
-    let arrayOfPostTags = parsedFileContent.data.tags;
-    for (let i = 0; i < arrayOfPostTags.length; i++) {
-      if (!allTags.includes(arrayOfPostTags[i])) {
-        allTags.push(arrayOfPostTags[i]);
-      }
-    }
-  }
-  return allTags;
-}
-
 export async function getOtherPageSlug(locale, id, parameter) {
   const other_lang_files_Path = path.join(
     postsDirectory,

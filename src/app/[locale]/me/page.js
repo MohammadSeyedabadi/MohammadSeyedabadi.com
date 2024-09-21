@@ -9,7 +9,7 @@ export async function generateMetadata() {
 
   return {
     title: `${t("AboutMe")} | ${t("SiteTitle")}`,
-    description: `${t("Read")} | ${t("SiteTitle")}`,
+    description: `${t("Read")} ${t("SiteTitle")}`,
     alternates: {
       languages: {
         en: "/en/me",

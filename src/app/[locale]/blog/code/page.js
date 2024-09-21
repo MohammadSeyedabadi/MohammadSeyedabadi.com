@@ -1,5 +1,4 @@
-import config from "@/utils/config";
-import { getAllPostsMetaData, getAllTags } from "@/utils/posts-util";
+import { getAllPostsMetaData } from "@/utils/posts-util";
 import Post from "@/components/Post";
 import Hero from "@/components/Hero";
 import Writings from "../Writings";
@@ -21,9 +20,8 @@ export async function generateMetadata() {
 }
 
 export default async function Blog({ params }) {
-  let allPostsPreviewData, allTags;
+  let allPostsPreviewData;
   try {
-    allTags = await getAllTags(params.locale);
     allPostsPreviewData = await getAllPostsMetaData(params.locale);
   } catch (error) {
     console.error(`Error Occurred In /blog/page.js. Error Message : ${error}`);

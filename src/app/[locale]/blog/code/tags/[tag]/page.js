@@ -1,7 +1,6 @@
-import config from "@/utils/config";
+import { getTranslations } from "next-intl/server";
 import {
   get_all_posts_by_tag_preview_data,
-  getAllTags,
   getOtherPageSlug,
 } from "@/utils/posts-util";
 import Post from "@/components/Post";
@@ -9,16 +8,12 @@ import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
 
 export async function generateMetadata({ params }) {
+  const t = await getTranslations("Config");
   const { locale, tag } = params;
 
   return {
-    title: `${locale == "en" ? tag : decodeURI(tag)} | ${
-      locale == "en" ? config.enSiteTitle : config.faSiteTitle
-    }`,
-    description:
-      locale == "en"
-        ? `A list of posts tagged: ${tag}`
-        : `یک لیست از پست ها شامل تگ: ${tag}`,
+    title: `${locale == "en" ? tag : decodeURI(tag)} | ${t("SiteTitle")}`,
+    description: `${t("Tag")} : ${tag}`,
     alternates: {
       languages: {
         en: `/en/tags/${tag}`,
@@ -36,7 +31,7 @@ export default async function tag({ params }) {
     const data = await get_all_posts_by_tag_preview_data(locale, tag);
     all_posts_preview_metaData = data.all_posts_preview_metaData;
     indexOfSlug = data.indexOfSlug;
-    
+
     otherPageSlug = await getOtherPageSlug(
       locale,
       all_posts_preview_metaData[0].id,

@@ -5,7 +5,10 @@
     "AboutMe": "About me",
     "Read": "Read more about",
     "Projects": "Projects",
-    "HighLight": "A highlight of my open-source work"
+    "HighLight": "A highlight of my open-source work",
+    "Tag": "A list of posts tagged",
+    "Tags": "Tags",
+    "TagsList": "A list of all tags."
   },
   "navigation": {
     "Home": "Home",

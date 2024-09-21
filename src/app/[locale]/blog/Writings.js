@@ -6,7 +6,7 @@ export default function Writings({ translation }) {
   let pathName = usePathname();
   const { locale } = useParams();
   pathName = locale == "fa" ? decodeURI(pathName) : pathName;
-  
+
   return (
     <>
       <div>
@@ -23,11 +23,14 @@ export default function Writings({ translation }) {
           {translation.Code}
         </Link>
       </div>
-      <p className="hero-description small width">
+      <p style={{ marginTop: "1rem" }}>
         {pathName == "/blog/notes"
           ? translation.NotesDesc
           : translation.CodeDesc}
       </p>
+      <Link href="/blog/code/tags" className="button small">
+        View all tags
+      </Link>
     </>
   );
 }

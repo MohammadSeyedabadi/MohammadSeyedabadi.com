@@ -36,7 +36,7 @@ export default function PostSidebar({ metaData, translation }) {
         <div className="tags">
           {tags.map((tag) => {
             return (
-              <Link key={tag} href={`/tags/${tag}`} className="tag">
+              <Link key={tag} href={`/blog/code/tags/${tag}`} className="tag">
                 {tag}
               </Link>
             );

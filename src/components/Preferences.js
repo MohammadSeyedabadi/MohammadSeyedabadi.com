@@ -148,24 +148,24 @@ export default function Preferences({ prefencesTranslations }) {
               }}
             >
               <button
-                className={lang == "en" ? "" : "active"}
+                className={lang == "en" ? "active" : ""}
                 style={{
                   marginRight: "0.5rem",
+                  fontWeight: "500",
+                }}
+                onClick={() => changeLang("en", params)}
+              >
+                ENG
+              </button>
+              <button
+                className={lang == "en" ? "" : "active"}
+                style={{
                   fontWeight: "500",
                 }}
                 onClick={() => changeLang("fa", params)}
                 lang="fa"
               >
                 فا
-              </button>
-              <button
-                className={lang == "en" ? "active" : ""}
-                style={{
-                  fontWeight: "500",
-                }}
-                onClick={() => changeLang("en", params)}
-              >
-                ENG
               </button>
             </div>
           </div>

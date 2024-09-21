@@ -39,6 +39,17 @@ export const pathnames = {
     fa: "/بلاگ/کد",
   },
 
+  "/blog/code/tags": {
+    en: "/blog/code/tags",
+    fa: "/بلاگ/کد/تگ-ها",
+  },
+
+  
+  "/blog/code/tags/[tag]": {
+    en: "/blog/code/tags/[tag]",
+    fa: "/بلاگ/کد/تگ-ها/[tag]",
+  },
+
   "/blog/code/[slug]": {
     en: "/blog/code/[slug]",
     fa: "/بلاگ/کد/[slug]",
@@ -52,11 +63,6 @@ export const pathnames = {
   "/tags/[tag]": {
     en: "/tags/[tag]",
     fa: "/تگ-ها/[tag]",
-  },
-
-  "/categories/[category]": {
-    en: "/categories/[category]",
-    fa: "/دسته-بندی-ها/[category]",
   },
 
   //   // Dynamic params are supported via square brackets

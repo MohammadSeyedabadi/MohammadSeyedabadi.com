@@ -6,6 +6,39 @@ import TitleIcon from "@/assets/TitleIcon";
 import SetLang from "@/components/SetLang";
 import { getTranslations } from "next-intl/server";
 
+export async function generateMetadata({ params }) {
+  let { locale, slug } = params;
+  slug = locale == "en" ? slug : decodeURI(slug);
+  const t = await getTranslations("Config");
+  let note;
+  try {
+    const client = await clientpromise;
+    const db = client.db("notes");
+    note = await db.collection(locale).findOne(
+      { slug: slug },
+      {
+        projection: {
+          _id: 0, // may remove for error
+          title: 1,
+          excerpt: 1,
+        },
+      }
+    );
+  } catch (e) {
+    console.error(e);
+  }
+  return {
+    title: `${note.title} | ${t("SiteTitle")}`,
+    description: note.excerpt,
+    alternates: {
+      languages: {
+        en: "/en/blog/notes",
+        fa: `/بلاگ/یادداشت-ها`,
+      },
+    },
+  };
+}
+
 export default async function page({ params }) {
   const { locale, slug } = params;
   const note = await getNote(locale, slug);

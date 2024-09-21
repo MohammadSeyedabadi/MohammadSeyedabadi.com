@@ -5,18 +5,12 @@ import Hero from "@/components/Hero";
 import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({ params }) {
-  const { locale } = params;
+export async function generateMetadata() {
+  const blogT = await getTranslations("blog");
+  const ConfigT = await getTranslations("Config");
   return {
-    title: `${
-      locale == "en"
-        ? `Writing | ${config.enSiteTitle}`
-        : `نوشته‌ها | ${config.faSiteTitle}`
-    }`,
-    description:
-      locale == "en"
-        ? "A list of all my posts."
-        : "یک لیست از همه‌ی پست‌های من.",
+    title: `${blogT("Writings")} | ${ConfigT("SiteTitle")}`,
+    description: blogT("CodeDesc"),
     alternates: {
       languages: {
         en: "/en/blog",

@@ -8,3 +8,15 @@ export function getAllTags(locale) {
     return faAllTags;
   }
 }
+
+const alltags = [
+  {
+    A: ["algorithm"],
+    B: [],
+    C: [],
+    D: [],
+    آ:[],
+  },
+];
+
+// A aB bC cD dE eF fG gH hI iJ jK kL lM mN nO oP pQ qR rS sT tU uV vW wX xY yZ z

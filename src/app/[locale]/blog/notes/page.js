@@ -29,6 +29,7 @@ export default async function page({ params }) {
     NotesDesc: t("NotesDesc"),
     CodeDesc: t("CodeDesc"),
     Code: t("Code"),
+    ViewAllTags: t("ViewAllTags")
   };
 
   return (

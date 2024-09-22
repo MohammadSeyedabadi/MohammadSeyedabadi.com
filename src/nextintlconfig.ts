@@ -11,6 +11,16 @@ export const pathnames = {
   // external path can be used for all locales
   "/[slug]": "/[slug]",
 
+  "/tags": {
+    en: "/tags",
+    fa: "/تگ-ها",
+  },
+
+  "/tags/[tag]": {
+    en: "/tags/[tag]",
+    fa: "/تگ-ها/[tag]",
+  },
+
   // If locales use different paths, you can
   // specify each external path per locale
   "/me": {
@@ -58,11 +68,6 @@ export const pathnames = {
   "/blog/notes": {
     en: "/blog/notes",
     fa: "/بلاگ/یادداشت-ها",
-  },
-
-  "/tags/[tag]": {
-    en: "/tags/[tag]",
-    fa: "/تگ-ها/[tag]",
   },
 
   //   // Dynamic params are supported via square brackets

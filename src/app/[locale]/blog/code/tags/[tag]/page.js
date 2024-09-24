@@ -60,7 +60,6 @@ export default async function tag({ params }) {
                   <Post
                     key={eachPostPreviewData.title}
                     eachPostPreviewData={eachPostPreviewData}
-                    page="blog"
                   />
                 );
               })}

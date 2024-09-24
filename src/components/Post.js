@@ -1,5 +1,5 @@
 import { Link } from "@/navigation";
-export default function Post({ eachPostPreviewData, page }) {
+export default function Post({ eachPostPreviewData }) {
   const { lang, slug, title, createdAt } = eachPostPreviewData;
 
   const formattedDate = new Date(createdAt).toLocaleDateString(
@@ -12,7 +12,7 @@ export default function Post({ eachPostPreviewData, page }) {
   );
   return (
     <Link
-      href={`${page != "notes" ? `/${page}/${slug}` : `/${slug}`}`}
+      href={`${page != "notes" ? `/blog/code/${slug}` : `/${slug}`}`}
       replace={page === "notes" ? true : false}
       className="post"
     >

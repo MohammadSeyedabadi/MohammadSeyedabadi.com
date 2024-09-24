@@ -18,11 +18,11 @@
 
   --button-background-color: var(--gray-8);
 
-  --post-time-color: var(--rainbow-4);
+  --post-time-color: var(--gray-5);
   --card-time-color: var(--pink);
   --project-time-color: var(--star);
   --link: #9ca0fa;
-  --link-hover-color: #222;
+  --link-hover-color: #c2c5fd;
   --blockquote-background: rgba(120, 120, 240, 0.05);
   --marker: #e77cc7;
   --file-background: #161616;

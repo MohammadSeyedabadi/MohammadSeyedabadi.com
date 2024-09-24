@@ -632,27 +632,9 @@ html[lang="fa"] .nav--list {
   border-bottom: 2px solid none;
 }
 
-.active--link > .nav--link-home,
-.nav--link-home:hover {
-  border-bottom: 2px solid var(--rainbow-1);
-  color: var(--navbar-color-hover);
-}
-
-.active--link > .nav--link-about,
-.nav--link-about:hover {
-  border-bottom: 2px solid var(--rainbow-2);
-  color: var(--navbar-color-hover);
-}
-
-.active--link > .nav--link-projects,
-.nav--link-projects:hover {
-  border-bottom: 2px solid var(--rainbow-5);
-  color: var(--navbar-color-hover);
-}
-
-.active--link > .nav--link-blog,
-.nav--link-blog:hover {
-  border-bottom: 2px solid var(--rainbow-4);
+.active--link > .nav--link,
+.nav--link:hover {
+  border-bottom: 2px solid var(--link);
   color: var(--navbar-color-hover);
 }
 
@@ -923,7 +905,7 @@ p.hero-description a:hover {
 }
 
 .highlight {
-  color: var(--highlight-color);
+  color: var(--marker);
 }
 
 /* Preview */
@@ -1023,17 +1005,19 @@ p.hero-description a:hover {
 
 /* Pages */
 
-.post-content a {
+.post-content a,
+.writings-link {
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
 }
 
-.post-content a:hover {
+.post-content a:hover,
+.writings-link:hover {
   background: var(--link);
-  color: var(--link-hover-color);
+  color: var(--background-color);
   text-decoration: none;
 }
-
+/* girl.fashionhome */
 a.anchor,
 a.anchor:hover {
   color: var(--link);
@@ -1104,8 +1088,10 @@ a.post:last-of-type {
 }
 
 a.post:hover,
-a.post:hover h3 {
-  color: var(--font-color-bright);
+a.post:hover h3,
+a.post:hover time,
+a.post:hover span {
+  color: var(--link-hover-color);
 }
 
 a.post:hover h3 {
@@ -1117,7 +1103,8 @@ a.post h3 {
   margin: 0;
   font-size: 1rem;
   /* color: var(--font-color-heading); */
-  color: var(--font-color-muted);
+  /* color: var(--font-color-muted); */
+  color: var(--link);
   font-weight: 500;
   font-family: var(--font-family-base);
   line-height: 1.3;
@@ -1270,6 +1257,29 @@ html[lang="fa"] a.post span {
 
 /* Tags and categories */
 
+.alphabetical-tags {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.alphabetical-tags:last-child {
+  border-bottom: none;
+}
+
+.alphabetical-tags h3 {
+  width: 30px;
+  margin: 0;
+  color: var(--blue-2);
+  /* color: #4679e0; */
+  /* color: #356ee0; */
+  color: var(--link);
+  /* color: var(--blue-5); */
+}
+
 .tags,
 .links {
   display: flex;
@@ -1281,7 +1291,7 @@ a.tag {
   font-size: 0.8rem;
   font-weight: 400;
   padding: 0.2rem 0.4rem;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: var(--border-radius);
   color: var(--font-color-base);
   background: var(--button-background-color) !important;
@@ -1290,7 +1300,7 @@ a.tag {
 
 a.tag:hover {
   color: var(--font-color-bright);
-  border-color: var(--highlight-color);
+  border-color: var(--link);
   text-decoration: none;
 }
 
@@ -1301,46 +1311,16 @@ a.tag.active {
 }
 
 @media screen and (min-width: 700px) {
-  html[lang="en"] .categories.anchored,
   .links.anchored {
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
   }
-
-  html[lang="fa"] .categories.anchored,
   .links.anchored {
     position: absolute;
     bottom: 1.5rem;
     right: 1.5rem;
   }
-}
-
-a.category {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
-}
-
-a.category.active {
-  color: var(--highlight-color);
-}
-
-a.category:hover .count,
-a.category.active .count {
-  color: var(--highlight-color);
-}
-
-.category .name {
-  font-size: 0.9rem;
-}
-
-.category .count {
-  font-weight: 400;
-  font-size: 0.9rem;
-  color: var(--font-color-muted);
-  font-family: var(--font-family-monospace);
 }
 
 /* Helpers */

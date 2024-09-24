@@ -18,7 +18,7 @@ export async function generateMetadata() {
   };
 }
 
-export default function page({ params }) {
+export default function Page({ params }) {
   const { locale } = params;
   const allTags = getAllTags(locale);
   const t = useTranslations("blog");

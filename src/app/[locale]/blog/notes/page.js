@@ -19,7 +19,7 @@ export async function generateMetadata() {
   };
 }
 
-export default async function page({ params }) {
+export default async function Page({ params }) {
   const { locale } = params;
   const allPostsPreviewData = await getAllNotesPreviewData(locale);
   const t = await getTranslations("blog");

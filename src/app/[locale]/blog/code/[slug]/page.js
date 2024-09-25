@@ -35,7 +35,7 @@ export default async function Page({ params }) {
   let post = {};
 
   try {
-    const { metaData, content } = await getSinglePostFileData(locale, slug);
+    const { metaData, content } = await getSinglePostFileData(locale, locale == "fa" ? decodeURI(slug) : slug);
     const otherPageSlug = await getOtherPageSlug(locale, metaData.id);
     post.metaData = metaData;
     post.content = content;

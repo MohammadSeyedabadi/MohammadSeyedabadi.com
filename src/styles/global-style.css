@@ -528,7 +528,7 @@ a.button {
   cursor: pointer;
   font-weight: 500;
   color: var(--font-color-base);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   gap: 0.25rem;
   letter-spacing: 0;
   white-space: nowrap;
@@ -566,10 +566,14 @@ a.button img {
   margin-right: 0.25rem;
 }
 
-button:hover,
-a.button:hover {
+button:hover {
   color: var(--font-color-bright);
   border-color: var(--border-color-hover);
+}
+
+a.button:hover{
+  color: var(--font-color-bright);
+  border-color: var(--link);
 }
 
 .button:active,

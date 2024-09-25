@@ -24,19 +24,20 @@ export async function generateMetadata({ params }) {
         },
       }
     );
+
+    return {
+      title: `${note.title} | ${t("SiteTitle")}`,
+      description: note.excerpt,
+      alternates: {
+        languages: {
+          en: "/en/blog/notes",
+          fa: `/بلاگ/یادداشت-ها`,
+        },
+      },
+    };
   } catch (e) {
     console.error(e);
   }
-  return {
-    title: `${note.title} | ${t("SiteTitle")}`,
-    description: note.excerpt,
-    alternates: {
-      languages: {
-        en: "/en/blog/notes",
-        fa: `/بلاگ/یادداشت-ها`,
-      },
-    },
-  };
 }
 
 export default async function page({ params }) {

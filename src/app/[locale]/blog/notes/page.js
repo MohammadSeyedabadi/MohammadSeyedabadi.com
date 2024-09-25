@@ -52,7 +52,7 @@ export default async function Page({ params }) {
                   }
                 );
                 return (
-                  <Link href={`/${slug}`} className="post">
+                  <Link key={slug} href={`/${slug}`} className="post">
                     <h3>{title}</h3>
                     <time>{formattedDate}</time>
                   </Link>

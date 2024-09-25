@@ -126,7 +126,6 @@ export function PreferencesContextProvider(props) {
           { pathname, params: { slug: otherPageSlug } },
           { locale: L }
         );
-        return;
       }
     } else {
       router.replace({ pathname, params }, { locale: L });

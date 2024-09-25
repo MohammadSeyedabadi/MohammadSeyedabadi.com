@@ -571,7 +571,7 @@ button:hover {
   border-color: var(--border-color-hover);
 }
 
-a.button:hover{
+a.button:hover {
   color: var(--font-color-bright);
   border-color: var(--link);
 }
@@ -579,6 +579,11 @@ a.button:hover{
 .button:active,
 button:active {
   transform: scale(0.95);
+}
+
+.active {
+  color: var(--font-color-bright);
+  border-bottom: 2px solid var(--border-color-hover);
 }
 
 .modal--btn-wrapper {
@@ -632,14 +637,13 @@ html[lang="fa"] .nav--list {
 
 .nav--link {
   color: var(--navbar-color);
-  padding-bottom: 2px;
-  border-bottom: 2px solid none;
 }
 
-.active--link > .nav--link,
+.active.nav--link,
 .nav--link:hover {
   border-bottom: 2px solid var(--link);
   color: var(--navbar-color-hover);
+  /* color: red; */
 }
 
 .Preferences--wrapper {
@@ -881,7 +885,7 @@ p.hero-description a:hover {
 
 .hero div {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.3rem;
   margin-top: 1.5rem;
 }
 
@@ -893,19 +897,12 @@ p.hero-description a:hover {
   gap: 0.5rem;
 }
 .hero div a {
-  color: var(--font-color-muted);
-}
-
-.active {
-  color: var(--font-color-bright) !important;
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
+  color: var(--font-color-base);
 }
 
 .hero div a:hover {
   color: var(--font-color-bright);
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
+
 }
 
 .highlight {

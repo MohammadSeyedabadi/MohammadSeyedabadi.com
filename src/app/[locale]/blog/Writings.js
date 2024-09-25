@@ -12,13 +12,13 @@ export default function Writings({ translation }) {
       <div>
         <Link
           href="/blog/notes"
-          className={`${pathName == "/blog/notes" ? "active" : ""}`}
+          className={`nav--link button small ${pathName == "/blog/notes" ? "active" : ""}`}
         >
           {translation.Notes}
         </Link>
         <Link
           href="/blog/code"
-          className={`${pathName == "/blog/code" ? "active" : ""}`}
+          className={`nav--link button small ${pathName == "/blog/code" ? "active" : ""}`}
         >
           {translation.Code}
         </Link>

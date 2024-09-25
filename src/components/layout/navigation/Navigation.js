@@ -57,38 +57,48 @@ export default function Navigation({ translation }) {
             <Preferences prefencesTranslations={prefencesTranslations} />
           </li>
 
-          <li className={ pathname === "/fa" || pathname === "/en" ? "active--link" : ""}>
-            <Link href="/" className="nav--link nav--link-home ">
+          <li>
+            <Link
+              href="/"
+              className={`nav--link button small ${
+                pathname === "/fa" || pathname === "/en" ? "active" : ""
+              }`}
+            >
               {Home}
             </Link>
           </li>
 
-          <li
-            className={
-              pathname === "/fa/درباره-من" || pathname === "/en/me"
-                ? "active--link"
-                : ""
-            }
-          >
-            <Link href="/me" className="nav--link nav--link-about">
+          <li>
+            <Link
+              href="/me"
+              className={`nav--link button small ${
+                pathname === "/fa/درباره-من" || pathname === "/en/me"
+                  ? "active"
+                  : ""
+              }`}
+            >
               {About}
             </Link>
           </li>
 
-          <li
-            className={
-              pathname === "/fa/پروژه-ها" || pathname === "/en/projects"
-                ? "active--link"
-                : ""
-            }
-          >
-            <Link href="/projects" className="nav--link nav--link-projects">
+          <li>
+            <Link
+              href="/projects"
+              className={`nav--link button small ${
+                pathname === "/fa/پروژه-ها" || pathname === "/en/projects"
+                  ? "active"
+                  : ""
+              }`}
+            >
               {Projects}
             </Link>
           </li>
 
-          <li className={isBlog ? "active--link" : ""}>
-            <Link href="/blog/notes" className="nav--link nav--link-blog">
+          <li>
+            <Link
+              href="/blog/notes"
+              className={`nav--link button small ${isBlog ? "active" : ""}`}
+            >
               {Blog}
             </Link>
           </li>

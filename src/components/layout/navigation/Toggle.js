@@ -1,11 +1,11 @@
 "use client";
 
 import { useContext } from "react";
-import ThemeContext from "@/store/theme-context";
+import PreferencesContext from "@/store/preferences-context";
 
 function Toggle() {
   const { ariaActive, active, changeTheme, handleKeypress } =
-    useContext(ThemeContext);
+    useContext(PreferencesContext);
   return (
     <div className="container--toggle">
       <input

@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import { useContext } from "react";
-import ThemeContext from "@/store/theme-context";
+import PreferencesContext from "@/store/preferences-context";
 import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import PostSidebar from "@/components/PostSidebar";
@@ -19,7 +19,7 @@ export default function Post({
   translation,
 }) {
   const language = useParams().locale;
-  const { ariaActive } = useContext(ThemeContext);
+  const { ariaActive } = useContext(PreferencesContext);
   const { title, image: postImage } = metaData;
 
   const customRenderers = {

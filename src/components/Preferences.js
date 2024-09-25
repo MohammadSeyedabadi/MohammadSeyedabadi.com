@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Toggle from "./layout/navigation/Toggle";
 import { useParams } from "next/navigation";
 import { useContext } from "react";
-import ThemeContext from "@/store/theme-context";
+import PreferencesContext from "@/store/preferences-context";
 
 export default function Preferences({ prefencesTranslations }) {
   const {
@@ -27,7 +27,7 @@ export default function Preferences({ prefencesTranslations }) {
     setSystemTheme,
     active,
     changeLang,
-  } = useContext(ThemeContext);
+  } = useContext(PreferencesContext);
 
   useEffect(() => {
     const openButton = document.querySelector("[data-open-modal]");

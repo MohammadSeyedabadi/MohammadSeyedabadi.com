@@ -4,7 +4,7 @@ import "@/styles/theme-dark.css";
 import "@/styles/toggle.css";
 
 import CustomLayout from "@/components/layout/CustomLayout";
-import { PreferencesContextProvider } from "@/store/theme-context";
+import { PreferencesContextProvider } from "@/store/preferences-context";
 
 export const metadata = {
   metadataBase: new URL("https://mohammadseyedabadi.com"),

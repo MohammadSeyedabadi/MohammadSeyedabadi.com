@@ -115,7 +115,7 @@ export function PreferencesContextProvider(props) {
   });
 
   function changeLang(L, params) {
-    if (otherPageSlug) {
+    if (params.slug || params.tag) { // each single tag there might be error. fix >>>> otherPageSlug && (params.slug || params.tag)
       if (params.tag) {
         router.replace(
           { pathname, params: { tag: otherPageSlug } },
@@ -126,6 +126,7 @@ export function PreferencesContextProvider(props) {
           { pathname, params: { slug: otherPageSlug } },
           { locale: L }
         );
+        return;
       }
     } else {
       router.replace({ pathname, params }, { locale: L });

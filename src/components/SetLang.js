@@ -1,10 +1,11 @@
 "use client";
 
 import { useContext, useEffect } from "react";
-import ThemeContext from "@/store/theme-context";
+import PreferencesContext from "@/store/preferences-context";
 
 export default function SetLang({ otherPageSlug }) {
-  const { setOtherPageSlug } = useContext(ThemeContext);
+  console.log(otherPageSlug)
+  const { setOtherPageSlug } = useContext(PreferencesContext);
   useEffect(() => {
     setOtherPageSlug(otherPageSlug);
   }, [otherPageSlug]);

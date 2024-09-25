@@ -1,8 +1,8 @@
 import Hero from "@/components/Hero";
-import Post from "@/components/Post";
 import clientPromise from "@/utils/mongodb";
 import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/navigation";
 
 export async function generateMetadata() {
   const blogT = await getTranslations("blog");
@@ -29,7 +29,7 @@ export default async function Page({ params }) {
     NotesDesc: t("NotesDesc"),
     CodeDesc: t("CodeDesc"),
     Code: t("Code"),
-    ViewAllTags: t("ViewAllTags")
+    ViewAllTags: t("ViewAllTags"),
   };
 
   return (
@@ -42,12 +42,20 @@ export default async function Page({ params }) {
           <section className="segment">
             <div className="posts">
               {allPostsPreviewData.map((eachPostPreviewData) => {
+                const { lang, slug, title, createdAt } = eachPostPreviewData;
+                const formattedDate = new Date(createdAt).toLocaleDateString(
+                  lang === "fa" ? "fa-IR" : "en-US",
+                  {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  }
+                );
                 return (
-                  <Post
-                    key={eachPostPreviewData.title}
-                    eachPostPreviewData={eachPostPreviewData}
-                    page="notes"
-                  />
+                  <Link href={`/${slug}`} className="post">
+                    <h3>{title}</h3>
+                    <time>{formattedDate}</time>
+                  </Link>
                 );
               })}
             </div>

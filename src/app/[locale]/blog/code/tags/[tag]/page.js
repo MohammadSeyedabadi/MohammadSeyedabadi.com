@@ -6,6 +6,7 @@ import {
 import Post from "@/components/Post";
 import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
+import { Link } from "@/navigation";
 
 export async function generateMetadata({ params }) {
   const t = await getTranslations("Config");
@@ -56,11 +57,21 @@ export default async function tag({ params }) {
           <div className="segment">
             <div className="posts">
               {all_posts_preview_metaData.map((eachPostPreviewData) => {
+                const { lang, slug, title, createdAt } = eachPostPreviewData;
+
+                const formattedDate = new Date(createdAt).toLocaleDateString(
+                  lang === "fa" ? "fa-IR" : "en-US",
+                  {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  }
+                );
                 return (
-                  <Post
-                    key={eachPostPreviewData.title}
-                    eachPostPreviewData={eachPostPreviewData}
-                  />
+                  <Link key={slug} href={`/blog/code/${slug}`} className="post">
+                    <h3>{title}</h3>
+                    <time>{formattedDate}</time>
+                  </Link>
                 );
               })}
             </div>

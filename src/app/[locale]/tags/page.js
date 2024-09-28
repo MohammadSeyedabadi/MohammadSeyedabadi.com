@@ -41,14 +41,14 @@ export async function getAllTags(locale) {
       .find({}, { projection: { _id: 0 } })
       .toArray();
 
-    let allTagsObject = JSON.parse(JSON.stringify(allTags[0])); // copy the value because of deleting in for loop
+    let allTagsCopy = JSON.parse(JSON.stringify(allTags[0])); // copy the value because of deleting in for loop
 
     for (const key in allTags[0]) {
       if (allTags[0][key].length === 0) {
-        delete allTagsObject[key];
+        delete allTagsCopy[key];
       }
     }
-    return allTagsObject;
+    return allTagsCopy;
   } catch (error) {
     throw new Error(e);
   }

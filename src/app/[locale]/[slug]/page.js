@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/navigation";
 import clientpromise from "@/utils/mongodb";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";

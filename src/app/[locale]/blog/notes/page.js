@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import clientPromise from "@/utils/mongodb";
 import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/navigation";
+import { Link, redirect } from "@/navigation";
 
 export async function generateMetadata() {
   const blogT = await getTranslations("blog");
@@ -21,7 +21,13 @@ export async function generateMetadata() {
 
 export default async function Page({ params }) {
   const { locale } = params;
-  const allPostsPreviewData = await getAllNotesPreviewData(locale);
+  let allPostsPreviewData;
+  try {
+    allPostsPreviewData = await getAllNotesPreviewData(locale);
+  } catch (error) {
+    redirect("/blog/code");
+  }
+
   const t = await getTranslations("blog");
 
   const translation = {
@@ -92,10 +98,15 @@ export async function getAllNotesPreviewData(locale) {
     //   props: { allNotesTitle: JSON.parse(JSON.stringify(allNotesTitle)) },
     // };
   } catch (e) {
-    console.error(e);
-    return [];
-    // return {
-    //   props: { allNotesTitle: [] },
-    // };
+    console.error(
+      e,
+      "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    );
+    throw new Error("");
+
+    // return [];
+    // // return {
+    // //   props: { allNotesTitle: [] },
+    // // };
   }
 }

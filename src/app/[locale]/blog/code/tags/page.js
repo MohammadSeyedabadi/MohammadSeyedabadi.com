@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import { getAllTags } from "@/posts/tags";
 import { Link } from "@/navigation";
+import { getAllTags } from "@/posts/tags";
 
 export async function generateMetadata() {
   const t = await getTranslations("Config");
@@ -24,15 +24,30 @@ export default function Page({ params }) {
   const t = useTranslations("blog");
   return (
     <div className="container">
-      <h2>{t("Tags")}:</h2>
-      <div className="tags">
-        {allTags.map((tag) => {
-          return (
-            <Link key={tag} href={`/blog/code/tags/${tag}`} className="tag">
-              {tag}
-            </Link>
-          );
-        })}
+      <div className="grid">
+        <div>
+          {Object.entries(allTags).map(([key, value]) => {
+            return (
+              <div key={key} className="alphabetical-tags">
+                <h3>{key.toUpperCase()}</h3>
+                <div className="tags">
+                  {value.map((tag) => {
+                    return (
+                      <Link
+                        key={tag}
+                        href={`/blog/code/tags/${tag}`}
+                        className="tag"
+                      >
+                        {tag}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import { Link } from "@/navigation";
 
 export default function PostSidebar({ metaData, translation }) {
-  const { lang, title, image, createdAt, tags } = metaData;
-  const formattedDate = new Date(createdAt).toLocaleDateString(
+  const { lang, title, image, createdAt, lastModified, tags } = metaData;
+  const createdAtformattedDate = new Date(createdAt).toLocaleDateString(
     lang === "fa" ? "fa-IR" : "en-US",
     {
       day: "numeric",
@@ -11,12 +11,17 @@ export default function PostSidebar({ metaData, translation }) {
     }
   );
 
-  const {
-    PostDetails,
-    Published,
-    Tags,
-    SubscribeToTheNewsletter,
-  } = translation;
+  const lastModifiedformattedDate = new Date(lastModified).toLocaleDateString(
+    lang === "fa" ? "fa-IR" : "en-US",
+    {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }
+  );
+
+  const { PostDetails, Published, LastEdited, Tags, SubscribeToTheNewsletter } =
+    translation;
 
   return (
     <aside className="post-sidebar">
@@ -28,7 +33,10 @@ export default function PostSidebar({ metaData, translation }) {
         <h2>{PostDetails}</h2>
         <ul>
           <li>
-            <strong>{Published}:</strong> {formattedDate}
+            <strong>{Published}:</strong> {createdAtformattedDate}
+          </li>
+          <li>
+            <strong>{LastEdited}:</strong> {lastModifiedformattedDate}
           </li>
         </ul>
 
@@ -53,14 +61,6 @@ export default function PostSidebar({ metaData, translation }) {
           </a>
         </p>
       </div>
-
-      {/* <div className="post-sidebar-card">
-        <h2>{AboutMe}</h2>
-        <p>
-          {PostSideBarDescOne} <Link href="/me">{PostSideBarDescTwo}</Link>
-        </p>
-        <p>{PostSideBarDescThree}</p>
-      </div> */}
     </aside>
   );
 }

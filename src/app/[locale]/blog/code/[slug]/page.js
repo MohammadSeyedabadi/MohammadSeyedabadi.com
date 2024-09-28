@@ -35,7 +35,10 @@ export default async function Page({ params }) {
   let post = {};
 
   try {
-    const { metaData, content } = await getSinglePostFileData(locale, locale == "fa" ? decodeURI(slug) : slug);
+    const { metaData, content } = await getSinglePostFileData(
+      locale,
+      locale == "fa" ? decodeURI(slug) : slug
+    );
     const otherPageSlug = await getOtherPageSlug(locale, metaData.id);
     post.metaData = metaData;
     post.content = content;
@@ -50,19 +53,20 @@ export default async function Page({ params }) {
   const t = await getTranslations("blog");
   const translation = {
     PostDetails: t("PostDetails"),
-    Published: t("Published"),
     Tags: t("Tags"),
+    Published: t("Published"),
+    LastEdited: t("LastEdited"),
     SubscribeToTheNewsletter: t("SubscribeToTheNewsletter"),
   };
 
   return (
     <>
-    <Post
-      metaData={post.metaData}
-      content={post.content}
-      translation={translation}
-    />
-    <SetLang otherPageSlug={post.otherPageSlug} />
-  </>
+      <Post
+        metaData={post.metaData}
+        content={post.content}
+        translation={translation}
+      />
+      <SetLang otherPageSlug={post.otherPageSlug} />
+    </>
   );
 }

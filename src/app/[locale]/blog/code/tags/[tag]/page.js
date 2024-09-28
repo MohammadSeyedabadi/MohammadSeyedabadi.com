@@ -3,7 +3,6 @@ import {
   get_all_posts_by_tag_preview_data,
   getOtherPageSlug,
 } from "@/utils/posts-util";
-import Post from "@/components/Post";
 import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
 import { Link } from "@/navigation";

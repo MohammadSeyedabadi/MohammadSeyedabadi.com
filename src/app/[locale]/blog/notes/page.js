@@ -25,7 +25,12 @@ export default async function Page({ params }) {
   try {
     allPostsPreviewData = await getAllNotesPreviewData(locale);
   } catch (error) {
-    redirect("/blog/code");
+    return (
+      <div className="container">
+        <h1>Failed to fetch data</h1>
+        <Link href="/blog/code">Go to notes related to code</Link>
+      </div>
+    );
   }
 
   const t = await getTranslations("blog");
@@ -100,7 +105,7 @@ export async function getAllNotesPreviewData(locale) {
   } catch (e) {
     console.error(
       e,
-      "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+      "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Error in notes/page.js"
     );
     throw new Error("");
 

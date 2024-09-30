@@ -58,6 +58,7 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
         {
           projection: {
             _id: 0,
+            lang: 1,
             title: 1,
             slug: 1,
             otherPageSlug: 1,

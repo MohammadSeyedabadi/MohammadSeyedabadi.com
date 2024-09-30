@@ -22,16 +22,8 @@ export async function generateMetadata() {
 export default async function Page({ params }) {
   const { locale } = params;
   let allPostsPreviewData;
-  try {
-    allPostsPreviewData = await getAllNotesPreviewData(locale);
-  } catch (error) {
-    return (
-      <div className="container">
-        <h1>Failed to fetch data</h1>
-        <Link href="/blog/code">Go to notes related to code</Link>
-      </div>
-    );
-  }
+
+  allPostsPreviewData = await getAllNotesPreviewData(locale);
 
   const t = await getTranslations("blog");
 

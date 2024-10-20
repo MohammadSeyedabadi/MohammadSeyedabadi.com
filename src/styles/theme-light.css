@@ -4,8 +4,7 @@
   --code-background-color: var(--gray-0);
   --code-border-color: var(--gray-3);
   --contact-sidebar-card: var(--gray-2);
-  --star: var(--yellow);
-  --year: var(--green);
+
 
   --font-color-heading: var(--gray-8);
   --font-color-heading3: var(--gray-7);
@@ -19,12 +18,12 @@
   --button-background-color: var(--gray-05);
 
   --post-time-color: var(--gray-6);
-  --card-time-color: var(--gray-5);
   --project-time-color: var(--font-color-muted);
   --link: var(--indigo);
   --link-hover-color: var(--blue-4);
   --blockquote-background: var(--indigo-muted);
   --marker: var(--indigo);
+  --close-btn: var(--gray-6);
   --file-background: #eee;
   --inline-code-background-color: var(--gray-0);
   --highlight-color: var(--green);

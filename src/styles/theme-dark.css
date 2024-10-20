@@ -4,8 +4,7 @@
   --contact-sidebar-card: var(--gray-9);
   --code-background-color: #131313;
   --code-border-color: var(--gray-65);
-  --star: var(--rainbow-5);
-  --year: var(--rainbow-4);
+
 
   --font-color-heading: white;
   --font-color-heading3: white;
@@ -24,10 +23,10 @@
   --link: #9ca0fa;
   --link-hover-color: #c2c5fd;
   --blockquote-background: rgba(120, 120, 240, 0.05);
-  --marker: #e77cc7;
+  --marker: var(--pink);
+  --close-btn: var(--pink);
   --file-background: #161616;
   --inline-code-background-color: rgba(0, 0, 0, 0.2);
-  --highlight-color: var(--rainbow-4);
   --navbar: var(--gray-9);
   --navbar-02: rgba(0, 0, 0, 0.708);
   --navbar-border: var(--gray-7);

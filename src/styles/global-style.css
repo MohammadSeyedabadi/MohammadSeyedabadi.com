@@ -36,12 +36,6 @@
   --blue-4: #623ac6;
   --blue-5: #58119f;
 
-  --rainbow-1: #ff67f7;
-  --rainbow-2: #9b78fa;
-  --rainbow-3: #59abf7;
-  --rainbow-4: #5eddac;
-  --rainbow-5: #f6cd5d;
-
   --orange: #ff7e22;
   --yellow: #fca62a;
   --pink: #f57ad0;
@@ -603,7 +597,7 @@ button:active {
 
 .modal--btn-close {
   border: none;
-  background-color: var(--card-time-color);
+  background-color: var(--close-btn);
   border-radius: 50%;
   padding: 0.7rem;
 }
@@ -665,7 +659,7 @@ dialog {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
-  color: var(--star);
+  color: var(--yellow);
   font-family: var(--font-family-monospace);
 }
 
@@ -1562,26 +1556,6 @@ a.tag.active {
 
 .blue-5 {
   background: var(--blue-5);
-}
-
-.rainbow-1 {
-  background: var(--rainbow-1);
-}
-
-.rainbow-2 {
-  background: var(--rainbow-2);
-}
-
-.rainbow-3 {
-  background: var(--rainbow-3);
-}
-
-.rainbow-4 {
-  background: var(--rainbow-4);
-}
-
-.rainbow-5 {
-  background: var(--rainbow-5);
 }
 
 .image {

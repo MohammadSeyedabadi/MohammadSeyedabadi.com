@@ -1,9 +1,23 @@
 import clientPromise from "@/utils/mongodb";
 import { Link } from "@/navigation";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata() {
+  const t = await getTranslations("Config");
+    return {
+      title: `${t("Tags")} | ${t("SiteTitle")}`,
+      description: t("TagsList"),
+      alternates: {
+        languages: {
+          en: "/en/blog/notes",
+          fa: "/fa/تگ-ها"
+        },
+      },
+    };
+}
 
 export default async function page({ params }) {
   const allTags = await getAllTags(params.locale);
-  // console.log(allTags);
   return (
     <div className="container">
       <div className="grid">

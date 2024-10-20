@@ -31,7 +31,7 @@ export async function generateMetadata({ params }) {
       alternates: {
         languages: {
           en: "/en/blog/notes",
-          fa: `/بلاگ/یادداشت-ها`,
+          fa: "/fa/بلاگ/یادداشت-ها",
         },
       },
     };

@@ -15,7 +15,7 @@ export async function generateMetadata() {
 
 export default function Index() {
   const indexPage = useTranslations("Index");
-  const gamePage = useTranslations("game");
+  const gamePage = useTranslations("Game");
   return (
     <>
       <div className="container">

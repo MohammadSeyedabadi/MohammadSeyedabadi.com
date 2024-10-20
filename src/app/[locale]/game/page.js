@@ -1,24 +1,15 @@
-import config from "@/utils/config";
 import Hero from "@/components/Hero";
 import TicTacToe from "@/components/games/Tic Tac Toe/TicTocToe";
 import { useTranslations } from "next-intl";
-
-// export const metadata = {
-//   title: `Let's play some game | ${config.siteTitle}`,
-//   description: "Let's play some game",
-// };
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({ params }) {
-  const { locale, slug } = params;
-
+  const { locale } = params;
+  const Config = await getTranslations("Config");
+  const Game = await getTranslations("Game");
   return {
-    title: `${
-      locale == "en"
-        ? `Let's play some game | ${config.enSiteTitle}`
-        : `بازی | ${config.faSiteTitle}`
-    }`,
-    description:
-      locale == "en" ? "Let's play some game." : "بیایید کمی بازی کنیم.",
+    title: `${Game("letsplay")} | ${Config("SiteTitle")}`,
+    description: Game("letsplay"),
     alternates: {
       languages: {
         en: "/en/game",
@@ -29,7 +20,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default function Game() {
-  const t = useTranslations("game");
+  const t = useTranslations("Game");
   const translation = {
     youWin: t("youWin"),
     youLose: t("youLose"),

@@ -2,6 +2,23 @@ import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
 import { Link } from "@/navigation";
 import clientPromise from "@/utils/mongodb";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({ params }) {
+  let { locale, tag } = params;
+  tag = locale == "en" ? tag : decodeURI(tag);
+  const t = await getTranslations("Config");
+  return {
+    title: `${tag} | ${t("SiteTitle")}`,
+    description: t("TagsList"),
+    alternates: {
+      languages: {
+        en: "/en/blog/notes",
+        fa: "/fa/تگ-ها",
+      },
+    },
+  };
+}
 
 export default async function page({ params }) {
   let { locale, tag } = params;

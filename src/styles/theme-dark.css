@@ -19,7 +19,7 @@
 
   --post-time-color: var(--gray-5);
   --card-time-color: var(--pink);
-  --project-time-color: var(--star);
+  --project-time-color: var(--link);
   --link: #9ca0fa;
   --link-hover-color: #c2c5fd;
   --blockquote-background: rgba(120, 120, 240, 0.05);

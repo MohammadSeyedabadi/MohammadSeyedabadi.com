@@ -11,8 +11,8 @@ export async function generateMetadata() {
     description: t("TagsList"),
     alternates: {
       languages: {
-        en: "/blog/code/tags",
-        fa: "/بلاگ/کد/تگ-ها",
+        en: "/en/blog/code/tags",
+        fa:"/fa/بلاگ/کد/تگ-ها"
       },
     },
   };

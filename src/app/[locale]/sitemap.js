@@ -202,7 +202,99 @@ function returnFaPages(
   allNotesInfoForSiteMap
 ) {
   return [
+    {
+      url: `${baseUrl}/${id}`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en`,
+          fa: `${baseUrl}/fa`,
+        },
+      },
+    },
 
+    {
+      url: `${baseUrl}/${id}/تگ-ها`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/tags`,
+          fa: `${baseUrl}/fa/تگ-ها`,
+        },
+      },
+    },
+
+    {
+      url: `${baseUrl}/${id}/درباره-من`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/me`,
+          fa: `${baseUrl}/fa/درباره-من`,
+        },
+      },
+    },
+
+    {
+      url: `${baseUrl}/${id}/پروژه-ها`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/projects`,
+          fa: `${baseUrl}/fa/پروژه-ها`,
+        },
+      },
+    },
+
+    {
+      url: `${baseUrl}/${id}/بازی`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/game`,
+          fa: `${baseUrl}/fa/بازی`,
+        },
+      },
+    },
+
+    {
+      url: `${baseUrl}/${id}/بلاگ/کد`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/blog/code`,
+          fa: `${baseUrl}/fa/بلاگ/کد`,
+        },
+      },
+    },
+
+    {
+      url: `${baseUrl}/${id}/بلاگ/کد/تگ-ها`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/blog/code/tags`,
+          fa: `${baseUrl}/fa/بلاگ/کد/تگ-ها`,
+        },
+      },
+    },
+
+    {
+      url: `${baseUrl}/${id}/بلاگ/یادداشت-ها`,
+      lastModified: new Date(),
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/blog/notes`,
+          fa: `${baseUrl}/fa/بلاگ/یادداشت-ها`,
+        },
+      },
+    },
+
+    ...codeNotesUrl,
+
+    ...codeTagsPages,
+
+    ...allNotesInfoForSiteMap,
   ];
 }
 

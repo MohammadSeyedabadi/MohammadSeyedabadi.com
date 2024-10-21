@@ -2,6 +2,7 @@
 id: "0n6LCA=="
 lang: "en"
 slug: "how-to-create-a-multilevel-dropdown-menu-in-react"
+otherPageSlug: "نحوه-ایجاد-یک-منوی-چند-سطحی-در-ریکت"
 title: "How to create a multilevel dropdown menu in React"
 createdAt: "2023-11-19"
 lastModified: "2023-11-19"

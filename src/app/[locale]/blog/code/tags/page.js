@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { getAllTags } from "@/posts/tags";
@@ -21,7 +20,6 @@ export async function generateMetadata() {
 export default function Page({ params }) {
   const { locale } = params;
   const allTags = getAllTags(locale);
-  const t = useTranslations("blog");
   return (
     <div className="container">
       <div className="grid">

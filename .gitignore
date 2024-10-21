@@ -37,4 +37,5 @@ next-env.d.ts
 /components/DecorationPhoto.js
 
 # Read me
-/.md
+
+README.md

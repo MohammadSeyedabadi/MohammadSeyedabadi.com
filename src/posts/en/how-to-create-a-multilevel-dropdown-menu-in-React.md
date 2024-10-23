@@ -1,7 +1,7 @@
 ---
-id: "0n6LCA=="
+id: "0n6LCAasd=="
 lang: "en"
-slug: "how-to-create-a-multilevel-dropdown-menu-in-react"
+slug: "how-to-create-a-multilasdevel-dropdown-menu-in-react"
 otherPageSlug: "نحوه-ایجاد-یک-منوی-چند-سطحی-در-ریکت"
 title: "How to create a multilevel dropdown menu in React"
 createdAt: "2023-11-19"

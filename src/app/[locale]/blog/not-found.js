@@ -7,7 +7,7 @@ export default function NotFound() {
       <div className="container" style={{ textAlign: "center" }}>
         <h1>{t("error")}</h1>
         <p>{t("postErrorExplanation")}</p>
-        <Link href="/blog">{t("goBack")}</Link>
+        <Link href="/blog/code">{t("goBack")}</Link>
       </div>
     </>
   );

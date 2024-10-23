@@ -4,8 +4,8 @@ lang: en
 slug: how-to-create-a-multilevel-dropdown-menu-in-react
 otherPageSlug: نحوه-ایجاد-یک-منوی-چند-سطحی-در-ریکت
 title: How to create a multilevel dropdown menu in React
-createdAt: "2023-11-19"
-lastModified: "2023-11-19"
+createdAt: 2023-11-19
+lastModified: 2023-11-19
 image: https://raw.githubusercontent.com/MohammadSeyedabadi/MohammadSeyedabadi.com/refs/heads/master/public/images/posts/how-to-create-a-multilevel-dropdown-menu-in-react/how-to-create-a-multilevel-dropdown-menu-in-react.png
 excerpt: Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.
 tags:

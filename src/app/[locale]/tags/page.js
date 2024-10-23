@@ -16,7 +16,8 @@ export async function generateMetadata() {
     };
 }
 
-export default async function page({ params }) {
+export default async function page(props) {
+  const params = await props.params;
   const allTags = await getAllTags(params.locale);
   return (
     <div className="container">

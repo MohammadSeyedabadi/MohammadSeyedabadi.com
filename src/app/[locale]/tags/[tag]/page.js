@@ -4,7 +4,8 @@ import { Link } from "@/navigation";
 import clientPromise from "@/utils/mongodb";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   let { locale, tag } = params;
   tag = locale == "en" ? tag : decodeURI(tag);
   const t = await getTranslations("Config");
@@ -20,7 +21,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function page({ params }) {
+export default async function page(props) {
+  const params = await props.params;
   let { locale, tag } = params;
   tag = locale == "en" ? tag : decodeURI(tag);
   const { allNotesPreviewData, otherPageSlug } =

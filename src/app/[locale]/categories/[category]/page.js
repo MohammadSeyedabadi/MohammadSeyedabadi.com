@@ -7,7 +7,8 @@ import {
 } from "@/utils/posts-util";
 import SetLang from "@/components/SetLang";
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const { locale, category } = params;
 
   return {
@@ -28,7 +29,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function category({ params }) {
+export default async function category(props) {
+  const params = await props.params;
   let { locale, category } = params;
   locale == "fa" && (category = decodeURI(category));
   let all_posts_preview_data, otherPageSlug;

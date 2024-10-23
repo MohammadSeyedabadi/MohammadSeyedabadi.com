@@ -38,7 +38,17 @@ export const viewport = {
   themeColor: "#618be1",
 };
 
-export default function LocaleLayout({ children, params: { locale } }) {
+export default async function LocaleLayout(props) {
+  const params = await props.params;
+
+  const {
+    locale
+  } = params;
+
+  const {
+    children
+  } = props;
+
   return (
     <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
       <body>

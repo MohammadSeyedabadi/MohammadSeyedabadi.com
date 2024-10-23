@@ -19,7 +19,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Blog({ params }) {
+export default async function Blog(props) {
+  const params = await props.params;
   let allPostsPreviewData;
   try {
     allPostsPreviewData = await getAllPostsMetaData(params.locale);

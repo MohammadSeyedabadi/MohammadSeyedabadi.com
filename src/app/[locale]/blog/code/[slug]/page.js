@@ -4,7 +4,8 @@ import SetLang from "@/components/SetLang";
 import { notFound } from "next/navigation";
 import Post from "./Post";
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const t = await getTranslations("Config");
   const { locale, slug } = params;
   try {
@@ -30,7 +31,8 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params;
   const { locale, slug } = params;
   let post = {};
 

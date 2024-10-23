@@ -7,7 +7,8 @@ import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
 import { Link } from "@/navigation";
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const t = await getTranslations("Config");
   const { locale, tag } = params;
 
@@ -23,7 +24,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function tag({ params }) {
+export default async function tag(props) {
+  const params = await props.params;
   let { locale, tag } = params;
   locale == "fa" && (tag = decodeURI(tag));
   let all_posts_preview_metaData, indexOfSlug, otherPageSlug;

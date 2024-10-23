@@ -1,3 +1,4 @@
+import { use } from "react";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import Hero from "@/components/Hero";
@@ -18,7 +19,8 @@ export async function generateMetadata() {
   };
 }
 
-export default function Projects({ params }) {
+export default function Projects(props) {
+  const params = use(props.params);
   const t = useTranslations("Projects");
   return (
     <>

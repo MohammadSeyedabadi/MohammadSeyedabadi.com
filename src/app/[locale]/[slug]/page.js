@@ -6,7 +6,8 @@ import TitleIcon from "@/assets/TitleIcon";
 import SetLang from "@/components/SetLang";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   let { locale, slug } = params;
   slug = locale == "en" ? slug : decodeURI(slug);
   const t = await getTranslations("Config");
@@ -40,7 +41,8 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function page({ params }) {
+export default async function page(props) {
+  const params = await props.params;
   const { locale, slug } = params;
   const note = await getNote(locale, slug);
   const t = await getTranslations("notes");

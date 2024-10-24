@@ -68,7 +68,7 @@ export default function Navigation({ translation }) {
             </Link>
           </li>
 
-          <li>
+          {/* <li>
             <Link
               href="/me"
               className={`nav--link button small ${
@@ -79,7 +79,7 @@ export default function Navigation({ translation }) {
             >
               {About}
             </Link>
-          </li>
+          </li> */}
 
           <li>
             <Link

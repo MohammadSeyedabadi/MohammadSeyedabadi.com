@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 import { usePathname, useParams } from "next/navigation";
 import Preferences from "@/components/Preferences";
 

@@ -1,4 +1,4 @@
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 
 export default function PostSidebar({ metaData, translation }) {
   const { lang, title, image, createdAt, lastModified, tags } = metaData;

@@ -1,4 +1,4 @@
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 import clientpromise from "@/utils/mongodb";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";

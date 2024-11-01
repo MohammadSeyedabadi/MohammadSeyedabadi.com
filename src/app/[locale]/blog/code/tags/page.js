@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 import { getAllTags } from "@/posts/tags";
 
 export async function generateMetadata() {

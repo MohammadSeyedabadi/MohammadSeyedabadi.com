@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 import clientPromise from "@/utils/mongodb";
 import { getTranslations } from "next-intl/server";
 

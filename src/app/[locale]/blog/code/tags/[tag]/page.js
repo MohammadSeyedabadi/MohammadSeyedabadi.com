@@ -5,7 +5,7 @@ import {
 } from "@/utils/posts-util";
 import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 
 export async function generateMetadata(props) {
   const params = await props.params;

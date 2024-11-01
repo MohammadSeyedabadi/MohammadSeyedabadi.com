@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useState, useEffect } from "react";
-import { useRouter, usePathname } from "../navigation";
+import {useRouter, usePathname } from "@/i18n/routing";
 
 const PreferencesContext = createContext();
 

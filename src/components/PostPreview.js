@@ -1,7 +1,7 @@
 "use client";
 import { projectsList } from "@/data/projectsList";
 import { useParams } from "next/navigation";
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 import ExternalLinkIcon from "@/assets/ExternalLinkIcon";
 
 export default function PostPreview() {

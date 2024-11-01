@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 import Hero from "@/components/Hero";
 import Heading from "@/components/Heading";
 import PostPreview from "@/components/PostPreview";

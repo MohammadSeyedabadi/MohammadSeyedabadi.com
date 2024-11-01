@@ -1,4 +1,4 @@
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 export default function Post({ eachPostPreviewData }) {
   const { lang, slug, title, createdAt } = eachPostPreviewData;
 

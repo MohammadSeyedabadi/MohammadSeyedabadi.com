@@ -5,6 +5,7 @@ import "@/styles/toggle.css";
 
 import CustomLayout from "@/components/layout/CustomLayout";
 import { PreferencesContextProvider } from "@/store/preferences-context";
+import { notFound } from "next/navigation";
 
 export const metadata = {
   metadataBase: new URL("https://mohammadseyedabadi.com"),
@@ -41,13 +42,14 @@ export const viewport = {
 export default async function LocaleLayout(props) {
   const params = await props.params;
 
-  const {
-    locale
-  } = params;
+  const { locale } = params;
 
-  const {
-    children
-  } = props;
+  // Ensure that the incoming `locale` is valid
+  if (!["en", "fa"].includes(locale)) {
+    notFound();
+  }
+
+  const { children } = props;
 
   return (
     <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>

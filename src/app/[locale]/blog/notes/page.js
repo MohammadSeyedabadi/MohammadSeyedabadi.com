@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import clientPromise from "@/utils/mongodb";
 import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 
 export async function generateMetadata() {
   const blogT = await getTranslations("blog");

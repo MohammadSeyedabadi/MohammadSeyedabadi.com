@@ -1,5 +1,5 @@
 import clientPromise from "@/utils/mongodb";
-import { Link } from "@/navigation";
+import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {

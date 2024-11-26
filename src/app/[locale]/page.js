@@ -28,7 +28,7 @@ export default function Index() {
               {indexPage("descThree")}{" "}
               <Link href="/projects">{indexPage("descFour")}</Link>{" "}
               {indexPage("descFive")}{" "}
-              <Link href="/blog">{indexPage("descSix")}</Link>
+              <Link href="/blog/notes">{indexPage("descSix")}</Link>
             </p>
           </Hero>
           <div className="decoration">{/* <DecorationPhoto /> */}</div>

@@ -41,6 +41,11 @@ export default async function tag(props) {
       <SetLang otherPageSlug={tagInOtherLang} />
       <div className="grid">
         <div className="article-content">
+          <p>
+            <Link href="/blog/code/tags">
+              {locale == "en" ? "← All Tags Page" : "→ همه تگ‌ها"}
+            </Link>
+          </p>
           <Hero
             subTitle={locale == "en" ? " posts tagged:" : " پست شامل تگ:"}
             highlight={all_posts_preview_metaData.length}

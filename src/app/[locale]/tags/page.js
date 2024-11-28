@@ -4,25 +4,31 @@ import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
   const t = await getTranslations("Config");
-    return {
-      title: `${t("Tags")} | ${t("SiteTitle")}`,
-      description: t("TagsList"),
-      alternates: {
-        languages: {
-          en: "/en/blog/notes",
-          fa: "/fa/تگ-ها"
-        },
+  return {
+    title: `${t("Tags")} | ${t("SiteTitle")}`,
+    description: t("TagsList"),
+    alternates: {
+      languages: {
+        en: "/en/blog/notes",
+        fa: "/fa/تگ-ها",
       },
-    };
+    },
+  };
 }
 
 export default async function page(props) {
   const params = await props.params;
-  const allTags = await getAllTags(params.locale);
+  const { locale } = params;
+  const allTags = await getAllTags(locale);
   return (
     <div className="container">
       <div className="grid">
         <div>
+          <p>
+            <Link href="/blog/notes">
+              {locale == "en" ? "← Notes page" : "→ یادداشت‌ها"}
+            </Link>
+          </p>
           {Object.entries(allTags).map(([key, value]) => {
             return (
               <div key={key} className="alphabetical-tags">

@@ -843,15 +843,6 @@ p.hero-description {
   letter-spacing: -0.01rem;
 }
 
-p.hero-description a {
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-}
-
-p.hero-description a:hover {
-  text-decoration: none;
-}
-
 @media screen and (min-width: 700px) {
   .hero-wrapper {
     grid-template-columns: 3fr 2fr;
@@ -889,14 +880,6 @@ p.hero-description a:hover {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
   gap: 0.5rem;
-}
-.hero div a {
-  color: var(--font-color-base);
-}
-
-.hero div a:hover {
-  color: var(--font-color-bright);
-
 }
 
 .highlight {
@@ -1000,19 +983,11 @@ p.hero-description a:hover {
 
 /* Pages */
 
-.post-content a,
-.writings-link {
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
+p a:hover {
+  background-color: var(--link);
+  color: var(--background-color);
 }
 
-.post-content a:hover,
-.writings-link:hover {
-  background: var(--link);
-  color: var(--background-color);
-  text-decoration: none;
-}
-/* girl.fashionhome */
 a.anchor,
 a.anchor:hover {
   color: var(--link);
@@ -1086,19 +1061,17 @@ a.post:hover,
 a.post:hover h3,
 a.post:hover time,
 a.post:hover span {
-  color: var(--link-hover-color);
+  color: var(--link);
 }
 
 a.post:hover h3 {
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
+  color: var(--background-color);
+  background-color: var(--link);
 }
 
 a.post h3 {
   margin: 0;
   font-size: 1rem;
-  /* color: var(--font-color-heading); */
-  /* color: var(--font-color-muted); */
   color: var(--link);
   font-weight: 500;
   font-family: var(--font-family-base);
@@ -1143,17 +1116,12 @@ html[lang="fa"] a.post span {
 @media screen and (min-width: 700px) {
   .posts.newspaper {
     display: grid;
-    /* grid-template-columns: 1fr 1fr; */
     column-gap: 2rem;
   }
 
   a.post time {
     display: block;
   }
-
-  /* a.post span {
-    display: block;
-  } */
 
   a.post h3 {
     font-size: 1.1rem;
@@ -1217,23 +1185,6 @@ html[lang="fa"] a.post span {
   gap: 0.3rem;
 }
 
-.post-sidebar a {
-  text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-}
-
-.post-sidebar a:hover {
-  text-decoration: none;
-}
-
-.sidebar-avatar {
-  display: block;
-  border-radius: var(--border-radius);
-  max-height: 100px;
-  max-width: 100px;
-  margin-bottom: 1rem;
-}
-
 .list a {
   background-color: transparent;
   color: var(--font-color-base);
@@ -1250,7 +1201,7 @@ html[lang="fa"] a.post span {
   text-decoration: none;
 }
 
-/* Tags and categories */
+/* Tags */
 
 .alphabetical-tags {
   display: flex;
@@ -1268,11 +1219,7 @@ html[lang="fa"] a.post span {
 .alphabetical-tags h3 {
   width: 30px;
   margin: 0;
-  color: var(--blue-2);
-  /* color: #4679e0; */
-  /* color: #356ee0; */
   color: var(--link);
-  /* color: var(--blue-5); */
 }
 
 .tags,

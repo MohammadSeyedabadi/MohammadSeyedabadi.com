@@ -11,7 +11,7 @@ export async function generateMetadata() {
     alternates: {
       languages: {
         en: "/en/blog/code/tags",
-        fa:"/fa/بلاگ/کد/تگ-ها"
+        fa: "/fa/بلاگ/کد/تگ-ها",
       },
     },
   };
@@ -25,6 +25,13 @@ export default async function Page(props) {
     <div className="container">
       <div className="grid">
         <div>
+          <p>
+            <Link href="/blog/notes">
+              {locale == "en"
+                ? "← Notes related to code"
+                : "→ یادداشت‌های مربوط به کد"}
+            </Link>
+          </p>
           {Object.entries(allTags).map(([key, value]) => {
             return (
               <div key={key} className="alphabetical-tags">

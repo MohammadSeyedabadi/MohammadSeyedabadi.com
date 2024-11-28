@@ -12,13 +12,17 @@ export default function Writings({ translation }) {
       <div>
         <Link
           href="/blog/notes"
-          className={`nav--link button small ${pathName == "/blog/notes" ? "active" : ""}`}
+          className={`nav--link button small ${
+            pathName == "/blog/notes" ? "active" : ""
+          }`}
         >
           {translation.Notes}
         </Link>
         <Link
           href="/blog/code"
-          className={`nav--link button small ${pathName == "/blog/code" ? "active" : ""}`}
+          className={`nav--link button small ${
+            pathName == "/blog/code" ? "active" : ""
+          }`}
         >
           {translation.Code}
         </Link>
@@ -27,10 +31,7 @@ export default function Writings({ translation }) {
         {pathName == "/blog/notes"
           ? translation.NotesDesc
           : translation.CodeDesc}
-        <Link
-          href={pathName == "/blog/notes" ? "/tags" : "/blog/code/tags"}
-          className="writings-link"
-        >
+        <Link href={pathName == "/blog/notes" ? "/tags" : "/blog/code/tags"}>
           {translation.ViewAllTags}
         </Link>
       </p>

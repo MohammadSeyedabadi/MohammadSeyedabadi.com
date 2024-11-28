@@ -33,7 +33,11 @@ export default async function page(props) {
       <SetLang otherPageSlug={otherPageSlug} />
       <div className="grid">
         <div className="article-content">
-          <Link href="/" className="writings-link">Go To All Tags Page</Link>
+          <p>
+            <Link href="/tags">
+              {locale == "en" ? "← All Tags Page" : "→ همه تگ‌ها"}
+            </Link>
+          </p>
           <Hero
             subTitle={locale == "en" ? " posts tagged:" : " پست شامل تگ:"}
             highlight={allNotesPreviewData.length}

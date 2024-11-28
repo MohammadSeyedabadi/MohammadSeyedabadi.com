@@ -1,4 +1,4 @@
-import { getOtherPageSlug, getSinglePostFileData } from "@/utils/posts-util";
+import { getSinglePostFileData } from "@/utils/posts-util";
 import { getTranslations } from "next-intl/server";
 import SetLang from "@/components/SetLang";
 import { notFound } from "next/navigation";
@@ -41,7 +41,7 @@ export default async function Page(props) {
       locale,
       locale == "fa" ? decodeURI(slug) : slug
     );
-    const otherPageSlug = await getOtherPageSlug(locale, metaData.id);
+    const otherPageSlug = metaData.otherPageSlug
     post.metaData = metaData;
     post.content = content;
     post.otherPageSlug = otherPageSlug;

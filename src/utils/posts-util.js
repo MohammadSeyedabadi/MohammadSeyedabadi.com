@@ -25,35 +25,6 @@ export async function getAllPostsMetaData(locale) {
   return allPostsMetaData;
 }
 
-export async function get_all_posts_by_category_preview_data(
-  locale,
-  categorySlug
-) {
-  const files_Path = path.join(postsDirectory, locale);
-  const files = fs.readdirSync(files_Path);
-  let file_path, fileContent, metaData, parsedFileContent;
-  let all_posts_preview_metaData = [];
-  for (let file of files) {
-    file_path = path.join(files_Path, file);
-    fileContent = fs.readFileSync(file_path, "utf-8");
-    parsedFileContent = matter(fileContent);
-    if (categorySlug == parsedFileContent.data.category) {
-      const { id, lang, slug, title, createdAt, category } =
-        parsedFileContent.data;
-      metaData = {
-        lang,
-        slug,
-        title,
-        createdAt,
-        category,
-        id,
-      };
-      all_posts_preview_metaData.push(metaData);
-    }
-  }
-  return all_posts_preview_metaData;
-}
-
 export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
   const files_Path = path.join(postsDirectory, locale);
   const files = fs.readdirSync(files_Path);
@@ -65,42 +36,21 @@ export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
     parsedFileContent = matter(fileContent);
 
     if (parsedFileContent.data.tags.includes(tagSlug)) {
-      const { id, lang, slug, title, createdAt, category } =
-        parsedFileContent.data;
+      const { lang, slug, title, createdAt } = parsedFileContent.data;
       metaData = {
-        id,
         lang,
         slug,
         title,
         createdAt,
-        category,
       };
       all_posts_preview_metaData.push(metaData);
     }
   }
-  const indexOfSlug = parsedFileContent.data.tags.indexOf(tagSlug);
-  return { all_posts_preview_metaData, indexOfSlug };
-}
-
-export async function getOtherPageSlug(locale, id, parameter) {
-  const other_lang_files_Path = path.join(
-    postsDirectory,
-    locale == "fa" ? "en" : "fa"
+  const indexOfTag = parsedFileContent.data.tags.indexOf(tagSlug);
+  const lastPostInOtherLangFileData = await getSinglePostFileData(
+    locale == "en" ? "fa" : "en",
+    parsedFileContent.data.otherPageSlug
   );
-  const files = fs.readdirSync(other_lang_files_Path);
-  let file_path, fileContent, metaData;
-  for (let file of files) {
-    file_path = path.join(other_lang_files_Path, file);
-    fileContent = fs.readFileSync(file_path, "utf-8");
-    metaData = matter(fileContent).data;
-    if (metaData.id == id && parameter == "category") {
-      // for categories page
-      return metaData.category;
-    } else if (metaData.id == id && typeof parameter === "number") {
-      // for tags page
-      return metaData.tags[parameter];
-    } else {
-      return locale == "en" ? metaData.slug : metaData.slug;
-    }
-  }
+  const tagInOtherLang = lastPostInOtherLangFileData.metaData.tags[indexOfTag]
+  return { all_posts_preview_metaData, tagInOtherLang };
 }

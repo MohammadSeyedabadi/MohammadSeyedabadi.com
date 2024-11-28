@@ -33,6 +33,7 @@ export default async function page(props) {
       <SetLang otherPageSlug={otherPageSlug} />
       <div className="grid">
         <div className="article-content">
+          <Link href="/" className="writings-link">Go To All Tags Page</Link>
           <Hero
             subTitle={locale == "en" ? " posts tagged:" : " پست شامل تگ:"}
             highlight={allNotesPreviewData.length}
@@ -106,6 +107,6 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
       e,
       "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Error in tags/[tag]/page.js"
     );
-    throw new Error("");
+    throw new Error(""); // good for production
   }
 }

@@ -1,8 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import {
-  get_all_posts_by_tag_preview_data,
-  getOtherPageSlug,
-} from "@/utils/posts-util";
+import { get_all_posts_by_tag_preview_data } from "@/utils/posts-util";
 import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
 import { Link } from "@/i18n/routing";
@@ -28,17 +25,11 @@ export default async function tag(props) {
   const params = await props.params;
   let { locale, tag } = params;
   locale == "fa" && (tag = decodeURI(tag));
-  let all_posts_preview_metaData, indexOfSlug, otherPageSlug;
+  let all_posts_preview_metaData, tagInOtherLang;
   try {
     const data = await get_all_posts_by_tag_preview_data(locale, tag);
     all_posts_preview_metaData = data.all_posts_preview_metaData;
-    indexOfSlug = data.indexOfSlug;
-
-    otherPageSlug = await getOtherPageSlug(
-      locale,
-      all_posts_preview_metaData[0].id,
-      indexOfSlug
-    );
+    tagInOtherLang = data.tagInOtherLang;
   } catch (error) {
     console.error(
       `Failed To Fetch All Posts Meta Data In /tags/[tag]/page.js. Error Message : ${error}`
@@ -47,7 +38,7 @@ export default async function tag(props) {
 
   return (
     <section className="container markdown-content">
-      <SetLang otherPageSlug={otherPageSlug} />
+      <SetLang otherPageSlug={tagInOtherLang} />
       <div className="grid">
         <div className="article-content">
           <Hero

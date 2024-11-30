@@ -26,7 +26,7 @@ export default async function Page(props) {
       <div className="grid">
         <div>
           <p>
-            <Link href="/blog/notes">
+            <Link href="/blog/code">
               {locale == "en"
                 ? "← Notes related to code"
                 : "→ یادداشت‌های مربوط به کد"}

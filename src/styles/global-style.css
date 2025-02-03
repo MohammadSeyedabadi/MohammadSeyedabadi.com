@@ -233,7 +233,7 @@ h2,
 h3,
 h4,
 h5 {
-  color: var(--font-color-heading);
+  /* color: var(--font-color-heading); */
   line-height: 1.1;
   margin-top: 0;
   margin-bottom: 1.5rem;

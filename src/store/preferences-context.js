@@ -22,23 +22,24 @@ export function PreferencesContextProvider(props) {
   }
 
   function changeTheme() {
+    // :root meaning html
     let dataTheme = document.querySelector(":root").getAttribute("data-theme");
-    if (dataTheme === "dark-theme") {
+    if (dataTheme === "dark") {
       setLightTheme();
-    } else if (dataTheme === "light-theme") {
+    } else if (dataTheme === "light") {
       setDarkTheme();
     }
   }
 
   function setDarkTheme() {
-    localStorage.setItem("theme", "dark-theme");
-    setThemeDatails("dark-theme");
+    localStorage.setItem("theme", "dark");
+    setThemeDatails("dark");
     setsystemState(false);
   }
 
   function setLightTheme() {
-    localStorage.setItem("theme", "light-theme");
-    setThemeDatails("light-theme");
+    localStorage.setItem("theme", "light");
+    setThemeDatails("light");
     setsystemState(false);
   }
 
@@ -46,50 +47,50 @@ export function PreferencesContextProvider(props) {
     let prefersLightTheme = window.matchMedia("(prefers-color-scheme: light)");
     localStorage.setItem("theme", "system-theme");
     if (prefersLightTheme.matches) {
-      setThemeDatails("light-theme", true);
+      setThemeDatails("light", true);
     } else {
-      setThemeDatails("dark-theme", true);
+      setThemeDatails("dark", true);
     }
     setsystemState(true);
   }
 
   function setThemeDatails(theme, SystemTheme) {
     if (SystemTheme === undefined) {
-      if (theme === "dark-theme") {
+      if (theme === "dark") {
         setActive(false);
         setAriaActive(true);
 
         document
           .querySelector(":root")
-          .setAttribute("data-theme", "dark-theme");
-      } else if (theme === "light-theme") {
+          .setAttribute("data-theme", "dark");
+      } else if (theme === "light") {
         setActive(true);
         setAriaActive(false);
         document
           .querySelector(":root")
-          .setAttribute("data-theme", "light-theme");
+          .setAttribute("data-theme", "light");
       }
     } else if (SystemTheme === true) {
-      if (theme === "dark-theme") {
+      if (theme === "dark") {
         setActive(false);
         setAriaActive(true);
         document
           .querySelector(":root")
-          .setAttribute("data-theme", "dark-theme");
-      } else if (theme === "light-theme") {
+          .setAttribute("data-theme", "dark");
+      } else if (theme === "light") {
         setActive(true);
         setAriaActive(false);
         document
           .querySelector(":root")
-          .setAttribute("data-theme", "light-theme");
+          .setAttribute("data-theme", "light");
       }
     }
   }
 
   useEffect(() => {
-    if (localStorage.getItem("theme") === "dark-theme") {
+    if (localStorage.getItem("theme") === "dark") {
       setDarkTheme();
-    } else if (localStorage.getItem("theme") === "light-theme") {
+    } else if (localStorage.getItem("theme") === "light") {
       setLightTheme();
     } else {
       setSystemTheme();
@@ -104,9 +105,9 @@ export function PreferencesContextProvider(props) {
       });
 
     window.addEventListener("storage", (event) => {
-      if (event.storageArea.theme === "dark-theme") {
+      if (event.storageArea.theme === "dark") {
         setDarkTheme();
-      } else if (event.storageArea.theme === "light-theme") {
+      } else if (event.storageArea.theme === "light") {
         setLightTheme();
       } else {
         setSystemTheme();

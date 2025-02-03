@@ -18,8 +18,8 @@ export default function Index() {
   const gamePage = useTranslations("Game");
   return (
     <>
-      <div className="container">
-        <div className="hero-wrapper">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8">
+        <div className="sm:grid sm:grid-cols-5 items-center">
           <Hero title={indexPage("descOne")} index>
             <p className="hero-description small width">
               {indexPage("descTwo")}
@@ -31,10 +31,12 @@ export default function Index() {
               <Link href="/blog/notes">{indexPage("descSix")}</Link>
             </p>
           </Hero>
-          <div className="decoration">{/* <DecorationPhoto /> */}</div>
+          <div className="sm:col-span-2 max-w-[50vw] self-center justify-self-center">
+            <img src="/images/mandala flower.PNG" alt="mandala flower" />
+          </div>
         </div>
       </div>
-      <div className="container">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
         <section className="segment first short">
           <Heading title={indexPage("projects")} slug="/projects" />
           <PostPreview />

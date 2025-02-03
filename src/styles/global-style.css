@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap");
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* Colors */
   --gray-0: #f9f9f9;
@@ -46,14 +49,11 @@
   --indigo-muted: #f1f2fd;
 
   /* Font family */
-  --font-family-base: "Inter", sans-serif, system-ui, "Segoe UI", -apple-system,
+  --font-family-base: sans-serif, system-ui, "Segoe UI", -apple-system,
     BlinkMacSystemFont, "Helvetica Neue", Arial;
   --font-family-monospace: Menlo, "IBM Plex Mono", Menlo, monospace;
   --font-family-heading: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     Arial, sans-serif;
-  /* Font color */
-
-  /* --font-color-hero-heading: var(--gray-0); */
 
   /* Borders */
 
@@ -448,18 +448,18 @@ img {
   max-width: 100%;
 }
 
-.container {
+/* .container {
   max-width: var(--content-width);
   padding: 0 1rem;
   margin-left: auto;
   margin-right: auto;
-}
-
+} */
+/* 
 @media screen and (min-width: 700px) {
   .container {
     padding: 0 2rem;
   }
-}
+} */
 
 .layout {
   display: flex;
@@ -749,11 +749,11 @@ html[lang="fa"] .stars {
 
 .card time {
   display: block;
-  font-family: var(--font-family-monospace);
+  /* font-family: var(--font-family-monospace); */
   color: var(--card-time-color);
   font-size: 0.9rem;
-  font-weight: 900;
-  letter-spacing: -0.01rem;
+  /* font-weight: 900; */
+  letter-spacing: 0.15rem;
 }
 
 .card.muted {
@@ -813,42 +813,15 @@ main {
 
 /* Hero */
 
-.hero-wrapper {
-  display: grid;
-}
-
-.hero {
-  padding: 1rem 0 0;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
 .hero h1 {
-  font-size: 2.2rem;
-  line-height: 1.1;
-  font-weight: 700;
-  color: var(--font-color-heading);
-  margin: 0;
+  /* color: var(--font-color-heading); */
 }
 
 p.hero-description {
-  -webkit-font-smoothing: antialiased;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--font-color-base);
-  font-weight: 500;
-  letter-spacing: -0.01rem;
+  /* color: var(--font-color-base); */
 }
 
 @media screen and (min-width: 700px) {
-  .hero-wrapper {
-    grid-template-columns: 3fr 2fr;
-    align-items: center;
-    gap: 1.5rem;
-  }
 
   p.hero-description {
     margin-bottom: 0;
@@ -1130,18 +1103,6 @@ html[lang="fa"] a.post span {
 }
 
 /* Grid */
-
-.grid {
-  display: block;
-}
-
-@media screen and (min-width: 1060px) {
-  .grid {
-    display: grid;
-    grid-template-columns: auto 300px;
-    gap: 6rem;
-  }
-}
 
 .article-content {
   max-width: 100%;
@@ -1625,3 +1586,5 @@ p.text-medium {
 ::-webkit-scrollbar-corner {
   background: var(--scrollbar-color);
 }
+/* OLD : 1627 */
+/* NEW :  */

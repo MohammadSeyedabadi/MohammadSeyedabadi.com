@@ -1,6 +1,6 @@
 export default function Hero({ highlight, subTitle, title, children, index }) {
   return (
-    <header className={`hero ${index ? "index" : ""}`}>
+    <header className={`hero ${index ? "index" : ""} col-span-3`}>
       {subTitle && (
         <div className="sub-title">
           {highlight && <span className="highlight">{highlight}</span>}

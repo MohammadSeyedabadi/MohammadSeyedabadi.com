@@ -50,7 +50,7 @@ export default function Navigation({ translation }) {
   }
 
   return (
-    <header className="container" dir="ltr">
+    <header className="max-w-6xl mx-auto px-4 sm:px-8" dir="ltr">
       <nav>
         <ul className="nav--list" id="nav-menu">
           <li>

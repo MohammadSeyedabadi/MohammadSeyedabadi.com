@@ -20,8 +20,8 @@ export default function Index() {
     <>
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <div className="sm:grid sm:grid-cols-5 items-center">
-          <header className="col-span-3 text-neutral-800 dark:text-neutral-200">
-            <h1 className="text-5xl">{indexPage("descOne")}</h1>
+          <header className="col-span-3 text-neutral-800 dark:text-neutral-300">
+            <h1 className="text-5xl dark:text-neutral-100">{indexPage("descOne")}</h1>
             <p className="max-w-md">
               {indexPage("descTwo")}
               <br />

@@ -14,7 +14,7 @@ export default function PostPreview() {
           return (
             <div className="anchored card" key={project.slug}>
               <div>
-                <time>{lang === "en" ? project.enDate : project.faDate}</time>
+                <time className=" text-pink-600">{lang === "en" ? project.enDate : project.faDate}</time>
                 <a
                   className="card-header"
                   href={`https://github.com/MohammadSeyedabadi/${project.slug}`}

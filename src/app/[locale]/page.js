@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import Hero from "@/components/Hero";
+// import Hero from "@/components/Hero";
 import Heading from "@/components/Heading";
 import PostPreview from "@/components/PostPreview";
 import { getTranslations } from "next-intl/server";
@@ -20,8 +20,9 @@ export default function Index() {
     <>
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <div className="sm:grid sm:grid-cols-5 items-center">
-          <Hero title={indexPage("descOne")} index>
-            <p className="hero-description small width">
+          <header className="col-span-3 text-neutral-800 dark:text-neutral-200">
+            <h1 className="text-5xl">{indexPage("descOne")}</h1>
+            <p className="max-w-md">
               {indexPage("descTwo")}
               <br />
               <br />
@@ -30,7 +31,8 @@ export default function Index() {
               {indexPage("descFive")}{" "}
               <Link href="/blog/notes">{indexPage("descSix")}</Link>
             </p>
-          </Hero>
+          </header>
+
           <div className="sm:col-span-2 max-w-[50vw] self-center justify-self-center">
             <img src="/images/mandala flower.PNG" alt="mandala flower" />
           </div>

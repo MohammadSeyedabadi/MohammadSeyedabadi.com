@@ -52,23 +52,25 @@ export default function Navigation({ translation }) {
   return (
     <header className="max-w-6xl mx-auto px-4 sm:px-8" dir="ltr">
       <nav>
-        <ul className="nav--list" id="nav-menu">
-          <li>
+        <ul className="flex items-center column gap-x-6 gap-y-7 flex-wrap mt-10 ps-0 list-none rtl:justify-items-end rtl:flex-row-reverse text-sm">
+          <li className="ps-0 mb-0">
             <Preferences prefencesTranslations={prefencesTranslations} />
           </li>
 
-          <li>
+          <li className="ps-0 mb-0">
             <Link
               href="/"
-              className={`nav--link button small ${
-                pathname === "/fa" || pathname === "/en" ? "active" : ""
+              className={`text-center font-medium py-2 px-3 bg-neutral-100/45 rounded-xl border-3 border-solid border-neutral-300 hover:border-indigo-500 ${
+                pathname === "/fa" || pathname === "/en"
+                  ? "border-b-indigo-500"
+                  : ""
               }`}
             >
               {Home}
             </Link>
           </li>
 
-          {/* <li>
+          {/* <li className="ps-0 mb-0">
             <Link
               href="/me"
               className={`nav--link button small ${
@@ -81,12 +83,12 @@ export default function Navigation({ translation }) {
             </Link>
           </li> */}
 
-          <li>
+          <li className="ps-0 mb-0">
             <Link
               href="/projects"
-              className={`nav--link button small ${
+              className={`text-center font-medium py-2 px-3 bg-neutral-100/45 rounded-xl border-3 border-solid border-neutral-300 hover:border-indigo-500 ${
                 pathname === "/fa/پروژه-ها" || pathname === "/en/projects"
-                  ? "active"
+                  ? "border-b-indigo-500"
                   : ""
               }`}
             >
@@ -94,7 +96,7 @@ export default function Navigation({ translation }) {
             </Link>
           </li>
 
-          <li>
+          <li className="ps-0 mb-0">
             <Link
               href="/blog/notes"
               className={`nav--link button small ${isBlog ? "active" : ""}`}

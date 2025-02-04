@@ -4,7 +4,7 @@
 
 :root {
   /* Colors */
-  --gray-0: #f9f9f9;
+  /* --gray-0: #f9f9f9;
   --gray-05: #f6f6f6;
   --gray-1: #eee;
   --gray-2: #e6e6e6;
@@ -46,7 +46,7 @@
   --indigo: #5a43f1;
   --indigo-dark: #4509cf;
   --indigo-light: #969bf6;
-  --indigo-muted: #f1f2fd;
+  --indigo-muted: #f1f2fd; */
 
   /* Font family */
   --font-family-base: sans-serif, system-ui, "Segoe UI", -apple-system,
@@ -103,7 +103,6 @@ a {
 }
 
 p,
-ul,
 ol,
 ul,
 table,
@@ -476,10 +475,10 @@ img {
   max-width: 780px;
 }
 
-.segment.small {
+/* .segment.small {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
+} */
 
 .segment.large {
   margin-top: 3rem;
@@ -501,10 +500,10 @@ img {
     margin-bottom: 5rem;
   }
 
-  .segment.small {
+  /* .segment.small {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-  }
+  } */
 }
 
 /* Buttons */
@@ -535,11 +534,11 @@ a.button.large {
   font-weight: 400;
 }
 
-button.small,
+/* button.small,
 a.button.small {
   padding: 0.5rem 0.6rem;
   font-size: 0.9rem;
-}
+} */
 
 a.button.highlighted {
   font-weight: 500;
@@ -575,10 +574,10 @@ button:active {
   transform: scale(0.95);
 }
 
-.active {
+/* .active {
   color: var(--font-color-bright);
   border-bottom: 2px solid var(--border-color-hover);
-}
+} */
 
 .modal--btn-wrapper {
   display: flex;
@@ -607,38 +606,25 @@ button:active {
 
 /* Navigation */
 
-.nav--list {
-  padding: 0;
-  list-style: none;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  column-gap: 1.5rem;
-  row-gap: 1.7rem;
-  margin-top: 2.5rem;
-}
-
-html[lang="fa"] .nav--list {
+/* html[lang="fa"] .nav--list {
   justify-content: end;
   flex-direction: row-reverse;
-}
-
+} */
+/* 
 .nav--list > li {
   padding: 0;
   margin: 0;
-}
+} */
 
-.nav--link {
+/* .nav--link {
   color: var(--navbar-color);
-}
+} */
 
-.active.nav--link,
+/* .active.nav--link,
 .nav--link:hover {
   border-bottom: 2px solid var(--link);
   color: var(--navbar-color-hover);
-  /* color: red; */
-}
+} */
 
 .Preferences--wrapper {
   display: flex;
@@ -747,14 +733,14 @@ html[lang="fa"] .stars {
   }
 }
 
-.card time {
-  display: block;
+/* .card time { */
+  /* display: block; */
   /* font-family: var(--font-family-monospace); */
-  color: var(--card-time-color);
-  font-size: 0.9rem;
+  /* color: var(--card-time-color); */
+  /* font-size: 0.9rem; */
   /* font-weight: 900; */
-  letter-spacing: 0.15rem;
-}
+  /* letter-spacing: 0.15rem;
+} */
 
 .card.muted {
   border: 1px solid transparent;
@@ -824,36 +810,36 @@ p.hero-description {
 @media screen and (min-width: 700px) {
 
   p.hero-description {
-    margin-bottom: 0;
-    font-size: 1.2rem;
+    /* margin-bottom: 0;
+    font-size: 1.2rem; */
   }
 
-  .hero {
+  /* .hero {
     padding: 1.5rem 0 0.5rem;
-  }
+  } */
 
-  .hero h1 {
+  /* .hero h1 {
     font-size: 3rem;
-  }
-
+  } */
+/* 
   .hero.index {
     padding: 5rem 0 3rem;
-  }
+  } */
 }
 
-.hero div {
+/* .hero div {
   display: flex;
   gap: 1.3rem;
   margin-top: 1.5rem;
-}
+} */
 
-.hero .sub-title {
+/* .hero .sub-title {
   color: var(--font-color-muted);
   font-weight: 500;
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
   gap: 0.5rem;
-}
+} */
 
 .highlight {
   color: var(--marker);
@@ -920,14 +906,14 @@ p.hero-description {
     height: 250px;
   }
 }
-
+/* 
 .post-preview .card p {
   margin-bottom: 1rem;
-}
-
+} */
+/* 
 .project-preview .card time {
   color: var(--project-time-color);
-}
+} */
 
 .post-preview > div {
   flex: 1;
@@ -1206,12 +1192,12 @@ a.tag:hover {
   border-color: var(--link);
   text-decoration: none;
 }
-
+/* 
 a.tag.active {
   color: var(--highlight-color);
   border-color: var(--highlight-color);
   font-weight: 600;
-}
+} */
 
 @media screen and (min-width: 700px) {
   .links.anchored {
@@ -1231,18 +1217,18 @@ a.tag.active {
 .cursor--style {
   cursor: pointer;
 }
-
+/* 
 .width.small {
   max-width: var(--content-width--small);
-}
+} */
 .width.medium {
   max-width: var(--content-width--medium);
 }
 
-.flex {
+/* .flex {
   display: flex;
   gap: 1rem;
-}
+} */
 
 .space-between {
   justify-content: space-between;

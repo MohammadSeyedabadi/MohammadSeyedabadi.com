@@ -50,7 +50,7 @@ export default function Preferences({ prefencesTranslations }) {
 
       <dialog data-modal>
         <div className="modal--btn-wrapper">
-          <button className="modal--btn-close" data-close-modal></button>
+          <button className="modal--btn-closee bg-red-950 text-" data-close-modal></button>
           <button className="modal--btn"></button>
           <button className="modal--btn"></button>
         </div>

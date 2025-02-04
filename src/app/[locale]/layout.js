@@ -52,7 +52,11 @@ export default async function LocaleLayout(props) {
   const { children } = props;
 
   return (
-    <html lang={locale} dir={locale === "fa" ? "rtl" : "ltr"}>
+    <html
+      lang={locale}
+      dir={locale === "fa" ? "rtl" : "ltr"}
+      className="bg-neutral-200 dark:bg-neutral-900"
+    >
       <body>
         <PreferencesContextProvider>
           <CustomLayout>{children}</CustomLayout>

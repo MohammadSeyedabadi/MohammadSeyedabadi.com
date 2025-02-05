@@ -22,7 +22,7 @@ export default function CustomLayout(props) {
   return (
     <>
       <Navigation translation={translation} />
-      <main>{props.children}</main>
+      <main className="mt-20">{props.children}</main>
       <Footer />
     </>
   );

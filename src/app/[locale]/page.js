@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-// import Hero from "@/components/Hero";
 import Heading from "@/components/Heading";
 import PostPreview from "@/components/PostPreview";
 import { getTranslations } from "next-intl/server";
@@ -21,15 +20,27 @@ export default function Index() {
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <div className="sm:grid sm:grid-cols-5 items-center">
           <header className="col-span-3 text-neutral-800 dark:text-neutral-300">
-            <h1 className="text-5xl dark:text-neutral-100">{indexPage("descOne")}</h1>
+            <h1 className="text-5xl dark:text-neutral-100 mb-3">
+              {indexPage("descOne")}
+            </h1>
             <p className="max-w-md">
               {indexPage("descTwo")}
               <br />
               <br />
               {indexPage("descThree")}{" "}
-              <Link href="/projects">{indexPage("descFour")}</Link>{" "}
+              <Link
+                href="/projects"
+                className="hover:underline text-indigo-500 dark:text-indigo-300 inline-block active:scale-95"
+              >
+                {indexPage("descFour")}
+              </Link>{" "}
               {indexPage("descFive")}{" "}
-              <Link href="/blog/notes">{indexPage("descSix")}</Link>
+              <Link
+                href="/blog/notes"
+                className="hover:underline text-indigo-500 dark:text-indigo-300 inline-block active:scale-95"
+              >
+                {indexPage("descSix")}
+              </Link>
             </p>
           </header>
 
@@ -39,7 +50,7 @@ export default function Index() {
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-4 md:px-8">
-        <section className="segment first short">
+        <section className="max-w-3xl">
           <Heading title={indexPage("projects")} slug="/projects" />
           <PostPreview />
         </section>

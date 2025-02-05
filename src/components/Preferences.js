@@ -46,7 +46,7 @@ export default function Preferences({ prefencesTranslations }) {
     <>
       <button
         data-open-modal
-        className="cursor-pointer me-3 rtl:ms-3 text-center font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-neutral-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-neutral-300 active:scale-95"
+        className="cursor-pointer me-3 rtl:ms-3 font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-neutral-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-neutral-300 active:scale-95"
       >
         {PreferencesT}
       </button>
@@ -54,7 +54,7 @@ export default function Preferences({ prefencesTranslations }) {
       <dialog data-modal>
         <div className="modal--btn-wrapper">
           <button
-            className="modal--btn-closee bg-red-950 w-4"
+            className="modal--btn-closee bg-red-950 w-4 h-4"
             data-close-modal
           ></button>
           <button className="modal--btn  w-4"></button>

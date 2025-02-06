@@ -12,7 +12,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             key="https://www.linkedin.com/in/mohammad-seyedabadi-397a61256/"
-            className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95"
+            className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 hover:visited:border-rose-500 hover:dark:visited:border-rose-300"
           >
             <span>{t("LinkedIn")}</span>
             <img
@@ -27,7 +27,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             key="https://github.com/MohammadSeyedabadi"
-            className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95"
+            className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 hover:visited:border-rose-500 hover:dark:visited:border-rose-300"
           >
             <span>{t("GitHub")}</span>
             <img

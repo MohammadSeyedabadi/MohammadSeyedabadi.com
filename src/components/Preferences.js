@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useRef } from "react";
 import Toggle from "./layout/navigation/Toggle";
 import { useParams } from "next/navigation";
 import { useContext } from "react";
@@ -29,33 +29,21 @@ export default function Preferences({ prefencesTranslations }) {
     changeLang,
   } = useContext(PreferencesContext);
 
-  useEffect(() => {
-    const openButton = document.querySelector("[data-open-modal]");
-    const closeButton = document.querySelector("[data-close-modal]");
-    const modal = document.querySelector("[data-modal]");
-
-    openButton.addEventListener("click", () => {
-      modal.showModal();
-    });
-
-    closeButton.addEventListener("click", () => {
-      modal.close();
-    });
-  }, []);
+  const dialog = useRef(null);
   return (
     <>
       <button
-        data-open-modal
+        onClick={() => dialog.current.showModal()}
         className="cursor-pointer me-3 rtl:ms-3 font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-neutral-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-neutral-300 active:scale-95"
       >
         {PreferencesT}
       </button>
 
-      <dialog data-modal>
+      <dialog ref={dialog}>
         <div className="modal--btn-wrapper">
           <button
             className="modal--btn-closee bg-red-950 w-4 h-4"
-            data-close-modal
+            onClick={() => dialog.current.close()}
           ></button>
           <button className="modal--btn  w-4"></button>
           <button className="modal--btn  w-4"></button>

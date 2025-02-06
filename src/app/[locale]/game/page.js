@@ -34,7 +34,7 @@ export default function Game() {
       <div className="container">
         <div className="grid">
           <div className="article-content">
-            <Hero title={t("game")} />
+            {/* <Hero title={t("game")} /> */}
 
             <section className="segment small">
               <div className="post-content">

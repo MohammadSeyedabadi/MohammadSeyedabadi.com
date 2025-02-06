@@ -16,7 +16,7 @@ export default function PostPreview() {
               className="relative break-all px-4 pt-4 pb-14 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500"
               key={project.slug}
             >
-              <div className="">
+              <div>
                 <time className="text-neutral-500 dark:text-neutral-300 block text-sm">
                   {lang === "en" ? project.enDate : project.faDate}
                 </time>
@@ -34,7 +34,10 @@ export default function PostPreview() {
               </div>
               <div className="absolute bottom-3 flex gap-5">
                 {project.writeup && (
-                  <Link className="button" href={project.writeup}>
+                  <Link
+                    className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95"
+                    href={project.writeup}
+                  >
                     {lang === "en" ? "Article" : "مقاله"}
                   </Link>
                 )}

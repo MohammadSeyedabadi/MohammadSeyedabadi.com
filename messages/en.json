@@ -92,9 +92,12 @@
   },
 
   "Game": {
-    "letsplay":"Lets play some game",
+    "letsplay": "Lets play some game",
     "game": "Game",
     "games": "Games",
+    "TicTacToe": "Tic Tac Toe",
+    "TicTacToeDesc": "Two players play against each other using a 3×3 board.",
+    "Play": "Play",
     "descOne": "The name of the game is tic tac toe. The way i programmed it, it is impossible to win and the best result that you would get is a Tie!",
     "youWin": "You win!",
     "youLose": "You lose.",

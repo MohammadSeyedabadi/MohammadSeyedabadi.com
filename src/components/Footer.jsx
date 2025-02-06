@@ -1,12 +1,6 @@
 import { useTranslations } from "next-intl";
 export default function Footer() {
   const t = useTranslations("Footer");
-  const links = [
-    {
-      url: "https://github.com/MohammadSeyedabadi",
-      icon: "/images/nav-github.png",
-    },
-  ];
 
   return (
     <footer className="mt-40 mb-8 flex justify-center items-center">

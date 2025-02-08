@@ -50,9 +50,9 @@ export default function Navigation({ translation }) {
   }
 
   return (
-    <header className="max-w-6xl mx-auto px-4 sm:px-8" dir="ltr">
+    <header className="max-w-6xl mx-auto px-4 sm:px-8">
       <nav>
-        <ul className="flex items-center column gap-x-6 gap-y-7 flex-wrap mt-10 ps-0 list-none rtl:justify-items-end rtl:flex-row-reverse text-sm">
+        <ul className="flex items-center column gap-x-6 gap-y-7 flex-wrap mt-10 ps-0 list-none text-sm">
           <li className="ps-0 mb-0">
             <Preferences prefencesTranslations={prefencesTranslations} />
           </li>

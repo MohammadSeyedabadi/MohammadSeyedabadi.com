@@ -39,129 +39,103 @@ export default function Preferences({ prefencesTranslations }) {
         {PreferencesT}
       </button>
 
-      <dialog ref={dialog}>
-        <div className="modal--btn-wrapper">
+      <dialog
+        className="p-4 bg-neutral-100 rounded-xl border-4 border-solid border-neutral-950 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500"
+        ref={dialog}
+        dir="ltr"
+      >
+        <div className="flex gap-2">
+          <span className="relative flex h-6 w-6">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-300 opacity-75"></span>
+            <button
+              className="relative inline-flex rounded-full h-6 w-6 bg-rose-500 active:scale-75"
+              onClick={() => dialog.current.close()}
+            />
+          </span>
           <button
-            className="modal--btn-closee bg-red-950 w-4 h-4"
-            onClick={() => dialog.current.close()}
-          ></button>
-          <button className="modal--btn  w-4"></button>
-          <button className="modal--btn  w-4"></button>
+            className="h-6 w-6 rounded-full bg-neutral-300 dark:bg-neutral-500"
+            disabled
+          />
+          <button
+            className="h-6 w-6 rounded-full bg-neutral-300 dark:bg-neutral-500"
+            disabled
+          />
         </div>
-        <div className="Preferences--wrapper">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "end",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              className="text-white"
-              style={{
-                margin: "0px 21px 0px 0px",
-                fontSize: "2rem",
-                fontWeight: "500",
-              }}
-            >
-              {Theme}:
-            </div>
+        <div className="mt-6 flex flex-col items-center">
+          <div className="flex items-center gap-2">
+            <div className="text-2xl">{Theme}:</div>
             <div>
               <Toggle />
             </div>
           </div>
-          <div
-            style={{
-              marginTop: "2rem",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+          <div className="mt-2 flex gap-2">
             <button
-              className={`${active || systemState ? null : "active"}`}
-              style={{
-                marginRight: "0.5rem",
-                fontWeight: "500",
-              }}
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 ${
+                active || systemState
+                  ? null
+                  : "border-b-rose-500 dark:border-b-rose-300 dark:text-neutral-100"
+              }`}
               onClick={setDarkTheme}
             >
               {Dark}
             </button>
             <button
-              className={`${active && !systemState ? "active" : null}`}
-              style={{
-                marginRight: "0.5rem",
-                fontWeight: "500",
-              }}
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 ${
+                active && !systemState
+                  ? "border-b-rose-500 dark:border-b-rose-300 dark:text-neutral-100"
+                  : null
+              }`}
               onClick={setLightTheme}
             >
               {Light}
             </button>
             <button
-              className={`${systemState ? "active" : null}`}
-              style={{
-                fontWeight: "500",
-              }}
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 ${
+                systemState
+                  ? "border-b-rose-500 dark:border-b-rose-300 dark:text-neutral-100"
+                  : null
+              }`}
               onClick={setSystemTheme}
             >
               {System}
             </button>
           </div>
-
-          <div
-            style={{
-              marginTop: "2rem",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                justifyContent: "center",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: "2rem",
-                  fontWeight: "500",
-                  textAlign: "center",
-                }}
-              >
-                {Language}:
-              </p>
-              <p style={{ fontFamily: "monospace", fontStyle: "italic" }}>
-                {LanguageStatus}
-              </p>
+          <div className="mt-6">
+            <div className="flex items-baseline gap-2">
+              <div className="text-2xl">{Language}:</div>
+              <span className="relative">
+                <span
+                  className="block absolute -inset-1 -skew-y-3 bg-rose-500 dark:bg-rose-300"
+                  aria-hidden="true"
+                ></span>
+                <span className="relative text-neutral-100 dark:text-neutral-800 text-xl">
+                  {LanguageStatus}
+                </span>
+              </span>
             </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                marginTop: "0.2rem",
-              }}
+          </div>
+          <div className="mt-2 flex gap-2">
+            <button
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 ${
+                lang == "en"
+                  ? "border-b-rose-500 dark:border-b-rose-300 dark:text-neutral-100"
+                  : ""
+              }`}
+              onClick={() => changeLang("en", params)}
             >
-              <button
-                className={lang == "en" ? "active" : ""}
-                style={{
-                  marginRight: "0.5rem",
-                  fontWeight: "500",
-                }}
-                onClick={() => changeLang("en", params)}
-              >
-                ENG
-              </button>
-              <button
-                className={lang == "en" ? "" : "active"}
-                style={{
-                  fontWeight: "500",
-                }}
-                onClick={() => changeLang("fa", params)}
-                lang="fa"
-              >
-                فا
-              </button>
-            </div>
+              ENG
+            </button>
+            <button
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 ${
+                lang == "en"
+                  ? ""
+                  : "border-b-rose-500 dark:border-b-rose-300 dark:text-neutral-100"
+              }`}
+              onClick={() => changeLang("fa", params)}
+              lang="fa"
+            >
+              فا
+            </button>
           </div>
         </div>
       </dialog>

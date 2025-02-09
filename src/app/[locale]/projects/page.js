@@ -1,7 +1,7 @@
 import { use } from "react";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
-import Hero from "@/components/Hero";
+// import Hero from "@/components/Hero";
 import ProjectPreview from "./ProjectPreview";
 
 export async function generateMetadata() {
@@ -24,12 +24,17 @@ export default function Projects(props) {
   const t = useTranslations("Projects");
   return (
     <>
-      <div className="container">
-        <Hero title={t("Projects")} />
+      <div className="max-w-6xl mx-auto px-4 sm:px-8">
+        {/* <Hero title={t("Projects")} /> */}
+        <header className="col-span-3 text-neutral-800 dark:text-neutral-300">
+          <h1 className="text-5xl dark:text-neutral-100 mb-3">
+            {t("Projects")}
+          </h1>
+        </header>
       </div>
 
-      <section className="segment">
-        <div className="container">
+      <section className="my-12 md:my-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <ProjectPreview params={params} />
         </div>
       </section>

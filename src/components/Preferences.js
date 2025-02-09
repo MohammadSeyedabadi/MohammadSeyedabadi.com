@@ -45,13 +45,13 @@ export default function Preferences({ prefencesTranslations }) {
         dir="ltr"
       >
         <div className="flex gap-2">
-          <span className="relative flex h-6 w-6">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-300 opacity-75"></span>
-            <button
-              className="relative inline-flex rounded-full h-6 w-6 bg-rose-500 active:scale-75"
-              onClick={() => dialog.current.close()}
-            />
-          </span>
+          <button
+            className="relative flex h-6 w-6 rounded-full"
+            onClick={() => dialog.current.close()}
+          >
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-300 opacity-75" />
+            <span className="relative inline-flex rounded-full h-6 w-6 bg-rose-500 dark:bg-rose-300 active:scale-75" />
+          </button>
           <button
             className="h-6 w-6 rounded-full bg-neutral-300 dark:bg-neutral-500"
             disabled
@@ -123,7 +123,7 @@ export default function Preferences({ prefencesTranslations }) {
               }`}
               onClick={() => changeLang("en", params)}
             >
-              ENG
+              English
             </button>
             <button
               className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 ${
@@ -134,7 +134,7 @@ export default function Preferences({ prefencesTranslations }) {
               onClick={() => changeLang("fa", params)}
               lang="fa"
             >
-              فا
+              فارسی
             </button>
           </div>
         </div>

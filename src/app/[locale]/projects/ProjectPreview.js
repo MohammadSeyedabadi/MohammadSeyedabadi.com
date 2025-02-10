@@ -22,8 +22,8 @@ export default function ProjectPreview({ params }) {
                 <Suspense
                   fallback={
                     <span className="relative flex h-6 w-6 rounded-full active:scale-75">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-300 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-6 w-6 bg-rose-500 dark:bg-rose-300" />
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-300 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-6 w-6 bg-indigo-500 dark:bg-indigo-300" />
                     </span>
                   }
                 >
@@ -34,7 +34,7 @@ export default function ProjectPreview({ params }) {
             </div>
             <div>
               <a
-                className="text-lg hover:underline text-indigo-500 dark:text-indigo-300 inline-block active:scale-95 visited:text-rose-500 dark:visited:text-rose-300"
+                className="text-lg hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
                 href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
                 target="_blank"
                 rel="noreferrer"
@@ -48,7 +48,7 @@ export default function ProjectPreview({ params }) {
             <div className="absolute bottom-3 flex gap-5">
               {project.writeup && (
                 <Link
-                  className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 hover:visited:border-rose-500 hover:dark:visited:border-rose-300"
+                  className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
                   href={project.writeup}
                 >
                   {params.locale === "en" ? "Article" : "مقاله"}
@@ -56,7 +56,7 @@ export default function ProjectPreview({ params }) {
               )}
               {project.url && (
                 <a
-                  className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 hover:visited:border-rose-500 hover:dark:visited:border-rose-300"
+                  className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
                   href={project.url}
                   target="_blank"
                   rel="noreferrer"
@@ -66,7 +66,7 @@ export default function ProjectPreview({ params }) {
                 </a>
               )}
               <a
-                className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 hover:visited:border-rose-500 hover:dark:visited:border-rose-300"
+                className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
                 href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
                 target="_blank"
                 rel="noreferrer"

@@ -57,16 +57,18 @@ export default async function Page(props) {
               }
             );
             return (
-              <div className="px-2 py-1 mb-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500">
+              <div
+                key={slug}
+                className="px-2 py-1 mb-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500"
+              >
                 <Link
-                  key={slug}
                   href={`/${slug}`}
-                  className="flex items-baseline justify-between gap-3 hover:underline active:scale-95 text-indigo-500 dark:text-indigo-300 visited:text-rose-500 dark:visited:text-rose-300"
+                  className="flex items-baseline justify-between gap-3 hover:underline active:scale-95 text-rose-500 dark:text-rose-300 visited:text-indigo-500 dark:visited:text-indigo-300"
                 >
-                  <h3 className="text-lg">{title} asd asd asd asd asd asd asd asd asdwd </h3>
-                  <time className="font-mono text-sm">
-                    {formattedDate}
-                  </time>
+                  <h3 className="text-lg">
+                    {title} asd asd asd asd asd asd asd asd asdwd{" "}
+                  </h3>
+                  <time className="font-mono text-sm">{formattedDate}</time>
                 </Link>
               </div>
             );

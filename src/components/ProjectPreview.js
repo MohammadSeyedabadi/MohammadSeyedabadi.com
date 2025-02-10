@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import ExternalLinkIcon from "@/assets/ExternalLinkIcon";
 
-export default function PostPreview() {
+export default function ProjectPreview() {
   const lang = useParams().locale;
   return (
     <div className="grid gap-4 md:grid-cols-3">

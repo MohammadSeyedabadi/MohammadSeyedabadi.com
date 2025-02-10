@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Heading from "@/components/Heading";
-import PostPreview from "@/components/PostPreview";
+import ProjectPreview from "@/components/ProjectPreview";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata() {
@@ -51,7 +51,7 @@ export default function Index() {
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         <section className="max-w-3xl">
           <Heading title={indexPage("projects")} slug="/projects" />
-          <PostPreview />
+          <ProjectPreview />
         </section>
         <section className="max-w-3xl">
           <Heading title={gamePage("games")} slug="/game" />

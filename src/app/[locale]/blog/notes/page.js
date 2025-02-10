@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero";
+// import Hero from "@/components/Hero";
 import clientPromise from "@/utils/mongodb";
 import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
@@ -37,12 +37,13 @@ export default async function Page(props) {
   };
 
   return (
-    <section className="container markdown-content">
-      <div className="grid">
-        <div className="article-content">
-          <Hero title={t("Writings")}>
-            <Writings translation={translation} />
-          </Hero>
+    <>
+      <header className="col-span-3 max-w-6xl mx-auto px-4 sm:px-8">
+        <h1 className="text-5xl text-neutral-800 dark:text-neutral-100 mb-3">{t("Writings")}</h1>
+        <Writings translation={translation} />
+      </header>
+      <section className="sm:grid sm:grid-cols-5 items-center max-w-6xl mx-auto px-4 sm:px-8">
+        <div className="sm:grid-cols-3">
           <section className="segment">
             <div className="posts">
               {allPostsPreviewData.map((eachPostPreviewData) => {
@@ -65,9 +66,9 @@ export default async function Page(props) {
             </div>
           </section>
         </div>
-        <div className="sidebar-content"></div>
-      </div>
-    </section>
+        <div className="sm:grid-cols-2"></div>
+      </section>
+    </>
   );
 }
 

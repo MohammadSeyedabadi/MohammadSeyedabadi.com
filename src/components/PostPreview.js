@@ -13,7 +13,7 @@ export default function PostPreview() {
         .map((project) => {
           return (
             <div
-              className="relative break-all px-4 pt-4 pb-14 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500"
+              className="relative break-all px-4 pt-4 pb-14 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500"
               key={project.slug}
             >
               <div>

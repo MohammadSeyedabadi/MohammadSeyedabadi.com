@@ -6,43 +6,57 @@ import { Suspense } from "react";
 import Stars from "./Stars";
 
 export default function ProjectPreview({ params }) {
-
   return (
-    <div className="project-preview">
+    <div className="grid gap-4 md:grid-cols-3">
       {projectsList.map((project) => {
         return (
-          <div className="card anchored large" key={project.slug}>
-            <div className="stars">
-              <div key={project.slug} className="star">
-                <Suspense fallback={<>Loading ...</>}>
+          <div
+            className="relative break-all px-4 pt-4 pb-14 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500"
+            key={project.slug}
+          >
+            <div className="flex justify-between">
+              <time className="text-neutral-500 dark:text-neutral-300 block text-sm">
+                {params.locale === "en" ? project.enDate : project.faDate}
+              </time>
+              <div key={project.slug} className="flex items-center gap-2">
+                <Suspense
+                  fallback={
+                    <span className="relative flex h-6 w-6 rounded-full active:scale-75">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-300 opacity-75" />
+                      <span className="relative inline-flex rounded-full h-6 w-6 bg-rose-500 dark:bg-rose-300" />
+                    </span>
+                  }
+                >
                   <Stars projectsList={projectsList} locale={params.locale} />
                 </Suspense>
                 <StarIcon />
               </div>
             </div>
             <div>
-              <time>
-                {params.locale === "en" ? project.enDate : project.faDate}
-              </time>
               <a
-                className="card-header"
+                className="text-lg hover:underline text-indigo-500 dark:text-indigo-300 inline-block active:scale-95 visited:text-rose-500 dark:visited:text-rose-300"
                 href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
                 target="_blank"
                 rel="noreferrer"
               >
                 {project.name}
               </a>
-              <p>{params.locale === "en" ? project.enDesc : project.faDesc}</p>
+              <p className="text-base text-neutral-500 dark:text-neutral-300">
+                {params.locale === "en" ? project.enDesc : project.faDesc}
+              </p>
             </div>
-            <div className="links anchored">
+            <div className="absolute bottom-3 flex gap-5">
               {project.writeup && (
-                <Link className="button small" href={project.writeup}>
+                <Link
+                  className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 hover:visited:border-rose-500 hover:dark:visited:border-rose-300"
+                  href={project.writeup}
+                >
                   {params.locale === "en" ? "Article" : "مقاله"}
                 </Link>
               )}
               {project.url && (
                 <a
-                  className="button small flex"
+                  className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 hover:visited:border-rose-500 hover:dark:visited:border-rose-300"
                   href={project.url}
                   target="_blank"
                   rel="noreferrer"
@@ -52,7 +66,7 @@ export default function ProjectPreview({ params }) {
                 </a>
               )}
               <a
-                className="button small flex"
+                className="flex gap-1 items-center text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 hover:visited:border-rose-500 hover:dark:visited:border-rose-300"
                 href={`https://github.com/MohammadSeyedabadi/${project.slug}`}
                 target="_blank"
                 rel="noreferrer"

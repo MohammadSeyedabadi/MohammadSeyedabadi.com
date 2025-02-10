@@ -8,6 +8,8 @@ export default async function Stars({ projectsList, locale }) {
             <a
               key={project.slug}
               href={`https://github.com/MohammadSeyedabadi/${project.slug}/stargazers`}
+              target="_blank"
+              className="hover:underline text-indigo-500 dark:text-indigo-300 active:scale-75 visited:text-rose-500 dark:visited:text-rose-300"
             >
               {Number(
                 repos.find((repo) => repo.name === project.slug)
@@ -26,6 +28,7 @@ export async function getRepos() {
     const repos = await fetch(
       "https://api.github.com/users/MohammadSeyedabadi/repos?per_page=100"
     );
+    // await new Promise((resolve) => setTimeout(resolve, 10000));
     return repos.json();
   } catch (error) {
     console.error(

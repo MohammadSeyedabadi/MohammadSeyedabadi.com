@@ -2,21 +2,14 @@ import clientPromise from "@/utils/mongodb";
 import { Link } from "@/i18n/routing";
 
 export default async function GetAllNotes({ locale }) {
-  let allPostsPreviewData;
-  allPostsPreviewData = await getAllNotesPreviewData(locale);
+  let allNotesPreviewData;
+  allNotesPreviewData = await getAllNotesPreviewData(locale);
 
   return (
     <>
-      {allPostsPreviewData.map((eachPostPreviewData) => {
-        const { lang, slug, title, createdAt } = eachPostPreviewData;
-        const formattedDate = new Date(createdAt).toLocaleDateString(
-          lang === "fa" ? "fa-IR" : "en-US",
-          {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          }
-        );
+      {allNotesPreviewData.map((eachNotePreviewData) => {
+        const { slug, title, createdAt } = eachNotePreviewData;
+
         return (
           <div key={slug} className="mb-4">
             <Link
@@ -25,7 +18,7 @@ export default async function GetAllNotes({ locale }) {
             >
               <h3 className="text-lg">{title}</h3>
               <time className="hidden lg:inline font-mono text-sm">
-                {formattedDate}
+                {createdAt}
               </time>
             </Link>
           </div>
@@ -39,14 +32,13 @@ export async function getAllNotesPreviewData(locale) {
   try {
     const client = await clientPromise;
     const db = client.db("notes");
-    const allPostsPreviewData = await db
+    const allNotesPreviewData = await db
       .collection(locale)
       .find(
         {},
         {
           projection: {
             _id: 0, // may remove for error
-            lang: 1,
             title: 1,
             slug: 1,
             createdAt: 1,
@@ -55,7 +47,18 @@ export async function getAllNotesPreviewData(locale) {
       )
       .toArray();
 
-    return allPostsPreviewData;
+    for (let notePreviewData of allNotesPreviewData) {
+      const formattedDate = new Date(
+        notePreviewData.createdAt
+      ).toLocaleDateString(locale === "fa" ? "fa-IR" : "en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+      notePreviewData.createdAt = formattedDate;
+    }
+
+    return allNotesPreviewData;
     // return {
     //   props: { allNotesTitle: JSON.parse(JSON.stringify(allNotesTitle)) },
     // };

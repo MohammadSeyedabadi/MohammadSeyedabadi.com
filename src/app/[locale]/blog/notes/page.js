@@ -20,10 +20,7 @@ export async function generateMetadata() {
 
 export default async function Page(props) {
   const params = await props.params;
-  const { locale } = params;
-
   const t = await getTranslations("blog");
-
   const translation = {
     Notes: t("Notes"),
     NotesDesc: t("NotesDesc"),
@@ -31,17 +28,17 @@ export default async function Page(props) {
     Code: t("Code"),
     ViewAllTags: t("ViewAllTags"),
   };
-
+  
   return (
-    <>
-      <header className="col-span-3 max-w-6xl mx-auto px-4 sm:px-8">
-        <h1 className="text-5xl text-neutral-800 dark:text-neutral-100 mb-3">
-          {t("Writings")}
-        </h1>
-        <Writings translation={translation} />
-      </header>
-      <section className="sm:grid sm:grid-cols-5 items-center max-w-6xl mx-auto px-4 sm:px-8">
-        <div className="sm:col-span-3">
+    <div className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5 items-center">
+      <section className="sm:col-span-3">
+        <header>
+          <h1 className="text-5xl text-neutral-800 dark:text-neutral-100 mb-3">
+            {t("Writings")}
+          </h1>
+          <Writings translation={translation} />
+        </header>
+        <section>
           <Suspense
             fallback={
               <>
@@ -57,11 +54,11 @@ export default async function Page(props) {
               </>
             }
           >
-            <GetAllNotes locale={locale} />
+            <GetAllNotes locale={params.locale} />
           </Suspense>
-        </div>
-        <div className="sm:col-span-2"></div>
+        </section>
       </section>
-    </>
+      <div className="sm:col-span-2"></div>
+    </div>
   );
 }

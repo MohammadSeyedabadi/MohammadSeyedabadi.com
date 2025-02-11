@@ -32,7 +32,7 @@ export async function generateMetadata(props) {
 }
 
 export default async function Page(props) {
-  notFound()
+  // notFound()
   const params = await props.params;
   const { locale, slug } = params;
   let post = {};

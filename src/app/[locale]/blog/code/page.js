@@ -1,8 +1,7 @@
-import { getAllPostsMetaData } from "@/utils/posts-util";
-// import Hero from "@/components/Hero";
-// import Writings from "../Writings";
+import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/routing";
+import GetAllCodes from "./GetAllCodes";
+import { Suspense } from "react";
 
 export async function generateMetadata() {
   const blogT = await getTranslations("blog");
@@ -21,13 +20,6 @@ export async function generateMetadata() {
 
 export default async function Blog(props) {
   const params = await props.params;
-  let allPostsPreviewData;
-  try {
-    allPostsPreviewData = await getAllPostsMetaData(params.locale);
-  } catch (error) {
-    console.error(`Error Occurred In /blog/page.js. Error Message : ${error}`);
-  }
-
   const t = await getTranslations("blog");
   const translation = {
     Notes: t("Notes"),
@@ -38,37 +30,36 @@ export default async function Blog(props) {
   };
 
   return (
-    <section className="container markdown-content">
-      <div className="grid">
-        <div className="article-content">
-          {/* <Hero title={t("Writings")}>
-            <Writings translation={translation} />
-          </Hero> */}
-          <section className="segment">
-            <div className="posts">
-              {allPostsPreviewData.map((eachPostPreviewData) => {
-                const { lang, slug, title, createdAt } = eachPostPreviewData;
+    <div className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5 items-center">
+      <section className="sm:col-span-3">
+        <header>
+          <h1 className="text-5xl text-neutral-800 dark:text-neutral-100 mb-3">
+            {t("Writings")}
+          </h1>
+          <Writings translation={translation} />
+        </header>
 
-                const formattedDate = new Date(createdAt).toLocaleDateString(
-                  lang === "fa" ? "fa-IR" : "en-US",
-                  {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  }
-                );
-                return (
-                  <Link key={slug} href={`/blog/code/${slug}`} className="post">
-                    <h3>{title}</h3>
-                    <time>{formattedDate}</time>
-                  </Link>
-                );
-              })}
-            </div>
-          </section>
-        </div>
-        {/* <div className="sidebar-content"></div> */}
-      </div>
-    </section>
+        <section>
+          <Suspense
+            fallback={
+              <>
+                <span className="relative flex h-6 w-6 rounded-full">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-300 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-6 w-6 bg-indigo-500 dark:bg-indigo-300" />
+                </span>
+                <div className="my-4 flex flex-col gap-y-4">
+                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
+                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
+                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
+                </div>
+              </>
+            }
+          >
+            <GetAllCodes locale={params.locale} />
+          </Suspense>
+        </section>
+      </section>
+      <div className="sm:col-span-2"></div>
+    </div>
   );
 }

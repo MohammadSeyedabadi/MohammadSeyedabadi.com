@@ -1,5 +1,5 @@
 import { getAllTags } from "@/posts/tags";
-import { getAllPostsMetaData } from "@/utils/posts-util";
+import { getAllCodesPreviewData } from "@/utils/posts-util";
 import clientPromise from "@/utils/mongodb";
 
 export async function generateSitemaps() {
@@ -9,7 +9,7 @@ export async function generateSitemaps() {
 export default async function sitemap({ id }) {
   const baseUrl = "https://mohammadseyedabadi.com";
   ///////////////////////////////////////////////////////////// code notes
-  const allPostsMetaData = await getAllPostsMetaData(id);
+  const allPostsMetaData = await getAllCodesPreviewData(id);
 
   let codeNotesUrl = [];
   for (let eachPostMetaData of allPostsMetaData) {

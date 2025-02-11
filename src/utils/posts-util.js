@@ -11,18 +11,31 @@ export async function getSinglePostFileData(postLocale, postSlug) {
   return { metaData, content };
 }
 
-export async function getAllPostsMetaData(locale) {
+export async function getAllCodesPreviewData(locale) {
   const files_Path = path.join(postsDirectory, locale);
   const files = fs.readdirSync(files_Path);
   let file_path, fileContent, metaData;
-  let allPostsMetaData = [];
+  let allCodesPreviewData = [];
   for (let file of files) {
     file_path = path.join(files_Path, file);
     fileContent = fs.readFileSync(file_path, "utf-8");
     metaData = matter(fileContent).data;
-    allPostsMetaData.push(metaData);
+    const formattedDate = new Date(metaData.createdAt).toLocaleDateString(
+      metaData.lang === "fa" ? "fa-IR" : "en-US",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }
+    );
+
+    allCodesPreviewData.push({
+      slug: metaData.slug,
+      title: metaData.title,
+      createdAt: formattedDate,
+    });
   }
-  return allPostsMetaData;
+  return allCodesPreviewData;
 }
 
 export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
@@ -51,6 +64,6 @@ export async function get_all_posts_by_tag_preview_data(locale, tagSlug) {
     locale == "en" ? "fa" : "en",
     parsedFileContent.data.otherPageSlug
   );
-  const tagInOtherLang = lastPostInOtherLangFileData.metaData.tags[indexOfTag]
+  const tagInOtherLang = lastPostInOtherLangFileData.metaData.tags[indexOfTag];
   return { all_posts_preview_metaData, tagInOtherLang };
 }

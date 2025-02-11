@@ -23,7 +23,7 @@ export default function Index() {
             {indexPage("descOne")}
           </h1>
           {/* <p className="max-w-md"> */}
-          <p className="max-w-md text-neutral-800 dark:text-neutral-300 ltr:first-line:uppercase ltr:first-line:tracking-widest ltr:first-letter:text-7xl ltr:first-letter:font-bold ltr:first-letter:mr-3 ltr:first-letter:float-left">
+          <p className="max-w-md text-lg text-neutral-800 dark:text-neutral-300 ltr:first-line:uppercase ltr:first-line:tracking-widest ltr:first-letter:text-7xl ltr:first-letter:font-bold ltr:first-letter:mr-3 ltr:first-letter:float-left">
             {indexPage("descTwo")}
             <br />
             <br className="ltr:hidden" />

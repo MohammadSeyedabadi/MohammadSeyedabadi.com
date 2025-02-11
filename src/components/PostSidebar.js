@@ -24,12 +24,12 @@ export default function PostSidebar({ metaData, translation }) {
     translation;
 
   return (
-    <aside className="post-sidebar">
+    <>
       <div className="post-image">
-        <img src={image} alt={title} />
+        <img src={image} alt={title} className="max-w-36 mb-2 mx-auto" />
       </div>
 
-      <div className="post-sidebar-card">
+      <div className="p-4 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500">
         <h2>{PostDetails}</h2>
         <ul>
           <li>
@@ -61,6 +61,6 @@ export default function PostSidebar({ metaData, translation }) {
           </a>
         </p>
       </div>
-    </aside>
+    </>
   );
 }

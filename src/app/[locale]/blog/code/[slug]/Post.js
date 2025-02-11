@@ -13,11 +13,7 @@ import remarkGfm from "remark-gfm";
 import Giscus from "@giscus/react";
 import TitleIcon from "@/assets/TitleIcon";
 
-export default function Post({
-  metaData,
-  content,
-  translation,
-}) {
+export default function Post({ metaData, content, translation }) {
   const language = useParams().locale;
   const { ariaActive } = useContext(PreferencesContext);
   const { title, image: postImage } = metaData;
@@ -27,11 +23,11 @@ export default function Post({
       let title = h2.children.replace(/\s+/g, "-");
 
       return (
-        <h2 id={title} style={{ position: "relative" }}>
+        <h2 id={title} className="">
           <a
             href={`#${title}`}
             aria-label={` ${h2.children} permalink`}
-            className="anchor before"
+            className=""
           >
             <TitleIcon />
           </a>
@@ -51,14 +47,14 @@ export default function Post({
               <img
                 src={image.properties.src}
                 alt={image.properties.alt}
-                style={{ marginBottom: "20px", maxWidth: "100%" }}
+                className="mb-5 max-w-full"
               />
             </a>
           </div>
         );
       }
 
-      return <p>{paragraph.children}</p>;
+      return <p className="text-lg mb-5">{paragraph.children}</p>;
     },
 
     code(code) {
@@ -123,43 +119,36 @@ export default function Post({
   };
 
   return (
-    <div className="container">
-      <div className="grid">
-        <div className="article-content">
-          <div className="post-header medium width">
-            <div className="mobile-post-image">
-              <img src={postImage} alt={title} />
-            </div>
-            <h1>{title}</h1>
-          </div>
-          <section className="segment small">
-            <div className="post-content">
-              <Markdown
-                remarkPlugins={[remarkGfm]}
-                components={customRenderers}
-              >
-                {content}
-              </Markdown>
-            </div>
-          </section>
-          <Giscus
-            id="comments"
-            repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
-            repoId="R_kgDOKeamUQ"
-            category="Announcements"
-            categoryId="DIC_kwDOKeamUc4CbDQi"
-            mapping="pathname"
-            term="Welcome to @giscus/react component!"
-            reactionsEnabled="0"
-            emitMetadata="0"
-            inputPosition="top"
-            theme={ariaActive ? "dark" : "light"}
-            lang={language}
-            loading="lazy"
-          />
-        </div>
-        <PostSidebar metaData={metaData} translation={translation} />
+    <div className="lg:grid lg:grid-cols-5 max-w-6xl mx-auto px-4 sm:px-8">
+      <div className="lg:col-span-3">
+        <img src={postImage} alt={title} className="max-w-14 lg:hidden" />
+        <h1 className="text-5xl text-neutral-800 dark:text-neutral-100 mb-3">
+          {title}
+        </h1>
+        <section>
+          <Markdown remarkPlugins={[remarkGfm]} components={customRenderers}>
+            {content}
+          </Markdown>
+        </section>
+        <Giscus
+          id="comments"
+          repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
+          repoId="R_kgDOKeamUQ"
+          category="Announcements"
+          categoryId="DIC_kwDOKeamUc4CbDQi"
+          mapping="pathname"
+          term="Welcome to @giscus/react component!"
+          reactionsEnabled="0"
+          emitMetadata="0"
+          inputPosition="top"
+          theme={ariaActive ? "dark" : "light"}
+          lang={language}
+          loading="lazy"
+        />
       </div>
+      <aside className="lg:col-span-2 justify-self-center mt-8">
+        <PostSidebar metaData={metaData} translation={translation} />
+      </aside>
     </div>
   );
 }

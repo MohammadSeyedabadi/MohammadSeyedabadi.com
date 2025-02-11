@@ -4,7 +4,7 @@ export default function Footer() {
 
   return (
     <footer className="mt-40 mb-8 flex justify-center items-center">
-      <section className="p-4 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 max-w-fit">
+      <section className="p-4 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500">
         <nav className="flex gap-8 items-center justify-center">
           <a
             href="https://www.linkedin.com/in/mohammad-seyedabadi-397a61256/"

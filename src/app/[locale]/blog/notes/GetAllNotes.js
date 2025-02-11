@@ -3,8 +3,8 @@ import { Link } from "@/i18n/routing";
 
 export default async function GetAllNotes({ locale }) {
   let allPostsPreviewData;
-
   allPostsPreviewData = await getAllNotesPreviewData(locale);
+
   return (
     <>
       {allPostsPreviewData.map((eachPostPreviewData) => {
@@ -36,7 +36,6 @@ export default async function GetAllNotes({ locale }) {
 }
 
 export async function getAllNotesPreviewData(locale) {
-  await new Promise((resolve) => setTimeout(resolve, 300000));
   try {
     const client = await clientPromise;
     const db = client.db("notes");

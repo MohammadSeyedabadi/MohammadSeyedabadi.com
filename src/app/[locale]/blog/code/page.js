@@ -1,6 +1,6 @@
 import { getAllPostsMetaData } from "@/utils/posts-util";
-import Hero from "@/components/Hero";
-import Writings from "../Writings";
+// import Hero from "@/components/Hero";
+// import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 
@@ -41,9 +41,9 @@ export default async function Blog(props) {
     <section className="container markdown-content">
       <div className="grid">
         <div className="article-content">
-          <Hero title={t("Writings")}>
+          {/* <Hero title={t("Writings")}>
             <Writings translation={translation} />
-          </Hero>
+          </Hero> */}
           <section className="segment">
             <div className="posts">
               {allPostsPreviewData.map((eachPostPreviewData) => {

@@ -34,13 +34,13 @@ export default function Preferences({ prefencesTranslations }) {
     <>
       <button
         onClick={() => dialog.current.showModal()}
-        className="cursor-pointer me-3 rtl:ms-3 font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-neutral-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-neutral-300 active:scale-95"
+        className="me-3 rtl:ms-3 font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-neutral-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-neutral-300 active:scale-95"
       >
         {PreferencesT}
       </button>
 
       <dialog
-        className="p-4 bg-neutral-100 rounded-xl border-4 border-solid border-neutral-950 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500"
+        className="p-4 bg-neutral-100 rounded-xl border-4 border-neutral-950 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500"
         ref={dialog}
         dir="ltr"
       >
@@ -70,7 +70,7 @@ export default function Preferences({ prefencesTranslations }) {
           </div>
           <div className="mt-2 flex gap-2">
             <button
-              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
                 active || systemState
                   ? null
                   : "border-b-indigo-500 dark:border-b-indigo-300"
@@ -80,7 +80,7 @@ export default function Preferences({ prefencesTranslations }) {
               {Dark}
             </button>
             <button
-              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
                 active && !systemState
                   ? "border-b-indigo-500 dark:border-b-indigo-300"
                   : null
@@ -90,7 +90,7 @@ export default function Preferences({ prefencesTranslations }) {
               {Light}
             </button>
             <button
-              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
                 systemState
                   ? "border-b-indigo-500 dark:border-b-indigo-300"
                   : null
@@ -116,7 +116,7 @@ export default function Preferences({ prefencesTranslations }) {
           </div>
           <div className="mt-2 flex gap-2">
             <button
-              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
                 lang == "en"
                   ? "border-b-indigo-500 dark:border-b-indigo-300"
                   : ""
@@ -126,7 +126,7 @@ export default function Preferences({ prefencesTranslations }) {
               English
             </button>
             <button
-              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
+              className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
                 lang == "en"
                   ? ""
                   : "border-b-indigo-500 dark:border-b-indigo-300"

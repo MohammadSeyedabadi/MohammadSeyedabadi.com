@@ -47,9 +47,9 @@ export default async function Page(props) {
                   <span className="relative inline-flex rounded-full h-6 w-6 bg-indigo-500 dark:bg-indigo-300" />
                 </span>
                 <div className="my-4 flex flex-col gap-y-4">
-                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
-                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
-                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
+                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
+                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
+                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
                 </div>
               </>
             }

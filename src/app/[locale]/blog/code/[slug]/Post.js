@@ -119,8 +119,8 @@ export default function Post({ metaData, content, translation }) {
   };
 
   return (
-    <div className="lg:grid lg:grid-cols-5 max-w-6xl mx-auto px-4 sm:px-8">
-      <div className="lg:col-span-3">
+    <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
+      <div className="lg:col-span-8">
         <img src={postImage} alt={title} className="max-w-14 lg:hidden" />
         <h1 className="text-5xl text-neutral-800 dark:text-neutral-100 mb-3">
           {title}
@@ -146,7 +146,7 @@ export default function Post({ metaData, content, translation }) {
           loading="lazy"
         />
       </div>
-      <aside className="lg:col-span-2 justify-self-center mt-8">
+      <aside className="lg:col-span-4 justify-self-center mt-8 w-full">
         <PostSidebar metaData={metaData} translation={translation} />
       </aside>
     </div>

@@ -31,7 +31,7 @@ export default function PostSidebar({ metaData, translation }) {
 
       <div className="p-6 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500">
         <h2 className="text-base uppercase font-bold text-neutral-800 dark:text-neutral-100">
-          {PostDetails}
+          {PostDetails} :
         </h2>
         <ul className="mb-3 list-disc list-outside ms-5 text-sm text-neutral-800 dark:text-neutral-300">
           <li>
@@ -43,7 +43,7 @@ export default function PostSidebar({ metaData, translation }) {
         </ul>
 
         <h2 className="text-base uppercase font-bold text-neutral-800 dark:text-neutral-100">
-          {Tags}:
+          {Tags} :
         </h2>
         <div className="flex items-center gap-x-1 gap-y-2 flex-wrap ps-0 list-none text-xs">
           {tags.map((tag) => {

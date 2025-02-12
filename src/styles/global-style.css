@@ -22,13 +22,17 @@ html {
 
 /* Blockquote */
 
-blockquote {
+/* blockquote {
   margin: 2rem 0;
   border: 1px solid var(--indigo-light);
   margin-left: 0;
   padding: 1.5rem;
-  background: var(--blockquote-background);
-  border-radius: var(--border-radius);
+  background-color: rgba(99, 101, 241, 0.5);
+  border-radius: 8px;
+} */
+
+blockquote p{
+  margin-bottom: 0 !important;
 }
 
 blockquote strong {

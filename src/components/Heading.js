@@ -6,7 +6,7 @@ export default function Heading({ title, description, slug }) {
   return (
     <h2 className="flex items-center justify-between my-8">
       <div>
-        <div className="text-2xl text-neutral-800 dark:text-neutral-100">
+        <div className="text-2xl font-semibold text-neutral-800 dark:text-neutral-100">
           {title}
         </div>
         {description && <div className="description">{description}</div>}

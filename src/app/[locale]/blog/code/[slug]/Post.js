@@ -54,7 +54,11 @@ export default function Post({ metaData, content, translation }) {
         );
       }
 
-      return <p className="text-lg mb-5 text-neutral-800 dark:text-neutral-300">{paragraph.children}</p>;
+      return (
+        <p className="text-lg mb-5 text-neutral-800 dark:text-neutral-300 first-of-type:ltr:first-letter:text-[3.75rem] first-of-type:ltr:first-letter:leading-[3.5rem] first-of-type:ltr:first-letter:font-bold first-of-type:ltr:first-letter:mr-1 first-of-type:ltr:first-letter:float-left">
+          {paragraph.children}
+        </p>
+      );
     },
 
     code(code) {
@@ -116,13 +120,31 @@ export default function Post({ metaData, content, translation }) {
         </a>
       );
     },
+
+    blockquote(blockquote) {
+      const { children } = blockquote;
+      console.log(
+        blockquote.children[1].props.children,
+        "+++++++++++++++++++++++",
+        blockquote.node.children[1].children[0].value
+      );
+      //  for light : bg-[#f1f2fd]
+      //  for dark  : dark:bg-[#7878f00d]
+      return (
+        <blockquote className="mb-5 p-4 dark:bg-[#7878f00d] bg-[#f1f2fd] ltr:border-l-8 rounded-xl border-2 rtl:border-r-8 border-indigo-500 dark:border-indigo-300">
+          <p className="text-base mb-5 text-neutral-800 dark:text-neutral-300 ltr:first-letter:text-5xl ltr:first-letter:font-bold ltr:first-letter:mr-1 ltr:first-letter:float-left">
+            {blockquote.children[1].props.children}
+          </p>
+        </blockquote>
+      );
+    },
   };
 
   return (
     <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
       <div className="lg:col-span-8">
-        <img src={postImage} alt={title} className="max-w-14 lg:hidden" />
-        <h1 className="text-5xl text-neutral-800 dark:text-neutral-100 mb-3">
+        <img src={postImage} alt={title} className="max-w-14 mb-5 lg:hidden" />
+        <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
           {title}
         </h1>
         <section>

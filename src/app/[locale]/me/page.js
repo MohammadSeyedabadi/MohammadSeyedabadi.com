@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import TitleIcon from "@/assets/TitleIcon";
-import Hero from "@/components/Hero";
+// import Hero from "@/components/Hero";
 
 export async function generateMetadata() {
   const t = await getTranslations("Config");
@@ -25,7 +25,7 @@ export default function AboutMe() {
     <div className="container">
       <div className="grid">
         <div className="article-content">
-          <Hero title={t("descOne")} />
+          {/* <Hero title={t("descOne")} /> */}
 
           <section className="segment small">
             <div className="post-content">

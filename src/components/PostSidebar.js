@@ -25,13 +25,13 @@ export default function PostSidebar({ metaData, translation }) {
 
   return (
     <>
-      <div className="post-image">
+      <div>
         <img src={image} alt={title} className="max-w-36 mb-2 mx-auto" />
       </div>
 
-      <div className="p-4 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500">
-        <h2>{PostDetails}</h2>
-        <ul>
+      <div className="p-6 bg-neutral-100/45 rounded-xl border-2 border-solid border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500">
+        <h2 className="text-base font-bold uppercase text-neutral-800 dark:text-neutral-100">{PostDetails}</h2>
+        <ul className="mb-3 list-disc list-outside ms-5 text-sm text-neutral-800 dark:text-neutral-300">
           <li>
             <strong>{Published}:</strong> {createdAtformattedDate}
           </li>
@@ -40,7 +40,7 @@ export default function PostSidebar({ metaData, translation }) {
           </li>
         </ul>
 
-        <h2>{Tags}:</h2>
+        <h2 className="text-base font-bold uppercase text-neutral-800 dark:text-neutral-100">{Tags}:</h2>
         <div className="tags">
           {tags.map((tag) => {
             return (

@@ -54,7 +54,7 @@ export default function Post({ metaData, content, translation }) {
         );
       }
 
-      return <p className="text-lg mb-5">{paragraph.children}</p>;
+      return <p className="text-lg mb-5 text-neutral-800 dark:text-neutral-300">{paragraph.children}</p>;
     },
 
     code(code) {

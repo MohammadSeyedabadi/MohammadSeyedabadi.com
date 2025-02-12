@@ -4,7 +4,7 @@ export default async function Stars({ projectsList, locale }) {
     <>
       {projectsList.map((project) => {
         return (
-          repos.find((repo) => repo.name === project.slug) && (
+          repos?.find((repo) => repo.name === project.slug) && (
             <a
               key={project.slug}
               href={`https://github.com/MohammadSeyedabadi/${project.slug}/stargazers`}
@@ -34,5 +34,7 @@ export async function getRepos() {
     console.error(
       `Failed To Fetch Repos In /projects/stars.js. Error Message : ${error}`
     );
+    // works when no internet
+    return null
   }
 }

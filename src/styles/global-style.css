@@ -114,13 +114,12 @@ u {
   text-decoration-thickness: 2px;
 }
 
-.post h2 a {
+h2.post a {
   opacity: 0;
 }
 
-.post h2:hover a {
+h2.post:hover a {
   opacity: 1;
-  transition: opacity 0.2s ease-in-out;
 }
 
 /* h1 .anchor svg,

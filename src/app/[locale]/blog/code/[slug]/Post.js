@@ -23,16 +23,18 @@ export default function Post({ metaData, content, translation }) {
       let title = h2.children.replace(/\s+/g, "-");
 
       return (
-        <h2 id={title} className="mt-12 text-2xl font-semibold text-neutral-800 dark:text-neutral-100 flex items-center post">
+        <h2
+          id={title}
+          className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 flex items-center border-b-2 border-neutral-300 dark:border-neutral-700 mt-12 mb-4  post"
+        >
           {h2.children}
           <a
             href={`#${title}`}
             aria-label={` ${h2.children} permalink`}
-            className="inline-block ltr:ml-3 rtl:mr-3 rotate-45"
+            className="inline-block ltr:ml-1 rtl:mr-1 rotate-45 opacity-0 hover:opacity-100"
           >
             <TitleIcon />
           </a>
-          
         </h2>
       );
     },
@@ -116,7 +118,12 @@ export default function Post({ metaData, content, translation }) {
     a(anchor) {
       const { node } = anchor;
       return (
-        <a href={node.properties.href} target="_blank" rel="noreferrer">
+        <a
+          href={node.properties.href}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
+        >
           {node.children[0].value}
         </a>
       );
@@ -134,36 +141,47 @@ export default function Post({ metaData, content, translation }) {
   };
 
   return (
-    <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
-      <div className="lg:col-span-8">
-        <img src={postImage} alt={title} className="max-w-14 mb-5 lg:hidden" />
-        <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
-          {title}
-        </h1>
-        <section>
-          <Markdown remarkPlugins={[remarkGfm]} components={customRenderers}>
-            {content}
-          </Markdown>
-        </section>
-        <Giscus
-          id="comments"
-          repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
-          repoId="R_kgDOKeamUQ"
-          category="Announcements"
-          categoryId="DIC_kwDOKeamUc4CbDQi"
-          mapping="pathname"
-          term="Welcome to @giscus/react component!"
-          reactionsEnabled="0"
-          emitMetadata="0"
-          inputPosition="top"
-          theme={ariaActive ? "dark" : "light"}
-          lang={language}
-          loading="lazy"
-        />
+    <>
+      <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
+        <div className="lg:col-span-8">
+          <img
+            src={postImage}
+            alt={title}
+            className="max-w-14 mb-5 lg:hidden"
+          />
+          <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
+            {title}
+          </h1>
+          <section>
+            <Markdown remarkPlugins={[remarkGfm]} components={customRenderers}>
+              {content}
+            </Markdown>
+          </section>
+        </div>
+        <aside className="lg:col-span-4 justify-self-center mt-8 w-full">
+          <PostSidebar metaData={metaData} translation={translation} />
+        </aside>
       </div>
-      <aside className="lg:col-span-4 justify-self-center mt-8 w-full">
-        <PostSidebar metaData={metaData} translation={translation} />
-      </aside>
-    </div>
+      <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
+        <section className="lg:col-span-8 mt-12 lg:mt-4">
+          <Giscus
+            id="comments"
+            repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
+            repoId="R_kgDOKeamUQ"
+            category="Announcements"
+            categoryId="DIC_kwDOKeamUc4CbDQi"
+            mapping="pathname"
+            term="Welcome to @giscus/react component!"
+            reactionsEnabled="0"
+            emitMetadata="0"
+            inputPosition="top"
+            theme={ariaActive ? "dark" : "light"}
+            lang={language}
+            loading="lazy"
+          />
+        </section>
+        <div className="lg:col-span-4" />
+      </div>
+    </>
   );
 }

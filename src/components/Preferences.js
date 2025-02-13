@@ -71,13 +71,13 @@ export default function Preferences({ prefencesTranslations }) {
           <div className="mt-2 flex gap-2">
             <button
               className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
-                active || systemState
-                  ? null
-                  : "border-b-indigo-500 dark:border-b-indigo-300"
+                systemState
+                  ? "border-b-indigo-500 dark:border-b-indigo-300"
+                  : null
               }`}
-              onClick={setDarkTheme}
+              onClick={setSystemTheme}
             >
-              {Dark}
+              {System}
             </button>
             <button
               className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
@@ -89,15 +89,16 @@ export default function Preferences({ prefencesTranslations }) {
             >
               {Light}
             </button>
+
             <button
               className={`text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-indigo-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-indigo-300 active:scale-95 ${
-                systemState
-                  ? "border-b-indigo-500 dark:border-b-indigo-300"
-                  : null
+                active || systemState
+                  ? null
+                  : "border-b-indigo-500 dark:border-b-indigo-300"
               }`}
-              onClick={setSystemTheme}
+              onClick={setDarkTheme}
             >
-              {System}
+              {Dark}
             </button>
           </div>
           <div className="mt-6">

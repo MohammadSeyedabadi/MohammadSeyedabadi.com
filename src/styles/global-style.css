@@ -31,7 +31,7 @@ blockquote strong {
 .code--block-header {
   color: var(--color-1);
   padding: 0.25rem 1rem;
-  border: 1.5px solid var(--color-2);
+  border: 2px solid var(--color-2);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: var(--color-3);
@@ -55,7 +55,7 @@ pre {
 pre > div[dir="ltr"] > pre {
   border-radius: 10px;
   margin-top: 0 !important;
-  border: 1.5px solid var(--color-2) !important;
+  border: 2px solid var(--color-2) !important;
   border-bottom-left-radius: 10px !important;
   border-bottom-right-radius: 10px !important;
 }

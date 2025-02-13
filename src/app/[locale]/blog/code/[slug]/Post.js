@@ -23,15 +23,16 @@ export default function Post({ metaData, content, translation }) {
       let title = h2.children.replace(/\s+/g, "-");
 
       return (
-        <h2 id={title} className="">
+        <h2 id={title} className="mt-12 text-2xl font-semibold text-neutral-800 dark:text-neutral-100 flex items-center post">
+          {h2.children}
           <a
             href={`#${title}`}
             aria-label={` ${h2.children} permalink`}
-            className=""
+            className="inline-block ltr:ml-3 rtl:mr-3 rotate-45"
           >
             <TitleIcon />
           </a>
-          {h2.children}
+          
         </h2>
       );
     },
@@ -122,7 +123,6 @@ export default function Post({ metaData, content, translation }) {
     },
 
     blockquote(blockquote) {
-      const { children } = blockquote;
       return (
         <blockquote className="mb-5 p-4 dark:bg-[#7878f00d] bg-[#f1f2fd] ltr:border-l-8 rounded-xl border-2 rtl:border-r-8 border-indigo-500 dark:border-indigo-300">
           <p className="text-base text-neutral-800 dark:text-neutral-300 ltr:first-letter:text-5xl ltr:first-letter:font-bold ltr:first-letter:mr-1 ltr:first-letter:float-left">

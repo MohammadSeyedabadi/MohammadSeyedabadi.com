@@ -123,16 +123,9 @@ export default function Post({ metaData, content, translation }) {
 
     blockquote(blockquote) {
       const { children } = blockquote;
-      console.log(
-        blockquote.children[1].props.children,
-        "+++++++++++++++++++++++",
-        blockquote.node.children[1].children[0].value
-      );
-      //  for light : bg-[#f1f2fd]
-      //  for dark  : dark:bg-[#7878f00d]
       return (
         <blockquote className="mb-5 p-4 dark:bg-[#7878f00d] bg-[#f1f2fd] ltr:border-l-8 rounded-xl border-2 rtl:border-r-8 border-indigo-500 dark:border-indigo-300">
-          <p className="text-base mb-5 text-neutral-800 dark:text-neutral-300 ltr:first-letter:text-5xl ltr:first-letter:font-bold ltr:first-letter:mr-1 ltr:first-letter:float-left">
+          <p className="text-base text-neutral-800 dark:text-neutral-300 ltr:first-letter:text-5xl ltr:first-letter:font-bold ltr:first-letter:mr-1 ltr:first-letter:float-left">
             {blockquote.children[1].props.children}
           </p>
         </blockquote>

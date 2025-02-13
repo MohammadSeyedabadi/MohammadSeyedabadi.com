@@ -13,7 +13,7 @@ tags:
   - reactjs
 ---
 
-This tutorial is a simplified version of [this tutorial](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) written by Ibadehin Mojeed.
+This `tutorial` is a simplified version of [this tutorial](https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/) written by Ibadehin Mojeed.
 If you want a complete explanation, you have to read his article. He also has another article where he explans
 how to make dropdown menus with CSS. You could check that out [here.](https://blog.logrocket.com/making-dropdown-menus-css/) At the end we will have something like this:
 
@@ -26,7 +26,7 @@ to use recursive functions. As in [GeeksForGeeks](https://www.geeksforgeeks.org/
 
 Basically a Recursive function is a function that calls it self, something like this:
 
-```js
+```js {"TITLE":"ada", "ADDED":[1,2], "HIGHLIGHT":[3], "REMOVE":[4]}
  myRecursiveFunction(){
     // some code
     myRecursiveFunction()

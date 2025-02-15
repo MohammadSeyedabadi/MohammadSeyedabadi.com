@@ -5,7 +5,7 @@ export default function TitleIcon() {
       width="25"
       height="25"
       fill="currentColor"
-      className="text-indigo-500 dark:text-indigo-300"
+      className="text-indigo-500 dark:text-indigo-300 ltr:ml-1 rtl:mr-1 rotate-45 opacity-0 hover:opacity-100 post"
       viewBox="0 0 16 16"
       focusable="false"
     >

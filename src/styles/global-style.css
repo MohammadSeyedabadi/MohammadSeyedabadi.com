@@ -114,11 +114,11 @@ u {
   text-decoration-thickness: 2px;
 }
 
-h2.post a {
+svg.post {
   opacity: 0;
 }
 
-h2.post:hover a {
+a.post:hover svg.post {
   opacity: 1;
 }
 

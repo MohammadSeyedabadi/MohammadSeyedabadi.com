@@ -62,15 +62,18 @@ export default async function page(props) {
       let title = h2.children.replace(/\s+/g, "-");
 
       return (
-        <h2 id={title} style={{ position: "relative" }}>
+        <h2
+          id={title}
+          className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 flex items-center border-b-2 border-neutral-300 dark:border-neutral-700 mt-12 mb-4  post"
+        >
+          {h2.children}
           <a
             href={`#${title}`}
             aria-label={` ${h2.children} permalink`}
-            className="anchor before"
+            className="inline-block ltr:ml-1 rtl:mr-1 rotate-45 opacity-0 hover:opacity-100"
           >
             <TitleIcon />
           </a>
-          {h2.children}
         </h2>
       );
     },
@@ -86,56 +89,70 @@ export default async function page(props) {
               <img
                 src={image.properties.src}
                 alt={image.properties.alt}
-                style={{ marginBottom: "20px", maxWidth: "100%" }}
+                className="mb-5 max-w-full"
               />
             </a>
           </div>
         );
       }
 
-      return <p>{paragraph.children}</p>;
+      return (
+        <p className="text-lg mb-5 text-neutral-800 dark:text-neutral-300 first-of-type:ltr:first-letter:text-[3.75rem] first-of-type:ltr:first-letter:leading-[3.5rem] first-of-type:ltr:first-letter:font-bold first-of-type:ltr:first-letter:mr-1 first-of-type:ltr:first-letter:float-left">
+          {paragraph.children}
+        </p>
+      );
     },
 
     a(anchor) {
       const { node } = anchor;
       return (
-        <a href={node.properties.href} target="_blank" rel="noreferrer">
+        <a
+          href={node.properties.href}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
+        >
           {node.children[0].value}
         </a>
+      );
+    },
+
+    blockquote(blockquote) {
+      return (
+        <blockquote className="mb-5 p-4 dark:bg-[#7878f00d] bg-[#f1f2fd] ltr:border-l-8 rounded-xl border-2 rtl:border-r-8 border-indigo-500 dark:border-indigo-300">
+          <p className="text-base text-neutral-800 dark:text-neutral-300 ltr:first-letter:text-5xl ltr:first-letter:font-bold ltr:first-letter:mr-1 ltr:first-letter:float-left">
+            {blockquote.children[1].props.children}
+          </p>
+        </blockquote>
       );
     },
   };
 
   return (
-    <div className="container">
+    <>
       <SetLang otherPageSlug={otherPageSlug} />
-      <div className="grid">
-        <div className="article-content">
-          <div className="post-header medium width">
-            <div className="mobile-post-image">
-              <img src={image} alt={title} />
-            </div>
+      <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
+        <div className="lg:col-span-8">
+          <img src={image} alt={title} className="max-w-14 mb-5 lg:hidden" />
 
-            <h1>{title}</h1>
-          </div>
-          <section className="segment small">
-            <div className="post-content">
-              <Markdown
-                remarkPlugins={[remarkGfm]}
-                components={customRenderers}
-              >
-                {content}
-              </Markdown>
-            </div>
+          <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
+            {title}
+          </h1>
+          <section>
+            <Markdown remarkPlugins={[remarkGfm]} components={customRenderers}>
+              {content}
+            </Markdown>
           </section>
         </div>
-        <div className="post-sidebar">
-          <div className="post-image">
-            <img src={image} alt={title} />
+        <aside className="lg:col-span-4 justify-self-center mt-8 w-full">
+          <div>
+            <img src={image} alt={title} className="max-w-36 mb-2 mx-auto" />
           </div>
-          <div className="post-sidebar-card">
-            <h2>{t("NoteDetails")}</h2>
-            <ul>
+          <div className="p-6 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500">
+            <h2 className="text-base uppercase font-bold text-neutral-800 dark:text-neutral-100">
+              {t("NoteDetails")}
+            </h2>
+            <ul className="mb-3 list-disc list-outside ms-5 text-sm text-neutral-800 dark:text-neutral-300">
               <li>
                 <strong>{t("Published")}:</strong> {createdAt}
               </li>
@@ -143,34 +160,42 @@ export default async function page(props) {
                 <strong>{t("LastEdited")}:</strong> {lastModified}
               </li>
             </ul>
-            <h2>{t("Tags")}:</h2>
-            <div className="tags">
+            <h2 className="text-base uppercase font-bold text-neutral-800 dark:text-neutral-100">
+              {t("Tags")}:
+            </h2>
+            <div className="flex items-center gap-x-1 gap-y-2 flex-wrap ps-0 list-none text-xs">
               {tags.map((tag) => {
                 return (
-                  <Link key={tag} href={`/tags/${tag}`} className="tag">
+                  <Link
+                    key={tag}
+                    href={`/tags/${tag}`}
+                    className="font-medium py-1 px-2 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 inline-block active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
+                  >
                     {tag}
                   </Link>
                 );
               })}
             </div>
-            <p style={{ marginTop: "2rem" }}>
+            <p className="mt-5">
               <a
                 href="https://mohammadseyedabadi.substack.com/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-base hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
               >
                 {t("SubscribeToTheNewsletter")}
               </a>
             </p>
           </div>
-        </div>
+        </aside>
       </div>
-    </div>
+    </>
   );
 }
 
 export async function getNote(locale, slug) {
   slug = locale == "en" ? slug : decodeURI(slug);
+  await new Promise((resolve) => setTimeout(resolve, 30000));
   try {
     const client = await clientpromise;
     const db = client.db("notes");

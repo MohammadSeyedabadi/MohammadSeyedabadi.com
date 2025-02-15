@@ -14,7 +14,7 @@ export function PostContentSkeleton() {
           <div className="w-[75%] h-4 mb-2 rounded bg-neutral-300 dark:bg-neutral-500" />
         </div>
         <aside className="lg:col-span-4 flex flex-col items-center mt-10">
-          <div className="h-20 w-20 rounded-full bg-neutral-300 dark:bg-neutral-500" />
+          <div className="w-[50%] h-20 rounded bg-neutral-300 dark:bg-neutral-500" />
           <div className="w-full h-40 rounded bg-neutral-300 dark:bg-neutral-500 mt-2" />
         </aside>
       </div>

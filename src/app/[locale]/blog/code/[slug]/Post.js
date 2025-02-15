@@ -21,19 +21,21 @@ export default function Post({ metaData, content, translation }) {
   const customRenderers = {
     h2(h2) {
       let title = h2.children.replace(/\s+/g, "-");
-
+      // hover:text-indigo-500 dark:hover:text-indigo-300 cursor-pointer
       return (
         <h2
           id={title}
-          className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 flex items-center border-b-2 border-neutral-300 dark:border-neutral-700 mt-12 mb-4  post"
+          className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 border-b-2 border-neutral-300 dark:border-neutral-700 mt-12 mb-4"
         >
-          {h2.children}
           <a
             href={`#${title}`}
-            aria-label={` ${h2.children} permalink`}
-            className="inline-block ltr:ml-1 rtl:mr-1 rotate-45 opacity-0 hover:opacity-100"
+            aria-label={`${h2.children} permalink`}
+            className="hover:text-indigo-500 dark:hover:text-indigo-300 post"
           >
-            <TitleIcon />
+            {h2.children}
+            <span className="inline-flex">
+              <TitleIcon />
+            </span>
           </a>
         </h2>
       );

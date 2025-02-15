@@ -19,7 +19,7 @@ export async function generateMetadata() {
 export default async function page(props) {
   const params = await props.params;
   const { locale } = params;
-  const allTags = await getAllTags(locale);
+  const allTags = await getAllTagsFromDB(locale);
   return (
     <div className="container">
       <div className="grid">
@@ -52,7 +52,7 @@ export default async function page(props) {
   );
 }
 
-export async function getAllTags(locale) {
+export async function getAllTagsFromDB(locale) {
   try {
     const client = await clientPromise;
     const db = client.db("notes");

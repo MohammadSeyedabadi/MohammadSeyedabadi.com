@@ -1,3 +1,4 @@
+// await new Promise((resolve) => setTimeout(resolve, 10000));
 export function PostContentSkeleton() {
   return (
     <div className="animate-pulse">
@@ -32,30 +33,43 @@ export function PostListSkeleton() {
   );
 }
 
-export function SkeletonTagsAndCategories() {
+export function TagsSkeleton() {
   return (
-    <div className="container">
-      <div className="grid">
-        <div className="article-content">
-          <div className="post-header medium width">
-            <div>
-              <div className="skeleton skeleton-title" />
-              <div className="skeleton skeleton-title" />
-            </div>
-          </div>
-          <section className="segment small">
-            <div className="post-content">
-              <div>
-                <div className="skeleton skeleton-text" />
-                <div className="skeleton skeleton-text" />
-                <div className="skeleton skeleton-text" />
-                <div className="skeleton skeleton-text" />
-                <div className="skeleton skeleton-text" />
-                <div className="skeleton skeleton-text" />
-                <div className="skeleton skeleton-text skeleton-text-last" />
-              </div>
-            </div>
-          </section>
+    <div className="animate-pulse">
+      <div className="mb-7">
+        <div className="h-5 w-5 rounded-full bg-neutral-300 dark:bg-neutral-500 mb-2" />
+        <div className="flex gap-3">
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+        </div>
+      </div>
+      <div className="mb-7">
+        <div className="h-5 w-5 rounded-full bg-neutral-300 dark:bg-neutral-500 mb-2" />
+        <div className="flex gap-3">
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+        </div>
+      </div>
+      <div className="mb-7">
+        <div className="h-5 w-5 rounded-full bg-neutral-300 dark:bg-neutral-500 mb-2" />
+        <div className="flex gap-3">
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+        </div>
+      </div>
+      <div className="mb-7">
+        <div className="h-5 w-5 rounded-full bg-neutral-300 dark:bg-neutral-500 mb-2" />
+        <div className="flex gap-3">
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
+          <div className="h-9 w-28 rounded bg-neutral-300 dark:bg-neutral-500 mb-2" />
         </div>
       </div>
     </div>

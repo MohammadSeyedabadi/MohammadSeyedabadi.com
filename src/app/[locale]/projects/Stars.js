@@ -28,13 +28,13 @@ export async function getRepos() {
     const repos = await fetch(
       "https://api.github.com/users/MohammadSeyedabadi/repos?per_page=100"
     );
-    // await new Promise((resolve) => setTimeout(resolve, 10000));
+
     return repos.json();
   } catch (error) {
     console.error(
       `Failed To Fetch Repos In /projects/stars.js. Error Message : ${error}`
     );
     // works when no internet
-    return null
+    return null;
   }
 }

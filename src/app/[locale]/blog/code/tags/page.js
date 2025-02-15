@@ -1,6 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import { getAllTags } from "@/posts/tags";
+import AlphabeticalTags from "@/components/AlphabeticalTags";
+import { Suspense } from "react";
+import { TagsSkeleton } from "@/components/skeletons";
 
 export async function generateMetadata() {
   const t = await getTranslations("Config");
@@ -20,7 +22,7 @@ export async function generateMetadata() {
 export default async function Tags(props) {
   const params = await props.params;
   const { locale } = params;
-  const allTags = getAllTags(locale);
+  
   const t = await getTranslations("Tags");
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8">
@@ -35,70 +37,9 @@ export default async function Tags(props) {
           {t("CodeLinkDesc")}
         </Link>
       </p>
-      {Object.entries(allTags).map(([key, value]) => {
-        return (
-          <div key={key} className="mb-7">
-            <h3 className="text-xl font-black mb-1">{key.toUpperCase()}</h3>
-            <div className="flex flex-wrap items-center gap-3">
-              {value.map((tag) => {
-                return (
-                  <>
-                    <Link
-                      key={tag}
-                      href={`/blog/code/tags/${tag}`}
-                      className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-                    >
-                      {tag}
-                    </Link>
-                  </>
-                );
-              })}
-              <Link
-                href={`/blog/code/tags/`}
-                className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-              >
-                Photoshop CC
-              </Link>   <Link
-                
-                href={`/blog/code/tags/`}
-                className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-              >
-                Photoshop CC
-              </Link>   <Link
-                
-                href={`/blog/code/tags/`}
-                className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-              >
-                Photoshop CC
-              </Link>   <Link
-                
-                href={`/blog/code/tags/`}
-                className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-              >
-                Photoshop CC
-              </Link>   <Link
-                
-                href={`/blog/code/tags/`}
-                className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-              >
-                Photoshop CC
-              </Link>   <Link
-                
-                href={`/blog/code/tags/`}
-                className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-              >
-                Photoshop CC
-              </Link>   <Link
-                
-                href={`/blog/code/tags/`}
-                className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-              >
-                Photoshop CC
-              </Link>
-            </div>
-          </div>
-        );
-      })}
+      <Suspense fallback={<TagsSkeleton />}>
+        <AlphabeticalTags locale={locale} />
+      </Suspense>
     </div>
   );
 }

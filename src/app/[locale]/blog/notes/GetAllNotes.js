@@ -28,7 +28,6 @@ export default async function GetAllNotes({ locale }) {
 }
 
 export async function getAllNotesPreviewData(locale) {
-  // await new Promise((resolve) => setTimeout(resolve, 100000));
   try {
     const client = await clientPromise;
     const db = client.db("notes");

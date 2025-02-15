@@ -77,6 +77,11 @@
     "SubscribeToTheNewsletter": "عضویت در خبرنامه"
   },
 
+  "Tags": {
+    "AllTags": "همه‌ی تگ‌ها",
+    "CodeLinkDesc": "یادداشت‌های مربوط به کد"
+  },
+
   "notes": {
     "NoteDetails": "جزئیات یادداشت",
     "Published": "انتشار در",

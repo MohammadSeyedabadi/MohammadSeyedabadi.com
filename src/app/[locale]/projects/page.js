@@ -23,7 +23,7 @@ export default function Projects(props) {
   const t = useTranslations("Projects");
   return (
     <>
-      <header className="col-span-3 max-w-6xl mx-auto px-4 sm:px-8">
+      <header className="max-w-6xl mx-auto px-4 sm:px-8">
         <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">{t("Projects")}</h1>
       </header>
       <section className="max-w-6xl mx-auto px-4 sm:px-8 my-12 md:my-8">

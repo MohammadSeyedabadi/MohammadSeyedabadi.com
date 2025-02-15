@@ -2,6 +2,7 @@ import Writings from "../Writings";
 import { getTranslations } from "next-intl/server";
 import GetAllNotes from "./GetAllNotes";
 import { Suspense } from "react";
+import { PostListSkeleton } from "@/components/skeletons";
 
 export async function generateMetadata() {
   const blogT = await getTranslations("blog");
@@ -32,28 +33,14 @@ export default async function Page(props) {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5 items-center">
       <section className="sm:col-span-3">
-        <header>
+        <header className="mb-10">
           <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
             {t("Writings")}
           </h1>
           <Writings translation={translation} />
         </header>
         <section>
-          <Suspense
-            fallback={
-              <>
-                <span className="relative flex h-6 w-6 rounded-full">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-300 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-6 w-6 bg-indigo-500 dark:bg-indigo-300" />
-                </span>
-                <div className="my-4 flex flex-col gap-y-4">
-                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
-                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
-                  <div className="animate-pulse h-8 bg-neutral-50 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500" />
-                </div>
-              </>
-            }
-          >
+          <Suspense fallback={<PostListSkeleton />}>
             <GetAllNotes locale={params.locale} />
           </Suspense>
         </section>

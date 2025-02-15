@@ -31,7 +31,7 @@ export default function Writings({ translation }) {
           {translation.Code}
         </Link>
       </div>
-      <p className="text-lg my-10 text-neutral-800 dark:text-neutral-300">
+      <p className="text-lg mt-10 text-neutral-800 dark:text-neutral-300">
         {pathName == "/blog/notes"
           ? translation.NotesDesc
           : translation.CodeDesc}

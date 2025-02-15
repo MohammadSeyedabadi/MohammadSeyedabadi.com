@@ -79,7 +79,8 @@
 
   "Tags":{
     "AllTags": "All Tags",
-    "CodeLinkDesc": "Notes related to code"
+    "CodeLinkDesc": "Notes related to code",
+    "NotesPage": "Notes page"
   },
 
   "notes": {

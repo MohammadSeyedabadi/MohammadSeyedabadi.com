@@ -1,8 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
-import AlphabeticalTags from "@/components/AlphabeticalTags";
 import { Suspense } from "react";
 import { TagsSkeleton } from "@/components/skeletons";
+import { getAllTags } from "@/posts/tags";
+import ArrangeTags from "@/components/ArrangeTags";
 
 export async function generateMetadata() {
   const t = await getTranslations("Config");
@@ -22,7 +23,7 @@ export async function generateMetadata() {
 export default async function Tags(props) {
   const params = await props.params;
   const { locale } = params;
-  
+
   const t = await getTranslations("Tags");
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8">
@@ -38,8 +39,13 @@ export default async function Tags(props) {
         </Link>
       </p>
       <Suspense fallback={<TagsSkeleton />}>
-        <AlphabeticalTags locale={locale} />
+        <FetchTags locale={locale} />
       </Suspense>
     </div>
   );
+}
+
+export async function FetchTags({ locale }) {
+  const allTags = await getAllTags(locale);
+  return <ArrangeTags allTags={allTags} />;
 }

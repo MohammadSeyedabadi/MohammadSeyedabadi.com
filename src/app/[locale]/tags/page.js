@@ -1,6 +1,9 @@
 import clientPromise from "@/utils/mongodb";
 import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
+import { TagsSkeleton } from "@/components/skeletons";
+import ArrangeTags from "@/components/ArrangeTags";
 
 export async function generateMetadata() {
   const t = await getTranslations("Config");
@@ -19,40 +22,29 @@ export async function generateMetadata() {
 export default async function page(props) {
   const params = await props.params;
   const { locale } = params;
-  const allTags = await getAllTagsFromDB(locale);
+
+  const t = await getTranslations("Tags");
   return (
-    <div className="container">
-      <div className="grid">
-        <div>
-          <p>
-            <Link href="/blog/notes">
-              {locale == "en" ? "← Notes page" : "→ یادداشت‌ها"}
-            </Link>
-          </p>
-          {Object.entries(allTags).map(([key, value]) => {
-            return (
-              <div key={key} className="alphabetical-tags">
-                <h3>{key.toUpperCase()}</h3>
-                <div className="tags">
-                  {value.map((tag) => {
-                    return (
-                      <Link key={tag} href={`/tags/${tag}`} className="tag">
-                        {tag}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div />
-      </div>
+    <div className="max-w-6xl mx-auto px-4 sm:px-8">
+      <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
+        {t("AllTags")}
+      </h1>
+      <p className="mb-6">
+        <Link
+          href="/blog/notes"
+          className="text-lg hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
+        >
+          {t("NotesPage")}
+        </Link>
+      </p>
+      <Suspense fallback={<TagsSkeleton />}>
+        <FetchTags locale={locale} />
+      </Suspense>
     </div>
   );
 }
 
-export async function getAllTagsFromDB(locale) {
+export async function FetchTags({ locale }) {
   try {
     const client = await clientPromise;
     const db = client.db("notes");
@@ -69,7 +61,8 @@ export async function getAllTagsFromDB(locale) {
         delete allTagsCopy[key];
       }
     }
-    return allTagsCopy;
+    return <ArrangeTags allTags={allTagsCopy} notes={true} />;
+    // return allTagsCopy;
   } catch (error) {
     throw new Error(e);
   }

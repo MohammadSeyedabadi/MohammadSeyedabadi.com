@@ -45,7 +45,7 @@ export default function Index() {
         </header>
 
         <div className="sm:col-span-2 max-w-[50vw] self-center justify-self-center">
-          <img src="/images/mandala-flower.PNG" alt="mandala flower" />
+          <img src="/images/mandala-flower.png" alt="mandala flower" />
         </div>
       </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-8">

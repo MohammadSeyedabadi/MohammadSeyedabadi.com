@@ -65,7 +65,7 @@ pre > div[dir="ltr"] > pre {
   border-top-right-radius: initial !important;
   padding: 1.25rem 0 !important;
 }
-/* must be for highlight, highkight doenst work without linenumbers */
+/* must be for highlight, highlight doenst work without linenumbers */
 .SHOWLINENUMBERS > pre {
   padding: 1.25rem 0 !important;
 }

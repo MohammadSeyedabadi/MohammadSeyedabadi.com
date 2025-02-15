@@ -31,7 +31,7 @@ export default async function Blog(props) {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5 items-center">
+    <div className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5">
       <section className="sm:col-span-3">
         <header className="mb-10">
           <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
@@ -46,7 +46,7 @@ export default async function Blog(props) {
           </Suspense>
         </section>
       </section>
-      <div className="sm:col-span-2"></div>
+      <div className="sm:col-span-2"/>
     </div>
   );
 }

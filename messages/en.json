@@ -77,10 +77,11 @@
     "SubscribeToTheNewsletter": "Subscribe to the Newsletter"
   },
 
-  "Tags":{
+  "Tags": {
     "AllTags": "All Tags",
     "CodeLinkDesc": "Notes related to code",
-    "NotesPage": "Notes page"
+    "NotesPage": "Notes page",
+    "AllTagsPage": "All Tags Page"
   },
 
   "notes": {

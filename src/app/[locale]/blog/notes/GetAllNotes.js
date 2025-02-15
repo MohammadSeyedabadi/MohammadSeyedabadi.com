@@ -45,7 +45,7 @@ export async function getAllNotesPreviewData(locale) {
         }
       )
       .toArray();
-
+    // same in tags > [tag] > page.js
     for (let notePreviewData of allNotesPreviewData) {
       const formattedDate = new Date(
         notePreviewData.createdAt

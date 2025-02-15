@@ -1,4 +1,3 @@
-import Hero from "@/components/Hero";
 import SetLang from "@/components/SetLang";
 import { Link } from "@/i18n/routing";
 import clientPromise from "@/utils/mongodb";
@@ -27,47 +26,47 @@ export default async function page(props) {
   tag = locale == "en" ? tag : decodeURI(tag);
   const { allNotesPreviewData, otherPageSlug } =
     await getAllNotesPreviewDataByTag(locale, tag);
-
+  const PostCount = allNotesPreviewData.length;
+  const t = await getTranslations("Tags");
   return (
-    <section className="container markdown-content">
+    <>
       <SetLang otherPageSlug={otherPageSlug} />
-      <div className="grid">
-        <div className="article-content">
-          <p>
-            <Link href="/tags">
-              {locale == "en" ? "← All Tags Page" : "→ همه تگ‌ها"}
-            </Link>
-          </p>
-          <Hero
-            subTitle={locale == "en" ? " posts tagged:" : " پست شامل تگ:"}
-            highlight={allNotesPreviewData.length}
-            title={tag}
-          />
-          <div className="segment">
-            <div className="posts">
-              {allNotesPreviewData.map((eachPostPreviewData) => {
-                const { lang, slug, title, createdAt } = eachPostPreviewData;
+      <header className="max-w-6xl mx-auto px-4 sm:px-8">
+        <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
+          {tag}
+        </h1>
+        <p className="text-lg text-neutral-800 dark:text-neutral-300 mb-3">
+          {PostCount} post {PostCount > 1 && "s"}
+        </p>
+        <Link
+          href="/tags"
+          className="text-lg hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
+        >
+          {t("AllTagsPage")}
+        </Link>
+      </header>
+      <section className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5 mt-10">
+        <div className="sm:col-span-3">
+          {allNotesPreviewData.map((eachPostPreviewData) => {
+            const { slug, title, createdAt } = eachPostPreviewData;
 
-                const formattedDate = new Date(createdAt).toLocaleDateString(
-                  lang === "fa" ? "fa-IR" : "en-US",
-                  {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  }
-                );
-                return (
-                  <Link key={slug} href={`/${slug}`} className="post">
-                    <h3>{title}</h3>
-                    <time>{formattedDate}</time>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
+            return (
+              <Link
+                key={slug}
+                href={`/${slug}`}
+                className="mb-4 flex items-center justify-between gap-3 font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
+              >
+                <h3 className="text-lg">{title}</h3>
+                <time className="hidden lg:inline font-mono text-sm">
+                  {createdAt}
+                </time>
+              </Link>
+            );
+          })}
         </div>
-      </div>
-    </section>
+        <div className="sm:col-span-2" />
+      </section>
+    </>
   );
 }
 
@@ -92,6 +91,17 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
         }
       )
       .toArray();
+    // same in blog > notes > GetAllNotes.js
+    for (let notePreviewData of allNotesPreviewData) {
+      const formattedDate = new Date(
+        notePreviewData.createdAt
+      ).toLocaleDateString(locale === "fa" ? "fa-IR" : "en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+      notePreviewData.createdAt = formattedDate;
+    }
 
     const firstNote = allNotesPreviewData[0];
     const tagIndex = firstNote.tags.indexOf(tag);

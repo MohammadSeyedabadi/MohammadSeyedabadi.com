@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import { TagsSkeleton } from "@/components/skeletons";
 import ArrangeTags from "@/components/ArrangeTags";
+import { getAllTags } from "@/posts/tags";
 
 export async function generateMetadata() {
   const t = await getTranslations("Config");
@@ -61,8 +62,38 @@ export async function FetchTags({ locale }) {
         delete allTagsCopy[key];
       }
     }
-    return <ArrangeTags allTags={allTagsCopy} notes={true} />;
-    // return allTagsCopy;
+
+    const allTagsInLocal = await getAllTags(locale);
+
+    const mergeObjects = (allTagsCopy, allTagsInLocal) => {
+      const merged = {};
+
+      const addWordsToMerged = (obj) => {
+        for (const [key, words] of Object.entries(obj)) {
+          words.forEach((word) => {
+            const startingLetter = word[0].toUpperCase();
+            if (!merged[startingLetter]) {
+              merged[startingLetter] = [];
+            }
+            merged[startingLetter].push(word);
+          });
+        }
+      };
+
+      addWordsToMerged(allTagsCopy);
+      addWordsToMerged(allTagsInLocal);
+
+      // Remove duplicates
+      for (const key in merged) {
+        merged[key] = [...new Set(merged[key])];
+      }
+
+      return merged;
+    };
+
+    const mergedResult = mergeObjects(allTagsCopy, allTagsInLocal);
+    
+    return <ArrangeTags allTags={mergedResult} notes={true} />;
   } catch (error) {
     throw new Error(e);
   }

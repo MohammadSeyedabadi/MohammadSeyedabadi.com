@@ -1,7 +1,9 @@
 import SetLang from "@/components/SetLang";
 import { Link } from "@/i18n/routing";
 import clientPromise from "@/utils/mongodb";
+import { get_all_codes_by_tag_preview_data } from "@/utils/posts-util";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props) {
   const params = await props.params;
@@ -13,8 +15,8 @@ export async function generateMetadata(props) {
     description: t("TagsList"),
     alternates: {
       languages: {
-        en: "/en/blog/notes",
-        fa: "/fa/تگ-ها",
+        en: `/en/tags/${tag}`,
+        fa: `/fa/تگ-ها/${tag}`,
       },
     },
   };
@@ -24,9 +26,10 @@ export default async function page(props) {
   const params = await props.params;
   let { locale, tag } = params;
   tag = locale == "en" ? tag : decodeURI(tag);
-  const { allNotesPreviewData, otherPageSlug } =
+  const { postsInDBAndLocal, otherPageSlug } =
     await getAllNotesPreviewDataByTag(locale, tag);
-  const PostCount = allNotesPreviewData.length;
+  console.log(postsInDBAndLocal, otherPageSlug);
+  const PostCount = postsInDBAndLocal.length;
   const t = await getTranslations("Tags");
   return (
     <>
@@ -47,7 +50,7 @@ export default async function page(props) {
       </header>
       <section className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5 mt-10">
         <div className="sm:col-span-3">
-          {allNotesPreviewData.map((eachPostPreviewData) => {
+          {postsInDBAndLocal.map((eachPostPreviewData) => {
             const { slug, title, createdAt } = eachPostPreviewData;
 
             return (
@@ -81,7 +84,6 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
         {
           projection: {
             _id: 0,
-            lang: 1,
             title: 1,
             slug: 1,
             otherPageSlug: 1,
@@ -91,36 +93,65 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
         }
       )
       .toArray();
-    // same in blog > notes > GetAllNotes.js
-    for (let notePreviewData of allNotesPreviewData) {
-      const formattedDate = new Date(
-        notePreviewData.createdAt
-      ).toLocaleDateString(locale === "fa" ? "fa-IR" : "en-US", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      });
-      notePreviewData.createdAt = formattedDate;
+
+    let postsInDBAndLocal;
+    let otherPageSlug;
+
+    if (allNotesPreviewData.length != 0) {
+      const firstNote = allNotesPreviewData[0];
+      const tagIndex = firstNote.tags.indexOf(tag);
+
+      const firstNoteInOtherLang = await db
+        .collection(locale == "en" ? "fa" : "en")
+        .find(
+          { slug: firstNote.otherPageSlug },
+          { projection: { _id: 0, tags: 1 } }
+        )
+        .toArray();
+
+      otherPageSlug = firstNoteInOtherLang[0].tags[tagIndex];
+    }
+    let all_codes_preview_metaData;
+    if (otherPageSlug) {
+      const data = await get_all_codes_by_tag_preview_data(locale, tag);
+      all_codes_preview_metaData = data.all_codes_preview_metaData;
+    } else {
+      const data = await get_all_codes_by_tag_preview_data(locale, tag, true);
+      all_codes_preview_metaData = data.all_codes_preview_metaData;
+      otherPageSlug = data.tagInOtherLang;
     }
 
-    const firstNote = allNotesPreviewData[0];
-    const tagIndex = firstNote.tags.indexOf(tag);
+    // console.log(
+    //   all_codes_preview_metaData,
+    //   "aaaaaaaaaaaaaaaaaaaaa",
+    //   allNotesPreviewData,
+    //   ">>>>",
+    //   otherPageSlug
+    // );
+    postsInDBAndLocal = [...all_codes_preview_metaData, ...allNotesPreviewData];
 
-    const firstNoteInOtherLang = await db
-      .collection(locale == "en" ? "fa" : "en")
-      .find(
-        { slug: firstNote.otherPageSlug },
-        { projection: { _id: 0, tags: 1 } }
-      )
-      .toArray();
-
-    const otherPageSlug = firstNoteInOtherLang[0].tags[tagIndex];
-    return { allNotesPreviewData, otherPageSlug };
+    if (!postsInDBAndLocal.length) {
+      throw new Error("");
+    }
+    // // same in blog > notes > GetAllNotes.js
+    for (let post of postsInDBAndLocal) {
+      const formattedDate = new Date(post.createdAt).toLocaleDateString(
+        locale === "fa" ? "fa-IR" : "en-US",
+        {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        }
+      );
+      post.createdAt = formattedDate;
+    }
+    return { postsInDBAndLocal, otherPageSlug };
   } catch (e) {
     console.error(
       e,
       "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Error in tags/[tag]/page.js"
     );
-    throw new Error(""); // good for production
+    notFound();
+    // throw new Error(""); // good for production ( user )
   }
 }

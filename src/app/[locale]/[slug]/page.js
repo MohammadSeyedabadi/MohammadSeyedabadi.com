@@ -184,7 +184,7 @@ export default async function page(props) {
                 );
               })}
             </div>
-            <p className="mt-5">
+            {/* <p className="mt-5">
               <a
                 href="https://mohammadseyedabadi.substack.com/"
                 target="_blank"
@@ -193,7 +193,7 @@ export default async function page(props) {
               >
                 {t("SubscribeToTheNewsletter")}
               </a>
-            </p>
+            </p> */}
           </div>
         </aside>
       </div>

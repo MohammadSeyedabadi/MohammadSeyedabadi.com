@@ -114,6 +114,7 @@
     "postErrorExplanation": "پست موردنظر پیدا نشد.",
     "restErrorExplanation": "صفحه‌ی مورد نظر پیدا نشد.",
     "goBack": "برگشت",
-    "goBackToMainPage": "بازگشت به صفحه‌ی اصلی"
+    "goBackToMainPage": "بازگشت به صفحه‌ی اصلی",
+    "goBackToNotesPage": "بازگشت به صفحه‌ی یادداشت‌ها"
   }
 }

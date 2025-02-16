@@ -116,6 +116,7 @@
     "postErrorExplanation": "Could not find the requested blog post.",
     "restErrorExplanation": "Could not find the requested page.",
     "goBack": "Go Back",
-    "goBackToMainPage": "Go back to Home page."
+    "goBackToMainPage": "Go back to Home page.",
+    "goBackToNotesPage": "Go Back To Notes Page"
   }
 }

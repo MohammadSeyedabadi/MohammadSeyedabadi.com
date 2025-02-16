@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import TitleIcon from "@/assets/TitleIcon";
 import SetLang from "@/components/SetLang";
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props) {
   const params = await props.params;
@@ -26,18 +27,25 @@ export async function generateMetadata(props) {
       }
     );
 
-    return {
-      title: `${note.title} | ${t("SiteTitle")}`,
-      description: note.excerpt,
-      alternates: {
-        languages: {
-          en: "/en/blog/notes",
-          fa: "/fa/بلاگ/یادداشت-ها",
+    if (note) {
+      return {
+        title: `${note.title} | ${t("SiteTitle")}`,
+        description: note.excerpt,
+        alternates: {
+          languages: {
+            en: "/en/blog/notes",
+            fa: "/fa/بلاگ/یادداشت-ها",
+          },
         },
-      },
-    };
+      };
+    } else {
+      throw new Error(
+        "Note Not Found In Meta Export In [locale] > [slug] > page.js"
+      );
+    }
   } catch (e) {
     console.error(e);
+    notFound();
   }
 }
 
@@ -195,7 +203,6 @@ export default async function page(props) {
 
 export async function getNote(locale, slug) {
   slug = locale == "en" ? slug : decodeURI(slug);
-  await new Promise((resolve) => setTimeout(resolve, 30000));
   try {
     const client = await clientpromise;
     const db = client.db("notes");
@@ -210,27 +217,34 @@ export async function getNote(locale, slug) {
       }
     );
 
-    function getFormatedDate(date) {
-      const formattedDate = new Date(date).toLocaleDateString(
-        locale === "fa" ? "fa-IR" : "en-US",
-        {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
-        }
+    if (note) {
+      function getFormatedDate(date) {
+        const formattedDate = new Date(date).toLocaleDateString(
+          locale === "fa" ? "fa-IR" : "en-US",
+          {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          }
+        );
+        return formattedDate;
+      }
+
+      note.createdAt = getFormatedDate(note.createdAt);
+      note.lastModified = getFormatedDate(note.lastModified);
+
+      return note;
+    } else {
+      throw new Error(
+        "Note Not Found In getNote Function In [locale] > [slug] > page.js"
       );
-      return formattedDate;
     }
-
-    note.createdAt = getFormatedDate(note.createdAt);
-    note.lastModified = getFormatedDate(note.lastModified);
-
-    return note;
     // return {
     //   props: { allNotesTitle: JSON.parse(JSON.stringify(allNotesTitle)) },
     // };
   } catch (e) {
     console.error(e);
+    notFound();
     // return {
     //   props: { allNotesTitle: [] },
     // };

@@ -1,9 +1,8 @@
 "use client";
 import { useEffect } from "react";
-import S from "./tictactoe.module.css";
 
 export default function TicTacToe({ translation }) {
-  const { youWin, youLose, tieGame, replay } = translation;
+  const { youWin, youLose, tieGame, replay, ticTacToe } = translation;
   useEffect(() => {
     var origBoard;
     const huPlayer = "O";
@@ -30,7 +29,11 @@ export default function TicTacToe({ translation }) {
       for (var i = 0; i < cells.length; i++) {
         cells[i].innerText = "";
         // cells[i].style.removeProperty("background-color");
-        cells[i].classList.remove("huPlayer", "aiPlayer", "tieGame");
+        cells[i].classList.remove(
+          "bg-indigo-500",
+          "bg-rose-500",
+          "bg-green-500"
+        );
         cells[i].addEventListener("click", turnClick, false);
       }
     }
@@ -72,7 +75,7 @@ export default function TicTacToe({ translation }) {
         document
           .getElementById(index)
           .classList.add(
-            `${gameWon.player == huPlayer ? "huPlayer" : "aiPlayer"}`
+            `${gameWon.player == huPlayer ? "bg-indigo-500" : "bg-rose-500"}`
           );
       }
       for (var i = 0; i < cells.length; i++) {
@@ -98,7 +101,7 @@ export default function TicTacToe({ translation }) {
     function checkTie() {
       if (emptySquares().length == 0) {
         for (var i = 0; i < cells.length; i++) {
-          cells[i].classList.add("tieGame");
+          cells[i].classList.add("bg-green-500");
           cells[i].removeEventListener("click", turnClick, false);
         }
         declareWinner(tieGame);
@@ -159,35 +162,64 @@ export default function TicTacToe({ translation }) {
     }
   });
   return (
-    <aside className="post-sidebar">
-      <div className="post-sidebar-card">
-        <h2>Tic Tac Toe</h2>
-        <table className={S.table}>
+    <aside className="sm:col-span-4">
+      <div className="p-6 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 dark:bg-neutral-800 dark:border-neutral-500">
+        <h2 className="uppercase font-bold text-sm mb-2">{ticTacToe}</h2>
+        <table>
           <tbody>
-            <tr className={S.tr}>
-              <td className={`cell ${S.td}`} id="0"></td>
-              <td className={`cell ${S.td}`} id="1"></td>
-              <td className={`cell ${S.td}`} id="2"></td>
+            <tr>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="0"
+              ></td>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="1"
+              ></td>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="2"
+              ></td>
             </tr>
           </tbody>
           <tbody>
-            <tr className={S.tr}>
-              <td className={`cell ${S.td}`} id="3"></td>
-              <td className={`cell ${S.td}`} id="4"></td>
-              <td className={`cell ${S.td}`} id="5"></td>
+            <tr>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="3"
+              ></td>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="4"
+              ></td>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="5"
+              ></td>
             </tr>
           </tbody>
           <tbody>
-            <tr className={S.tr}>
-              <td className={`cell ${S.td}`} id="6"></td>
-              <td className={`cell ${S.td}`} id="7"></td>
-              <td className={`cell ${S.td}`} id="8"></td>
+            <tr>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="6"
+              ></td>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="7"
+              ></td>
+              <td
+                className="cell border-2 border-neutral-300 dark:border-neutral-500 h-20 w-20 text-center align-middle font-[fantcy] text-4xl cursor-pointer"
+                id="8"
+              ></td>
             </tr>
           </tbody>
         </table>
-        <div className={`endgame ${S.endgame}`}>
-          <div className={`text ${S.text}`}></div>
-          <button className="Replay">{replay}</button>
+        <div className="endgame">
+          <div className="text uppercase font-bold text-lg"></div>
+          <button className="Replay text-base font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-neutral-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-neutral-300 active:scale-95">
+            {replay}
+          </button>
         </div>
       </div>
     </aside>

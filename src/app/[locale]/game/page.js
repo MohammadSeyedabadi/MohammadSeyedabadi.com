@@ -1,11 +1,10 @@
-import Hero from "@/components/Hero";
 import TicTacToe from "@/components/games/Tic Tac Toe/TicTocToe";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata(props) {
-  const params = await props.params;
-  const { locale } = params;
+export async function generateMetadata() {
+  // const params = await props.params;
+  // const { locale } = params;
   const Config = await getTranslations("Config");
   const Game = await getTranslations("Game");
   return {
@@ -20,7 +19,6 @@ export async function generateMetadata(props) {
   };
 }
 
-
 export default function Game() {
   const t = useTranslations("Game");
   const translation = {
@@ -28,23 +26,22 @@ export default function Game() {
     youLose: t("youLose"),
     tieGame: t("tieGame"),
     replay: t("replay"),
+    ticTacToe: t("TicTacToe")
   };
   return (
-    <>
-      <div className="container">
-        <div className="grid">
-          <div className="article-content">
-            {/* <Hero title={t("game")} /> */}
+    <div className="sm:grid sm:grid-cols-12 max-w-6xl mx-auto px-4 sm:px-8 gap-24">
+      <section className="sm:col-span-8">
+        <header className="mb-12 md:mb-8">
+          <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100">
+            {t("game")}
+          </h1>
+        </header>
 
-            <section className="segment small">
-              <div className="post-content">
-                <p>{t("descOne")}</p>
-              </div>
-            </section>
-          </div>
-          <TicTacToe translation={translation} />
-        </div>
-      </div>
-    </>
+        <p className="text-lg mb-5 text-neutral-800 dark:text-neutral-300">
+          {t("descOne")}
+        </p>
+      </section>
+      <TicTacToe translation={translation} />
+    </div>
   );
 }

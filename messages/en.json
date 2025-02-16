@@ -80,7 +80,8 @@
   "Tags": {
     "AllTags": "All Tags",
     "CodeLinkDesc": "Notes related to code",
-    "AllTagsPage": "All Tags Page"
+    "AllTagsPage": "All Tags Page",
+    "Post": "post"
   },
 
   "notes": {

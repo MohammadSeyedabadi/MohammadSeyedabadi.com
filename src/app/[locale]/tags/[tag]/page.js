@@ -28,7 +28,7 @@ export default async function page(props) {
   tag = locale == "en" ? tag : decodeURI(tag);
   const { postsInDBAndLocal, otherPageSlug } =
     await getAllNotesPreviewDataByTag(locale, tag);
- 
+
   const PostCount = postsInDBAndLocal.length;
   const t = await getTranslations("Tags");
   return (
@@ -39,7 +39,7 @@ export default async function page(props) {
           {tag}
         </h1>
         <p className="text-lg text-neutral-800 dark:text-neutral-300 mb-3">
-          {PostCount} post {PostCount > 1 && "s"}
+          {PostCount} {t("Post")} {PostCount > 1 && locale ? "s" : ""}
         </p>
         <Link
           href="/tags"

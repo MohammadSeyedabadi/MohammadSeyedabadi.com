@@ -22,13 +22,15 @@ export default function Projects(props) {
   const params = use(props.params);
   const t = useTranslations("Projects");
   return (
-    <>
-      <header className="max-w-6xl mx-auto px-4 sm:px-8">
-        <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">{t("Projects")}</h1>
+    <div className="max-w-6xl mx-auto px-4 sm:px-8">
+      <header className="">
+        <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100">
+          {t("Projects")}
+        </h1>
       </header>
-      <section className="max-w-6xl mx-auto px-4 sm:px-8 my-12 md:my-8">
+      <section className="my-12 md:my-8">
         <ProjectPreview params={params} />
       </section>
-    </>
+    </div>
   );
 }

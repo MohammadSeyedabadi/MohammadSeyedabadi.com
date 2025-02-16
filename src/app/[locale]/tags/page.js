@@ -1,5 +1,4 @@
 import clientPromise from "@/utils/mongodb";
-import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import { TagsSkeleton } from "@/components/skeletons";
@@ -27,20 +26,14 @@ export default async function page(props) {
   const t = await getTranslations("Tags");
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8">
-      <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
+      <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100">
         {t("AllTags")}
       </h1>
-      <p className="mb-6">
-        <Link
-          href="/blog/notes"
-          className="text-lg hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
-        >
-          {t("NotesPage")}
-        </Link>
-      </p>
-      <Suspense fallback={<TagsSkeleton />}>
-        <FetchTags locale={locale} />
-      </Suspense>
+      <section className="my-12 md:my-8">
+        <Suspense fallback={<TagsSkeleton />}>
+          <FetchTags locale={locale} />
+        </Suspense>
+      </section>
     </div>
   );
 }
@@ -92,7 +85,7 @@ export async function FetchTags({ locale }) {
     };
 
     const mergedResult = mergeObjects(allTagsCopy, allTagsInLocal);
-    
+
     return <ArrangeTags allTags={mergedResult} notes={true} />;
   } catch (error) {
     throw new Error(e);

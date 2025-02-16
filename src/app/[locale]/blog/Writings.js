@@ -36,7 +36,7 @@ export default function Writings({ translation }) {
           ? translation.NotesDesc
           : translation.CodeDesc}
         <Link
-          href={pathName == "/blog/notes" ? "/tags" : "/blog/code/tags"}
+          href="/tags"
           className="hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
         >
           {translation.ViewAllTags}

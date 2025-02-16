@@ -41,16 +41,6 @@ export const routing = defineRouting({
       fa: "/بلاگ/کد",
     },
 
-    "/blog/code/tags": {
-      en: "/blog/code/tags",
-      fa: "/بلاگ/کد/تگ-ها",
-    },
-
-    "/blog/code/tags/[tag]": {
-      en: "/blog/code/tags/[tag]",
-      fa: "/بلاگ/کد/تگ-ها/[tag]",
-    },
-
     "/blog/code/[slug]": {
       en: "/blog/code/[slug]",
       fa: "/بلاگ/کد/[slug]",

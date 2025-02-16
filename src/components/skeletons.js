@@ -75,3 +75,23 @@ export function TagsSkeleton() {
     </div>
   );
 }
+
+export function TagSkeleton() {
+  return (
+    <div className="animate-pulse">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8">
+        <div className="h-8 w-[30%] rounded-xl bg-neutral-300 dark:bg-neutral-500" />
+        <div className="my-3 h-8 w-[10%] rounded-xl bg-neutral-300 dark:bg-neutral-500" />
+        <div className="h-8 w-[20%] rounded-xl bg-neutral-300 dark:bg-neutral-500" />
+      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5 mt-10">
+        <div className="my-4 flex flex-col gap-y-4 sm:col-span-3">
+          <div className="h-8 rounded-xl bg-neutral-300 dark:bg-neutral-500" />
+          <div className="h-8 rounded-xl bg-neutral-300 dark:bg-neutral-500" />
+          <div className="h-8 rounded-xl bg-neutral-300 dark:bg-neutral-500" />
+        </div>
+        <div className="sm:col-span-2" />
+      </div>
+    </div>
+  );
+}

@@ -67,7 +67,7 @@ export default async function sitemap({ id }) {
       };
       allNotesInfoForSiteMap.push(eachNoteInfo);
     }
-    console.log(allNotesInfoForSiteMap);
+    // console.log(allNotesInfoForSiteMap);
   
   ///////////////////////////////////////////////////////////// general notes
 
@@ -165,17 +165,6 @@ function returnEnPages(
     },
 
     {
-      url: `${baseUrl}/${id}/blog/code/tags`,
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/blog/code/tags`,
-          fa: `${baseUrl}/fa/بلاگ/کد/تگ-ها`,
-        },
-      },
-    },
-
-    {
       url: `${baseUrl}/${id}/blog/notes`,
       lastModified: new Date(),
       alternates: {
@@ -264,17 +253,6 @@ function returnFaPages(
         languages: {
           en: `${baseUrl}/en/blog/code`,
           fa: `${baseUrl}/fa/بلاگ/کد`,
-        },
-      },
-    },
-
-    {
-      url: `${baseUrl}/${id}/بلاگ/کد/تگ-ها`,
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          en: `${baseUrl}/en/blog/code/tags`,
-          fa: `${baseUrl}/fa/بلاگ/کد/تگ-ها`,
         },
       },
     },

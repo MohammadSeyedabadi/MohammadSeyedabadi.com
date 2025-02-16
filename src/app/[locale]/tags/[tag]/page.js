@@ -28,7 +28,7 @@ export default async function page(props) {
   tag = locale == "en" ? tag : decodeURI(tag);
   const { postsInDBAndLocal, otherPageSlug } =
     await getAllNotesPreviewDataByTag(locale, tag);
-  console.log(postsInDBAndLocal, otherPageSlug);
+ 
   const PostCount = postsInDBAndLocal.length;
   const t = await getTranslations("Tags");
   return (
@@ -94,8 +94,7 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
       )
       .toArray();
 
-    let postsInDBAndLocal;
-    let otherPageSlug;
+    let postsInDBAndLocal, otherPageSlug;
 
     if (allNotesPreviewData.length != 0) {
       const firstNote = allNotesPreviewData[0];
@@ -121,13 +120,6 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
       otherPageSlug = data.tagInOtherLang;
     }
 
-    // console.log(
-    //   all_codes_preview_metaData,
-    //   "aaaaaaaaaaaaaaaaaaaaa",
-    //   allNotesPreviewData,
-    //   ">>>>",
-    //   otherPageSlug
-    // );
     postsInDBAndLocal = [...all_codes_preview_metaData, ...allNotesPreviewData];
 
     if (!postsInDBAndLocal.length) {

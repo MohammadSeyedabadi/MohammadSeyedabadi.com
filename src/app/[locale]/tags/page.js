@@ -76,12 +76,23 @@ export async function FetchTags({ locale }) {
       addWordsToMerged(allTagsCopy);
       addWordsToMerged(allTagsInLocal);
 
-      // Remove duplicates
-      for (const key in merged) {
-        merged[key] = [...new Set(merged[key])];
-      }
+      // // Remove duplicates
+      // for (const key in merged) {
+      //   merged[key] = [...new Set(merged[key])];
+      // }
+      // return merged;
+      /////////////////////////////////////////////
+      // Remove duplicates and sort keys
+      const sortedMerged = {};
+      Object.keys(merged)
+        .sort()
+        .forEach((key) => {
+          sortedMerged[key] = [...new Set(merged[key])];
+        });
 
-      return merged;
+      return sortedMerged;
+
+     
     };
 
     const mergedResult = mergeObjects(allTagsCopy, allTagsInLocal);

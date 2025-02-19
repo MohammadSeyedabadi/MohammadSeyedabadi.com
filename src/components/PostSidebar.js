@@ -50,7 +50,7 @@ export default function PostSidebar({ metaData, translation }) {
             return (
               <Link
                 key={tag}
-                href={`/blog/code/tags/${tag}`}
+                href={`/tags/${tag}`}
                 className="font-medium py-1 px-2 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 inline-block active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
               >
                 {tag}

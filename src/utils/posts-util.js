@@ -53,8 +53,9 @@ export async function get_all_codes_by_tag_preview_data(
     parsedFileContent = matter(fileContent);
 
     if (parsedFileContent.data.tags.includes(tagSlug)) {
-      const { lang, slug, title, createdAt } = parsedFileContent.data;
+      const { local, lang, slug, title, createdAt } = parsedFileContent.data;
       metaData = {
+        local,
         lang,
         slug,
         title,

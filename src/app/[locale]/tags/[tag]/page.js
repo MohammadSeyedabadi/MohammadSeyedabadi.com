@@ -167,7 +167,7 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
         }
       }
     }
-
+    // console.log(result)
     if (locale == "en") {
       const sortedEntries = Object.entries(result).sort(
         ([keyA], [keyB]) => Number(keyB) - Number(keyA)

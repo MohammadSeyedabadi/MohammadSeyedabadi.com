@@ -32,7 +32,7 @@ export default async function Blog(props) {
   };
 
   const sortedEntries = sortCodes(allCodes, locale);
-  console.log(sortedEntries);
+  // console.log(sortedEntries);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5">

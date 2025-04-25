@@ -26,10 +26,9 @@ export default async function page(props) {
   const params = await props.params;
   let { locale, tag } = params;
   tag = locale == "en" ? tag : decodeURI(tag);
-  const { postsInDBAndLocal, otherPageSlug } =
+  const { sortedEntries, otherPageSlug, PostCount } =
     await getAllNotesPreviewDataByTag(locale, tag);
 
-  const PostCount = postsInDBAndLocal.length;
   const t = await getTranslations("Tags");
   return (
     <>
@@ -39,7 +38,8 @@ export default async function page(props) {
           {tag}
         </h1>
         <p className="text-lg text-neutral-800 dark:text-neutral-300 mb-3">
-          {PostCount} {t("Post")} {PostCount > 1 && locale ? "s" : ""}
+          {PostCount} {t("Post")}
+          {PostCount > 1 && locale == "en" ? "s" : ""}
         </p>
         <Link
           href="/tags"
@@ -50,20 +50,30 @@ export default async function page(props) {
       </header>
       <section className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5 mt-10">
         <div className="sm:col-span-3">
-          {postsInDBAndLocal.map((eachPostPreviewData) => {
-            const { local, slug, title, createdAt } = eachPostPreviewData;
-
+          {sortedEntries.map(([year, posts]) => {
             return (
-              <Link
-                key={slug}
-                href={local ? `/blog/code/${slug}` : `/${slug}`}
-                className="mb-4 flex items-center justify-between gap-3 font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
-              >
-                <h3 className="text-lg">{title}</h3>
-                <time className="hidden lg:inline font-mono text-sm">
-                  {createdAt}
+              <div key={year} className="mb-7">
+                <time className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 mb-1">
+                  {locale == "en" ? year : posts[0].faYear}
                 </time>
-              </Link>
+                <div className="text-lg">
+                  {posts.map((post) => {
+                    const { local, slug, title, createdAt } = post;
+                    return (
+                      <Link
+                        key={slug}
+                        href={local ? `/blog/code/${slug}` : `/${slug}`}
+                        className="mb-4 flex items-center justify-between gap-3 font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
+                      >
+                        <h3 className="text-lg">{title}</h3>
+                        <time className="hidden lg:inline font-mono">
+                          {createdAt}
+                        </time>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             );
           })}
         </div>
@@ -94,7 +104,7 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
       )
       .toArray();
 
-    let postsInDBAndLocal, otherPageSlug;
+    let otherPageSlug;
 
     if (allNotesPreviewData.length != 0) {
       const firstNote = allNotesPreviewData[0];
@@ -110,34 +120,110 @@ export async function getAllNotesPreviewDataByTag(locale, tag) {
 
       otherPageSlug = firstNoteInOtherLang[0].tags[tagIndex];
     }
-    let all_codes_preview_metaData;
+    let result;
     if (otherPageSlug) {
-      const data = await get_all_codes_by_tag_preview_data(locale, tag);
-      all_codes_preview_metaData = data.all_codes_preview_metaData;
+      result = get_all_codes_by_tag_preview_data(locale, tag);
     } else {
-      const data = await get_all_codes_by_tag_preview_data(locale, tag, true);
-      all_codes_preview_metaData = data.all_codes_preview_metaData;
-      otherPageSlug = data.tagInOtherLang;
+      let data = get_all_codes_by_tag_preview_data(locale, tag, true);
+      result = data.result;
+      otherPageSlug = data.otherPageSlug;
     }
 
-    postsInDBAndLocal = [...all_codes_preview_metaData, ...allNotesPreviewData];
+    for (let notePreview of allNotesPreviewData) {
+      let fullYear = notePreview.createdAt.getFullYear();
+      // Initialize result[year] as an array if it doesn't exist
+      if (!result[fullYear]) {
+        result[fullYear] = [];
+      }
+      // Add each post's metadata to the array for the correct year
+      result[fullYear].push({ ...notePreview });
+    }
 
-    if (!postsInDBAndLocal.length) {
+    if (!result) {
       throw new Error("");
     }
-    // // same in blog > notes > GetAllNotes.js
-    for (let post of postsInDBAndLocal) {
-      const formattedDate = new Date(post.createdAt).toLocaleDateString(
-        locale === "fa" ? "fa-IR" : "en-US",
-        {
-          day: "numeric",
-          month: "long",
-          year: "numeric",
+
+    let PostCount = 0;
+    for (const [key, posts] of Object.entries(result)) {
+      for (const eachPost of posts) {
+        PostCount++;
+        if (!eachPost.local) {
+          if (locale == "fa") {
+            const formattedYear = new Date(
+              eachPost.createdAt
+            ).toLocaleDateString("fa-IR", {
+              year: "numeric",
+            });
+            eachPost.faYear = formattedYear;
+          }
+
+          const formattedDayMonth = new Date(
+            eachPost.createdAt
+          ).toLocaleDateString(locale == "en" ? "en-US" : "fa-IR", {
+            month: "long",
+            day: "numeric",
+          });
+          eachPost.createdAt = formattedDayMonth;
         }
-      );
-      post.createdAt = formattedDate;
+      }
     }
-    return { postsInDBAndLocal, otherPageSlug };
+
+    if (locale == "en") {
+      const sortedEntries = Object.entries(result).sort(
+        ([keyA], [keyB]) => Number(keyB) - Number(keyA)
+      );
+
+      return { sortedEntries, otherPageSlug, PostCount };
+      // if(locale == "fa"){
+      //
+      // }
+    } else {
+      const groupedByFaYear = {};
+      // Loop over each array in the original object
+      Object.values(result).forEach((postArray) => {
+        // Loop over each post in the array
+        postArray.forEach((post) => {
+          // Get the faYear property from the post
+          const key = post.faYear;
+
+          // Initialize an array at this key if it doesn't exist already
+          if (!groupedByFaYear[key]) {
+            groupedByFaYear[key] = [];
+          }
+
+          // Push the post into the array for its faYear
+          groupedByFaYear[key].push(post);
+        });
+      });
+
+      // Helper function to convert Persian numbers to Arabic numbers
+      function convertPersianToArabicNumbers(persianNumber) {
+        const persianDigits = "۰۱۲۳۴۵۶۷۸۹"; // Persian digits
+        const arabicDigits = "0123456789"; // Arabic digits
+
+        return persianNumber
+          .split("")
+          .map((char) => {
+            const index = persianDigits.indexOf(char);
+            return index !== -1 ? arabicDigits[index] : char;
+          })
+          .join("");
+      }
+
+      // Sort the entries
+      const sortedEntries = Object.entries(groupedByFaYear).sort(
+        ([keyA], [keyB]) =>
+          Number(convertPersianToArabicNumbers(keyB)) -
+          Number(convertPersianToArabicNumbers(keyA))
+      );
+
+      // // Convert back to an object
+      // const sortedGroupedByFaYear = Object.fromEntries(sortedEntries);
+
+      // console.log(sortedGroupedByFaYear);
+      // console.log(sortedEntries)
+      return { sortedEntries, otherPageSlug, PostCount };
+    }
   } catch (e) {
     console.error(
       e,

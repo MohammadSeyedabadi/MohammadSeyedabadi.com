@@ -13,10 +13,10 @@ import remarkGfm from "remark-gfm";
 import Giscus from "@giscus/react";
 import TitleIcon from "@/assets/TitleIcon";
 
-export default function Post({ metaData, content, translation }) {
+export default function Post({ metaData, translation }) {
   const language = useParams().locale;
   const { ariaActive } = useContext(PreferencesContext);
-  const { title, image: postImage } = metaData;
+  const { title, image, content } = metaData;
 
   const customRenderers = {
     h2(h2) {
@@ -146,11 +146,7 @@ export default function Post({ metaData, content, translation }) {
     <>
       <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
         <div className="lg:col-span-8">
-          <img
-            src={postImage}
-            alt={title}
-            className="max-w-14 mb-5 lg:hidden"
-          />
+          <img src={image} alt={title} className="max-w-14 mb-5 lg:hidden" />
           <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
             {title}
           </h1>

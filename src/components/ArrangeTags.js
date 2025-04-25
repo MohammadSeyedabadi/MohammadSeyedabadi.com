@@ -6,7 +6,7 @@ export default function ArrangeTags({ allTags, notes }) {
       {Object.entries(allTags).map(([key, value]) => {
         return (
           <div key={key} className="mb-7">
-            <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-1">
+            <h3 className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 mb-1">
               {key.toUpperCase()}
             </h3>
             <div className="flex flex-wrap items-center gap-3">

@@ -99,9 +99,51 @@ th {
   border-bottom: 1px solid var(--color-4);
 }
 
-th {
+[data-theme="light"] tr:nth-child(even) {
+  background-color: #fda4ae3f;
+}
+
+[data-theme="dark"] tr:nth-child(even) {
+  background-color: #222222;
+}
+
+[data-theme="light"] tr:hover,
+[data-theme="dark"] tr:hover {
+  background-color: #a5b4fc;
+  color: black;
+}
+
+table > thead {
   background: var(--color-3);
   border-bottom: 2px solid var(--color-4);
+}
+
+ol {
+  list-style-type: disc;
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+[dir="rtl"] ol {
+  margin-right: 1rem;
+}
+
+[dir="rtl"] li > ol {
+  margin-right: 1rem;
+}
+
+[dir="ltr"] ol {
+  margin-left: 1rem;
+}
+
+[dir="ltr"] li > ol {
+  margin-left: 1rem;
+}
+
+ol li ol {
+  margin-bottom: 0;
+  list-style-type: circle;
 }
 
 mark {

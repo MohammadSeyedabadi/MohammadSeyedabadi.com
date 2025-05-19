@@ -21,6 +21,7 @@ export default function Post({ metaData, translation }) {
   const customRenderers = {
     h2(h2) {
       let title = h2.children.replace(/\s+/g, "-");
+
       // hover:text-indigo-500 dark:hover:text-indigo-300 cursor-pointer
       return (
         <h2
@@ -41,6 +42,27 @@ export default function Post({ metaData, translation }) {
       );
     },
 
+    h3(h3) {
+      let title = h3.children.replace(/\s+/g, "-");
+      return (
+        <h3
+          id={title}
+          className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mt-6 mb-2"
+        >
+          <a
+            href={`#${title}`}
+            aria-label={`${h3.children} permalink`}
+            className="hover:text-indigo-500 dark:hover:text-indigo-300 post"
+          >
+            {h3.children}
+            <span className="inline-flex">
+              <TitleIcon />
+            </span>
+          </a>
+        </h3>
+      );
+    },
+
     p(paragraph) {
       const { node } = paragraph;
 
@@ -53,6 +75,7 @@ export default function Post({ metaData, translation }) {
                 src={image.properties.src}
                 alt={image.properties.alt}
                 className="mb-5 max-w-full"
+                loading="lazy"
               />
             </a>
           </div>
@@ -119,10 +142,12 @@ export default function Post({ metaData, translation }) {
 
     a(anchor) {
       const { node } = anchor;
+      const href = node.properties.href;
+      const isInternalLink = href.startsWith("#");
       return (
         <a
           href={node.properties.href}
-          target="_blank"
+          target={`${isInternalLink ? "" : "_blank"}`}
           rel="noreferrer"
           className="hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
         >

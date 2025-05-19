@@ -15,7 +15,7 @@ const enPosts = {
         faYear: "۱۴۰۴",
         formattedLastModified: "May 19, 2025",
         faFormatedLastModified: "۲۹ اردیبهشت ۱۴۰۴",
-        image: "https://raw.githubusercontent.com/MohammadSeyedabadi/MohammadSeyedabadi.com/refs/heads/master/public/images/posts/how-to-create-a-multilevel-dropdown-menu-in-react/how-to-create-a-multilevel-dropdown-menu-in-react.png",
+        image: "/images/posts/performance-tuning-in-database/database.png",
         excerpt: "Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.",
         tags: [
           "database"
@@ -39,7 +39,7 @@ const enPosts = {
         faYear: "۱۴۰۲",
         formattedLastModified: "November 19, 2023",
         faFormatedLastModified: "۲۸ آبان ۱۴۰۲",
-        image: "https://raw.githubusercontent.com/MohammadSeyedabadi/MohammadSeyedabadi.com/refs/heads/master/public/images/posts/how-to-create-a-multilevel-dropdown-menu-in-react/how-to-create-a-multilevel-dropdown-menu-in-react.png",
+        image: "/images/posts/how-to-create-a-multilevel-dropdown-menu-in-react/how-to-create-a-multilevel-dropdown-menu-in-react.png",
         excerpt: "Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.",
         tags: [
           "front-end",
@@ -68,7 +68,7 @@ const faPosts = {
         faYear: "۱۴۰۴",
         formattedLastModified: "May 19, 2025",
         faFormatedLastModified: "۲۹ اردیبهشت ۱۴۰۴",
-        image: "https://raw.githubusercontent.com/MohammadSeyedabadi/MohammadSeyedabadi.com/refs/heads/master/public/images/posts/how-to-create-a-multilevel-dropdown-menu-in-react/how-to-create-a-multilevel-dropdown-menu-in-react.png",
+        image: "/images/posts/performance-tuning-in-database/database.png",
         excerpt: "تنظیم عملکرد در اس کیو ال سرور",
         tags: [
           "دیتابیس"
@@ -92,7 +92,7 @@ const faPosts = {
         faYear: "۱۴۰۲",
         formattedLastModified: "November 19, 2023",
         faFormatedLastModified: "۲۸ آبان ۱۴۰۲",
-        image: "https://raw.githubusercontent.com/MohammadSeyedabadi/MohammadSeyedabadi.com/refs/heads/master/public/images/posts/how-to-create-a-multilevel-dropdown-menu-in-react/how-to-create-a-multilevel-dropdown-menu-in-react.png",
+        image: "/images/posts/how-to-create-a-multilevel-dropdown-menu-in-react/how-to-create-a-multilevel-dropdown-menu-in-react.png",
         excerpt: "منوهای کشویی چند سطحی جزء اصلی طراحی وب هستند. آنها با توانایی ارائه چندین گزینه برای انتخاب، نوارهای ناوبری را پویا و سازماندهی می کنند.",
         tags: [
           "فرانت-اند",

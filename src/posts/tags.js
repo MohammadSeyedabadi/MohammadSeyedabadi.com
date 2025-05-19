@@ -2,14 +2,14 @@ const allEnTags = {
     R: [
       "reactjs"
     ],
+    F: [
+      "front-end"
+    ],
     A: [
       "algorithm"
     ],
     D: [
       "database"
-    ],
-    F: [
-      "front-end"
     ]
   };
 
@@ -17,14 +17,14 @@ const allFaTags = {
     ر: [
       "ریکت-جی-اس"
     ],
-    د: [
-      "دیتابیس"
-    ],
     ف: [
       "فرانت-اند"
     ],
     ا: [
       "الگوریتم"
+    ],
+    د: [
+      "دیتابیس"
     ]
   };
 

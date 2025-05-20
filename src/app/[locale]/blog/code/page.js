@@ -64,7 +64,11 @@ export default async function Blog(props) {
                     return (
                       <Link
                         key={slug}
-                        href={local ? `/blog/code/${slug}` : `/${slug}`}
+                        href={
+                          local
+                            ? `/blog/${locale == "en" ? "code" : "کد"}/${slug}`
+                            : `/${slug}`
+                        }
                         className="mb-4 flex items-center justify-between gap-3 font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
                       >
                         <h3 className="text-lg">{title}</h3>

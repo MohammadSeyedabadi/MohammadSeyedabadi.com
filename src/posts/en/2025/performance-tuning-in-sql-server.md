@@ -7,7 +7,7 @@ title: Performance tuning in database
 createdAt: 2025-05-19
 lastModified: 2025-05-19
 image: /images/posts/performance-tuning-in-database/database.png
-excerpt: Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.
+excerpt: An overview of database performance tuning
 tags:
   - database
 ---

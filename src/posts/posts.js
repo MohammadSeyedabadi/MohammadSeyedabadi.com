@@ -16,7 +16,7 @@ const enPosts = {
         formattedLastModified: "May 19, 2025",
         faFormatedLastModified: "۲۹ اردیبهشت ۱۴۰۴",
         image: "/images/posts/performance-tuning-in-database/database.png",
-        excerpt: "Multilevel dropdown menus are a staple of web design. With the ability to provide multiple options to select from, they make navigation bars dynamic and organized.",
+        excerpt: "An overview of database performance tuning",
         tags: [
           "database"
         ],
@@ -69,7 +69,7 @@ const faPosts = {
         formattedLastModified: "May 19, 2025",
         faFormatedLastModified: "۲۹ اردیبهشت ۱۴۰۴",
         image: "/images/posts/performance-tuning-in-database/database.png",
-        excerpt: "تنظیم عملکرد در اس کیو ال سرور",
+        excerpt: "نگاهی کلی به تنظیم عملکرد در دیتابیس",
         tags: [
           "دیتابیس"
         ],

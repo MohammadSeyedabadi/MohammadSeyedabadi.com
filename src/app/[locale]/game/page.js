@@ -20,7 +20,7 @@ export async function generateMetadata() {
 }
 
 export async function generateStaticParams() {
-  const locales = ['en', 'fa']; // Add more if needed
+  const locales = ['en', 'fa'];
   return locales.map((locale) => ({ locale }));
 }
 

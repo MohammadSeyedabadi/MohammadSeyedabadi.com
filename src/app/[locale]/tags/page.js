@@ -98,7 +98,7 @@ export async function FetchTags({ locale }) {
     const mergedResult = mergeObjects(allTagsCopy, allTagsInLocal);
 
     return <ArrangeTags allTags={mergedResult} notes={true} />;
-  } catch (error) {
+  } catch (e) {
     throw new Error(e);
   }
 }

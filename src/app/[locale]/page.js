@@ -12,6 +12,11 @@ export async function generateMetadata() {
   };
 }
 
+export async function generateStaticParams() {
+  const locales = ['en', 'fa']; // Add more if needed
+  return locales.map((locale) => ({ locale }));
+}
+
 export default function Index() {
   const indexPage = useTranslations("Index");
   const gamePage = useTranslations("Game");

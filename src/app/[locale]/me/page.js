@@ -18,6 +18,11 @@ export async function generateMetadata() {
   };
 }
 
+export async function generateStaticParams() {
+  const locales = ['en', 'fa']; // Add more if needed
+  return locales.map((locale) => ({ locale }));
+}
+
 export default function AboutMe() {
   const t = useTranslations("me");
   return (

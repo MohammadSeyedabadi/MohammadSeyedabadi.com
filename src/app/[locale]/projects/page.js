@@ -18,6 +18,11 @@ export async function generateMetadata() {
   };
 }
 
+export async function generateStaticParams() {
+  const locales = ['en', 'fa'];
+  return locales.map((locale) => ({ locale }));
+}
+
 export default function Projects(props) {
   const params = use(props.params);
   const t = useTranslations("Projects");

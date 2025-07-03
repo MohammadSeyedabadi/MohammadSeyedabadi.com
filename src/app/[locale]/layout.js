@@ -57,7 +57,7 @@ export default async function LocaleLayout(props) {
       dir={locale === "fa" ? "rtl" : "ltr"}
       className="bg-[floralwhite] dark:bg-neutral-900"
     >
-      <body>
+      <body className="antialiased">
         <PreferencesContextProvider>
           <CustomLayout>{children}</CustomLayout>
         </PreferencesContextProvider>

@@ -64,7 +64,7 @@
 
   "blog": {
     "Blog": "Blog",
-    "ViewAllTags": "view all tags.",
+    "ViewAllTags": "view all tags",
     "Notes": "Notes",
     "Code": "Code",
     "NotesDesc": "Browse all notes except those relating to code or ",

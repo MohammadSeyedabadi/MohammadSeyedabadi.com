@@ -2,6 +2,22 @@ import { sql } from "@/data/data";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 
+
+export async function generateMetadata() {
+  const blogT = await getTranslations("blog");
+  const ConfigT = await getTranslations("Config");
+  return {
+    title: `${blogT("Blog")} | ${ConfigT("SiteTitle")}`,
+    description: blogT("BlogDesc"),
+    alternates: {
+      languages: {
+        en: "/en/blog",
+        fa: "/fa/بلاگ",
+      },
+    },
+  };
+}
+
 export default async function Page(props) {
   const params = await props.params;
   const locale = params.locale;
@@ -9,14 +25,14 @@ export default async function Page(props) {
   try {
     let posts, sortedPosts;
     if (locale == "en") {
-      posts = await sql`SELECT id, title, slug, formattedcreatedatmonthday, year
+      posts = await sql`SELECT title, slug, formattedcreatedatmonthday, year
                 FROM enPosts
                 ORDER BY year DESC, createdAt DESC;
                 `;
       sortedPosts = sortPosts(posts, "year");
     } else {
       posts =
-        await sql`SELECT id, title, slug, faformattedcreatedatmonthday, fayear, fadigityear
+        await sql`SELECT title, slug, faformattedcreatedatmonthday, fayear, fadigityear
                 FROM faPosts
                 ORDER BY fayear DESC, createdAt DESC;
                 `;

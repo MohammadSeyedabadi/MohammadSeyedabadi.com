@@ -1,4 +1,4 @@
-import clientPromise from "@/utils/mongodb";
+import { sql } from "@/data/data";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import { TagsSkeleton } from "@/components/skeletons";
@@ -12,7 +12,7 @@ export async function generateMetadata() {
     description: t("TagsList"),
     alternates: {
       languages: {
-        en: "/en/blog/notes",
+        en: "/en/tags",
         fa: "/fa/تگ-ها",
       },
     },
@@ -22,19 +22,49 @@ export async function generateMetadata() {
 export default async function page(props) {
   const params = await props.params;
   const { locale } = params;
-
+  const tagTable = locale == "en" ? "entags" : "fatags";
+  const tags = await sql`
+  SELECT name FROM ${sql(tagTable)} ORDER BY name ASC;
+`;
+  const groupedTags = tags.reduce((acc, tag) => {
+    const firstLetter = tag.name[0].toUpperCase();
+    if (!acc[firstLetter]) acc[firstLetter] = [];
+    acc[firstLetter].push(tag.name);
+    return acc;
+  }, {});
   const t = await getTranslations("Tags");
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-8">
-      <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100">
-        {t("AllTags")}
-      </h1>
-      <section className="my-12 md:my-8">
-        <Suspense fallback={<TagsSkeleton />}>
-          <FetchTags locale={locale} />
-        </Suspense>
-      </section>
-    </div>
+    // <div className="max-w-6xl mx-auto px-4 sm:px-8">
+    //   <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100">
+    //     {t("AllTags")}
+    //   </h1>
+    //   <section className="my-12 md:my-8">
+    //     <Suspense fallback={<TagsSkeleton />}>
+    //       <FetchTags locale={locale} />
+    //     </Suspense>
+    //   </section>
+    // </div>
+    <>
+      {Object.keys(groupedTags)
+        .sort((a, b) => a.localeCompare(b, locale, { sensitivity: "base" }))
+        .map((letter) => (
+          <div key={letter} className="mb-6">
+            <h2 className="text-xl font-bold text-gray-700">{letter}</h2>
+            <ul className="mt-2 space-y-1">
+              {groupedTags[letter].map((tag) => (
+                <li key={tag}>
+                  <a
+                    href={`/tags/${tag}`}
+                    className="text-blue-600 hover:underline"
+                  >
+                    {tag}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+    </>
   );
 }
 
@@ -91,8 +121,6 @@ export async function FetchTags({ locale }) {
         });
 
       return sortedMerged;
-
-     
     };
 
     const mergedResult = mergeObjects(allTagsCopy, allTagsInLocal);

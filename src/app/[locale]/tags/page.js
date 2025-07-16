@@ -60,10 +60,10 @@ export async function FetchTags({ locale }) {
               </h3>
               <ul className="flex flex-wrap items-center gap-3">
                 {groupedTags[letter].map((tag) => (
-                  <li key={tag}>
+                  <li key={tag} className="active:scale-95">
                     <Link
                       href={`/tags/${tag}`}
-                      className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 active:scale-95 hover:border-indigo-500 hover:dark:border-indigo-300"
+                      className="text-sm font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 hover:border-indigo-500 hover:dark:border-indigo-300"
                     >
                       {tag}
                     </Link>

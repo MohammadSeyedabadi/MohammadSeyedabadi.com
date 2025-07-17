@@ -1,5 +1,5 @@
+import { sql } from "@/data/data";
 import { Link } from "@/i18n/routing";
-import clientpromise from "@/utils/mongodb";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import TitleIcon from "@/assets/TitleIcon";
@@ -12,59 +12,52 @@ export async function generateMetadata(props) {
   let { locale, slug } = params;
   slug = locale == "en" ? slug : decodeURI(slug);
   const t = await getTranslations("Config");
-  let note;
-  try {
-    const client = await clientpromise;
-    const db = client.db("notes");
-    note = await db.collection(locale).findOne(
-      { slug: slug },
-      {
-        projection: {
-          _id: 0, // may remove for error
-          title: 1,
-          excerpt: 1,
-        },
-      }
-    );
+  const postTable = locale === "en" ? "enposts" : "faposts";
 
-    if (note) {
-      return {
-        title: `${note.title} | ${t("SiteTitle")}`,
-        description: note.excerpt,
-        alternates: {
-          languages: {
-            en: "/en/blog/notes",
-            fa: "/fa/بلاگ/یادداشت-ها",
-          },
-        },
-      };
-    } else {
-      throw new Error(
-        "Note Not Found In Meta Export In [locale] > [slug] > page.js"
-      );
+  try {
+    const post = await sql`
+    SELECT title, excerpt FROM ${sql(postTable)} WHERE slug = ${slug};
+  `;
+
+    if (!post[0]) {
+      notFound();
     }
-  } catch (e) {
-    console.error(e);
+
+    const { title, excerpt } = post[0];
+
+    return {
+      title: `${title} | ${t("SiteTitle")}`,
+      description: excerpt,
+      alternates: {
+        languages: {
+          en: `/en/${title}`,
+          fa: `/fa/${title}`,
+        },
+      },
+    };
+  } catch (error) {
+    console.error(error);
     notFound();
   }
 }
 
-export default async function page(props) {
+export default async function Page(props) {
   const params = await props.params;
-  const { locale, slug } = params;
-  const note = await getNote(locale, slug);
+  let { locale, slug } = params;
+  slug = locale == "fa" ? decodeURI(slug) : slug;
+  const { post, tags } = await getPostWithTags(slug, locale);
   const t = await getTranslations("notes");
 
   const {
     title,
-    otherPageSlug,
-    createdAt,
-    lastModified,
+    otherpageslug,
+    formattedcreatedat,
+    faformattedcreatedat,
+    formattedlastmodified,
+    faformattedlastmodified,
     image,
-    tags,
     content,
-  } = note;
-
+  } = post;
   const customRenderers = {
     h2(h2) {
       let title = h2.children.replace(/\s+/g, "-");
@@ -72,14 +65,14 @@ export default async function page(props) {
       return (
         <h2
           id={title}
-          className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 flex items-center border-b-2 border-neutral-300 dark:border-neutral-700 mt-12 mb-4  post"
+          className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 border-b-2 border-neutral-300 dark:border-neutral-700 mt-12 mb-4"
         >
-          {h2.children}
           <a
             href={`#${title}`}
-            aria-label={` ${h2.children} permalink`}
-            className="inline-block ltr:ml-1 rtl:mr-1 rotate-45 opacity-0 hover:opacity-100"
+            aria-label={`${h2.children} permalink`}
+            className="flex items-center hover:text-indigo-500 dark:hover:text-indigo-300 post"
           >
+            <p>{h2.children}</p>
             <TitleIcon />
           </a>
         </h2>
@@ -118,7 +111,7 @@ export default async function page(props) {
           href={node.properties.href}
           target="_blank"
           rel="noreferrer"
-          className="hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
+          className="hover:underline inline-block active:scale-95 text-indigo-500 dark:text-indigo-300"
         >
           {node.children[0].value}
         </a>
@@ -138,7 +131,7 @@ export default async function page(props) {
 
   return (
     <>
-      <SetLang otherPageSlug={otherPageSlug} />
+      <SetLang otherPageSlug={otherpageslug} />
       <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
         <div className="lg:col-span-8">
           <img src={image} alt={title} className="max-w-14 mb-5 lg:hidden" />
@@ -162,10 +155,14 @@ export default async function page(props) {
             </h2>
             <ul className="mb-3 list-disc list-outside ms-5 text-sm text-neutral-800 dark:text-neutral-300">
               <li>
-                <strong>{t("Published")}:</strong> {createdAt}
+                <strong>{t("Published")}:</strong>{" "}
+                {locale == "en" ? formattedcreatedat : faformattedcreatedat}
               </li>
               <li>
-                <strong>{t("LastEdited")}:</strong> {lastModified}
+                <strong>{t("LastEdited")}:</strong>{" "}
+                {locale == "en"
+                  ? formattedlastmodified
+                  : faformattedlastmodified}
               </li>
             </ul>
             <h2 className="text-base uppercase font-bold text-neutral-800 dark:text-neutral-100">
@@ -177,7 +174,7 @@ export default async function page(props) {
                   <Link
                     key={tag}
                     href={`/tags/${tag}`}
-                    className="font-medium py-1 px-2 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 inline-block active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300"
+                    className="font-medium py-1 px-2 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 inline-block active:scale-95 hover:border-indigo-500 hover:dark:border-indigo-300"
                   >
                     {tag}
                   </Link>
@@ -201,52 +198,35 @@ export default async function page(props) {
   );
 }
 
-export async function getNote(locale, slug) {
-  slug = locale == "en" ? slug : decodeURI(slug);
+export async function getPostWithTags(postSlug, locale) {
+  const postTable = locale === "en" ? "enposts" : "faposts";
+  const tagTable = locale === "en" ? "entags" : "fatags";
+  const postTagsTable = locale === "en" ? "enpoststags" : "fapoststags";
+
   try {
-    const client = await clientpromise;
-    const db = client.db("notes");
-    let note = await db.collection(locale).findOne(
-      { slug: slug },
-      {
-        projection: {
-          _id: 0, // may remove for error
-          slug: 0,
-          lang: 0,
-        },
-      }
-    );
+    const post = await sql`
+    SELECT id, title, otherpageslug, formattedcreatedat, faformattedcreatedat, formattedlastmodified, faformattedlastmodified, image, content FROM ${sql(
+      postTable
+    )} WHERE slug = ${postSlug};
+  `;
 
-    if (note) {
-      function getFormatedDate(date) {
-        const formattedDate = new Date(date).toLocaleDateString(
-          locale === "fa" ? "fa-IR" : "en-US",
-          {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          }
-        );
-        return formattedDate;
-      }
-
-      note.createdAt = getFormatedDate(note.createdAt);
-      note.lastModified = getFormatedDate(note.lastModified);
-
-      return note;
-    } else {
-      throw new Error(
-        "Note Not Found In getNote Function In [locale] > [slug] > page.js"
-      );
+    if (!post[0]) {
+      notFound();
     }
-    // return {
-    //   props: { allNotesTitle: JSON.parse(JSON.stringify(allNotesTitle)) },
-    // };
-  } catch (e) {
-    console.error(e);
+
+    const tags = await sql`
+    SELECT t.name
+    FROM ${sql(tagTable)} t
+    JOIN ${sql(postTagsTable)} pt ON pt.tag_id = t.id
+    WHERE pt.post_id = ${post[0].id};
+  `;
+
+    return {
+      post: post[0],
+      tags: tags.map((tag) => tag.name),
+    };
+  } catch (error) {
+    console.error(error);
     notFound();
-    // return {
-    //   props: { allNotesTitle: [] },
-    // };
   }
 }

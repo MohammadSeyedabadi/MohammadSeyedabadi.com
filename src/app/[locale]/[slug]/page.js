@@ -181,16 +181,6 @@ export default async function Page(props) {
                 );
               })}
             </div>
-            {/* <p className="mt-5">
-              <a
-                href="https://mohammadseyedabadi.substack.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
-              >
-                {t("SubscribeToTheNewsletter")}
-              </a>
-            </p> */}
           </div>
         </aside>
       </div>

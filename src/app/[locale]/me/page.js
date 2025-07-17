@@ -60,7 +60,7 @@ export default function AboutMe() {
             href="https://github.com/MohammadSeyedabadi"
             target="_blank"
             rel="noreferrer"
-            className="text-lg hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
+            className="text-lg hover:underline inline-block active:scale-95 text-indigo-500 dark:text-indigo-300"
           >
             {t("descEleven")}
           </a>{" "}
@@ -69,7 +69,7 @@ export default function AboutMe() {
             href="https://www.linkedin.com/in/mohammad-seyedabadi-397a61256/"
             target="_blank"
             rel="noreferrer"
-            className="text-lg hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
+            className="text-lg hover:underline inline-block active:scale-95 text-indigo-500 dark:text-indigo-300"
           >
             {t("descThirteen")}
           </a>{" "}

@@ -1,28 +1,21 @@
-"use client";
-import { useParams } from "next/navigation";
+"use client"
 import { useContext } from "react";
 import PreferencesContext from "@/store/preferences-context";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import PostSidebar from "@/components/PostSidebar";
 import {
   materialLight,
   materialDark,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import remarkGfm from "remark-gfm";
-import Giscus from "@giscus/react";
 import TitleIcon from "@/assets/TitleIcon";
 
-export default function Post({ metaData, translation }) {
-  const language = useParams().locale;
+export default function Content({ content }) {
   const { ariaActive } = useContext(PreferencesContext);
-  const { title, image, content } = metaData;
-
   const customRenderers = {
     h2(h2) {
       let title = h2.children.replace(/\s+/g, "-");
 
-      // hover:text-indigo-500 dark:hover:text-indigo-300 cursor-pointer
       return (
         <h2
           id={title}
@@ -31,12 +24,10 @@ export default function Post({ metaData, translation }) {
           <a
             href={`#${title}`}
             aria-label={`${h2.children} permalink`}
-            className="hover:text-indigo-500 dark:hover:text-indigo-300 post"
+            className="flex items-center hover:text-indigo-500 dark:hover:text-indigo-300 post"
           >
-            {h2.children}
-            <span className="inline-flex">
-              <TitleIcon />
-            </span>
+            <p>{h2.children}</p>
+            <TitleIcon />
           </a>
         </h2>
       );
@@ -44,20 +35,19 @@ export default function Post({ metaData, translation }) {
 
     h3(h3) {
       let title = h3.children.replace(/\s+/g, "-");
+
       return (
         <h3
           id={title}
-          className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mt-6 mb-2"
+          className="text-3xl font-bold text-neutral-800 dark:text-neutral-100 border-b-2 border-neutral-300 dark:border-neutral-700 mt-12 mb-4"
         >
           <a
             href={`#${title}`}
             aria-label={`${h3.children} permalink`}
-            className="hover:text-indigo-500 dark:hover:text-indigo-300 post"
+            className="flex items-center hover:text-indigo-500 dark:hover:text-indigo-300 post"
           >
-            {h3.children}
-            <span className="inline-flex">
-              <TitleIcon />
-            </span>
+            <p>{h3.children}</p>
+            <TitleIcon />
           </a>
         </h3>
       );
@@ -75,7 +65,6 @@ export default function Post({ metaData, translation }) {
                 src={image.properties.src}
                 alt={image.properties.alt}
                 className="mb-5 max-w-full"
-                loading="lazy"
               />
             </a>
           </div>
@@ -142,14 +131,12 @@ export default function Post({ metaData, translation }) {
 
     a(anchor) {
       const { node } = anchor;
-      const href = node.properties.href;
-      const isInternalLink = href.startsWith("#");
       return (
         <a
           href={node.properties.href}
-          target={`${isInternalLink ? "" : "_blank"}`}
+          target="_blank"
           rel="noreferrer"
-          className="hover:underline text-rose-500 dark:text-rose-300 inline-block active:scale-95 visited:text-indigo-500 dark:visited:text-indigo-300"
+          className="hover:underline inline-block active:scale-95 text-indigo-500 dark:text-indigo-300"
         >
           {node.children[0].value}
         </a>
@@ -168,43 +155,10 @@ export default function Post({ metaData, translation }) {
   };
 
   return (
-    <>
-      <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
-        <div className="lg:col-span-8">
-          <img src={image} alt={title} className="max-w-14 mb-5 lg:hidden" />
-          <h1 className="text-5xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
-            {title}
-          </h1>
-          <section>
-            <Markdown remarkPlugins={[remarkGfm]} components={customRenderers}>
-              {content}
-            </Markdown>
-          </section>
-        </div>
-        <aside className="lg:col-span-4 justify-self-center mt-8 w-full">
-          <PostSidebar metaData={metaData} translation={translation} />
-        </aside>
-      </div>
-      <div className="lg:grid lg:grid-cols-12 gap-24 max-w-6xl mx-auto px-4 lg:px-8">
-        <section className="lg:col-span-8 mt-12 lg:mt-4">
-          <Giscus
-            id="comments"
-            repo="MohammadSeyedabadi/MohammadSeyedabadi.com"
-            repoId="R_kgDOKeamUQ"
-            category="Announcements"
-            categoryId="DIC_kwDOKeamUc4CbDQi"
-            mapping="pathname"
-            term="Welcome to @giscus/react component!"
-            reactionsEnabled="0"
-            emitMetadata="0"
-            inputPosition="top"
-            theme={ariaActive ? "dark" : "light"}
-            lang={language}
-            loading="lazy"
-          />
-        </section>
-        <div className="lg:col-span-4" />
-      </div>
-    </>
+    <section>
+      <Markdown remarkPlugins={[remarkGfm]} components={customRenderers}>
+        {content}
+      </Markdown>
+    </section>
   );
 }

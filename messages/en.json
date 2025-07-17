@@ -119,6 +119,6 @@
     "restErrorExplanation": "Could not find the requested page.",
     "goBack": "Go Back",
     "goBackToMainPage": "Go back to Home page.",
-    "goBackToNotesPage": "Go Back To Notes Page"
+    "goBackToBlogPage": "Go Back To Blog Page"
   }
 }

@@ -60,9 +60,9 @@ export default function Navigation({ translation }) {
           <li className="ps-0 mb-0">
             <Link
               href="/"
-              className={`font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 inline-block active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300 ${
+              className={`font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 inline-block active:scale-95 hover:border-indigo-500 hover:dark:border-indigo-300 ${
                 pathname === "/fa" || pathname === "/en"
-                  ? "border-b-rose-500 dark:border-b-rose-300 visited:border-b-indigo-500 visited:dark:border-b-indigo-300"
+                  ? "border-b-indigo-500 dark:border-b-indigo-300"
                   : ""
               }`}
             >
@@ -86,9 +86,9 @@ export default function Navigation({ translation }) {
           <li className="ps-0 mb-0">
             <Link
               href="/projects"
-              className={`font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 inline-block active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300 ${
+              className={`font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 inline-block active:scale-95 hover:border-indigo-500 hover:dark:border-indigo-300 ${
                 pathname === "/fa/پروژه-ها" || pathname === "/en/projects"
-                  ? "border-b-rose-500 dark:border-b-rose-300 visited:border-b-indigo-500 visited:dark:border-b-indigo-300"
+                  ? "border-b-indigo-500 dark:border-b-indigo-300"
                   : ""
               }`}
             >
@@ -101,7 +101,7 @@ export default function Navigation({ translation }) {
               href="/blog/notes"
               className={`font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 inline-block active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300 ${
                 isBlog
-                  ? "border-b-rose-500 dark:border-b-rose-300 visited:border-b-indigo-500 visited:dark:border-b-indigo-300"
+                  ? "border-b-indigo-500 dark:border-b-indigo-300"
                   : ""
               }`}
             >

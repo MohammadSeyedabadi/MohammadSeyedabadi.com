@@ -39,15 +39,15 @@ export default function Navigation({ translation }) {
     Close,
   };
 
-  let isBlog = false;
-  if (
-    pathname == "/en/blog/code" ||
-    pathname == "/en/blog/notes" ||
-    pathname == "/fa/بلاگ/یادداشت-ها" ||
-    pathname == "/fa/بلاگ/کد"
-  ) {
-    isBlog = true;
-  }
+  // let isBlog = false;
+  // if (
+  //   pathname == "/en/blog/code" ||
+  //   pathname == "/en/blog/notes" ||
+  //   pathname == "/fa/بلاگ/یادداشت-ها" ||
+  //   pathname == "/fa/بلاگ/کد"
+  // ) {
+  //   isBlog = true;
+  // }
 
   return (
     <header className="max-w-6xl mx-auto px-4 sm:px-8">
@@ -98,9 +98,9 @@ export default function Navigation({ translation }) {
 
           <li className="ps-0 mb-0">
             <Link
-              href="/blog/notes"
+              href="/blog"
               className={`font-medium py-1 px-3 bg-neutral-100/45 rounded-xl border-2 border-neutral-300 hover:border-rose-500 tracking-wider dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-500 dark:hover:text-neutral-100 dark:hover:border-rose-300 inline-block active:scale-95 hover:visited:border-indigo-500 hover:dark:visited:border-indigo-300 ${
-                isBlog
+                pathname === "/fa/بلاگ" || pathname === "/en/blog"
                   ? "border-b-indigo-500 dark:border-b-indigo-300"
                   : ""
               }`}

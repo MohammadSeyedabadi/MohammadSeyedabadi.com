@@ -77,7 +77,7 @@ span.linenumber {
 /* Table */
 
 table {
-  border: 1px solid var(--color-4);
+  border: 2px solid var(--color-5);
   display: table;
   border-collapse: separate;
   border-spacing: 0;
@@ -96,26 +96,27 @@ th {
   padding: 0.5rem;
   text-align: left;
   word-break: break-word;
-  border-bottom: 1px solid var(--color-4);
+  /* border-bottom: 1px solid var(--color-4); */
 }
 
 [data-theme="light"] tr:nth-child(even) {
-  background-color: #fda4ae3f;
+  background-color: var(--color-4);
+  
 }
 
 [data-theme="dark"] tr:nth-child(even) {
-  background-color: #222222;
+  background-color: var(--color-5);
 }
 
-[data-theme="light"] tr:hover,
+/* [data-theme="light"] tr:hover,
 [data-theme="dark"] tr:hover {
   background-color: #a5b4fc;
   color: black;
-}
+} */
 
 table > thead {
-  background: var(--color-3);
-  border-bottom: 2px solid var(--color-4);
+  background:  var(--color-5);
+  /* border-bottom: 2px solid var(--color-4); */
 }
 
 ol {

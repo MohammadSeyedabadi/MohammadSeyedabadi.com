@@ -9,7 +9,7 @@ export default async function Stars({ projectsList, locale }) {
               key={project.slug}
               href={`https://github.com/MohammadSeyedabadi/${project.slug}/stargazers`}
               target="_blank"
-              className="hover:underline text-rose-500 dark:text-rose-300 active:scale-75 visited:text-indigo-500 dark:visited:text-indigo-300"
+              className="hover:underline active:scale-75 text-indigo-500 dark:text-indigo-300"
             >
               {Number(
                 repos.find((repo) => repo.name === project.slug)

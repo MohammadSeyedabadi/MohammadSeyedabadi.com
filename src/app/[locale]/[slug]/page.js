@@ -8,11 +8,11 @@ import Comments from "./comments";
 
 export async function generateStaticParams() {
   const posts = await sql`
-    SELECT slug FROM enposts
+    SELECT lang, slug FROM enposts
     UNION
-    SELECT slug FROM faposts
+    SELECT lang, slug FROM faposts
   `;
-  return posts.map((post) => ({ slug: post.slug }));
+  return posts.map((post) => ({ locale: post.lang, slug: post.slug }));
 }
 
 export async function generateMetadata(props) {

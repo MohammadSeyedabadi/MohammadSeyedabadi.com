@@ -6,11 +6,15 @@ import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const tags = await sql`
-    SELECT en_tag AS tag FROM tagstranslations
+    SELECT en_tag AS tag, 'en' AS lang FROM tagstranslations
     UNION
-    SELECT fa_tag AS tag FROM tagstranslations
+    SELECT fa_tag AS tag, 'fa' AS lang FROM tagstranslations
   `;
-  return tags.map((row) => ({ tag: row.tag }));
+
+  return tags.map((row) => ({
+    locale: row.lang,
+    tag: row.tag,
+  }));
 }
 
 export async function generateMetadata(props) {

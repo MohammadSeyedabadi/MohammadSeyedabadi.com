@@ -6,6 +6,15 @@ import { notFound } from "next/navigation";
 import Content from "./content";
 import Comments from "./comments";
 
+export async function generateStaticParams() {
+  const posts = await sql`
+    SELECT slug FROM enposts
+    UNION
+    SELECT slug FROM faposts
+  `;
+  return posts.map((post) => ({ slug: post.slug }));
+}
+
 export async function generateMetadata(props) {
   const params = await props.params;
   let { locale, slug } = params;

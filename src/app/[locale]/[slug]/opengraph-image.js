@@ -1,7 +1,12 @@
 import { ImageResponse } from "next/og";
 
+export async function generateStaticParams() {
+  const locales = ['en', 'fa'];
+  return locales.map((locale) => ({ locale }));
+}
+
 // Route segment config
-export const runtime = "edge";
+// export const runtime = "edge";
 
 // Image metadata
 export const size = {

@@ -4,6 +4,15 @@ import { Link } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+export async function generateStaticParams() {
+  const tags = await sql`
+    SELECT en_tag AS tag FROM tagstranslations
+    UNION
+    SELECT fa_tag AS tag FROM tagstranslations
+  `;
+  return tags.map((row) => ({ tag: row.tag }));
+}
+
 export async function generateMetadata(props) {
   const params = await props.params;
   let { locale, tag } = params;
@@ -64,9 +73,7 @@ export default async function page(props) {
       <div className="max-w-6xl mx-auto px-4 sm:px-8 sm:grid sm:grid-cols-5">
         <SetLang
           otherPageSlug={
-            locale == "en"
-              ? otherpageslug[0].fa_tag
-              : otherpageslug[0].en_tag
+            locale == "en" ? otherpageslug[0].fa_tag : otherpageslug[0].en_tag
           }
         />
         <section className="sm:col-span-3">
@@ -115,7 +122,7 @@ export default async function page(props) {
     );
   } catch (error) {
     console.error("Database Error:", error);
-    throw new Error("Failed to fetch posts data.");
+    notFound();
   }
 }
 

@@ -4,6 +4,11 @@ import { Suspense } from "react";
 import { TagsSkeleton } from "@/components/skeletons";
 import { Link } from "@/i18n/routing";
 
+export async function generateStaticParams() {
+  const locales = ['en', 'fa'];
+  return locales.map((locale) => ({ locale }));
+}
+
 export async function generateMetadata() {
   const t = await getTranslations("Config");
   return {

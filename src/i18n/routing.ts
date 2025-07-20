@@ -41,21 +41,6 @@ export const routing = defineRouting({
       fa: "/بلاگ"
     },
 
-    "/blog/code": {
-      en: "/blog/code",
-      fa: "/بلاگ/کد",
-    },
-
-    "/blog/code/[slug]": {
-      en: "/blog/code/[slug]",
-      fa: "/بلاگ/کد/[slug]",
-    },
-
-    "/blog/notes": {
-      en: "/blog/notes",
-      fa: "/بلاگ/یادداشت-ها",
-    },
-
     //   // Dynamic params are supported via square brackets
     //   '/news/[articleSlug]-[articleId]': {
     //     en: '/news/[articleSlug]-[articleId]',

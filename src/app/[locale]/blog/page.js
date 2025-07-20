@@ -2,6 +2,11 @@ import { sql } from "@/data/data";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 
+export async function generateStaticParams() {
+  const locales = ['en', 'fa'];
+  return locales.map((locale) => ({ locale }));
+}
+
 export async function generateMetadata() {
   const blogT = await getTranslations("blog");
   const ConfigT = await getTranslations("Config");
